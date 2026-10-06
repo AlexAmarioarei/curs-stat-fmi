@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>scales – Curs&nbsp;Statistică 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../Introducere_Tidyverse/Part_II/Chapter6/Position_adjustments.html" rel="next">
+<link href="../../../Introducere_Tidyverse/Part_II/Chapter4/Statistical_transformations.html" rel="prev">
+<link href="../../../images/stat_sticker.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-a48f3a5c7f410fc94a8fd1d60fc997bd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-3691bf9d0aeca5065aecbe34e58a2ba3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Niciun rezultat",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Trimite",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<!-- Fonturi: Fira Sans (titluri, casete), Fira Mono (cod); textul folosește Palatino / TeX Gyre Pagella -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&amp;family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<script>
+window.MathJax = { tex: { macros: {
+  PP: "\\mathbb{P}",
+  E: "\\mathbb{E}",
+  Var: "\\operatorname{Var}",
+  Cov: "\\operatorname{Cov}",
+  Corr: "\\operatorname{Corr}",
+  MSE: "\\operatorname{EPM}",
+  Bias: "\\operatorname{Dep}",
+  sgn: "\\operatorname{sgn}",
+  argmax: "\\operatorname*{arg\\,max}",
+  argmin: "\\operatorname*{arg\\,min}",
+  R: "\\mathbb{R}",
+  N: "\\mathbb{N}",
+  Z: "\\mathbb{Z}",
+  Q: "\\mathbb{Q}",
+  F: "\\mathcal{F}",
+  A: "\\mathcal{A}",
+  B: "\\mathcal{B}",
+  Ind: "\\mathbf{1}",
+  dd: "\\,\\mathrm{d}",
+  eqd: "\\overset{d}{=}",
+  iid: "\\text{i.i.d.}",
+  asto: "\\xrightarrow{\\text{a.s.}}",
+  pto: "\\xrightarrow{\\;\\PP\\;}",
+  dto: "\\xrightarrow{\\;d\\;}",
+  Lto: "\\xrightarrow{L^2}",
+  indep: "\\perp\\!\\!\\!\\perp",
+  Bern: "\\mathrm{Bernoulli}",
+  Bin: "\\mathrm{Bin}",
+  HGeom: "\\mathrm{HGeom}",
+  Geom: "\\mathrm{Geom}",
+  NBin: "\\mathrm{NBin}",
+  Pois: "\\mathrm{Pois}",
+  Unif: "\\mathcal{U}",
+  Exp: "\\mathrm{Exp}",
+  Norm: "\\mathcal{N}",
+  GammaD: "\\mathrm{Gamma}",
+  BetaD: "\\mathrm{Beta}",
+  Cauchy: "\\mathrm{Cauchy}",
+  Multin: "\\mathrm{Mult}",
+  chisq: ["\\chi^2_{#1}", 1],
+  Stud: ["t_{#1}", 1],
+  Fish: ["F_{#1,#2}", 2],
+  bx: "\\mathbf{x}",
+  bX: "\\mathbf{X}",
+  bbeta: "\\boldsymbol{\\beta}",
+  hth: "\\hat{\\theta}",
+  Xbar: "\\bar{X}_n",
+  xbar: "\\bar{x}_n"
+},
+  inlineMath: [['$', '$'], ['\\(', '\\)']], processEscapes: true, tags: 'none' },
+  chtml: { scale: 1.0 } };
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../css/site_style.css">
+<meta property="og:title" content="Curs&nbsp;Statistică 2026-2027">
+<meta property="og:description" content="">
+<meta property="og:image" content="Scales_files/figure-html/fig-ggplot-p2-c5-fig1-1.png">
+<meta property="og:site_name" content="Curs&nbsp;Statistică 2026-2027">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../images/stat_sticker.png" alt="" class="navbar-logo light-content">
+    <img src="../../../images/stat_sticker.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Curs&nbsp;Statistică 2026-2027</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> <i class="bi bi-info-circle" role="img">
+</i> 
+<span class="menu-text">Informații generale</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-note-de-curs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-journal-text" role="img">
+</i> 
+ <span class="menu-text">Note de curs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-note-de-curs">    
+        <li>
+    <a class="dropdown-item" href="../../../curs/index.html"><i class="bi bi-grid-3x3-gap" role="img">
+</i> 
+ <span class="dropdown-text">Toate cursurile (note și slide-uri)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../../curs/01-recapitulare-probabilitati.html">
+ <span class="dropdown-text">Cursul 1 — Noțiuni fundamentale de probabilități (recapitulare)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-note-de-laborator" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Note de laborator</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-note-de-laborator">    
+        <li>
+    <a class="dropdown-item" href="../../../laborator/index.html"><i class="bi bi-grid-3x3-gap" role="img">
+</i> 
+ <span class="dropdown-text">Toate seminarele și laboratoarele (note și slide-uri)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../../laborator/01-introducere-R.html">
+ <span class="dropdown-text">Seminarul 1 — Probabilități, variabile aleatoare și primii pași în R</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-proiect-de-laborator" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-gear" role="img">
+</i> 
+ <span class="menu-text">Proiect de laborator</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-proiect-de-laborator">    
+        <li>
+    <a class="dropdown-item" href="../../../proiect/proiect_gol.html"><i class="bi bi-gear" role="img">
+</i> 
+ <span class="dropdown-text">Proiect</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../Introducere_R/index.html"> <i class="bi bi-book" role="img">
+</i> 
+<span class="menu-text">Introducere în R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../Introducere_Tidyverse/index.html" aria-current="page"> <i class="bi bi-book" role="img">
+</i> 
+<span class="menu-text">Introducere în Tidyverse</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../contact/contact.html"> <i class="bi bi-pin-map" role="img">
+</i> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../Introducere_Tidyverse/Part_II/Chapter1/Intro_ggplot.html"><em>Vizualizarea datelor cu ajutorul pachetului <code>Tidyverse</code></em></a></li><li class="breadcrumb-item"><a href="../../../Introducere_Tidyverse/Part_II/Chapter5/Scales.html">Gestionarea scalelor (<em>scales</em>)</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Introducere în Tidyverse</strong></span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><em>Manipularea datelor cu ajutorul pachetului <code>Tidyverse</code></em></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_I/Chapter1/Intro_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducere</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_I/Chapter2/Data_import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Importarea datelor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_I/Chapter3/Data_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metode de manipulare a datelor</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text"><em>Vizualizarea datelor cu ajutorul pachetului <code>Tidyverse</code></em></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_II/Chapter1/Intro_ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vizualizarea datelor cu <code>ggplot2</code></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_II/Chapter2/Aes_mappings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Corespondențe estetice (<em>aesthetic mappings</em>)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_II/Chapter3/Geometric_objects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obiecte geometrice (<em>geometric objects</em>)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_II/Chapter4/Statistical_transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transformări statistice (<em>statistical transformations</em>)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_II/Chapter5/Scales.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Gestionarea scalelor (<em>scales</em>)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_II/Chapter6/Position_adjustments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ajustarea pozițiilor (<em>position adjustments</em>)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_II/Chapter7/Coordinate_systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sisteme de coordonate (<em>coordinate systems</em>)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_II/Chapter8/Facets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fațetare (<em>facets</em>)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_II/Chapter9/Customization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Customizarea graficelor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Introducere_Tidyverse/Part_II/Chapter10/Examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exemple ilustrative</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Pe această pagină</h2>
+   
+  <ul>
+  <li><a href="#sec-ggplot-scales" id="toc-sec-ggplot-scales" class="nav-link active" data-scroll-target="#sec-ggplot-scales">Gestionarea scalelor (<em>scales</em>)</a>
+  <ul class="collapse">
+  <li><a href="#scale-de-poziție" id="toc-scale-de-poziție" class="nav-link" data-scroll-target="#scale-de-poziție">Scale de poziție</a></li>
+  <li><a href="#scale-de-culori" id="toc-scale-de-culori" class="nav-link" data-scroll-target="#scale-de-culori">Scale de culori</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../Introducere_Tidyverse/Part_II/Chapter1/Intro_ggplot.html"><em>Vizualizarea datelor cu ajutorul pachetului <code>Tidyverse</code></em></a></li><li class="breadcrumb-item"><a href="../../../Introducere_Tidyverse/Part_II/Chapter5/Scales.html">Gestionarea scalelor (<em>scales</em>)</a></li></ol></nav></header>
+
+
+
+
+<section id="sec-ggplot-scales" class="level1">
+<h1>Gestionarea scalelor (<em>scales</em>)</h1>
+<p>De fiecare dată când specificăm o corespondență de estetică/aspect (<em>aesthetic mapping</em>), funcția <code>ggplot</code> folosește o anumită <em>scală</em> (predefinită în funcție de tipul esteticii) pentru a determina intervalul de valori pe care datele trebuie să le verifice. O corespondență estetică (i.e.&nbsp;specificată cu <code>aes()</code>) ne spune doar că o variabilă ar trebui asociată unei caracteristici ce ține de aspect și nu cum trebuie să aibă loc această relație. De exemplu, atunci când folosim estetica <code>colour</code> (<code>aes(colour = x</code>) nu specificăm nicăieri ce culori trebuie folosite pentru trasarea elementelor specifice nivelelor variabilei <code>x</code>. Aceeași observație este valabilă și pentru alte atribute estetice, i.e.&nbsp;<code>size</code>, <code>fill</code>, <code>shape</code>, etc. Pentru a specifica ce culoare, mărime, formă, etc. să fie utilizată trebuie modificată scala corespunzătoare. În pachetul <code>ggplot2</code>, scalele (<em>scales</em>) pot fi modificate prin intermediul funcțiilor de tipul</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>scale_[nume estetică]_[tip]</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>unde <code>nume estetică</code> reprezintă numele elementului estetic (i.e.&nbsp;<code>x</code>, <code>y</code>, <code>colour</code>, <code>fill</code>, etc.) iar <code>tip</code> reprezintă tipul scalei folosite pentru elementul ales (i.e.&nbsp;<code>continuous</code>, <code>discrete</code>, <code>manual</code>, <code>gradient</code>, etc.). În funcție de estetică, tipul scalei poate să difere</p>
+<p>Trebuie menționat că <code>ggplot</code> asociază în mod automat fiecărui element estetic folosit în trasarea graficului o scală. De exemplu dacă scriem</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2018, <span class="fu">aes</span>(<span class="at">x =</span> gdpPerCap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> continent))</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>în realitate are loc</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2018, <span class="fu">aes</span>(<span class="at">x =</span> gdpPerCap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> continent)) <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>() <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>()</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>dar pentru a evita scrierea manuală a fiecărei scale, <code>ggplot2</code> face lucrurile automat. Este foarte important de menționat că scalele pot modifica unul din cele două elemente de ghidaj (<em>guides</em>) ale unui grafic: axele și legendele. În <code>ggplot2</code> cele două elemente, chiar dacă vizual sunt diferite, ele sunt tratate în mod similar, legătura fiind evidențiată în tabelul următor:</p>
+<div id="tbl-ggplot-c5-tab1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ggplot-c5-tab1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelul&nbsp;1: Cele două elemente de ghidaj ale unui grafic: axele și legendele.
+</figcaption>
+<div aria-describedby="tbl-ggplot-c5-tab1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 30%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Axă</th>
+<th style="text-align: left;">Legendă</th>
+<th style="text-align: left;">Numele parametrului</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Nume (<em>Label</em>)</td>
+<td style="text-align: left;">Titlu (<em>Title</em>)</td>
+<td style="text-align: left;"><code>name</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Markeri (<em>Ticks &amp; grid line</em>)</td>
+<td style="text-align: left;">Intrările legendei (<em>Key</em>)</td>
+<td style="text-align: left;"><code>breaks</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Etichete Markeri (<em>Tick label</em>)</td>
+<td style="text-align: left;">Etichetele intrărilor legendei (<em>Key label</em>)</td>
+<td style="text-align: left;"><code>labels</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>În general, scalele disponibile în <code>ggplot2</code> pot fi împărțite în patru categorii, primele trei fiind cele mai utilizate:</p>
+<ul>
+<li><p><em>scale continue de poziție</em> folosite pentru a face corespondența dintre datele de tip numeric sau de tip temporal (date/time) și poziția pe x sau y (i.e.&nbsp;<code>scale_x_continuous</code>, <code>scale_y_continuous</code>)</p></li>
+<li><p><em>scale de culori</em> care permit corespondența dintre valorile continue sau discrete ale datelor și culori (i.e.&nbsp;<code>scale_color_discrete</code>, <code>scale_fill_continuous</code>, <code>scale_fill_gradient</code>)</p></li>
+<li><p><em>scale manuale</em>, utilizate pentru a defini relația dintre valorile discrete ale datelor și mărimea (<em>size</em>), tipul liniei (<em>linetype</em>), forma (<em>shape</em>) sau culoarea (<em>colour</em>) dorită</p></li>
+<li><p><em>scale identice</em>, folosite pentru a trasa variabilele fără a le scala (de exemplu atunci când avem deja un vector de culori)</p></li>
+</ul>
+<p>O scală continuă va fi folosită cu precădere atunci când vorbim de date numerice (unde există un set continuu de numere), în timp ce o scală discretă va gestiona elemente precum culorile, forma punctelor sau tipul liniilor (deoarece există o listă mică de culori distincte).</p>
+<p>În tabelul de mai jos sunt prezentate o parte dintre scalele cele mai utilizate (pentru mai multe detalii se poate consulta documentația pachetului <a href="https://ggplot2.tidyverse.org/reference/index.html#section-scales">ggplot2</a>)</p>
+<div id="tbl-ggplot-c5-tab2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ggplot-c5-tab2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelul&nbsp;2: Principalele scale.
+</figcaption>
+<div aria-describedby="tbl-ggplot-c5-tab2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scala</th>
+<th style="text-align: left;">Tipul</th>
+<th style="text-align: left;">Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>scale_color_</code></td>
+<td style="text-align: left;"><code>identity</code></td>
+<td style="text-align: left;"><code>scale_fill_continuous</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>scale_fill_</code></td>
+<td style="text-align: left;"><code>manual</code></td>
+<td style="text-align: left;"><code>scale_color_discrete</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>scale_size_</code></td>
+<td style="text-align: left;"><code>continuous</code></td>
+<td style="text-align: left;"><code>scale_size_manual</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>discrete</code></td>
+<td style="text-align: left;"><code>scale_size_discrete</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>scale_shape_</code></td>
+<td style="text-align: left;"><code>discrete</code></td>
+<td style="text-align: left;"><code>scale_shape_discrete</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>scale_linetype_</code></td>
+<td style="text-align: left;"><code>identity</code></td>
+<td style="text-align: left;"><code>scale_shape_manual</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>manual</code></td>
+<td style="text-align: left;"><code>scale_linetype_discrete</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>scale_x_</code></td>
+<td style="text-align: left;"><code>continuous</code></td>
+<td style="text-align: left;"><code>scale_x_continuous</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>scale_y_</code></td>
+<td style="text-align: left;"><code>discrete</code></td>
+<td style="text-align: left;"><code>scale_y_discrete</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>reverse</code></td>
+<td style="text-align: left;"><code>scale_x_log</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>log</code></td>
+<td style="text-align: left;"><code>scale_y_reverse</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>date</code></td>
+<td style="text-align: left;"><code>scale_x_date</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>datetime</code></td>
+<td style="text-align: left;"><code>scale_y_datetime</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="scale-de-poziție" class="level2">
+<h2 class="anchored" data-anchor-id="scale-de-poziție">Scale de poziție</h2>
+<p>Pentru a ajusta scala axei x pentru o variabilă continuă vom folosi <code>scale_x_continuous</code>. Utilizarea funcțiilor de scală permite modificarea mai multor proprietăți ale elementului estetic, de exemplu în cazul scalei pe axa x putem modifica aspecte ale axei precum eticheta/titlul axei (<em>name</em>), poziția (<em>position</em>) sau distanța dintre markeri (<em>breaks</em> sau <em>minor_breaks</em>) și numele acestora (<em>labels</em>). Pentru alte elemente estetice în afara lui x și y, <em>axa</em> va fi de obicei legenda graficului și astfel modificarea scalei unui asemenea element permite modificarea elementelor componente ale legendei (nume, etichete, culori, etc.).</p>
+<p>Ca exemplu, vom folosi setul de date <code>gapminder_2018</code> și folosind <code>scale_x_continuous</code> vom modifica numele axei x, poziția markerilor de separare (<em>breaks</em>) principali și secundari (<em>minor_breaks</em>):</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;1: Exemplu de utilizare a scale_x_continuous()."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Exemplu de utilizare a <code>scale_x_continuous()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Este posibil să dorim de asemenea schimbarea numelui legendei ce corespunde variabilei <code>pop</code> (populației) din <em>pop</em> în <em>Populația</em>, să afișăm mărimile 1e7, 5e7, 1e8, 2e8, 5e8, 1e9 (<em>breaks</em>) și să schimbăm intervalul de valori (minim-maxim) pentru mărimea simbolului (<em>range</em>):</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;2: Exemplu de utilizare a scalelor scale_x_continuous() și scale_size()."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Exemplu de utilizare a scalelor <code>scale_x_continuous()</code> și <code>scale_size()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>În plus, putem să adăugăm funcții ca argument al parametrilor <code>breaks</code> și <code>labels</code>, în primul caz funcția returnând un vector de valori numerice care să corespundă elementelor de marcaj iar în cazul etichetelor va primi ca date de intrare un vector numeric de elemente de marcaj și va returna un vector de etichete. De exemplu, pentru a adăuga simbolul <code>$</code> în dreptul valorilor produsului intern brut vom folosi funcții din pachetul <code>scales</code> precum <code>dollar_format()</code> iar pentru a modifica axa y vom crea propria funcție:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;3: Exemplu de utilizare a scalelor scale_x_continuous() și scale_y_continuous() și a argumentelor breaks și labels."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3: Exemplu de utilizare a scalelor <code>scale_x_continuous()</code> și <code>scale_y_continuous()</code> și a argumentelor <code>breaks</code> și <code>labels</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Fiecare funcție de scalare permite utilizarea unui număr diferit de parametrii, o parte dintre aceștia regăsindu-se în tabelul de mai jos (pentru a vizualiza toți parametrii disponibili se poate consulta documentația funcției, i.e.&nbsp;<code>?scale_x_continous</code>):</p>
+<div id="tbl-ggplot-c5-tab3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ggplot-c5-tab3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelul&nbsp;3: Parametrii scalei de poziție <code>scale_x_continuous</code>.
+</figcaption>
+<div aria-describedby="tbl-ggplot-c5-tab3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parametru</th>
+<th style="text-align: left;">Descriere</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>name</code></td>
+<td style="text-align: left;">Eticheta (label) axei sau numele legendei</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>breaks</code></td>
+<td style="text-align: left;">Vector de puncte de marcaj</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>minor_breaks</code></td>
+<td style="text-align: left;">Vector de puncte de marcaj intermediare</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>labels</code></td>
+<td style="text-align: left;">Etichete folosite pentru fiecare punct de marcaj</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>limits</code></td>
+<td style="text-align: left;">Limitele intervalului de valori ale axei</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Modul de folosire a parametrilor <code>name</code>, <code>breaks</code>, <code>minor.breaks</code> și <code>labels</code> a fost ilustrat în exemplele anterioare. Parametrul <code>limits</code> este derivat din domeniul de valori al setului de date și este folosit cu precădere pentru a scoate în evidență o subregiune a graficului. Atunci când facem referire la scale continue parametrul <code>limits</code> primește ca argument de intrare un vector cu două valori (minim și maxim).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2018, <span class="fu">aes</span>(<span class="at">x =</span> gdpPerCap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Produsul intern brut pe cap de locuitor"</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">5000</span>, <span class="dv">15000</span>, <span class="dv">25000</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                <span class="dv">50000</span>, <span class="dv">75000</span>, <span class="dv">100000</span>, <span class="dv">125000</span>), </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">2500</span>, <span class="dv">7500</span>), </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">25000</span>, <span class="dv">50000</span>))</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;4: Exemplu de utilizare a scalei scale_x_continuous() împreună cu parametrul limits."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4: Exemplu de utilizare a scalei <code>scale_x_continuous()</code> împreună cu parametrul <code>limits</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Deoarece modificarea limitelor axelor este o operație des întânlnită atunci când efectuăm analize exploratorii a datelor cu care lucrăm, pachetul <code>ggplot2</code> pune la dispoziție o serie de funcții predefinite precum <code>xlim()</code>, <code>ylim()</code> sau <code>lims()</code>.</p>
+<p>Pachetul <code>ggplot2</code> pune la dispoziție și o serie de scale care permit modificarea axelor, de exemplu, prin inversarea valorilor (i.e.&nbsp;<code>scale_x_reverse</code>) sau prin transformarea acestora într-o scală logaritmică (folosind <code>scale_x_log10</code> sau <code>scale_x_continuous(trans = "log10")</code>) ori printr-o altă funcție (i.e.&nbsp;<code>scale_x_sqrt</code> sau <code>scale_x_continuous(trans = "sqrt")</code>). Pentru mai multe transformări se poate consulta documentația funcției <code>scale_x_continuous</code> la argumentul <code>trans</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;5: Exemplu de utilizare a scalelor scale_x_reverse(), scale_x_log10() și scale_x_sqrt()."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5: Exemplu de utilizare a scalelor <code>scale_x_reverse()</code>, <code>scale_x_log10()</code> și <code>scale_x_sqrt()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Atunci când avem de-a face cu variabile/date care sunt în format de date de timp (format <code>Date</code> sau <code>POSIXct</code>) este recomandată utilizarea funcțiilor predefinite <code>scale_x_date</code> și respectiv <code>scale_x_datetime</code> care dispun în plus de argumentele <code>date_breaks</code> și <code>date_labels</code>. Argumentul <code>date_breaks</code> permite poziționarea elementelor de marcaj în funcție de unitățile de timp (ani, luni, săptpmâni, etc.), astfel <code>date_breaks = 2 years</code> va pasa marcaje din doi în doi ani. Argumentul <code>date_labels</code> asigură ilustrarea etichetelor pentru marcaje în format <code>strptime()</code>.</p>
+<div id="tbl-ggplot-c5-tab4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ggplot-c5-tab4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelul&nbsp;4: Ilustrarea etichetelor în format <code>strptime()</code>.
+</figcaption>
+<div aria-describedby="tbl-ggplot-c5-tab4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Sir de caractere</th>
+<th>Descriere</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%S</code></td>
+<td>secunde (00-59)</td>
+</tr>
+<tr class="even">
+<td><code>%M</code></td>
+<td>minute (00-59)</td>
+</tr>
+<tr class="odd">
+<td><code>%l</code></td>
+<td>ore, format ceas 12 ore (1-12)</td>
+</tr>
+<tr class="even">
+<td><code>%I</code></td>
+<td>ore, format ceas 12 ore (01-12)</td>
+</tr>
+<tr class="odd">
+<td><code>%p</code></td>
+<td>am/pm</td>
+</tr>
+<tr class="even">
+<td><code>%H</code></td>
+<td>ore, format ceas 24 ore (00-23)</td>
+</tr>
+<tr class="odd">
+<td><code>%a</code></td>
+<td>zilele săptămânii, sub forma (Mon-Sun)</td>
+</tr>
+<tr class="even">
+<td><code>%A</code></td>
+<td>zilele săptămânii, sub forma (Monday-Sunday)</td>
+</tr>
+<tr class="odd">
+<td><code>%e</code></td>
+<td>ziua din lună (1-31)</td>
+</tr>
+<tr class="even">
+<td><code>%d</code></td>
+<td>ziua din lună (01-31)</td>
+</tr>
+<tr class="odd">
+<td><code>%m</code></td>
+<td>luna, format numeric (01-12)</td>
+</tr>
+<tr class="even">
+<td><code>%b</code></td>
+<td>luna, format abreviat (Jan-Dec)</td>
+</tr>
+<tr class="odd">
+<td><code>%B</code></td>
+<td>luna, nume întreg (January-December)</td>
+</tr>
+<tr class="even">
+<td><code>%y</code></td>
+<td>an, fără specificarea secolului (00-99)</td>
+</tr>
+<tr class="odd">
+<td><code>%Y</code></td>
+<td>an, cu specificarea secolului (0000-9999)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>De exemplu dacă vrem să afișăm date precum 23/08/1944 vom folosi șirul de caractere <code>"%d/%m/%Y"</code>. Următorul cod ilustrează aceste opțiuni în contextul setului de date <code>gapminder_all</code> unde ne interesăm la evoluția duratei medii de viață în țara noastră după anul 1900.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gapminder_all <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Romania"</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">as.numeric</span>(year) <span class="sc">&gt;</span> <span class="dv">1900</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.Date</span>(year, <span class="at">format =</span> <span class="st">"%Y"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_labels =</span> <span class="st">"%y"</span>, <span class="at">date_breaks =</span> <span class="st">"10 years"</span>)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig6" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;6: Exemplu de utilizare a scalei scale_x_date()."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6: Exemplu de utilizare a scalei <code>scale_x_date()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-de-culori" class="level2">
+<h2 class="anchored" data-anchor-id="scale-de-culori">Scale de culori</h2>
+<p>O altă clasă de scale des folosite sunt cele care corespund esteticii de culoare (<code>colour</code> - culoarea marginală/exterioară și respectiv <code>fill</code> - culoarea de umplere). Pachetul <code>ggplot2</code> pune la dispoziție mai multe tipuri de scale diferențiate după cum variabilele de scalare sunt continue sau discrete. Spațiul culorilor din <code>ggplot2</code> este de tip HCL (<em>hue</em>, <em>chroma</em> și <em>luminance</em>), pentru mai multe detalii se poate consulta <a href="http://www.handprint.com/HP/WCL/color7.html" class="uri">http://www.handprint.com/HP/WCL/color7.html</a>, dar se pot folosi si palete de culoare de tip Brewer (pentru explorarea acestora se poate vizita <a href="https://colorbrewer2.org/" class="uri">https://colorbrewer2.org/</a>). Acestea din urmă pot fi clasificate în trei categorii: secvențiale, divergente și calitative unde primele două categorii corespund variabilelor continue iar cea de-a treia corespunde variabilelor cu valori discrete.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig7" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;7: Exemplu de palete de culori."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7: Exemplu de palete de culori.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Atunci când utilizăm variabile continue se folosesc gradiente de culoare prin intermediul funcțiilor generice de forma <code>scale_[estetică culoare]_[tip]</code>, după cum urmează</p>
+<div id="tbl-ggplot-c5-tab5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ggplot-c5-tab5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelul&nbsp;5: Scale de culori ce folosesc gradiente de culoare.
+</figcaption>
+<div aria-describedby="tbl-ggplot-c5-tab5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Funcție generică</th>
+<th style="text-align: left;">Scală</th>
+<th style="text-align: left;">Tip</th>
+<th style="text-align: left;">Descriere</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>scale_[estetică culoare]_[tip]</code></td>
+<td style="text-align: left;"><code>colour</code></td>
+<td style="text-align: left;"><code>gradient</code></td>
+<td style="text-align: left;">Scală predefinită (similară cu <code>scale_colour_continuous()</code>) care folosește un gradient de culoare bazat pe două culori (<em>low</em> și <em>high</em>)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>fill</code></td>
+<td style="text-align: left;"><code>gradient2</code></td>
+<td style="text-align: left;">Scală care folosește un gradient de culoare cu trei valori (<em>low</em>, <em>high</em> și <em>mid</em> - pentru acesta din urmă se poate selecta valoarea de <em>midpoint</em>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>gradientn</code></td>
+<td style="text-align: left;">Scală care folosește un gradient de culoare bazat pe <span class="math inline">\(n\)</span> valori</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>distiller</code></td>
+<td style="text-align: left;">Scală care este bazată pe palete de tip Brewer</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Pentru ilustrare vom folosi setul de date <code>gapminder_2018</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># grafic de baza</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>baza <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gapminder_2018, <span class="fu">aes</span>(<span class="at">x =</span> gdpPerCap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> gdpPerCap, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># gradient 2 culori</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>baza <span class="sc">+</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># gradient 3 culori</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>baza <span class="sc">+</span> </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># gradient Brewer - RdPu</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>baza <span class="sc">+</span> </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="st">"RdPu"</span>)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig8" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figura&nbsp;8: Ilustrarea scalelor de culori cu gradient."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;8: Ilustrarea scalelor de culori cu gradient.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>În cazul variabilelor discrete, putem folosi patru scale pentru fiecare dintre esteticile <code>colour</code> și <code>fill</code>: <code>scale_[estetică culoare]_hue()</code>, <code>scale_[estetică culoare]_brewer()</code>, <code>scale_[estetică culoare]_gray()</code> și <code>scale_[estetică culoare]_manual()</code>. Scala predefinită în cazul variabilelor discrete este scala <code>scale_[estetică culoare]_hue()</code> care alege culori egal depărtate pe roata de culori de tip HCL. Scala <code>scale_[estetică culoare]_brewer()</code> folosește paletele de culori de tip Brewer iar scala <code>scale_[estetică culoare]_gray()</code> folosește o paletă de griuri, de la gri deschis la gri închis.</p>
+<p>Pentru a ilustra scala <code>scale_[estetică culoare]_hue</code> vom folosi setul de date <code>gapminder_all</code> și vom afișa variația produsului intern brut pe cap de locuitor în România după anul 2000.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>baza <span class="ot">&lt;-</span> gapminder_all <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Romania"</span>, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">as.numeric</span>(year) <span class="sc">&gt;</span> <span class="dv">2010</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> gdpPerCap, <span class="at">fill =</span> year)) <span class="sc">+</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>baza <span class="sc">+</span> </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_hue</span>(<span class="at">c =</span> <span class="dv">50</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>baza <span class="sc">+</span> </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_hue</span>(<span class="at">h =</span> <span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">300</span>))</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>baza <span class="sc">+</span> </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_hue</span>(<span class="at">l =</span> <span class="dv">80</span>)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig9" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figura&nbsp;9: Ilustrarea scalelor de culori pentru variabile discrete."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9: Ilustrarea scalelor de culori pentru variabile discrete.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Următoarele grafice prezintă aceeași figură (situarea țărilor din setul de date <code>gapminder_2018</code> în funcție de produsul intern brut pe cap de locuitor și durată medie de viață) ilustrată cu ajutorul funcției <code>scale_[estetică culoare]_brewer()</code> pentru patru palete de culori diferite:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>baza <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gapminder_2018, <span class="fu">aes</span>(<span class="at">x =</span> gdpPerCap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">size =</span> pop), <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Produsul intern brut pe cap de locuitor"</span>, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">5000</span>, <span class="dv">15000</span>, <span class="dv">25000</span>, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                                <span class="dv">50000</span>, <span class="dv">75000</span>, <span class="dv">100000</span>, <span class="dv">125000</span>), </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">2500</span>, <span class="dv">7500</span>)) <span class="sc">+</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size</span>(<span class="at">name =</span> <span class="st">"Populatia"</span>, </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">breaks =</span> <span class="fu">c</span>(<span class="fl">1e7</span>, <span class="fl">5e7</span>, <span class="fl">1e8</span>, <span class="fl">2e8</span>, <span class="fl">5e8</span>, <span class="fl">1e9</span>),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>, <span class="at">colour =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> baza <span class="sc">+</span> </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="st">"Paleta: Set1"</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> baza <span class="sc">+</span> </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>) <span class="sc">+</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="st">"Paleta: Dark2"</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> baza <span class="sc">+</span> </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Accent"</span>) <span class="sc">+</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="st">"Paleta: Accent"</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> baza <span class="sc">+</span> </span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Spectral"</span>) <span class="sc">+</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="st">"Paleta: Spectral"</span>)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig10" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figura&nbsp;10: Exemplu de utilizare a scalei de culori scale_color_brewer() pentru patru palete diferite."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10: Exemplu de utilizare a scalei de culori <code>scale_color_brewer()</code> pentru patru palete diferite.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Funcția <code>scale_[estetică culoare]_manual()</code> este folosită în special atunci când dorim să folosim propria paletă de culori. De exemplu, să presupunem că dorim să colorăm statele de pe fiecare continent cu o culoare corespunzătoare</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig11" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figura&nbsp;11: Exemplu de culori pentru utilizarea scalei manuale."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;11: Exemplu de culori pentru utilizarea scalei manuale.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>atunci putem scrie</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2018, <span class="fu">aes</span>(<span class="at">x =</span> gdpPerCap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#099DD7"</span>,<span class="st">"#248E84"</span>,<span class="st">"#F2583F"</span>, <span class="st">"#96503F"</span>))</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ggplot-p2-c5-fig12" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot-p2-c5-fig12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figura&nbsp;12: Exemplu de utilizare a scalei scale_colour_manual()."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot-p2-c5-fig12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12: Exemplu de utilizare a scalei <code>scale_colour_manual()</code>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<!-- Buton „Înapoi sus”: apare după ce pagina a fost derulată -->
+<button id="curs-to-top" type="button" aria-label="Înapoi la începutul paginii" title="Înapoi sus">
+  <i class="bi bi-arrow-up"></i>
+</button>
+<script>
+(function () {
+  var btn = document.getElementById('curs-to-top');
+  if (!btn) return;
+  var toggle = function () {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  };
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    btn.blur();
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../Introducere_Tidyverse/Part_II/Chapter4/Statistical_transformations.html" class="pagination-link" aria-label="Transformări statistice (*statistical transformations*)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Transformări statistice (<em>statistical transformations</em>)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../Introducere_Tidyverse/Part_II/Chapter6/Position_adjustments.html" class="pagination-link" aria-label="Ajustarea pozițiilor (*position adjustments*)">
+        <span class="nav-page-text">Ajustarea pozițiilor (<em>position adjustments</em>)</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2026, <a href="https://alexamarioarei.github.io/">Alexandru Amărioarei</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Această pagină a fost creată în <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

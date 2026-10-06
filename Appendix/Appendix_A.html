@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>appendix_a – Curs&nbsp;Statistică 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/stat_sticker.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a48f3a5c7f410fc94a8fd1d60fc997bd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3691bf9d0aeca5065aecbe34e58a2ba3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Niciun rezultat",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Trimite",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<!-- Fonturi: Fira Sans (titluri, casete), Fira Mono (cod); textul folosește Palatino / TeX Gyre Pagella -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&amp;family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<script>
+window.MathJax = { tex: { macros: {
+  PP: "\\mathbb{P}",
+  E: "\\mathbb{E}",
+  Var: "\\operatorname{Var}",
+  Cov: "\\operatorname{Cov}",
+  Corr: "\\operatorname{Corr}",
+  MSE: "\\operatorname{EPM}",
+  Bias: "\\operatorname{Dep}",
+  sgn: "\\operatorname{sgn}",
+  argmax: "\\operatorname*{arg\\,max}",
+  argmin: "\\operatorname*{arg\\,min}",
+  R: "\\mathbb{R}",
+  N: "\\mathbb{N}",
+  Z: "\\mathbb{Z}",
+  Q: "\\mathbb{Q}",
+  F: "\\mathcal{F}",
+  A: "\\mathcal{A}",
+  B: "\\mathcal{B}",
+  Ind: "\\mathbf{1}",
+  dd: "\\,\\mathrm{d}",
+  eqd: "\\overset{d}{=}",
+  iid: "\\text{i.i.d.}",
+  asto: "\\xrightarrow{\\text{a.s.}}",
+  pto: "\\xrightarrow{\\;\\PP\\;}",
+  dto: "\\xrightarrow{\\;d\\;}",
+  Lto: "\\xrightarrow{L^2}",
+  indep: "\\perp\\!\\!\\!\\perp",
+  Bern: "\\mathrm{Bernoulli}",
+  Bin: "\\mathrm{Bin}",
+  HGeom: "\\mathrm{HGeom}",
+  Geom: "\\mathrm{Geom}",
+  NBin: "\\mathrm{NBin}",
+  Pois: "\\mathrm{Pois}",
+  Unif: "\\mathcal{U}",
+  Exp: "\\mathrm{Exp}",
+  Norm: "\\mathcal{N}",
+  GammaD: "\\mathrm{Gamma}",
+  BetaD: "\\mathrm{Beta}",
+  Cauchy: "\\mathrm{Cauchy}",
+  Multin: "\\mathrm{Mult}",
+  chisq: ["\\chi^2_{#1}", 1],
+  Stud: ["t_{#1}", 1],
+  Fish: ["F_{#1,#2}", 2],
+  bx: "\\mathbf{x}",
+  bX: "\\mathbf{X}",
+  bbeta: "\\boldsymbol{\\beta}",
+  hth: "\\hat{\\theta}",
+  Xbar: "\\bar{X}_n",
+  xbar: "\\bar{x}_n"
+},
+  inlineMath: [['$', '$'], ['\\(', '\\)']], processEscapes: true, tags: 'none' },
+  chtml: { scale: 1.0 } };
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../css/site_style.css">
+<meta property="og:title" content="Curs&nbsp;Statistică 2026-2027">
+<meta property="og:description" content="">
+<meta property="og:image" content="Appendix_A_files/figure-html/fig-reg-appA-fig1-1.png">
+<meta property="og:site_name" content="Curs&nbsp;Statistică 2026-2027">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/stat_sticker.png" alt="" class="navbar-logo light-content">
+    <img src="../images/stat_sticker.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Curs&nbsp;Statistică 2026-2027</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> <i class="bi bi-info-circle" role="img">
+</i> 
+<span class="menu-text">Informații generale</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-note-de-curs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-journal-text" role="img">
+</i> 
+ <span class="menu-text">Note de curs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-note-de-curs">    
+        <li>
+    <a class="dropdown-item" href="../curs/index.html"><i class="bi bi-grid-3x3-gap" role="img">
+</i> 
+ <span class="dropdown-text">Toate cursurile (note și slide-uri)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../curs/01-recapitulare-probabilitati.html">
+ <span class="dropdown-text">Cursul 1 — Noțiuni fundamentale de probabilități (recapitulare)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-note-de-laborator" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Note de laborator</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-note-de-laborator">    
+        <li>
+    <a class="dropdown-item" href="../laborator/index.html"><i class="bi bi-grid-3x3-gap" role="img">
+</i> 
+ <span class="dropdown-text">Toate seminarele și laboratoarele (note și slide-uri)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../laborator/01-introducere-R.html">
+ <span class="dropdown-text">Seminarul 1 — Probabilități, variabile aleatoare și primii pași în R</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-proiect-de-laborator" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-gear" role="img">
+</i> 
+ <span class="menu-text">Proiect de laborator</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-proiect-de-laborator">    
+        <li>
+    <a class="dropdown-item" href="../proiect/proiect_gol.html"><i class="bi bi-gear" role="img">
+</i> 
+ <span class="dropdown-text">Proiect</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../Introducere_R/index.html"> <i class="bi bi-book" role="img">
+</i> 
+<span class="menu-text">Introducere în R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Introducere_Tidyverse/index.html"> <i class="bi bi-book" role="img">
+</i> 
+<span class="menu-text">Introducere în Tidyverse</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact/contact.html"> <i class="bi bi-pin-map" role="img">
+</i> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Pe această pagină</h2>
+   
+  <ul>
+  <li><a href="#sec-appendixA" id="toc-sec-appendixA" class="nav-link active" data-scroll-target="#sec-appendixA">Repartiții derivate din repartiția normală</a>
+  <ul class="collapse">
+  <li><a href="#repartiția-chi2" id="toc-repartiția-chi2" class="nav-link" data-scroll-target="#repartiția-chi2">Repartiția <span class="math inline">\(\chi^2\)</span></a></li>
+  <li><a href="#repartiția-t-student" id="toc-repartiția-t-student" class="nav-link" data-scroll-target="#repartiția-t-student">Repartiția <span class="math inline">\(t\)</span>-Student</a></li>
+  <li><a href="#repartiția-fisher-snedecor" id="toc-repartiția-fisher-snedecor" class="nav-link" data-scroll-target="#repartiția-fisher-snedecor">Repartiția Fisher-Snedecor</a></li>
+  </ul></li>
+  <li><a href="#sec-appA-esantionare-normala" id="toc-sec-appA-esantionare-normala" class="nav-link" data-scroll-target="#sec-appA-esantionare-normala">Eșantionare dintr-o populație normală</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="sec-appendixA" class="level1">
+<h1>Repartiții derivate din repartiția normală</h1>
+<p>În afară de repartiția normală, următoarele trei repartiții sunt des utilizate în inferența statistică a modelului clasic de regresie liniară: repartiția <span class="math inline">\(\chi^2\)</span>, repartiția Student <span class="math inline">\(t\)</span> și repartiția Fisher-Snedecor <span class="math inline">\(F\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Obiective
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La finalul acestui capitol, studentul va fi capabil să:</p>
+<ul>
+<li>definească și să recunoască repartițiile <span class="math inline">\(\chi^2\)</span>, Student (<span class="math inline">\(t\)</span>) și Fisher-Snedecor (<span class="math inline">\(F\)</span>), pornind de la construcția lor ca funcții de variabile aleatoare normale;</li>
+<li>demonstreze principalele proprietăți de caracterizare ale acestor repartiții (sumă de pătrate normale independente, raport normal/<span class="math inline">\(\chi^2\)</span>, raport a două repartiții <span class="math inline">\(\chi^2\)</span> normate);</li>
+<li>aplice teorema fundamentală de eșantionare dintr-o populație normală pentru a stabili independența mediei și a varianței de eșantion, respectiv repartiția <span class="math inline">\(\chi^2\)</span> a lui <span class="math inline">\((n-1)S_n^2/\sigma^2\)</span>;</li>
+<li>utilizeze aceste rezultate ca pivoturi în construcția intervalelor de încredere și a testelor statistice pentru populația normală.</li>
+</ul>
+</div>
+</div>
+<section id="repartiția-chi2" class="level2">
+<h2 class="anchored" data-anchor-id="repartiția-chi2">Repartiția <span class="math inline">\(\chi^2\)</span></h2>
+<div id="def-mr-appA-hi2-d1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definiția 1 (Variabilă aleatoare repartizată <span class="math inline">\(\chi^2(n)\)</span>)</strong></span> Spunem că o variabilă aleatoare <span class="math inline">\(X\)</span> este repartizată <span class="math inline">\(\chi^2\)</span> (Hi-pătrat) cu <span class="math inline">\(n\)</span> grade de libertate și se notăm cu <span class="math inline">\(X\sim \chi^2(n)\)</span> (sau încă <span class="math inline">\(X\sim \chi^2_n\)</span>) dacă admite densitatea de repartiție</p>
+<p><span class="math display">\[
+  f(x)=\frac{1}{2^{n / 2} \Gamma\left(\frac{n}{2}\right)} x^{n / 2-1} e^{-x / 2} \mathbf{1}_{\{x&gt;0\}}
+\]</span></p>
+<p>unde <span class="math inline">\(\Gamma(\cdot)\)</span> este funcția Gamma dată de <span class="math inline">\(\Gamma(x)=\int_{0}^{\infty} u^{x-1} \mathrm{e}^{-u} \mathrm{d} u, x&gt;0\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarcă
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se poate observa cu ușurință că repartiția <span class="math inline">\(\chi^2(n)\)</span> este un caz particular al repartiției <span class="math inline">\(\Gamma(\alpha, \beta)\)</span>, mai precis pentru <span class="math inline">\(\alpha = \frac{n}{2}\)</span> și respectiv <span class="math inline">\(\beta=\frac{1}{2}\)</span>.</p>
+</div>
+</div>
+<p>Următoarele două propoziții caracterizează repartiția <span class="math inline">\(\chi^2(n)\)</span>.</p>
+<div id="prp-mr-appA-chisq-p1" class="theorem proposition">
+<p><span class="theorem-title"><strong>Propoziția 1</strong></span> Arătați că dacă <span class="math inline">\(X\sim \mathcal{N}(0, 1)\)</span> atunci <span class="math inline">\(Y=X^2\sim\chi^2(1)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demonstrație</em>. </span>Să observăm pentru început că dacă <span class="math inline">\(y&lt;0\)</span> atunci</p>
+<p><span class="math display">\[
+F_Y(y) = \mathbb{P}(Y\leq y) = \mathbb{P}(X^2\leq y) = 0.
+\]</span></p>
+<p>Pentru <span class="math inline">\(y\geq 0\)</span> avem</p>
+<p><span class="math display">\[
+\begin{aligned}
+F_Y(y) &amp; =\mathbb{P}\left(X^2 \leq y\right)=\mathbb{P}(|X| \leq \sqrt{y}) \\
+&amp; =\mathbb{P}(-\sqrt{y} \leq X \leq \sqrt{y})=\Phi(\sqrt{y})-\Phi(-\sqrt{y})=\Phi(\sqrt{y})-(1-\Phi(\sqrt{y})) \\
+&amp; =2 \Phi(\sqrt{y})-1
+\end{aligned}
+\]</span></p>
+<p>de unde găsim că</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_Y(y) &amp; =2 \frac{d}{d y} \Phi(\sqrt{y})=2 \frac{d}{d \sqrt{y}} \Phi(\sqrt{y}) \frac{d}{d y} \sqrt{y} \\
+&amp; =2 \phi(\sqrt{y}) \frac{y^{-1 / 2}}{2}=2 \frac{1}{\sqrt{2 \pi}} e^{-y / 2} \frac{y^{-1 / 2}}{2} \\
+&amp; =\frac{1}{\sqrt{2} \sqrt{\pi}} e^{-y / 2} y^{-1 / 2}=\frac{1}{2^{1 / 2} \Gamma(1 / 2)} y^{1 / 2-1} e^{-y / 2}
+\end{aligned}
+\]</span></p>
+<p>ceea ce arată că <span class="math inline">\(Y\sim\chi^2(1)\)</span>.</p>
+</div>
+<div id="prp-mr-appA-chisq-p2" class="theorem proposition">
+<p><span class="theorem-title"><strong>Propoziția 2 (Rezultat de caracterizare a repartiției <span class="math inline">\(\chi^2(n)\)</span>)</strong></span> Dacă <span class="math inline">\(X_1,\ldots,X_n\)</span> sunt variabile aleatoare i.i.d. repartizate <span class="math inline">\(\mathcal{N}(0, 1)\)</span> atunci variabila aleatoare <span class="math inline">\(X = \sum_{i = 1}^{n}X_i^2\)</span> este repartizată <span class="math inline">\(\chi^2(n)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demonstrație</em>. </span>Vom arăta pentru început că dacă <span class="math inline">\(X\sim \chi^2(n)\)</span> iar <span class="math inline">\(Y\sim \chi^2(m)\)</span> cu <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> independente atunci</p>
+<p><span class="math display">\[
+X + Y \sim \chi^2(n + m).
+\]</span></p>
+<p>Știm că dacă <span class="math inline">\(X\sim f_{X}\)</span>, <span class="math inline">\(Y\sim f_{Y}\)</span> și <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> independente atunci densitatea sumei <span class="math inline">\(X+Y\)</span> este dată de</p>
+<p><span class="math display">\[
+f_{X+Y}(z) = \int_{-\infty}^{\infty}f_{X}(z - y)f_{Y}(y)\,dy
+\]</span></p>
+<p>de unde, înlocuind <span class="math inline">\(f_X\)</span> și <span class="math inline">\(f_Y\)</span> cu densitățile <span class="math inline">\(\chi^2\)</span> corespunzătoare, găsim că</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_{X+Y}(z) &amp;= \int_{-\infty}^{\infty}\frac{1}{2^{n / 2} \Gamma\left(\frac{n}{2}\right)} (z-y)^{n / 2-1} e^{-(z-y) / 2} \mathbf{1}_{\{z-y&gt;0\}}\frac{1}{2^{m / 2} \Gamma\left(\frac{m}{2}\right)} y^{m / 2-1} e^{-y / 2} \mathbf{1}_{\{y&gt;0\}}\,dy\\
+&amp;= \frac{1}{2^{\frac{n+m}{2}} \Gamma\left(\frac{n}{2}\right)\Gamma\left(\frac{m}{2}\right)}\int_{0}^{z}(z-y)^{n / 2-1} e^{-(z-y) / 2}y^{m / 2-1} e^{-y / 2}\,dy\\
+&amp;= \frac{e^{-z / 2}}{2^{\frac{n+m}{2}} \Gamma\left(\frac{n}{2}\right)\Gamma\left(\frac{m}{2}\right)}\int_{0}^{z}(z-y)^{n / 2-1} y^{m / 2-1} \,dy\\
+&amp;= \frac{e^{-z / 2}}{2^{\frac{n+m}{2}} \Gamma\left(\frac{n}{2}\right)\Gamma\left(\frac{m}{2}\right)}z^{\frac{n+m}{2}-2}\int_{0}^{z}\left(1-\frac{y}{z}\right)^{n / 2-1} \left(\frac{y}{z}\right)^{m / 2-1} \,dy\\
+&amp;\stackrel{t=\frac{y}{z}}{=} \frac{e^{-z / 2}}{2^{\frac{n+m}{2}} \Gamma\left(\frac{n}{2}\right)\Gamma\left(\frac{m}{2}\right)}z^{\frac{n+m}{2}-2}\int_{0}^{1}\left(1-t\right)^{n / 2-1} t^{m / 2-1} z\,dt\\
+&amp;= \frac{e^{-z / 2}}{2^{\frac{n+m}{2}} \Gamma\left(\frac{n}{2}\right)\Gamma\left(\frac{m}{2}\right)}z^{\frac{n+m}{2}-1}B\left(\frac{m}{2}, \frac{n}{2}\right)
+\end{aligned}
+\]</span></p>
+<p>Folosind identitatea <span class="math inline">\(B\left(\frac{m}{2}, \frac{n}{2}\right) = \frac{\Gamma\left(\frac{n+m}{2}\right)}{\Gamma\left(\frac{n}{2}\right)\Gamma\left(\frac{m}{2}\right)}\)</span> găsim</p>
+<p><span class="math display">\[
+f_{X+Y}(z) = \frac{1}{2^{\frac{n+m}{2}} \Gamma\left(\frac{n+m}{2}\right)}z^{\frac{n+m}{2}-1}e^{-z / 2}\mathbf{1}_{\{z&gt;0\}}
+\]</span></p>
+<p>ceea ce arată că <span class="math inline">\(X + Y \sim \chi^2(n+m)\)</span>.</p>
+<p>Am văzut în propoziția anterioară că dacă <span class="math inline">\(X_i\sim\mathcal{N}(0, 1)\)</span> atunci <span class="math inline">\(X_i^2\sim\chi^2(1)\)</span>. Cum <span class="math inline">\(X_1,\ldots,X_n\)</span> sunt variabile aleatoare i.i.d. repartizate <span class="math inline">\(\mathcal{N}(0, 1)\)</span> rezultă că <span class="math inline">\(X_1^2,\ldots,X_n^2\)</span> sunt variabile aleatoare i.i.d. repartizate <span class="math inline">\(\chi^2(1)\)</span>. Aplicând identitatea sumei de mai sus pentru variabile <span class="math inline">\(\chi^2\)</span> independente obținem concluzia.</p>
+<p>Alternativ, acest rezultat se poate demonstra ușor folosind noțiunea de funcție generatoare de moment. De exemplu, funcția generatoare de moment pentru <span class="math inline">\(X\sim\chi^2(n)\)</span> este dată de</p>
+<p><span class="math display">\[
+\begin{aligned}
+M_X(t) &amp;= \mathbb{E}\left[e^{t X}\right] =\int_0^{\infty} e^{t x} f_{X}(x) \,d x \\
+&amp; =\frac{1}{2^{n / 2} \Gamma\left(\frac{n}{2}\right)} \int_0^{\infty} e^{t x} \cdot x^{n / 2-1} e^{-x/2}\, d x \\
+&amp; =\frac{1}{2^{n / 2} \Gamma\left(\frac{n}{2}\right)} \int_0^{\infty} x^{n / 2-1} e^{\left(t-\frac{1}{2}\right) x} d x.
+\end{aligned}
+\]</span></p>
+<p>Aceasta este definită pentru <span class="math inline">\(t&lt;\frac{1}{2}\)</span> și folosind schimbare de variabilă <span class="math inline">\(s = \left(\frac{1}{2} - t\right)x\)</span> avem</p>
+<p><span class="math display">\[
+\begin{aligned}
+M_X(t) &amp; =\frac{1}{2^{n / 2} \Gamma\left(\frac{n}{2}\right)} \int_0^{\infty} x^{n / 2-1} e^{\left(t-\frac{1}{2}\right) x} d x\\
+&amp; =\left(\frac{1}{2}-t\right)^{-n / 2} \frac{1}{2^{n / 2} \Gamma\left(\frac{n}{2}\right)} \int_0^{\infty} s^{n / 2-1} e^{-s} d s \\
+&amp; =(1-2 t)^{-n / 2} \underbrace{\frac{1}{\Gamma\left(\frac{n}{2}\right)} \int_0^{\infty} s^{n / 2-1} e^{-s} d s}_{=1}\\
+&amp; =(1-2 t)^{-n / 2} .
+\end{aligned}
+\]</span></p>
+<p>Din ipoteză avem că <span class="math inline">\(X = \sum_{i = 1}^{n}X_i^2\)</span>, unde <span class="math inline">\(X_i^2\)</span> sunt variabile aleatoare independente repartizate <span class="math inline">\(\chi^2(1)\)</span> prin urmare <span class="math inline">\(M_{X_i^2}(t) = (1-2 t)^{-1 / 2}\)</span>. Știm că funcția generatoare de moment a unei sume de variabile aleatoare independente este egală cu produsul funcțiilor generatoare de moment, astfel</p>
+<p><span class="math display">\[
+\begin{aligned}
+M_X(t) &amp; = \prod_{i=1}^n M_{X_i}(t) = \prod_{i=1}^n (1-2 t)^{-1 / 2} = (1-2 t)^{-n / 2}
+\end{aligned}
+\]</span></p>
+<p>ceea ce arată că funcția generatoare de moment a lui <span class="math inline">\(X\)</span> coincide cu cea a repartiției <span class="math inline">\(\chi^2(n)\)</span>. Din teorema de unicitate a funcțiilor generatoare de moment avem concluzia.</p>
+</div>
+<p>Media și varianța sunt date de propoziția următoare:</p>
+<div id="prp-mr-appA-chisq-p3" class="theorem proposition">
+<p><span class="theorem-title"><strong>Propoziția 3</strong></span> Pentru o v.a. <span class="math inline">\(X\sim \chi^2(n)\)</span> avem că <span class="math inline">\(\mathbb{E}[X] = n\)</span> și <span class="math inline">\(Var(X) = 2n\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demonstrație</em>. </span>Într-adevăr, ținând cont că <span class="math inline">\(X = \sum_{i = 1}^{n}X_i^2\)</span>, cu <span class="math inline">\(X_i\sim\mathcal{N}(0, 1)\)</span>, și că <span class="math inline">\(\mathbb{E}\left[X_i^2\right]=1\)</span> avem că</p>
+<p><span class="math display">\[
+\mathbb{E}\left[\chi^2(n)\right]=\mathbb{E}\left[\sum_{i=1}^n X_i^2\right]=\sum_{i=1}^n \mathbb{E}\left[X_i^2\right]=n
+\]</span></p>
+<p>iar din independență și din faptul că <span class="math inline">\(Var\left(X_i^2\right)=\mathbb{E}\left[X_i^4\right] - \mathbb{E}\left[X_i^2\right]^2 = 3- 1 = 2\)</span> găsim că</p>
+<p><span class="math display">\[
+Var\left(\chi^2(n)\right) = Var\left(\sum_{i=1}^n X_i^2\right) = \sum_{i=1}^n Var\left(X_i^2\right)=2n.
+\]</span></p>
+</div>
+<p><a href="#fig-reg-appA-fig1" class="quarto-xref">Figura&nbsp;1</a> de mai jos ilustrează densitatea și funcția de repartiție a unei variabile aleatoare repartizată <span class="math inline">\(\chi^2(n)\)</span> unde <span class="math inline">\(n\in\{1, 3, 9\}\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-reg-appA-fig1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reg-appA-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Appendix_A_files/figure-html/fig-reg-appA-fig1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;1: Ilustrarea densității și a funcției de repartiție a repartiției \chi^2_n pentru o serie de parametrii."><img src="Appendix_A_files/figure-html/fig-reg-appA-fig1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reg-appA-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Ilustrarea densității și a funcției de repartiție a repartiției <span class="math inline">\(\chi^2_n\)</span> pentru o serie de parametrii.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Din <em>Teorema Limită Centrală</em> avem că pentru <span class="math inline">\(n\)</span> suficient de mare, <span class="math inline">\(X\approx \mathcal{N}(n, 2n)\)</span> ceea ce sugerează că aproximativ <span class="math inline">\(95\%\)</span> dintre valori se situează în intervalul <span class="math inline">\([n - 2\sqrt{2n}, n + 2\sqrt{2n}]\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-reg-appA-fig2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reg-appA-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Appendix_A_files/figure-html/fig-reg-appA-fig2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;2: Aproximarea densității repartiției \chi^2_n cu normala \mathcal{N}(n, 2n)."><img src="Appendix_A_files/figure-html/fig-reg-appA-fig2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reg-appA-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Aproximarea densității repartiției <span class="math inline">\(\chi^2_n\)</span> cu normala <span class="math inline">\(\mathcal{N}(n, 2n)\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="repartiția-t-student" class="level2">
+<h2 class="anchored" data-anchor-id="repartiția-t-student">Repartiția <span class="math inline">\(t\)</span>-Student</h2>
+<p>Repartiția <em>Student</em> sau <em>t-Student</em> este numită după un autor care a publicat în revista <em>Biometrika</em> în anul 1908 un articol care făcea referire la această repartiție sub pseudonimul <em>Student</em>. În realitate, cel care a publicat articolul era William Sealy Gosset.</p>
+<div id="def-mr-appA-student-d1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definiția 2 (Variabilă aleatoare repartizată Student)</strong></span> Spunem că variabila aleatoare <span class="math inline">\(T\)</span> este repartizată Student cu <span class="math inline">\(n\)</span> grade de libertate și notăm cu <span class="math inline">\(T\sim t_n\)</span> (sau încă <span class="math inline">\(T\sim t(n)\)</span>) dacă <span class="math inline">\(T\)</span> admite densitatea de repartiție</p>
+<p><span class="math display">\[
+f_n(x)=\frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{\pi n}\Gamma\left(\frac{n}{2}\right)}\left(1+\frac{x^{2}}{n}\right)^{-\frac{n+1}{2}},\, x \in \mathbb{R}
+\]</span></p>
+</div>
+<p>Avem următorul rezultat:</p>
+<div id="prp-mr-appA-stud-e1" class="theorem proposition">
+<p><span class="theorem-title"><strong>Propoziția 4 (Rezultat de caracterizare a repartiției Student)</strong></span> Fie <span class="math inline">\(U\)</span> o variabilă aleatoare repartizată <span class="math inline">\(\mathcal{N}(0, 1)\)</span> și <span class="math inline">\(V\)</span> o variabilă repartizată <span class="math inline">\(\chi^2(n)\)</span>, cu <span class="math inline">\(U\)</span> și <span class="math inline">\(V\)</span> independente, atunci variabila aleatoare <span class="math inline">\(T = \frac{U}{\sqrt{\frac{V}{n}}}\)</span> este repartizată Student cu <span class="math inline">\(n\)</span> grade de libertate.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demonstrație</em>. </span>Vom determina pentru început repartiția comună a vectorului <span class="math inline">\((T, V)\)</span> și, plecând de la aceasta, vom găsi repartiția marginală a lui <span class="math inline">\(T\)</span>. În acest sens considerăm transformarea</p>
+<p><span class="math display">\[
+g:(u, v) \mapsto(t, v)=\left(\frac{u}{\sqrt{v /n}}, v\right)
+\]</span></p>
+<p>astfel că <span class="math inline">\((T,V) = g(U, V)\)</span> și a cărei inversă este dată de</p>
+<p><span class="math display">\[
+g^{-1}:(t, v) \mapsto\left(t \sqrt{\frac{v}{n}}, v\right).
+\]</span></p>
+<p>Matricea Jacobiană corespunzătoare lui <span class="math inline">\(g^{-1}\)</span> este</p>
+<p><span class="math display">\[
+J_{g^{-1}}=\left(\begin{array}{cc}
+\sqrt{v /n} &amp; t \frac{1}{2 \sqrt{v}\sqrt{n}} \\
+0 &amp; 1
+\end{array}\right)
+\]</span></p>
+<p>de unde găsim determinantul <span class="math inline">\(\operatorname{det}\left(J_{g^{-1}}(t, v)\right)=\sqrt{\frac{v}{n}}\)</span>. Cum <span class="math inline">\(U\)</span> și <span class="math inline">\(V\)</span> sunt independente rezultă că densitatea comună a vectorului <span class="math inline">\((U,V)\)</span> este</p>
+<p><span class="math display">\[
+f_{U, V}(u, v)=f_U(u) f_V(v)=\frac{1}{\sqrt{2\pi}}e^{-\frac{u^2}{2}}\frac{1}{2^{\frac{n}{2}} \Gamma\left(\frac{n}{2}\right)} v^{\frac{n}{2}-1} e^{-\frac{v}{2}}
+\]</span></p>
+<p>prin urmare densitatea comună a vectorului <span class="math inline">\((T,V)\)</span> este</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_{T, V}(t, v) &amp; =f_{U, V}\left(g^{-1}(t, v)\right)\left|\operatorname{det}\left(J_{g-1}(t, v)\right)\right|=f_{U, V}\left(t \sqrt{\frac{v}{n}}, v\right) \sqrt{\frac{v}{n}}\\
+&amp; =\frac{1}{2^{\frac{n}{2}} \sqrt{2\pi} \Gamma\left(\frac{n}{2}\right)} v^{\frac{n}{2}-1} e^{-\frac{1}{2}\left(v+v \frac{t^2}{n}\right)} \cdot\sqrt{\frac{v}{n}} \\
+&amp; =\frac{1}{2^{\frac{n}{2}} \sqrt{2\pi n} \Gamma\left(\frac{n}{2}\right)} \cdot v^{\frac{n+1}{2}-1} e^{-\frac{v}{2}\left(1+\frac{t^2}{n}\right)} .
+\end{aligned}
+\]</span></p>
+<p>Densitatea marginală a lui <span class="math inline">\(T\)</span> este</p>
+<p><span class="math display">\[
+f_T(t)=\frac{1}{2^{\frac{n}{2}} \sqrt{2\pi n} \Gamma\left(\frac{n}{2}\right)} \int_0^{\infty} e^{-\frac{v}{2}\left(\frac{t^2}{n}+1\right)} v^{\frac{n+1}{2}-1} d v
+\]</span></p>
+<p>și considerând schimbarea de variabilă <span class="math inline">\(y = \frac{v}{2}\left(\frac{t^2}{n}+1\right)\)</span> găsim <span class="math inline">\(v = \frac{2y}{\frac{t^2}{n}+1}\)</span> de unde <span class="math inline">\(d v = \frac{2}{\frac{t^2}{n}+1} d y\)</span> ceea ce conduce la</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_T(t) &amp; =\frac{1}{2^{\frac{n}{2}} \sqrt{2\pi n} \Gamma\left(\frac{n}{2}\right)} \cdot \int_0^{\infty} e^{-y} \cdot\left[(2 y)\left(\frac{t^2}{n}+1\right)^{-1}\right]^{\frac{n+1}{2}-1} \cdot 2\left(\frac{t^2}{n}+1\right)^{-1} d y \\
+&amp; =\frac{1}{2^{\frac{n}{2}} \sqrt{2\pi n} \Gamma\left(\frac{n}{2}\right)} \cdot\frac{2^{\frac{n+1}{2}}}{\left(\frac{t^2}{n}+1\right)^{\frac{n+1}{2}}} \cdot \int_0^{\infty} y^{\frac{n+1}{2}-1} e^{-y} d y \\
+&amp; =\frac{1}{\sqrt{\pi n} \Gamma\left(\frac{n}{2}\right)} \cdot\frac{1}{\left(\frac{t^2}{n}+1\right)^{\frac{n+1}{2}}}\Gamma\left(\frac{n+1}{2}\right) \\
+&amp; =\frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{\pi n} \Gamma\left(\frac{n}{2}\right)} \left(\frac{t^2}{n}+1\right)^{-\frac{n+1}{2}}.
+\end{aligned}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarcă
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ca aplicație fundamentală a acestui rezultat, să observăm că dacă <span class="math inline">\(X_1,\ldots,X_n\)</span> este un eșantion de volum <span class="math inline">\(n\)</span> dintr-o populație <span class="math inline">\(\mathcal{N}(\mu,\sigma^2)\)</span> atunci</p>
+<p><span class="math display">\[
+\frac{\bar{X}_n - \mu}{\frac{S_n^2}{\sqrt{n}}}\sim t_{n-1}.
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarcă
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dacă <span class="math inline">\(T\sim t_n\)</span> și <span class="math inline">\(n = 1\)</span> atunci variabila <span class="math inline">\(T\)</span> este repartizată Cauchy (raport de două normale independente) și prin urmare nu are medie (evident nici varianță). Dacă <span class="math inline">\(n = 2\)</span> atunci <span class="math inline">\(T\)</span> este de medie <span class="math inline">\(0\)</span> dar de varianță infinită iar pentru <span class="math inline">\(n\geq 3\)</span>, <span class="math inline">\(\mathbb{E}[T] = 0\)</span> și <span class="math inline">\(Var(T) = \frac{n}{n-2}\)</span>.</p>
+</div>
+</div>
+<p><a href="#fig-reg-appA-fig3" class="quarto-xref">Figura&nbsp;3</a> de mai jos ilustrează densitatea și funcția de repartiție a unei variabile aleatoare repartizată <span class="math inline">\(t_n\)</span> unde <span class="math inline">\(n\in\{1, 3, 9\}\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-reg-appA-fig3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reg-appA-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Appendix_A_files/figure-html/fig-reg-appA-fig3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;3: Ilustrarea densității și a funcției de repartiție a repartiției t_n pentru o serie de grade de libertate."><img src="Appendix_A_files/figure-html/fig-reg-appA-fig3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reg-appA-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3: Ilustrarea densității și a funcției de repartiție a repartiției <span class="math inline">\(t_n\)</span> pentru o serie de grade de libertate.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="prp-mr-appA-stud-p3" class="theorem proposition">
+<p><span class="theorem-title"><strong>Propoziția 5</strong></span> Arătați că pentru <span class="math inline">\(n\)</span> suficient de mare avem că <span class="math inline">\(T\approx \mathcal{N}(0,1)\)</span> (de exemplu observând că, din Legea Numerelor Mari, numitorul tinde la <span class="math inline">\(1\)</span> atunci când <span class="math inline">\(n\to\infty\)</span>). Ilustrați grafic acest fenomen.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demonstrație</em>. </span>Într-adevăr, dacă în limita</p>
+<p><span class="math display">\[
+\lim _{n \rightarrow \infty}\left(1+\frac{a}{n}\right)^n=e^a,
+\]</span></p>
+<p>înlocuim pe <span class="math inline">\(a = x^2\)</span> găsim că</p>
+<p><span class="math display">\[
+\lim _{n \rightarrow \infty}\left(1+\frac{x^2}{n}\right)^{\frac{n+1}{2}}=e^{\frac{x^2}{2} \lim _{n \rightarrow \infty}\frac{n+1}{n}}=\mathrm{e}^{\frac{x^2}{2}} .
+\]</span></p>
+<p>În plus, ținând cont de faptul că (acest rezultat se poate obține imediat prin aplicarea inegalității lui <a href="https://en.wikipedia.org/wiki/Gautschi%27s_inequality">Gautschi</a>)</p>
+<p><span class="math display">\[
+\lim _{n \rightarrow \infty} \frac{\Gamma\left(\frac{n+1}{2}\right)}{\Gamma\left(\frac{n}{2}\right) \sqrt{n}}=\frac{1}{\sqrt{2}}
+\]</span></p>
+<p>concluzionăm că</p>
+<p><span class="math display">\[
+\lim _{n \rightarrow \infty}f_n(x)=\lim _{n \rightarrow \infty}\frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{\pi n}   \Gamma\left(\frac{n}{2}\right)}\left(1+\frac{x^{2}}{n}\right)^{-\frac{n+1}{2}} = \frac{1}{\sqrt{2 \pi}} e^{-\frac{x^2}{2}}.
+\]</span></p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-reg-appA-fig4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reg-appA-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Appendix_A_files/figure-html/fig-reg-appA-fig4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;4: Aproximarea densității repartiției t_n cu normala \mathcal{N}(0,1)."><img src="Appendix_A_files/figure-html/fig-reg-appA-fig4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reg-appA-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4: Aproximarea densității repartiției <span class="math inline">\(t_n\)</span> cu normala <span class="math inline">\(\mathcal{N}(0,1)\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="repartiția-fisher-snedecor" class="level2">
+<h2 class="anchored" data-anchor-id="repartiția-fisher-snedecor">Repartiția Fisher-Snedecor</h2>
+<div id="def-mr-appA-fisher-d1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definiția 3 (Variabilă aleatoare repartizată Fisher-Snedecor)</strong></span> Spunem că o variabilă aleatoare <span class="math inline">\(F\)</span> este repartizată Fisher-Snedecor (sau pe scurt are repartiția <span class="math inline">\(F\)</span> sau Fisher) cu <span class="math inline">\(n_1\)</span> grade de libertate la numărător și <span class="math inline">\(n_2\)</span> grade de libertate la numitor și notăm <span class="math inline">\(F\sim F_{n_1,n_2}\)</span> dacă admite densitatea de repartiție</p>
+<p><span class="math display">\[
+f_{n_{1}, n_{2}}(x)=\frac{\Gamma\left(\frac{n_{1}+n_{2}}{2}\right)}{\Gamma\left(\frac{n_{1}}{2}\right) \Gamma\left(\frac{n_{2}}{2}\right)}\left(\frac{n_{1}}{n_{2}}\right)^{\frac{n_{1}}{2}} \frac{x^{\frac{n_{1}-2}{2}}}{\left(1+\frac{n_{1}}{n_{2}} x\right)^{\frac{n_{1}+n_{2}}{2}}} \quad \text { dacă } x&gt;0 \quad(0 \text { altfel}).
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarcă
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pentru <span class="math inline">\(n_2\geq 3\)</span> media variabilei aleatoare <span class="math inline">\(F\)</span> există și este egală cu <span class="math inline">\(\frac{n_2}{n_2-2}\)</span> iar pentru <span class="math inline">\(n_2\geq 5\)</span> varianța există și este egală cu <span class="math inline">\(\frac{2 n_{2}^{2}\left(n_{1}+n_{2}-2\right)}{n_{1}\left(n_{2}-2\right)^{2}\left(n_{2}-4\right)}\)</span>.</p>
+</div>
+</div>
+<p>Avem următorul de rezultat:</p>
+<div id="prp-mr-appA-fisher-e1" class="theorem proposition">
+<p><span class="theorem-title"><strong>Propoziția 6 (Rezultat de caracterizare a repartiției Fisher)</strong></span> Fie <span class="math inline">\(U\)</span> o variabilă aleatoare repartizată <span class="math inline">\(\chi^2_{n_1}\)</span> și <span class="math inline">\(V\)</span> o variabilă aleatoare repartizată <span class="math inline">\(\chi^2_{n_2}\)</span>, cu <span class="math inline">\(U\)</span> și <span class="math inline">\(V\)</span> independente. Atunci variabila aleatoare <span class="math inline">\(F = \frac{U/n_1}{V/n_2}\)</span> este repartizată Fisher-Snedecor cu <span class="math inline">\(n_1\)</span> grade de libertate la numărător și <span class="math inline">\(n_2\)</span> grade de libertate la numitor.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demonstrație</em>. </span>Vom determina pentru început repartiția comună a vectorului <span class="math inline">\((F, V)\)</span> și, plecând de la aceasta, vom găsi repartiția marginală a lui <span class="math inline">\(F\)</span>. În acest sens considerăm transformarea</p>
+<p><span class="math display">\[
+g:(u, v) \mapsto(f, v)=\left(\frac{u/n_1}{v /n_2}, v\right)
+\]</span></p>
+<p>astfel că <span class="math inline">\((F,V) = g(U, V)\)</span> și a cărei inversă este dată de</p>
+<p><span class="math display">\[
+g^{-1}:(f, v) \mapsto\left(\frac{n_1}{n_2}fv, v\right).
+\]</span></p>
+<p>Matricea Jacobiană corespunzătoare lui <span class="math inline">\(g^{-1}\)</span> este</p>
+<p><span class="math display">\[
+J_{g^{-1}}=\left(\begin{array}{cc}
+\frac{n_1}{n_2}v &amp; \frac{n_1}{n_2}f \\
+0 &amp; 1
+\end{array}\right)
+\]</span></p>
+<p>de unde găsim determinantul <span class="math inline">\(\operatorname{det}\left(J_{g^{-1}}(f, v)\right)=\frac{n_1}{n_2}v\)</span>. Cum <span class="math inline">\(U\)</span> și <span class="math inline">\(V\)</span> sunt independente rezultă că densitatea comună a vectorului <span class="math inline">\((U,V)\)</span> este egală cu produsul densităților marginale,</p>
+<p><span class="math display">\[
+f_{U, V}(u, v)=f_U(u) f_V(v)=\frac{1}{2^{\frac{n_1}{2}} \Gamma\left(\frac{n_1}{2}\right)} u^{\frac{n_1}{2}-1} e^{-\frac{u}{2}}\frac{1}{2^{\frac{n_2}{2}} \Gamma\left(\frac{n_2}{2}\right)} v^{\frac{n_2}{2}-1} e^{-\frac{v}{2}}
+\]</span></p>
+<p>prin urmare densitatea comună a vectorului <span class="math inline">\((F,V)\)</span> este, pentru <span class="math inline">\(f, v &gt; 0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_{F, V}(f, v) &amp; =f_{U, V}\left(g^{-1}(f, v)\right)\left|\operatorname{det}\left(J_{g-1}(f, v)\right)\right|=f_{U, V}\left(\frac{n_1}{n_2}fv, v\right) \frac{n_1}{n_2}v\\
+&amp; =\frac{1}{2^{\frac{n_1+n_2}{2}} \Gamma\left(\frac{n_1}{2}\right)\Gamma\left(\frac{n_2}{2}\right)} \left(\frac{n_1}{n_2}\right)^{\frac{n_1}{2}-1} f^{\frac{n_1}{2}-1} v^{\frac{n_1+n_2}{2}-2} e^{-\frac{v}{2}\left(\frac{n_1}{n_2}f + 1\right)}\frac{n_1}{n_2}v\\
+&amp; =\frac{1}{2^{\frac{n_1+n_2}{2}} \Gamma\left(\frac{n_1}{2}\right)\Gamma\left(\frac{n_2}{2}\right)} \left(\frac{n_1}{n_2}\right)^{\frac{n_1}{2}} f^{\frac{n_1}{2}-1} v^{\frac{n_1+n_2}{2}-1} e^{-\frac{v}{2}\left(\frac{n_1}{n_2}f + 1\right)}.
+\end{aligned}
+\]</span></p>
+<p>Integrând densitatea comună după <span class="math inline">\(v\)</span> găsim că densitatea marginală a lui <span class="math inline">\(F\)</span> este</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_F(f) &amp;= \int_0^{\infty} f_{F, V}(f, v) dv \\
+&amp;= \frac{1}{2^{\frac{n_1+n_2}{2}} \Gamma\left(\frac{n_1}{2}\right)\Gamma\left(\frac{n_2}{2}\right)} \left(\frac{n_1}{n_2}\right)^{\frac{n_1}{2}} f^{\frac{n_1}{2}-1} \int_0^{\infty} v^{\frac{n_1+n_2}{2}-1} e^{-\frac{v}{2}\left(\frac{n_1}{n_2}f + 1\right)} dv
+\end{aligned}
+\]</span></p>
+<p>și considerând schimbarea de variabilă <span class="math inline">\(y = \frac{v}{2}\left(\frac{n_1}{n_2}f + 1\right)\)</span> găsim <span class="math inline">\(v = \frac{2y}{\frac{n_1}{n_2}f + 1}\)</span> de unde <span class="math inline">\(d v = \frac{2}{\frac{n_1}{n_2}f + 1} d y\)</span>, <span class="math inline">\(y\in[0,\infty)\)</span> ceea ce conduce la</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_F(f) &amp; =\frac{\left(\frac{n_1}{n_2}\right)^{\frac{n_1}{2}} f^{\frac{n_1}{2}-1}}{2^{\frac{n_1+n_2}{2}} \Gamma\left(\frac{n_1}{2}\right)\Gamma\left(\frac{n_2}{2}\right)} \left(\frac{2}{\frac{n_1}{n_2}f + 1}\right)^{\frac{n_1+n_2}{2}-1}\frac{2}{\frac{n_1}{n_2}f + 1}\int_0^{\infty}y^{\frac{n_1+n_2}{2}-1}e^{-y}dy\\
+&amp; = \frac{\left(\frac{n_1}{n_2}\right)^{\frac{n_1}{2}} \Gamma(\frac{n_1 + n_2}{2})}{ \Gamma\left(\frac{n_1}{2}\right)\Gamma\left(\frac{n_2}{2}\right)}\cdot \frac{f^{\frac{n_1}{2}-1}}{\left(\frac{n_1}{n_2}f + 1\right)^{\frac{n_1+n_2}{2}}}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>Ca aplicație fundamentală a acestui rezultat avem:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarcă
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Fie <span class="math inline">\(X_1, \ldots,X_n\stackrel{\mathrm{iid}}{\sim} \mathcal{N}\left(\mu_1, \sigma^2\right)\)</span> și <span class="math inline">\(Y_1, \ldots,Y_m\stackrel{\mathrm{iid}}{\sim} \mathcal{N}\left(\mu_2, \sigma^2\right)\)</span> de eșantioane de volume <span class="math inline">\(n\)</span> și respectiv <span class="math inline">\(m\)</span> din populații normale de medii diferite și de aceeași dispersie. Dacă <span class="math inline">\(X_i\)</span> și <span class="math inline">\(Y_j\)</span> sunt independente între ele atunci</p>
+<p><span class="math display">\[
+\frac{\frac{\sum_{i=1}^n\left(X_i-\bar{X}_n\right)^2}{n-1}}{\frac{\sum_{j=1}^m\left(Y_j-\bar{Y}_m\right)^2}{m-1}} \sim F(n-1, m-1) .
+\]</span></p>
+</div>
+</div>
+<p><a href="#fig-reg-appA-fig5" class="quarto-xref">Figura&nbsp;5</a> de mai jos ilustrează densitatea și funcția de repartiție a unei variabile aleatoare repartizată <span class="math inline">\(F_{n_1,n_2}\)</span> pentru fiecare pereche de parametrii <span class="math inline">\((n_1,n_2)\)</span> din mulțimea <span class="math inline">\(\{(1,1), (2, 1), (5, 3), (10,10)\}\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-reg-appA-fig5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reg-appA-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Appendix_A_files/figure-html/fig-reg-appA-fig5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;5: Ilustrarea densității și a funcției de repartiție a repartiției F_{n_1,n_2} pentru o serie de grade de libertate."><img src="Appendix_A_files/figure-html/fig-reg-appA-fig5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reg-appA-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5: Ilustrarea densității și a funcției de repartiție a repartiției <span class="math inline">\(F_{n_1,n_2}\)</span> pentru o serie de grade de libertate.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarcă
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se observă că dacă <span class="math inline">\(F\sim F_{n_1,n_2}\)</span> atunci <span class="math inline">\(\frac{1}{F}\sim F_{n_2,n_1}\)</span>. Mai mult, între repartiția Student și repartiția Fisher există relația</p>
+<p><span class="math display">\[
+F_{1,n} = t_n^2
+\]</span></p>
+<p>altfel spus, repartiția Fisher cu un grad de libertate la numărător și <span class="math inline">\(n\)</span> grade de libertate la numitor este pătratul repartiției Student cu <span class="math inline">\(n\)</span> grade de libertate.</p>
+</div>
+</div>
+<p>În plus, dacă <span class="math inline">\(n_2\)</span> este mare atunci putem aproxima repartiția lui <span class="math inline">\(F\)</span> cu <span class="math inline">\(F\approx \frac{\chi^2_{n_1}}{n_1}\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-reg-appA-fig6" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reg-appA-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Appendix_A_files/figure-html/fig-reg-appA-fig6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;6: Aproximarea densității repartiției F cu \frac{\chi^2_{n_1}}{n_1}."><img src="Appendix_A_files/figure-html/fig-reg-appA-fig6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reg-appA-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6: Aproximarea densității repartiției <span class="math inline">\(F\)</span> cu <span class="math inline">\(\frac{\chi^2_{n_1}}{n_1}\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-appA-esantionare-normala" class="level1">
+<h1>Eșantionare dintr-o populație normală</h1>
+<p>Rezultatul următor este fundamental pentru construcția intervalelor de încredere și a testelor statistice bazate pe eșantioane dintr-o populație normală: el arată că media eșantionului <span class="math inline">\(\bar X_n\)</span> și varianța eșantionului <span class="math inline">\(S_n^2\)</span> sunt <em>independente</em>, iar <span class="math inline">\(S_n^2\)</span> este (după o normare) repartizată <span class="math inline">\(\chi^2\)</span>. Demonstrația folosește următoarele două proprietăți ale vectorilor aleatori gaussieni, cunoscute din cursul de Probabilități:</p>
+<p>(P1) dacă <span class="math inline">\(\mathbf X\sim\mathcal N_n(\boldsymbol\mu,\Sigma)\)</span> și <span class="math inline">\(A\)</span> este o matrice <span class="math inline">\(n\times n\)</span>, atunci <span class="math inline">\(A\mathbf X\sim\mathcal N_n\left(A\boldsymbol\mu, A\Sigma A^{\intercal}\right)\)</span>; (P2) componentele unui vector aleator gaussian necorelate două câte două sunt independente.</p>
+<div id="thm-appA-esant-normal" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 1 (Teorema fundamentală de eșantionare dintr-o populație normală)</strong></span> Fie <span class="math inline">\(X_1,X_2,\ldots,X_n\)</span> un eșantion de volum <span class="math inline">\(n\)</span> dintr-o populație <span class="math inline">\(\mathcal N(\mu,\sigma^2)\)</span>. Atunci:</p>
+<ol type="a">
+<li><span class="math inline">\(\bar X_n \sim \mathcal N\left(\mu, \dfrac{\sigma^2}{n}\right)\)</span>;</li>
+<li><span class="math inline">\(\bar X_n\)</span> și <span class="math inline">\(S_n^2\)</span> sunt independente;</li>
+<li><span class="math inline">\(\dfrac{(n-1)S_n^2}{\sigma^2}\sim \chi^2(n-1)\)</span>.</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demonstrație</em>. </span>Fie <span class="math inline">\(\mathbf X = (X_1,\ldots,X_n)^{\intercal}\sim\mathcal N_n\left(\mu\mathbf 1, \sigma^2 I_n\right)\)</span>, unde <span class="math inline">\(\mathbf 1=(1,\ldots,1)^{\intercal}\)</span>. Construim o matrice ortogonală <span class="math inline">\(A\in\mathbb{R}^{n\times n}\)</span> a cărei primă linie este <span class="math inline">\(a_1 = \frac{1}{\sqrt n}\mathbf 1^{\intercal}\)</span> (posibil, completând <span class="math inline">\(\frac{1}{\sqrt{n}}\mathbf{1}\)</span> la o bază ortonormată a lui <span class="math inline">\(\mathbb{R}^n\)</span> prin procedeul Gram–Schmidt) și fie <span class="math inline">\(\mathbf Y = A\mathbf X = (Y_1,\ldots,Y_n)^{\intercal}\)</span>.</p>
+<p><strong>Repartiția lui <span class="math inline">\(\mathbf Y\)</span>.</strong> Din (P1), <span class="math inline">\(\mathbf Y \sim \mathcal N_n\left(A(\mu\mathbf 1), \sigma^2 AA^{\intercal}\right) = \mathcal N_n\left(\mu A\mathbf 1, \sigma^2 I_n\right)\)</span>, întrucât <span class="math inline">\(A\)</span> este ortogonală (<span class="math inline">\(AA^{\intercal}=I_n\)</span>). Pentru prima componentă a lui <span class="math inline">\(A\mathbf{1}\)</span>, <span class="math inline">\(\left(A\mathbf 1\right)_1 = a_1\cdot\mathbf 1 = \frac{1}{\sqrt n}\mathbf 1^\intercal\mathbf 1 = \sqrt{n}\)</span>; pentru <span class="math inline">\(j\geq 2\)</span>, cum liniile <span class="math inline">\(a_j\)</span> sunt ortogonale pe <span class="math inline">\(a_1\parallel\mathbf 1\)</span>, avem <span class="math inline">\(\left(A\mathbf{1}\right)_j = a_j\cdot\mathbf 1 = 0\)</span>. Deci <span class="math inline">\(\mathbf Y\sim\mathcal N_n\left(\left(\mu\sqrt n, 0,\ldots,0\right)^{\intercal}, \sigma^2 I_n\right)\)</span>, adică</p>
+<p><span class="math display">\[
+Y_1\sim\mathcal N\left(\mu\sqrt n,\sigma^2\right), \qquad Y_2,\ldots,Y_n \overset{iid}{\sim}\mathcal N\left(0,\sigma^2\right),
+\]</span></p>
+<p>iar cum matricea de covarianță <span class="math inline">\(\sigma^2 I_n\)</span> este diagonală (componentele lui <span class="math inline">\(\mathbf Y\)</span> sunt necorelate două câte două), din (P2) rezultă că <span class="math inline">\(Y_1,\ldots,Y_n\)</span> sunt <em>independente</em>.</p>
+<p><strong>a) Media eșantionului.</strong> Din definiția lui <span class="math inline">\(A\)</span>, <span class="math inline">\(Y_1 = a_1\cdot\mathbf X = \frac{1}{\sqrt n}\sum_{i=1}^n X_i = \sqrt n\,\bar X_n\)</span>, deci <span class="math inline">\(\bar X_n = Y_1/\sqrt n \sim \mathcal N\left(\mu,\sigma^2/n\right)\)</span>.</p>
+<p><strong>b) Independența lui <span class="math inline">\(\bar X_n\)</span> și <span class="math inline">\(S_n^2\)</span>.</strong> Cum <span class="math inline">\(A\)</span> este ortogonală, ea păstrează norma euclidiană: <span class="math inline">\(\sum_{i=1}^n X_i^2 = \|\mathbf X\|^2 = \|\mathbf Y\|^2 = \sum_{j=1}^n Y_j^2\)</span>. Prin urmare</p>
+<p><span class="math display">\[
+(n-1)S_n^2 = \sum_{i=1}^n\left(X_i-\bar X_n\right)^2 = \sum_{i=1}^n X_i^2 - n\bar X_n^2 = \sum_{j=1}^n Y_j^2 - Y_1^2 = \sum_{j=2}^n Y_j^2.
+\]</span></p>
+<p>Așadar <span class="math inline">\(\bar X_n\)</span> este funcție doar de <span class="math inline">\(Y_1\)</span>, iar <span class="math inline">\(S_n^2\)</span> este funcție doar de <span class="math inline">\(Y_2,\ldots,Y_n\)</span>; cum <span class="math inline">\(Y_1,\ldots,Y_n\)</span> sunt independente, rezultă că <span class="math inline">\(\bar X_n\)</span> și <span class="math inline">\(S_n^2\)</span> sunt independente.</p>
+<p><strong>c) Repartiția lui <span class="math inline">\(S_n^2\)</span>.</strong> Cum <span class="math inline">\(Y_2,\ldots,Y_n\)</span> sunt i.i.d. <span class="math inline">\(\mathcal N(0,\sigma^2)\)</span>, variabilele <span class="math inline">\(Y_j/\sigma\)</span>, <span class="math inline">\(j=2,\ldots,n\)</span>, sunt i.i.d. <span class="math inline">\(\mathcal N(0,1)\)</span>, deci, din <a href="#prp-mr-appA-chisq-p2" class="quarto-xref">Propoziția&nbsp;2</a>,</p>
+<p><span class="math display">\[
+\frac{(n-1)S_n^2}{\sigma^2} = \sum_{j=2}^n \left(\frac{Y_j}{\sigma}\right)^2 \sim \chi^2(n-1). \qquad\blacksquare
+\]</span></p>
+</div>
+<div id="cor-appA-esant-normal-pivot-t" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolarul 1 (Pivotul Student pentru media eșantionului)</strong></span> Fie <span class="math inline">\(X_1,\ldots,X_n\)</span> un eșantion de volum <span class="math inline">\(n\)</span> dintr-o populație <span class="math inline">\(\mathcal N(\mu,\sigma^2)\)</span>. Atunci</p>
+<p><span class="math display">\[
+T = \frac{\sqrt n\left(\bar X_n - \mu\right)}{S_n} \sim t(n-1).
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Demonstrație</em>. </span>Din <a href="#thm-appA-esant-normal" class="quarto-xref">Teorema&nbsp;1</a> a), <span class="math inline">\(U:=\dfrac{\sqrt n(\bar X_n-\mu)}{\sigma}\sim\mathcal N(0,1)\)</span>, iar din <a href="#thm-appA-esant-normal" class="quarto-xref">Teorema&nbsp;1</a> c), <span class="math inline">\(V:=\dfrac{(n-1)S_n^2}{\sigma^2}\sim\chi^2(n-1)\)</span>. Din <a href="#thm-appA-esant-normal" class="quarto-xref">Teorema&nbsp;1</a> b), <span class="math inline">\(U\)</span> și <span class="math inline">\(V\)</span> sunt independente (fiind funcții de <span class="math inline">\(\bar X_n\)</span>, respectiv de <span class="math inline">\(S_n^2\)</span>). Aplicând <a href="#prp-mr-appA-stud-e1" class="quarto-xref">Propoziția&nbsp;4</a> (caracterizarea repartiției Student) perechii independente <span class="math inline">\((U,V)\)</span>,</p>
+<p><span class="math display">\[
+\frac{U}{\sqrt{V/(n-1)}} = \frac{\dfrac{\sqrt n(\bar X_n-\mu)}{\sigma}}{\sqrt{\dfrac{(n-1)S_n^2}{\sigma^2(n-1)}}} = \frac{\dfrac{\sqrt n(\bar X_n-\mu)}{\sigma}}{\dfrac{S_n}{\sigma}} = \frac{\sqrt n\left(\bar X_n-\mu\right)}{S_n} \sim t(n-1). \qquad\blacksquare
+\]</span></p>
+</div>
+<div id="exm-appA-esant-normal-e1" class="theorem example">
+<p><span class="theorem-title"><strong>Examplul 1</strong></span> Ilustrăm prin simulare, pentru o populație <span class="math inline">\(\mathcal N(\mu,\sigma^2)\)</span> cu <span class="math inline">\(\mu=5\)</span>, <span class="math inline">\(\sigma^2=4\)</span> și <span class="math inline">\(n=15\)</span>, cele două afirmații ale <a href="#thm-appA-esant-normal" class="quarto-xref">Teorema&nbsp;1</a>: independența lui <span class="math inline">\(\bar X_n\)</span> și <span class="math inline">\(S_n^2\)</span> (verificată grafic prin absența oricărui tipar într-un nor de puncte <span class="math inline">\((\bar X_n, S_n^2)\)</span>) și faptul că <span class="math inline">\((n-1)S_n^2/\sigma^2\sim\chi^2(n-1)\)</span> (verificată comparând histograma empirică cu densitatea teoretică <span class="math inline">\(\chi^2(n-1)\)</span>).</p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>esantioane <span class="ot">&lt;-</span> <span class="fu">replicate</span>(N, <span class="fu">rnorm</span>(n, <span class="at">mean =</span> mu, <span class="at">sd =</span> <span class="fu">sqrt</span>(sigma2)))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>medii <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(esantioane)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>variante <span class="ot">&lt;-</span> <span class="fu">apply</span>(esantioane, <span class="dv">2</span>, var)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(medii, variante, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> <span class="fu">adjustcolor</span>(myblue, <span class="at">alpha.f =</span> <span class="fl">0.35</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">expression</span>(<span class="fu">bar</span>(X)[n]), <span class="at">ylab =</span> <span class="fu">expression</span>(S[n]<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">main =</span> <span class="fu">paste0</span>(<span class="st">"Corelația empirică: "</span>, <span class="fu">round</span>(<span class="fu">cor</span>(medii, variante), <span class="dv">3</span>)))</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>pivot_chisq <span class="ot">&lt;-</span> (n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> variante <span class="sc">/</span> sigma2</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pivot_chisq, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">30</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"gray80"</span>, <span class="at">border =</span> <span class="st">"white"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">expression</span>((n<span class="dv">-1</span>)<span class="sc">*</span>S[n]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>sigma<span class="sc">^</span><span class="dv">2</span>), <span class="at">ylab =</span> <span class="st">"Densitatea"</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dchisq</span>(x, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> myred, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">TeX</span>(<span class="fu">paste0</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">chi^2("</span>, n<span class="dv">-1</span>, <span class="st">")$"</span>)),</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> myred, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">bty =</span> <span class="st">"n"</span>)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-appA-esant-normal-e1-fig1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-appA-esant-normal-e1-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Appendix_A_files/figure-html/fig-appA-esant-normal-e1-fig1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;7: Stânga: norul de puncte (\bar{X}_n, S_n^2) nu prezintă nicio tendință, ilustrând independența. Dreapta: histograma empirică a lui (n-1)S_n^2/\sigma^2 suprapusă densității \chi^2(n-1)."><img src="Appendix_A_files/figure-html/fig-appA-esant-normal-e1-fig1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-appA-esant-normal-e1-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7: Stânga: norul de puncte <span class="math inline">\((\bar{X}_n, S_n^2)\)</span> nu prezintă nicio tendință, ilustrând independența. Dreapta: histograma empirică a lui <span class="math inline">\((n-1)S_n^2/\sigma^2\)</span> suprapusă densității <span class="math inline">\(\chi^2(n-1)\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<!-- Buton „Înapoi sus”: apare după ce pagina a fost derulată -->
+<button id="curs-to-top" type="button" aria-label="Înapoi la începutul paginii" title="Înapoi sus">
+  <i class="bi bi-arrow-up"></i>
+</button>
+<script>
+(function () {
+  var btn = document.getElementById('curs-to-top');
+  if (!btn) return;
+  var toggle = function () {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  };
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    btn.blur();
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2026, <a href="https://alexamarioarei.github.io/">Alexandru Amărioarei</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Această pagină a fost creată în <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-a48f3a5c7f410fc94a8fd1d60fc997bd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3691bf9d0aeca5065aecbe34e58a2ba3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-85396fc4e9508fdaf20c3ab2d6d9429d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -224,12 +224,12 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../laborator/index.html"><i class="bi bi-grid-3x3-gap" role="img">
 </i> 
- <span class="dropdown-text">Toate seminarele și laboratoarele (note și slide-uri)</span></a>
+ <span class="dropdown-text">Toate seminarele și laboratoarele (fișe, slide-uri, rezolvări)</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li>
-    <a class="dropdown-item" href="../laborator/01-introducere-R.html">
- <span class="dropdown-text">Seminarul 1 — Probabilități, variabile aleatoare și primii pași în R</span></a>
+    <a class="dropdown-item" href="../laborator_nosols/01-introducere-R.html">
+ <span class="dropdown-text">Seminarul 1 — Probabilități, variabile aleatoare și primii pași în R (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -302,7 +302,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Seminare și laboratoare</span></a>
+ <span class="menu-text">Fișe de lucru</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -310,7 +310,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../laborator/01-introducere-R.html" class="sidebar-item-text sidebar-link">
+  <a href="../laborator_nosols/01-introducere-R.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Probabilități, variabile aleatoare și primii pași în R</span></a>
   </div>
 </li>
@@ -344,7 +344,7 @@ window.Quarto = {
 </header>
 
 
-<p>În fiecare săptămână seminarul și laboratorul se țin împreună, iar notele urmează aceeași organizare: pentru fiecare problemă, rezolvarea matematică (marcată <span class="curs-tag curs-tag-sem">Seminar</span>) este urmată de rezolvarea în R (marcată <span class="curs-tag curs-tag-lab">Laborator</span>): calcul exact, enumerare sau simulare. Fiecare notă începe cu un breviar (rezultatele din curs și instrumentele R folosite), fiecare temă se deschide cu un exemplu de lucru, iar la sfârșit sunt exerciții suplimentare rezolvate și o temă (cu răspunsuri). Slide-urile ședinței sunt încorporate la începutul fiecărei note.</p>
+<p>În fiecare săptămână seminarul și laboratorul se țin împreună. Pentru fiecare ședință există două materiale. <b>Fișa de lucru</b> (folosită la seminar) conține breviarul (rezultatele din curs și instrumentele R folosite), exemplele de lucru rezolvate și enunțurile exercițiilor, fiecare cu un marcaj: <span class="curs-tag curs-tag-nivs">La seminar</span> — exercițiile pe care le rezolvați în ședință, <span class="curs-tag curs-tag-nivo">Dacă timpul permite</span> — exerciții de aprofundare, <span class="curs-tag curs-tag-niva">Pentru acasă</span> — restul exercițiilor. Pentru partea de R, fișa dă scheletele de cod, cu locurile de completat marcate cu <code>___</code>; pentru exercițiile care nu se rezolvă la seminar sunt date răspunsurile finale, pentru verificare. <b>Rezolvările complete</b> (rezolvarea matematică, marcată <span class="curs-tag curs-tag-sem">Seminar</span>, urmată de rezolvarea în R, marcată <span class="curs-tag curs-tag-lab">Laborator</span>) sunt publicate ulterior, la două săptămâni. Numerotarea exercițiilor este aceeași în ambele materiale.</p>
 <table class="table table-hover saptamani caption-top">
 <thead>
 <tr class="header">
@@ -357,11 +357,76 @@ window.Quarto = {
 <tr class="odd">
 <td>Seminarul 1</td>
 <td>Probabilități, variabile aleatoare și primii pași în R</td>
-<td><a href="01-introducere-R.html" class="btn btn-outline-primary"><em></em> Note</a><a href="../slides/laborator/seminar01.html" class="btn btn-outline-secondary" target="_blank" rel="noopener"><em></em> Slide-uri</a></td>
+<td><a href="../laborator_nosols/01-introducere-R.html" class="btn btn-outline-primary"><em></em> Fișă de lucru</a><a href="../slides/laborator_nosols/seminar01.html" class="btn btn-outline-secondary" target="_blank" rel="noopener"><em></em> Slide-uri</a><span class="eticheta-in-curand"><em></em> rezolvări în curând</span></td>
+</tr>
+<tr class="in-curand even">
+<td>Seminarul 2</td>
+<td>F.g.m., vectori aleatori, transformări și teoreme limită</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand odd">
+<td>Seminarul 3</td>
+<td>Modele statistice, statistici și selecția din populații finite</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand even">
+<td>Seminarul 4</td>
+<td>Funcția cuantilă, metoda inversă și metoda Monte Carlo</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand odd">
+<td>Seminarul 5</td>
+<td>Metoda respingerii. Simulare prin transformări</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand even">
+<td>Seminarul 6</td>
+<td>Statistică descriptivă. Media, varianța și cuantilele eșantionului</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand odd">
+<td>Seminarul 7</td>
+<td>Eșantionare din populații normale</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand even">
+<td>Seminarul 8</td>
+<td>Statistici de ordine, funcția de repartiție empirică, cuantile empirice. Metoda Delta</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand odd">
+<td>Seminarul 9</td>
+<td>Proprietăți ale estimatorilor. Suficiență. Metoda bootstrap</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand even">
+<td>Seminarul 10</td>
+<td>Metoda momentelor și metoda verosimilității maxime</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand odd">
+<td>Seminarul 11</td>
+<td>Informația lui Fisher, eficiență, normalitate asimptotică</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand even">
+<td>Seminarul 12</td>
+<td>Intervale de încredere: pivot, intervale asimptotice, acoperire</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand odd">
+<td>Seminarul 13</td>
+<td>Intervale de încredere pentru populații normale</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
+</tr>
+<tr class="in-curand even">
+<td>Seminarul 14</td>
+<td>Testarea ipotezelor statistice</td>
+<td><span class="eticheta-in-curand"><em></em> în curând</span></td>
 </tr>
 </tbody>
 </table>
-<p>Materialele sunt adăugate pe parcursul semestrului: săptămânile marcate cu „în curând” au deocamdată doar tema (titlul poate suferi mici modificări).</p>
+<p>Materialele sunt publicate săptămânal, pe parcursul semestrului: cele marcate cu „în curând” nu sunt încă disponibile.</p>
 <p>Convenții comune tuturor notelor: <span class="math inline">\(\bar X_n\)</span> este media eșantionului, <span class="math inline">\(S_n^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar X_n)^2\)</span> varianța eșantionului; cuantilele sunt cuantile <em>inferioare</em>, ca în R (<span class="math inline">\(z_{1-\alpha/2}\)</span>, <span class="math inline">\(t_{n-1,1-\alpha/2}\)</span>, <span class="math inline">\(\chi^2_{n-1,\alpha/2}\)</span>). Fiecare notă este numerotată independent, de la 1 (secțiuni, casete, relații, figuri); o trimitere către altă ședință precizează documentul („Teorema 12 din Cursul 3”, „Seminarul 2”), iar slide-urile folosesc aceeași numerotare ca nota. În paginile notelor, codul R al figurilor se poate afișa cu butonul „Arată codul <code>R</code>”.</p>
 
 
@@ -459,7 +524,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/AlexAmarioarei\.github\.io\/curs-stat-fmi\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

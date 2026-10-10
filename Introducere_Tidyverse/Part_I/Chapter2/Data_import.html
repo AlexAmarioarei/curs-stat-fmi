@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-a48f3a5c7f410fc94a8fd1d60fc997bd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-3691bf9d0aeca5065aecbe34e58a2ba3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-85396fc4e9508fdaf20c3ab2d6d9429d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -177,8 +177,10 @@ window.MathJax = { tex: { macros: {
 <link rel="stylesheet" href="../../../css/site_style.css">
 <meta property="og:title" content="Curs&nbsp;Statistică 2026-2027">
 <meta property="og:description" content="">
-<meta property="og:image" content="../../images/tidy/ImportData.png">
+<meta property="og:image" content="https://AlexAmarioarei.github.io/curs-stat-fmi/Introducere_Tidyverse/images/tidy/ImportData.png">
 <meta property="og:site_name" content="Curs&nbsp;Statistică 2026-2027">
+<meta property="og:image:height" content="892">
+<meta property="og:image:width" content="1743">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -236,12 +238,12 @@ window.MathJax = { tex: { macros: {
         <li>
     <a class="dropdown-item" href="../../../laborator/index.html"><i class="bi bi-grid-3x3-gap" role="img">
 </i> 
- <span class="dropdown-text">Toate seminarele și laboratoarele (note și slide-uri)</span></a>
+ <span class="dropdown-text">Toate seminarele și laboratoarele (fișe, slide-uri, rezolvări)</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li>
-    <a class="dropdown-item" href="../../../laborator/01-introducere-R.html">
- <span class="dropdown-text">Seminarul 1 — Probabilități, variabile aleatoare și primii pași în R</span></a>
+    <a class="dropdown-item" href="../../../laborator_nosols/01-introducere-R.html">
+ <span class="dropdown-text">Seminarul 1 — Probabilități, variabile aleatoare și primii pași în R (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -600,7 +602,7 @@ Figura&nbsp;1: Interfața de importare a datelor din RStudio.
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/AlexAmarioarei\.github\.io\/curs-stat-fmi\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

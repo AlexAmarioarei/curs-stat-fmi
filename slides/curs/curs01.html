@@ -55,7 +55,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-c05e8eb8e32e845135878f87f3b37198.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-19ed73126da18682a80cda67b0b42c24.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -242,7 +242,7 @@ Alexandru Amărioarei
 <li>tipurile de convergență, lema lui Slutsky; demonstrațiile <strong>Legii slabe a numerelor mari</strong> și <strong>Teoremei Limită Centrale</strong>.</li>
 </ul>
 <aside class="notes">
-<p>Singurul curs de recapitulare: drumul de la câmpul de probabilitate la Legea Numerelor Mari și Teorema Limită Centrală. Enunțuri precise și câte un exemplu; demonstrații numai pentru rezultatele pe care se sprijină direct cursul de Statistică. Demonstrațiile complete sunt în notă.</p>
+<p>Singurul curs de recapitulare: drumul de la câmpul de probabilitate la legea numerelor mari și teorema limită centrală. Enunțuri precise și câte un exemplu; demonstrații numai pentru rezultatele pe care se sprijină direct cursul de Statistică. Demonstrațiile complete sunt în notă.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1061,7 +1061,7 @@ f_Y(y)=\frac14\cdot\frac{1}{2\sqrt y}\,\Ind_{(0,1)}(y)+\frac14\cdot\frac{1}{2\sq
 </div>
 </div>
 <aside class="notes">
-<p>Interpretare: valoarea x_i apare cu frecvența relativă aproximativ p_i, deci media aritmetică a valorilor observate este aproximativ Σ x_i p_i, centrul de greutate al repartiției. Consecințele lipsei mediei apar la Legea Numerelor Mari (populația Cauchy).</p>
+<p>Interpretare: valoarea x_i apare cu frecvența relativă aproximativ p_i, deci media aritmetică a valorilor observate este aproximativ Σ x_i p_i, centrul de greutate al repartiției. Consecințele lipsei mediei apar la legea numerelor mari (populația Cauchy).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1074,11 +1074,11 @@ f_Y(y)=\frac14\cdot\frac{1}{2\sqrt y}\,\Ind_{(0,1)}(y)+\frac14\cdot\frac{1}{2\sq
           display:block!important;
       }</style></aside>
 </section>
-<section id="formula-de-transfer.-proprietățile-mediei" class="slide level2 smaller scrollable">
-<h2>Formula de transfer. Proprietățile mediei</h2>
+<section id="formula-de-transport.-proprietățile-mediei" class="slide level2 smaller scrollable">
+<h2>Formula de transport. Proprietățile mediei</h2>
 <div class="curs-box teorema">
 <div class="curs-box-title">
-<span class="curs-box-label">Teorema 22</span> <span class="curs-box-name">(Formula de transfer)</span>
+<span class="curs-box-label">Teorema 22</span> <span class="curs-box-name">(Formula de transport)</span>
 </div>
 <div class="curs-box-body">
 <p>Pentru <span class="math inline">\(g:\R\to\R\)</span> boreliană, <span class="math inline">\(\E[g(X)]=\sum_ig(x_i)p_i\)</span> dacă <span class="math inline">\(X\)</span> este discretă și <span class="math inline">\(\E[g(X)]=\int_{\R}g(x)f_X(x)\dd x\)</span> dacă <span class="math inline">\(X\)</span> este continuă, cu condiția ca seria, respectiv integrala, să conveargă absolut.</p>
@@ -1100,7 +1100,7 @@ f_Y(y)=\frac14\cdot\frac{1}{2\sqrt y}\,\Ind_{(0,1)}(y)+\frac14\cdot\frac{1}{2\sq
 </div>
 <p>Deci <span class="math inline">\(\E\big[\sum_ia_iX_i\big]=\sum_ia_i\E[X_i]\)</span>. Demonstrații: <span class="citation" data-cites="jacod2004 billingsley1995">(<a href="#/bibliografie" role="doc-biblioref" onclick="">Jacod and Protter 2004</a>, cap. 9 și 11; <a href="#/bibliografie" role="doc-biblioref" onclick="">Billingsley 1995, sec. 16</a> și 21)</span>.</p>
 <aside class="notes">
-<p>Formula de transfer: nu avem nevoie de repartiția lui g(X) pentru a-i calcula media; în cazul discret se grupează valorile x_i după valoarea comună g(x_i). Liniaritatea și convergența dominată sunt proprietăți ale integralei Lebesgue; liniaritatea nu cere independență.</p>
+<p>Formula de transport: nu avem nevoie de repartiția lui g(X) pentru a-i calcula media; în cazul discret se grupează valorile x_i după valoarea comună g(x_i). Liniaritatea și convergența dominată sunt proprietăți ale integralei Lebesgue; liniaritatea nu cere independență.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1163,7 +1163,7 @@ f_Y(y)=\frac14\cdot\frac{1}{2\sqrt y}\,\Ind_{(0,1)}(y)+\frac14\cdot\frac{1}{2\sq
 </div>
 </div>
 <aside class="notes">
-<p>Valorile din cele două tabele se obțin din definiție și din formula de transfer; aici sunt calculele tipice. Pentru uniformă: E[X] = (a + b)/2 și E[X²] = (a² + ab + b²)/3; pentru Beta: E[X^k] = B(a + k, b)/B(a, b). Geometrica se tratează cu f.g.m.</p>
+<p>Valorile din cele două tabele se obțin din definiție și din formula de transport; aici sunt calculele tipice. Pentru uniformă: E[X] = (a + b)/2 și E[X²] = (a² + ab + b²)/3; pentru Beta: E[X^k] = B(a + k, b)/B(a, b). Geometrica se tratează cu f.g.m.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1192,7 +1192,7 @@ f_Y(y)=\frac14\cdot\frac{1}{2\sqrt y}\,\Ind_{(0,1)}(y)+\frac14\cdot\frac{1}{2\sq
 <p><em>Demonstrație.</em> (a) Punctual, <span class="math inline">\(Y\ge a\Ind_{\{Y\ge a\}}\)</span> (aici se folosește <span class="math inline">\(Y\ge0\)</span>); din monotonia și liniaritatea mediei, <span class="math inline">\(\E[Y]\ge a\,\E[\Ind_{\{Y\ge a\}}]=a\,\PP(Y\ge a)\)</span>. A doua formă: <span class="math inline">\(\{|X|\ge a\}=\{|X|^p\ge a^p\}\)</span> și aplicăm prima formă variabilei <span class="math inline">\(|X|^p\ge0\)</span> și numărului <span class="math inline">\(a^p&gt;0\)</span>. (b) A doua formă din (a), cu <span class="math inline">\(p=2\)</span> și <span class="math inline">\(a=\varepsilon\)</span>, aplicată variabilei <span class="math inline">\(X-\E X\)</span>.</p>
 <p><strong>Consecințe.</strong> (1) O v.a. <span class="math inline">\(Y\ge0\)</span> cu <span class="math inline">\(\E[Y]=0\)</span> este nulă a.s.: <span class="math inline">\(\PP(Y\ge\frac1k)\le k\,\E[Y]=0\)</span> pentru orice <span class="math inline">\(k\ge1\)</span>, iar <span class="math inline">\(\{Y\ge\frac1k\}\nearrow\{Y&gt;0\}\)</span> (continuitatea probabilității). (2) <span class="math inline">\(\Var(X)=0\)</span> dacă și numai dacă <span class="math inline">\(X\)</span> este constantă a.s. (aplicăm (1) variabilei <span class="math inline">\((X-\E X)^2\)</span>).</p>
 <aside class="notes">
-<p>Momentele controlează probabilitățile valorilor mari (ale „cozilor” repartiției). Inegalitățile sunt valabile pentru orice repartiție și vor fi folosite constant: cu inegalitatea lui Cebîșev vom demonstra Legea slabă a numerelor mari.</p>
+<p>Momentele controlează probabilitățile valorilor mari (ale „cozilor” repartiției). Inegalitățile sunt valabile pentru orice repartiție și vor fi folosite constant: cu inegalitatea lui Cebîșev vom demonstra legea slabă a numerelor mari.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1286,7 +1286,7 @@ f_Y(y)=\frac14\cdot\frac{1}{2\sqrt y}\,\Ind_{(0,1)}(y)+\frac14\cdot\frac{1}{2\sq
 </div>
 </div>
 <ul>
-<li>Media din definiție există întotdeauna (eventual egală cu <span class="math inline">\(+\infty\)</span>), deoarece <span class="math inline">\(e^{tX}&gt;0\)</span>; din formula de transfer, <span class="math inline">\(M_X(t)=\sum_ie^{tx_i}p_i\)</span> în cazul discret și <span class="math inline">\(M_X(t)=\int_{\R}e^{tx}f_X(x)\dd x\)</span> în cazul continuu.</li>
+<li>Media din definiție există întotdeauna (eventual egală cu <span class="math inline">\(+\infty\)</span>), deoarece <span class="math inline">\(e^{tX}&gt;0\)</span>; din formula de transport, <span class="math inline">\(M_X(t)=\sum_ie^{tx_i}p_i\)</span> în cazul discret și <span class="math inline">\(M_X(t)=\int_{\R}e^{tx}f_X(x)\dd x\)</span> în cazul continuu.</li>
 <li>Întotdeauna <span class="math inline">\(M_X(0)=1\)</span>, iar mulțimea <span class="math inline">\(\{t:\ M_X(t)&lt;\infty\}\)</span> este un interval care conține <span class="math inline">\(0\)</span>.</li>
 </ul>
 <div class="curs-box lema">
@@ -1654,12 +1654,12 @@ F_{(X_1,\dots,X_n)}(x_1,\dots,x_n)=F_{X_1}(x_1)\cdots F_{X_n}(x_n)\qquad\text{pe
 </div>
 </div>
 <p>Demonstrația: prima afirmație rezultă direct din definiție, deoarece <span class="math inline">\(\{g_i(X_i)\in B_i\}=\{X_i\in g_i^{-1}(B_i)\}\)</span> și mulțimile <span class="math inline">\(g_i^{-1}(B_i)\)</span> sunt boreliene; afirmația despre blocuri se demonstrează cu teorema <span class="math inline">\(\pi\)</span>–<span class="math inline">\(\lambda\)</span> <span class="citation" data-cites="durrett2019 billingsley1995">(<a href="#/bibliografie" role="doc-biblioref" onclick="">Durrett 2019, sec. 2.1</a>; <a href="#/bibliografie" role="doc-biblioref" onclick="">Billingsley 1995, sec. 20</a>)</span>.</p>
-<p><strong>Formula de transfer pentru vectori</strong> (Teorema 22 se extinde la vectori <span class="citation" data-cites="billingsley1995">(<a href="#/bibliografie" role="doc-biblioref" onclick="">Billingsley 1995, sec. 21</a>)</span>): pentru <span class="math inline">\(g:\R^2\to\R\)</span> boreliană, cu condiția de convergență absolută, <span class="math display">\[
+<p><strong>Formula de transport pentru vectori</strong> (Teorema 22 se extinde la vectori <span class="citation" data-cites="billingsley1995">(<a href="#/bibliografie" role="doc-biblioref" onclick="">Billingsley 1995, sec. 21</a>)</span>): pentru <span class="math inline">\(g:\R^2\to\R\)</span> boreliană, cu condiția de convergență absolută, <span class="math display">\[
 \E[g(X,Y)]=\sum_{x,y}g(x,y)\,p_{(X,Y)}(x,y),\qquad\text{respectiv}\qquad
 \E[g(X,Y)]=\iint_{\R^2}g(x,y)f_{(X,Y)}(x,y)\dd x\dd y .
 \]</span></p>
 <aside class="notes">
-<p>Exemplu de folosire: dacă X și Y sunt independente, atunci e^(tX) și e^(tY) sunt independente, ca funcții de v.a. independente. Formula de transfer pentru vectori se folosește la fel ca în dimensiunea unu: nu avem nevoie de repartiția lui g(X, Y) pentru a-i calcula media.</p>
+<p>Exemplu de folosire: dacă X și Y sunt independente, atunci e^(tX) și e^(tY) sunt independente, ca funcții de v.a. independente. Formula de transport pentru vectori se folosește la fel ca în dimensiunea unu: nu avem nevoie de repartiția lui g(X, Y) pentru a-i calcula media.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2299,7 +2299,7 @@ f_{(U,V)}(u,v)=\big(f(u)f(v)+f(v)f(u)\big)\,\Ind_{\{u&lt;v\}}=2\,f(u)\,f(v)\,\In
 </div>
 </div>
 <ul>
-<li>Convergența în repartiție privește doar repartițiile (nu cere nici măcar același câmp de probabilitate); dacă limita are repartiția <span class="math inline">\(\Norm(0,\sigma^2)\)</span> scriem, prin abuz, <span class="math inline">\(X_n\dto\Norm(0,\sigma^2)\)</span>.</li>
+<li>Convergența în repartiție privește doar repartițiile (nu cere nici măcar același câmp de probabilitate); dacă limita are repartiția <span class="math inline">\(\Norm(0,\sigma^2)\)</span> scriem, prin abuz de notație, <span class="math inline">\(X_n\dto\Norm(0,\sigma^2)\)</span>.</li>
 <li>Restricția la punctele de continuitate este esențială: pentru <span class="math inline">\(X_n=1/n\)</span> și <span class="math inline">\(X=0\)</span>, <span class="math inline">\(F_{X_n}(0)=0\not\to F_X(0)=1\)</span>.</li>
 </ul>
 <aside class="notes">
@@ -2416,12 +2416,12 @@ X_n-a=\frac{1}{\sqrt n}\cdot\sqrt n(X_n-a)\dto0\cdot X=0,
 </section></section>
 <section>
 <section id="legea-numerelor-mari-și-teorema-limită-centrală" class="title-slide slide level1 center">
-<h1>Legea Numerelor Mari și Teorema Limită Centrală</h1>
+<h1>Legea numerelor mari și teorema limită centrală</h1>
 
 </section>
 <section id="legea-slabă-a-numerelor-mari" class="slide level2 smaller">
 <h2>Legea slabă a numerelor mari</h2>
-<p>Fie <span class="math inline">\(X_1,X_2,\dots\)</span> v.a. i.i.d., <span class="math inline">\(S_n=X_1+\dots+X_n\)</span> și <span class="math inline">\(\Xbar=S_n/n\)</span>. Legea Numerelor Mari (LNM) spune <em>unde</em> se concentrează <span class="math inline">\(\Xbar\)</span>, iar Teorema Limită Centrală (TLC) descrie <em>fluctuațiile</em> lui <span class="math inline">\(\Xbar\)</span> <span class="citation" data-cites="knight2000">(<a href="#/bibliografie" role="doc-biblioref" onclick="">Knight 2000, secs. 3.3–3.5</a>)</span>.</p>
+<p>Fie <span class="math inline">\(X_1,X_2,\dots\)</span> v.a. i.i.d., <span class="math inline">\(S_n=X_1+\dots+X_n\)</span> și <span class="math inline">\(\Xbar=S_n/n\)</span>. Legea numerelor mari (LNM) spune <em>unde</em> se concentrează <span class="math inline">\(\Xbar\)</span>, iar teorema limită centrală (TLC) descrie <em>fluctuațiile</em> lui <span class="math inline">\(\Xbar\)</span> <span class="citation" data-cites="knight2000">(<a href="#/bibliografie" role="doc-biblioref" onclick="">Knight 2000, secs. 3.3–3.5</a>)</span>.</p>
 <div class="curs-box teorema">
 <div class="curs-box-title">
 <span class="curs-box-label">Teorema 60</span> <span class="curs-box-name">(Legea slabă a numerelor mari)</span>
@@ -2470,7 +2470,7 @@ X_n-a=\frac{1}{\sqrt n}\cdot\sqrt n(X_n-a)\dto0\cdot X=0,
 </div>
 <p>Traiectorii <span class="math inline">\(n\mapsto\bar x_n\)</span>: 30 pentru populația <span class="math inline">\(\Unif(0,1)\)</span>, cu banda <span class="math inline">\(\mu\pm0.02\)</span>; 5 pentru populația Cauchy (fără medie).</p>
 <aside class="notes">
-<p>Stabilizarea frecvențelor este o teoremă a modelului axiomatic. Traiectoriile uniforme intră și rămân în banda μ ± ε; cele Cauchy nu se stabilizează, pentru că repartiția Cauchy nu are medie: Legea Numerelor Mari nu se aplică.</p>
+<p>Stabilizarea frecvențelor este o teoremă a modelului axiomatic. Traiectoriile uniforme intră și rămân în banda μ ± ε; cele Cauchy nu se stabilizează, pentru că repartiția Cauchy nu are medie: legea numerelor mari nu se aplică.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2505,7 +2505,7 @@ X_n-a=\frac{1}{\sqrt n}\cdot\sqrt n(X_n-a)\dto0\cdot X=0,
 </div>
 <p>Demonstrația: admisă <span class="citation" data-cites="billingsley1995 casella2002">(<a href="#/bibliografie" role="doc-biblioref" onclick="">Billingsley 1995, sec. 25</a> și 30; <a href="#/bibliografie" role="doc-biblioref" onclick="">Casella and Berger 2002, sec. 2.3</a>)</span>.</p>
 <aside class="notes">
-<p>Demonstrația teoremei lui Curtiss depășește cadrul cursului. Legea numerelor mari spune că X̄ − μ tinde la 0; întrebarea este la ce viteză. Teorema lui Curtiss transformă o problemă de convergență în repartiție într-un calcul de limită pentru f.g.m.</p>
+<p>Demonstrația teoremei lui Curtiss depășește cadrul cursului. Legea numerelor mari spune că X̄ − μ tinde la 0; întrebarea este cu ce viteză. Teorema lui Curtiss transformă o problemă de convergență în repartiție într-un calcul de limită pentru f.g.m.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2519,10 +2519,10 @@ X_n-a=\frac{1}{\sqrt n}\cdot\sqrt n(X_n-a)\dto0\cdot X=0,
       }</style></aside>
 </section>
 <section id="teorema-limită-centrală" class="slide level2 smaller">
-<h2>Teorema Limită Centrală</h2>
+<h2>Teorema limită centrală</h2>
 <div class="curs-box teorema">
 <div class="curs-box-title">
-<span class="curs-box-label">Teorema 64</span> <span class="curs-box-name">(Teorema Limită Centrală)</span>
+<span class="curs-box-label">Teorema 64</span> <span class="curs-box-name">(Teorema limită centrală)</span>
 </div>
 <div class="curs-box-body">
 <p>Fie <span class="math inline">\((X_n)_{n\ge1}\)</span> v.a. i.i.d. cu media <span class="math inline">\(\mu\)</span> și varianța <span class="math inline">\(\sigma^2\in(0,\infty)\)</span>. Atunci <span class="math display">\[
@@ -2537,7 +2537,7 @@ Z_n:=\frac{S_n-n\mu}{\sigma\sqrt n}=\sqrt n\,\frac{\Xbar-\mu}{\sigma}\dto\Norm(0
 <li>În practică: <span class="math inline">\(S_n\approx\Norm(n\mu,n\sigma^2)\)</span> și <span class="math inline">\(\Xbar\approx\Norm(\mu,\sigma^2/n)\)</span> pentru <span class="math inline">\(n\)</span> „suficient de mare”.</li>
 </ul>
 <aside class="notes">
-<p>Legea Numerelor Mari spune unde se concentrează media de selecție; Teorema Limită Centrală spune cum arată fluctuațiile ei la scara 1/√n.&nbsp;Aproape toate intervalele de încredere și testele asimptotice din curs se sprijină pe această teoremă.</p>
+<p>Legea numerelor mari spune unde se concentrează media de selecție; teorema limită centrală spune cum arată fluctuațiile ei la scara 1/√n.&nbsp;Aproape toate intervalele de încredere și testele asimptotice din curs se sprijină pe această teoremă.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2551,7 +2551,7 @@ Z_n:=\frac{S_n-n\mu}{\sigma\sqrt n}=\sqrt n\,\frac{\Xbar-\mu}{\sigma}\dto\Norm(0
       }</style></aside>
 </section>
 <section id="teorema-limită-centrală-demonstrație" class="slide level2 smaller">
-<h2>Teorema Limită Centrală: demonstrație</h2>
+<h2>Teorema limită centrală: demonstrație</h2>
 <p><em>Pasul 1 (standardizarea).</em> Fie <span class="math inline">\(Y_i=(X_i-\mu)/\sigma\)</span>: i.i.d. (Propoziția 39), cu <span class="math inline">\(\E[Y_i]=0\)</span> și <span class="math inline">\(\E[Y_i^2]=1\)</span>, iar <span class="math inline">\(Z_n=\frac1{\sqrt n}\sum_{i=1}^nY_i\)</span>. Prin ipoteză, <span class="math inline">\(M_X(t)&lt;\infty\)</span> pentru <span class="math inline">\(|t|&lt;h\)</span>; din Lema 31 (cu <span class="math inline">\(a=-\mu/\sigma\)</span>, <span class="math inline">\(b=1/\sigma\)</span>), <span class="math inline">\(M_Y(s)=e^{-\mu s/\sigma}M_X(s/\sigma)&lt;\infty\)</span> pentru <span class="math inline">\(|s|&lt;h':=\sigma h\)</span>.</p>
 <p><em>Pasul 2 (dezvoltarea Taylor a lui <span class="math inline">\(M_Y\)</span>).</em> Din Teorema 32, <span class="math inline">\(M_Y\)</span> este indefinit derivabilă pe <span class="math inline">\((-h',h')\)</span>, cu <span class="math inline">\(M_Y(0)=1\)</span>, <span class="math inline">\(M_Y'(0)=\E[Y_1]=0\)</span> și <span class="math inline">\(M_Y''(0)=\E[Y_1^2]=1\)</span>. Formula lui Taylor de ordin doi în <span class="math inline">\(0\)</span>, cu restul în forma Peano: <span class="math display">\[
 M_Y(u)=M_Y(0)+M_Y'(0)\,u+\frac{M_Y''(0)}{2}\,u^2+r(u)=1+\frac{u^2}{2}+r(u),\qquad \frac{r(u)}{u^2}\xrightarrow[u\to0]{}0 .
@@ -2574,7 +2574,7 @@ M_{Z_n}(s)=\Big[M_Y\Big(\frac{s}{\sqrt n}\Big)\Big]^n=\Big(1+\frac{s^2}{2n}+r\Bi
       }</style></aside>
 </section>
 <section id="teorema-limită-centrală-demonstrație-continuare" class="slide level2 smaller">
-<h2>Teorema Limită Centrală: demonstrație (continuare)</h2>
+<h2>Teorema limită centrală: demonstrație (continuare)</h2>
 <p><em>Pasul 4 (limita).</em> Scriem <span class="math inline">\(n\,r(s/\sqrt n)=s^2\cdot\frac{r(s/\sqrt n)}{(s/\sqrt n)^2}\)</span>. Cum <span class="math inline">\(s/\sqrt n\to0\)</span>, din Pasul 2 raportul tinde la <span class="math inline">\(0\)</span>, deci <span class="math inline">\(a_n\to s^2/2\)</span>, iar Lema 62 dă <span class="math inline">\(M_{Z_n}(s)\to e^{s^2/2}\)</span> pentru orice <span class="math inline">\(0&lt;|s|&lt;h'\)</span>; pentru <span class="math inline">\(s=0\)</span> ambii membri sunt egali cu <span class="math inline">\(1\)</span>.</p>
 <p><em>Pasul 5 (concluzia).</em> Limita <span class="math inline">\(e^{s^2/2}\)</span> este f.g.m. a repartiției <span class="math inline">\(\Norm(0,1)\)</span> (Exemplul 22), iar toate funcțiile <span class="math inline">\(M_{Z_n}\)</span> sunt finite pe <span class="math inline">\((-h',h')\)</span>; din Teorema 63, <span class="math inline">\(Z_n\dto Z\sim\Norm(0,1)\)</span>. Funcția <span class="math inline">\(\Phi\)</span> fiind continuă, <span class="math inline">\(\PP(Z_n\le x)\to\Phi(x)\)</span> pentru orice <span class="math inline">\(x\in\R\)</span>. În fine, <span class="math inline">\(\PP\big(\sqrt n(\Xbar-\mu)\le x\big)=\PP(Z_n\le x/\sigma)\to\Phi(x/\sigma)\)</span>, funcția de repartiție a lui <span class="math inline">\(\sigma Z\sim\Norm(0,\sigma^2)\)</span>.</p>
 <div class="cell" data-layout-align="center">
@@ -2654,7 +2654,7 @@ T_n=\frac{\sqrt n(\Xbar-\mu)}{S_n}\dto\Norm(0,1).
 </div>
 </div>
 <aside class="notes">
-<p>Exemplul combină tot ce am construit: legea tare, teorema aplicațiilor continue, Teorema Limită Centrală și lema lui Slutsky. Este prototipul tuturor rezultatelor asimptotice din statistică: înlocuim σ necunoscut cu S_n fără a schimba repartiția limită.</p>
+<p>Exemplul combină tot ce am construit: legea tare, teorema aplicațiilor continue, teorema limită centrală și lema lui Slutsky. Este prototipul tuturor rezultatelor asimptotice din statistică: înlocuim σ necunoscut cu S_n fără a schimba repartiția limită.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2781,7 +2781,7 @@ T_n=\frac{\sqrt n(\Xbar-\mu)}{S_n}\dto\Norm(0,1).
 <li>Cursul 5: repartițiile <span class="math inline">\(\chi^2\)</span>, Student și Fisher; acestea, ca și repartițiile statisticilor de ordine (Cursul 6), se obțin cu transformările de vectori aleatori din acest curs (formula schimbării de variabilă).</li>
 <li>Teoremele limită și lema lui Slutsky vor fi folosite în toate demonstrațiile asimptotice (de la Cursul 6 la Cursul 16).</li>
 </ul>
-<p><strong>Pentru data viitoare:</strong> recitiți din notă demonstrațiile prezentate azi numai prin pașii lor principali (transformările monotone, proprietățile covarianței, f.g.m. a sumei, formula de convoluție, Teorema Limită Centrală) și rezolvați al doilea exercițiu.</p>
+<p><strong>Pentru data viitoare:</strong> recitiți din notă demonstrațiile prezentate azi numai prin pașii lor principali (transformările monotone, proprietățile covarianței, f.g.m. a sumei, formula de convoluție, teorema limită centrală) și rezolvați al doilea exercițiu.</p>
 <aside class="notes">
 <p>Cursul 2 introduce cadrul formal al statisticii: model statistic, eșantion, statistică. Indicați studenților ce demonstrații să citească din notă până data viitoare.</p>
 <style type="text/css">
@@ -3190,7 +3190,7 @@ Vaart, Aad W. van der. 1998. <em>Asymptotic Statistics</em>. Cambridge Universit
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/AlexAmarioarei\.github\.io\/curs-stat-fmi\/");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

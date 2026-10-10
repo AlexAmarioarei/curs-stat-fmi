@@ -177,3 +177,15 @@ table.saptamani tr.in-curand td:nth-child(2) { font-style: italic; }
   padding: .12em .6em;
   white-space: nowrap;
 }
+
+/* Butonul „Rezolvări” din tabelul seminarelor: roșul site-ului (rama teoremelor; urmează paleta activă) */
+.btn.btn-rezolvari {
+  color: var(--curs-thmframe);
+  border-color: var(--curs-thmframe);
+  background: transparent;
+}
+.btn.btn-rezolvari:hover, .btn.btn-rezolvari:focus {
+  color: #fff;
+  background: var(--curs-thmframe);
+  border-color: var(--curs-thmframe);
+}

@@ -89,6 +89,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../laborator_nosols/02-probabilitati-R.html" rel="next">
 <link href="../images/stat_sticker.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -272,6 +273,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../curs/01-recapitulare-probabilitati.html">
  <span class="dropdown-text">Cursul 1 — Noțiuni fundamentale de probabilități (recapitulare)</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../curs/02-statistica-inferentiala.html">
+ <span class="dropdown-text">Cursul 2 — Introducere în statistica inferențială</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -290,6 +295,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../laborator_nosols/01-introducere-R.html">
  <span class="dropdown-text">Seminarul 1 — Probabilități, variabile aleatoare și primii pași în R (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../laborator_nosols/02-probabilitati-R.html">
+ <span class="dropdown-text">Seminarul 2 — F.g.m., vectori aleatori, transformări și teoreme limită (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -374,6 +383,12 @@ window.Quarto = {
  <span class="menu-text">1. Probabilități, variabile aleatoare și primii pași în R</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../laborator_nosols/02-probabilitati-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. F.g.m., vectori aleatori, transformări și teoreme limită</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -445,7 +460,7 @@ window.Quarto = {
 Planul seminarului și laboratorului
 </div>
 <div class="curs-box-body">
-<p>Statistica pe care o vom construi în acest semestru folosește la fiecare pas limbajul probabilităților: un eșantion este un vector de variabile aleatoare, o statistică este o variabilă aleatoare, iar proprietățile unui estimator sau ale unui test sunt proprietăți ale repartiției lui. Primele două ședințe reiau, prin exerciții rezolvate complet, noțiunile din <a href="..\curs\01-recapitulare-probabilitati.html" class="curs-ref">Cursul 1</a>: aceasta tratează câmpul de probabilitate, probabilitățile condiționate și variabilele aleatoare singure (repartiție, medie, varianță, transformări), iar Seminarul 2 funcția generatoare de momente, vectorii aleatori și teoremele limită. În paralel facem cunoștință cu limbajul R: fiecare exercițiu are o rezolvare matematică (<em>Seminar</em>) și una în R (<em>Laborator</em>), prin calcul numeric și prin simulare. Codul din rezolvări poate fi copiat și rulat ca atare, iar rezultatele afișate sunt cele obținute cu instrucțiunile din notă.</p>
+<p>Statistica pe care o vom construi în acest semestru folosește la fiecare pas limbajul probabilităților: un eșantion este un vector de variabile aleatoare, o statistică este o variabilă aleatoare, iar proprietățile unui estimator sau ale unui test sunt proprietăți ale repartiției lui. Primele două ședințe reiau, prin exerciții rezolvate complet, noțiunile din <a href="..\curs\01-recapitulare-probabilitati.html" class="curs-ref">Cursul 1</a>: aceasta tratează câmpul de probabilitate, probabilitățile condiționate și variabilele aleatoare singure (repartiție, medie, varianță, transformări), iar <a href="02-probabilitati-R.html" class="curs-ref">Seminarul 2</a> funcția generatoare de momente, vectorii aleatori și teoremele limită. În paralel facem cunoștință cu limbajul R: fiecare exercițiu are o rezolvare matematică (<em>Seminar</em>) și una în R (<em>Laborator</em>), prin calcul numeric și prin simulare. Codul din rezolvări poate fi copiat și rulat ca atare, iar rezultatele afișate sunt cele obținute cu instrucțiunile din notă.</p>
 <p><strong>Obiective.</strong> La sfârșitul ședinței studentul trebuie să poată:</p>
 <ol type="1">
 <li>modela un experiment printr-un câmp de probabilitate și calcula probabilități cu formula probabilității totale, formula lui Bayes și independența;</li>
@@ -623,7 +638,7 @@ Instrumente R folosite azi
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; simulare 0.5178 0.4943</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; exact    0.5177 0.4914</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Funcția <code>any</code> întoarce <code>TRUE</code> dacă cel puțin un element al vectorului logic este <code>TRUE</code>, iar <code>rbind</code> așază rezultatele pe linii, pentru comparație. Cele două probabilități diferă cu doar <span class="math inline">\(0.026\)</span>, dar <span class="math inline">\(10^5\)</span> repetări sunt suficiente pentru a le distinge: eroarea tipică a unei frecvențe relative calculate din <span class="math inline">\(m\)</span> repetări independente este <span class="math inline">\(\sqrt{p(1-p)/m}\approx0.0016\)</span> (vom justifica formula în Seminarul 2).</p>
+<p>Funcția <code>any</code> întoarce <code>TRUE</code> dacă cel puțin un element al vectorului logic este <code>TRUE</code>, iar <code>rbind</code> așază rezultatele pe linii, pentru comparație. Cele două probabilități diferă cu doar <span class="math inline">\(0.026\)</span>, dar <span class="math inline">\(10^5\)</span> repetări sunt suficiente pentru a le distinge: eroarea tipică a unei frecvențe relative calculate din <span class="math inline">\(m\)</span> repetări independente este <span class="math inline">\(\sqrt{p(1-p)/m}\approx0.0016\)</span> (vom justifica formula în <a href="02-probabilitati-R.html" class="curs-ref">Seminarul 2</a>).</p>
 <p><strong>Bucle și condiții.</strong> <code>for (k in v) {...}</code> repetă un bloc de instrucțiuni pentru fiecare element al vectorului <code>v</code>, iar <code>while (conditie) {...}</code> îl repetă cât timp condiția este adevărată — potrivit când nu știm dinainte numărul de pași; <code>if (conditie) {...} else {...}</code> execută condiționat (aici condiția este un <em>singur</em> <code>TRUE</code> sau <code>FALSE</code>; varianta vectorizată este <code>ifelse</code>). Buclele explicite sunt mult mai lente decât operațiile vectorizate, deci le folosim numai când pașii depind unul de altul. Exemplu: aruncăm un zar până la primul <span class="math inline">\(6\)</span>; numărul <span class="math inline">\(X\)</span> de aruncări are repartiția <span class="math inline">\(\Geom(1/6)\)</span>, cu <span class="math inline">\(\E[X]=6\)</span> (Secțiunea <a href="..\curs\01-recapitulare-probabilitati.html#sec-k01-tabel" class="curs-ref">4.3 din Cursul 1</a>) și <span class="math inline">\(\PP(X\le3)=1-(5/6)^3\approx0.4213\)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pana_la_6 <span class="ot">&lt;-</span> <span class="cf">function</span>() {            <span class="co"># numărul de aruncări până la primul 6</span></span>
@@ -1751,6 +1766,15 @@ Verzani, John. 2014. <em>Using <span>R</span> for Introductory Statistics</em>. 
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../laborator_nosols/02-probabilitati-R.html" class="pagination-link" aria-label="2. F.g.m., vectori aleatori, transformări și teoreme limită">
+        <span class="nav-page-text">2. F.g.m., vectori aleatori, transformări și teoreme limită</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

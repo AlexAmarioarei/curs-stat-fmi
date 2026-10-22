@@ -255,6 +255,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../../../curs/01-recapitulare-probabilitati.html">
  <span class="dropdown-text">Cursul 1 — Noțiuni fundamentale de probabilități (recapitulare)</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../curs/02-statistica-inferentiala.html">
+ <span class="dropdown-text">Cursul 2 — Introducere în statistica inferențială</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -273,6 +277,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../../../laborator_nosols/01-introducere-R.html">
  <span class="dropdown-text">Seminarul 1 — Probabilități, variabile aleatoare și primii pași în R (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../laborator_nosols/02-probabilitati-R.html">
+ <span class="dropdown-text">Seminarul 2 — F.g.m., vectori aleatori, transformări și teoreme limită (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -627,7 +635,7 @@ Tabelul&nbsp;2: Principalele scale.
 <p>Ca exemplu, vom folosi setul de date <code>gapminder_2018</code> și folosind <code>scale_x_continuous</code> vom modifica numele axei x, poziția markerilor de separare (<em>breaks</em>) principali și secundari (<em>minor_breaks</em>):</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;1: Exemplu de utilizare a scale_x_continuous()."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -642,7 +650,7 @@ Figura&nbsp;1: Exemplu de utilizare a <code>scale_x_continuous()</code>.
 <p>Este posibil să dorim de asemenea schimbarea numelui legendei ce corespunde variabilei <code>pop</code> (populației) din <em>pop</em> în <em>Populația</em>, să afișăm mărimile 1e7, 5e7, 1e8, 2e8, 5e8, 1e9 (<em>breaks</em>) și să schimbăm intervalul de valori (minim-maxim) pentru mărimea simbolului (<em>range</em>):</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;2: Exemplu de utilizare a scalelor scale_x_continuous() și scale_size()."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -657,7 +665,7 @@ Figura&nbsp;2: Exemplu de utilizare a scalelor <code>scale_x_continuous()</code>
 <p>În plus, putem să adăugăm funcții ca argument al parametrilor <code>breaks</code> și <code>labels</code>, în primul caz funcția returnând un vector de valori numerice care să corespundă elementelor de marcaj iar în cazul etichetelor va primi ca date de intrare un vector numeric de elemente de marcaj și va returna un vector de etichete. De exemplu, pentru a adăuga simbolul <code>$</code> în dreptul valorilor produsului intern brut vom folosi funcții din pachetul <code>scales</code> precum <code>dollar_format()</code> iar pentru a modifica axa y vom crea propria funcție:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;3: Exemplu de utilizare a scalelor scale_x_continuous() și scale_y_continuous() și a argumentelor breaks și labels."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -721,7 +729,7 @@ Tabelul&nbsp;3: Parametrii scalei de poziție <code>scale_x_continuous</code>.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;4: Exemplu de utilizare a scalei scale_x_continuous() împreună cu parametrul limits."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -737,7 +745,7 @@ Figura&nbsp;4: Exemplu de utilizare a scalei <code>scale_x_continuous()</code> �
 <p>Pachetul <code>ggplot2</code> pune la dispoziție și o serie de scale care permit modificarea axelor, de exemplu, prin inversarea valorilor (i.e.&nbsp;<code>scale_x_reverse</code>) sau prin transformarea acestora într-o scală logaritmică (folosind <code>scale_x_log10</code> sau <code>scale_x_continuous(trans = "log10")</code>) ori printr-o altă funcție (i.e.&nbsp;<code>scale_x_sqrt</code> sau <code>scale_x_continuous(trans = "sqrt")</code>). Pentru mai multe transformări se poate consulta documentația funcției <code>scale_x_continuous</code> la argumentul <code>trans</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;5: Exemplu de utilizare a scalelor scale_x_reverse(), scale_x_log10() și scale_x_sqrt()."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -841,7 +849,7 @@ Tabelul&nbsp;4: Ilustrarea etichetelor în format <code>strptime()</code>.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig6" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig6" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;6: Exemplu de utilizare a scalei scale_x_date()."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -859,7 +867,7 @@ Figura&nbsp;6: Exemplu de utilizare a scalei <code>scale_x_date()</code>.
 <p>O altă clasă de scale des folosite sunt cele care corespund esteticii de culoare (<code>colour</code> - culoarea marginală/exterioară și respectiv <code>fill</code> - culoarea de umplere). Pachetul <code>ggplot2</code> pune la dispoziție mai multe tipuri de scale diferențiate după cum variabilele de scalare sunt continue sau discrete. Spațiul culorilor din <code>ggplot2</code> este de tip HCL (<em>hue</em>, <em>chroma</em> și <em>luminance</em>), pentru mai multe detalii se poate consulta <a href="http://www.handprint.com/HP/WCL/color7.html" class="uri">http://www.handprint.com/HP/WCL/color7.html</a>, dar se pot folosi si palete de culoare de tip Brewer (pentru explorarea acestora se poate vizita <a href="https://colorbrewer2.org/" class="uri">https://colorbrewer2.org/</a>). Acestea din urmă pot fi clasificate în trei categorii: secvențiale, divergente și calitative unde primele două categorii corespund variabilelor continue iar cea de-a treia corespunde variabilelor cu valori discrete.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig7" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig7" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;7: Exemplu de palete de culori."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -944,7 +952,7 @@ Tabelul&nbsp;5: Scale de culori ce folosesc gradiente de culoare.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig8" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig8" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figura&nbsp;8: Ilustrarea scalelor de culori cu gradient."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -976,7 +984,7 @@ Figura&nbsp;8: Ilustrarea scalelor de culori cu gradient.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig9" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig9" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figura&nbsp;9: Ilustrarea scalelor de culori pentru variabile discrete."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -1021,7 +1029,7 @@ Figura&nbsp;9: Ilustrarea scalelor de culori pentru variabile discrete.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig10" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig10" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figura&nbsp;10: Exemplu de utilizare a scalei de culori scale_color_brewer() pentru patru palete diferite."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -1036,7 +1044,7 @@ Figura&nbsp;10: Exemplu de utilizare a scalei de culori <code>scale_color_brewer
 <p>Funcția <code>scale_[estetică culoare]_manual()</code> este folosită în special atunci când dorim să folosim propria paletă de culori. De exemplu, să presupunem că dorim să colorăm statele de pe fiecare continent cu o culoare corespunzătoare</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig11" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig11" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figura&nbsp;11: Exemplu de culori pentru utilizarea scalei manuale."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -1056,7 +1064,7 @@ Figura&nbsp;11: Exemplu de culori pentru utilizarea scalei manuale.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c5-fig12" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c5-fig12" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c5-fig12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Scales_files/figure-html/fig-ggplot-p2-c5-fig12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figura&nbsp;12: Exemplu de utilizare a scalei scale_colour_manual()."><img src="Scales_files/figure-html/fig-ggplot-p2-c5-fig12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>

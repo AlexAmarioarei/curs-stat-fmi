@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Seminarul 2. F.g.m., vectori aleatori, transformări și teoreme limită – Curs&nbsp;Statistică 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../laborator_nosols/01-introducere-R.html" rel="prev">
+<link href="../images/stat_sticker.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a48f3a5c7f410fc94a8fd1d60fc997bd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-85396fc4e9508fdaf20c3ab2d6d9429d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Niciun rezultat",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Trimite",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<!-- Fonturi: Fira Sans (titluri, casete), Fira Mono (cod); textul folosește Palatino / TeX Gyre Pagella -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&amp;family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<script>
+window.MathJax = { tex: { macros: {
+  PP: "\\mathbb{P}",
+  E: "\\mathbb{E}",
+  Var: "\\operatorname{Var}",
+  Cov: "\\operatorname{Cov}",
+  Corr: "\\operatorname{Corr}",
+  MSE: "\\operatorname{EPM}",
+  Bias: "\\operatorname{Dep}",
+  sgn: "\\operatorname{sgn}",
+  argmax: "\\operatorname*{arg\\,max}",
+  argmin: "\\operatorname*{arg\\,min}",
+  R: "\\mathbb{R}",
+  N: "\\mathbb{N}",
+  Z: "\\mathbb{Z}",
+  Q: "\\mathbb{Q}",
+  F: "\\mathcal{F}",
+  A: "\\mathcal{A}",
+  B: "\\mathcal{B}",
+  Ind: "\\mathbf{1}",
+  dd: "\\,\\mathrm{d}",
+  eqd: "\\overset{d}{=}",
+  iid: "\\text{i.i.d.}",
+  asto: "\\xrightarrow{\\text{a.s.}}",
+  pto: "\\xrightarrow{\\;\\PP\\;}",
+  dto: "\\xrightarrow{\\;d\\;}",
+  Lto: "\\xrightarrow{L^2}",
+  indep: "\\perp\\!\\!\\!\\perp",
+  Bern: "\\mathrm{Bernoulli}",
+  Bin: "\\mathrm{Bin}",
+  HGeom: "\\mathrm{HGeom}",
+  Geom: "\\mathrm{Geom}",
+  NBin: "\\mathrm{NBin}",
+  Pois: "\\mathrm{Pois}",
+  Unif: "\\mathcal{U}",
+  Exp: "\\mathrm{Exp}",
+  Norm: "\\mathcal{N}",
+  GammaD: "\\mathrm{Gamma}",
+  BetaD: "\\mathrm{Beta}",
+  Cauchy: "\\mathrm{Cauchy}",
+  Multin: "\\mathrm{Mult}",
+  chisq: ["\\chi^2_{#1}", 1],
+  Stud: ["t_{#1}", 1],
+  Fish: ["F_{#1,#2}", 2],
+  bx: "\\mathbf{x}",
+  bX: "\\mathbf{X}",
+  bbeta: "\\boldsymbol{\\beta}",
+  hth: "\\hat{\\theta}",
+  Xbar: "\\bar{X}_n",
+  xbar: "\\bar{x}_n"
+},
+  inlineMath: [['$', '$'], ['\\(', '\\)']], processEscapes: true, tags: 'none' },
+  chtml: { scale: 1.0 } };
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../css/site_style.css">
+<meta property="og:title" content="Seminarul 2. F.g.m., vectori aleatori, transformări și teoreme limită – Curs&nbsp;Statistică 2026-2027">
+<meta property="og:description" content="Fișă de lucru (fără rezolvări)">
+<meta property="og:image" content="https://AlexAmarioarei.github.io/curs-stat-fmi/laborator_nosols/02-probabilitati-R_files/figure-html/unnamed-chunk-6-1.png">
+<meta property="og:site_name" content="Curs&nbsp;Statistică 2026-2027">
+<meta property="og:image:height" content="302">
+<meta property="og:image:width" content="864">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/stat_sticker.png" alt="" class="navbar-logo light-content">
+    <img src="../images/stat_sticker.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Curs&nbsp;Statistică 2026-2027</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> <i class="bi bi-info-circle" role="img">
+</i> 
+<span class="menu-text">Informații generale</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-note-de-curs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-journal-text" role="img">
+</i> 
+ <span class="menu-text">Note de curs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-note-de-curs">    
+        <li>
+    <a class="dropdown-item" href="../curs/index.html"><i class="bi bi-grid-3x3-gap" role="img">
+</i> 
+ <span class="dropdown-text">Toate cursurile (note și slide-uri)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../curs/01-recapitulare-probabilitati.html">
+ <span class="dropdown-text">Cursul 1 — Noțiuni fundamentale de probabilități (recapitulare)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../curs/02-statistica-inferentiala.html">
+ <span class="dropdown-text">Cursul 2 — Introducere în statistica inferențială</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-note-de-laborator" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Note de laborator</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-note-de-laborator">    
+        <li>
+    <a class="dropdown-item" href="../laborator/index.html"><i class="bi bi-grid-3x3-gap" role="img">
+</i> 
+ <span class="dropdown-text">Toate seminarele și laboratoarele (fișe, slide-uri, rezolvări)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../laborator_nosols/01-introducere-R.html">
+ <span class="dropdown-text">Seminarul 1 — Probabilități, variabile aleatoare și primii pași în R (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../laborator_nosols/02-probabilitati-R.html">
+ <span class="dropdown-text">Seminarul 2 — F.g.m., vectori aleatori, transformări și teoreme limită (fișă de lucru)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-proiect-de-laborator" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-gear" role="img">
+</i> 
+ <span class="menu-text">Proiect de laborator</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-proiect-de-laborator">    
+        <li>
+    <a class="dropdown-item" href="../proiect/proiect_gol.html"><i class="bi bi-gear" role="img">
+</i> 
+ <span class="dropdown-text">Proiect</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../Introducere_R/index.html"> <i class="bi bi-book" role="img">
+</i> 
+<span class="menu-text">Introducere în R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Introducere_Tidyverse/index.html"> <i class="bi bi-book" role="img">
+</i> 
+<span class="menu-text">Introducere în Tidyverse</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact/contact.html"> <i class="bi bi-pin-map" role="img">
+</i> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../laborator_nosols/01-introducere-R.html">Fișe de lucru</a></li><li class="breadcrumb-item"><a href="../laborator_nosols/02-probabilitati-R.html">2. F.g.m., vectori aleatori, transformări și teoreme limită</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../laborator/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Note de seminar și laborator</strong></span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fișe de lucru</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../laborator_nosols/01-introducere-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Probabilități, variabile aleatoare și primii pași în R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../laborator_nosols/02-probabilitati-R.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2. F.g.m., vectori aleatori, transformări și teoreme limită</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Pe această pagină</h2>
+   
+  <ul>
+  <li><a href="#sec-s02-breviar" id="toc-sec-s02-breviar" class="nav-link active" data-scroll-target="#sec-s02-breviar"><span class="header-section-number">1</span> Breviar</a></li>
+  <li><a href="#sec-s02-fgm" id="toc-sec-s02-fgm" class="nav-link" data-scroll-target="#sec-s02-fgm"><span class="header-section-number">2</span> F.g.m.: calcul, momente, recunoașterea repartițiilor</a></li>
+  <li><a href="#sec-s02-vectori" id="toc-sec-s02-vectori" class="nav-link" data-scroll-target="#sec-s02-vectori"><span class="header-section-number">3</span> Vectori aleatori: marginale, independență, covarianță</a></li>
+  <li><a href="#sec-s02-transf-vect" id="toc-sec-s02-transf-vect" class="nav-link" data-scroll-target="#sec-s02-transf-vect"><span class="header-section-number">4</span> Transformări de vectori aleatori</a></li>
+  <li><a href="#sec-s02-lnm-tlc" id="toc-sec-s02-lnm-tlc" class="nav-link" data-scroll-target="#sec-s02-lnm-tlc"><span class="header-section-number">5</span> LNM, TLC, aproximări și lema lui Slutsky</a></li>
+  <li><a href="#sec-s02-suplimentare" id="toc-sec-s02-suplimentare" class="nav-link" data-scroll-target="#sec-s02-suplimentare"><span class="header-section-number">6</span> Exerciții suplimentare</a></li>
+  <li><a href="#sec-s02-tema" id="toc-sec-s02-tema" class="nav-link" data-scroll-target="#sec-s02-tema"><span class="header-section-number">7</span> Temă</a></li>
+  <li><a href="#bibliografie" id="toc-bibliografie" class="nav-link" data-scroll-target="#bibliografie">Bibliografie</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../laborator_nosols/01-introducere-R.html">Fișe de lucru</a></li><li class="breadcrumb-item"><a href="../laborator_nosols/02-probabilitati-R.html">2. F.g.m., vectori aleatori, transformări și teoreme limită</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Seminarul 2. F.g.m., vectori aleatori, transformări și teoreme limită</h1>
+<p class="subtitle lead">Fișă de lucru (fără rezolvări)</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<details class="slides-embed" open="">
+<summary><i class="bi bi-easel2"></i> Slide-urile ședinței 2</summary>
+<div class="slides-embed-bar">
+  <a class="btn btn-sm btn-primary" href="../slides/laborator_nosols/seminar02.html" target="_blank" rel="noopener"><i class="bi bi-arrows-fullscreen"></i> Deschide slide-urile pe tot ecranul</a>
+  <span class="slides-embed-hint">În prezentare: <kbd>←</kbd> <kbd>→</kbd> navigare, <kbd>F</kbd> ecran complet, <kbd>M</kbd> meniu, <kbd>O</kbd> privire de ansamblu.</span>
+</div>
+<div class="slides-embed-frame">
+  <iframe src="../slides/laborator_nosols/seminar02.html" loading="lazy" allowfullscreen="" title="Slide-urile ședinței 2"></iframe>
+</div>
+</details>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Aceasta este <strong>fișa de lucru</strong>: enunțurile, exemplele rezolvate, scheletele de cod R și răspunsurile finale pentru exercițiile marcate „Dacă timpul permite” și „Pentru acasă”. Rezolvările complete vor fi publicate ulterior.</p>
+</div>
+</div>
+</div>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Planul seminarului și laboratorului
+</div>
+<div class="curs-box-body">
+<p>Statisticile cu care vom lucra tot semestrul — suma și media unui eșantion, minimul și maximul, rapoarte de tip „semnal/zgomot” — sunt funcții ale unui vector aleator, iar comportarea lor pentru eșantioane mari este descrisă de legea numerelor mari (LNM) și de teorema limită centrală (TLC). Ședința exersează instrumentele din partea a doua a <a href="..\curs\01-recapitulare-probabilitati.html" class="curs-ref">Cursul 1</a> cu care se obțin repartițiile acestor statistici: funcția generatoare de momente (f.g.m.), repartițiile comune și marginale, formulele de transformare a vectorilor aleatori și teoremele limită. Fiecare exercițiu are o rezolvare matematică (<em>Seminar</em>) și una în R (<em>Laborator</em>): calculul „pe hârtie” dă formula, iar R o verifică numeric sau prin simulare și arată cât de bune sunt aproximările.</p>
+<p><strong>Obiective.</strong> La sfârșitul ședinței studentul trebuie să poată:</p>
+<ol type="1">
+<li>calcula f.g.m. a unei repartiții și a unei sume de variabile independente, deduce din ea momentele și recunoaște o repartiție după f.g.m.;</li>
+<li>determina repartițiile marginale ale unui vector aleator, decide dacă componentele sunt independente și calcula covarianțe și coeficienți de corelație;</li>
+<li>determina repartiția unei funcții a unui vector aleator — prin convoluție, cu metoda funcției de repartiție, cu formulele pentru maxim și minim sau cu formula schimbării de variabilă (cu o variabilă auxiliară) — și citi din densitatea comună dacă noile variabile sunt independente;</li>
+<li>aplica inegalitatea lui Cebîșev, LNM, TLC, teorema aplicațiilor continue și lema lui Slutsky, verificând ipotezele, și face calcule aproximative cu și fără corecție de continuitate;</li>
+<li>simula în R vectori aleatori și funcții ale lor, estima probabilități, covarianțe și corelații, verifica o densitate obținută printr-o transformare (<code>integrate</code>, <code>ecdf</code>, histogramă) și ilustra prin simulare LNM și TLC.</li>
+</ol>
+<p><strong>Structura.</strong> Breviar; f.g.m.: calcul, momente, recunoașterea repartițiilor; vectori aleatori: marginale, independență, covarianță; transformări de vectori aleatori; LNM, TLC, aproximări și lema lui Slutsky; exerciții suplimentare; temă. Pentru aprofundare: <span class="citation" data-cites="casella2002">(<a href="#ref-casella2002" role="doc-biblioref">Casella and Berger 2002</a>, cap. 4–5)</span>, <span class="citation" data-cites="hogg2019">(<a href="#ref-hogg2019" role="doc-biblioref">Hogg et al. 2019</a>, cap. 2 și 5)</span>, <span class="citation" data-cites="knight2000">(<a href="#ref-knight2000" role="doc-biblioref">Knight 2000</a>, cap. 2–3)</span>.</p>
+</div>
+</div>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Planul ședinței
+</div>
+<div class="curs-box-body">
+<p><strong>De rezolvat la seminar</strong> (în această ordine):</p>
+<ul>
+<li>Exercițiul <a href="#box-exr-s02-fgm-calcul" class="curs-ref">1</a> (b)–(d) — f.g.m.: momente și recunoașterea repartițiilor;</li>
+<li>Exercițiul <a href="#box-exr-s02-vector-exp" class="curs-ref">3</a> — un vector aleator: marginale, independență, covarianță, simulare;</li>
+<li>Exercițiul <a href="#box-exr-s02-tv-fractiune" class="curs-ref">6</a> (a), (b), (d) — schimbarea de variabilă cu o variabilă auxiliară;</li>
+<li>Exercițiul <a href="#box-exr-s02-sondaj" class="curs-ref">9</a> — volumul unui sondaj: Cebîșev, TLC și lema lui Slutsky.</li>
+</ul>
+<p><strong>Dacă timpul permite:</strong></p>
+<ul>
+<li>Exercițiul <a href="#box-exr-s02-laplace" class="curs-ref">2</a> — f.g.m. a unei sume și o convergență în repartiție;</li>
+<li>Exercițiul <a href="#box-exr-s02-tv-semnal" class="curs-ref">5</a> — o convoluție și un raport;</li>
+<li>Exercițiul <a href="#box-exr-s02-aprox-normala" class="curs-ref">8</a> — aproximarea normală și corecția de continuitate.</li>
+</ul>
+<p><strong>Pentru acasă:</strong></p>
+<ul>
+<li>Exercițiile <a href="#box-exr-s02-subtiere" class="curs-ref">4</a> (subțierea Poisson), <a href="#box-exr-s02-tv-colt" class="curs-ref">7</a> (distanța la un colț) și <a href="#box-exr-s02-lnm-tlc-sim" class="curs-ref">10</a> (LNM și TLC prin simulare);</li>
+<li>exercițiile suplimentare <a href="#box-exr-s02-covarianta" class="curs-ref">11</a>, <a href="#box-exr-s02-tv-sosiri" class="curs-ref">12</a> și <a href="#box-exr-s02-L-serii" class="curs-ref">13</a> (Secțiunea <a href="#sec-s02-suplimentare" class="curs-ref">6</a>);</li>
+<li>enunțurile din Secțiunea <a href="#sec-s02-tema" class="curs-ref">7</a>.</li>
+</ul>
+<p>Rezolvările complete vor fi publicate ulterior; scheletele de cod R se completează în locurile marcate cu <code>___</code>. Exercițiile marcate „Dacă timpul permite” și „Pentru acasă” au, după enunț, răspunsurile finale, pentru verificare.</p>
+</div>
+</div>
+<section id="sec-s02-breviar" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Breviar</h1>
+<p>Folosim rezultatele din partea a doua a <a href="..\curs\01-recapitulare-probabilitati.html" class="curs-ref">Cursul 1</a> (f.g.m., vectori aleatori, convergențe, LNM și TLC), rezumate în caseta următoare; în soluții indicăm la fiecare pas rezultatul aplicat. Peste tot, <span class="math inline">\(X_1,X_2,\dots\)</span> sunt variabile aleatoare (v.a.) definite pe același câmp de probabilitate, <span class="math inline">\(S_n=X_1+\dots+X_n\)</span>, <span class="math inline">\(\Xbar=S_n/n\)</span>, <span class="math inline">\(\Phi\)</span> este funcția de repartiție a repartiției <span class="math inline">\(\Norm(0,1)\)</span>, iar <span class="math inline">\(z_p=\Phi^{-1}(p)\)</span> este cuantila ei de ordin <span class="math inline">\(p\)</span>: <span class="math inline">\(z_{0.95}\approx1.645\)</span>, <span class="math inline">\(z_{0.975}\approx1.96\)</span> (în R, <code>qnorm(p)</code>).</p>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Rezultate din curs folosite azi
+</div>
+<div class="curs-box-body">
+<ul>
+<li><p><strong>F.g.m.</strong> (Definiția <a href="..\curs\01-recapitulare-probabilitati.html#box-def-k01-fgm" class="curs-ref">30 din Cursul 1</a>): <span class="math inline">\(M_X(t)=\E[e^{tX}]\)</span>; <span class="math inline">\(X\)</span> <em>admite f.g.m.</em> dacă <span class="math inline">\(M_X&lt;\infty\)</span> pe un interval <span class="math inline">\((-h,h)\)</span>, <span class="math inline">\(h&gt;0\)</span>. Atunci <span class="math inline">\(\E[X^k]=M_X^{(k)}(0)\)</span> și <span class="math inline">\(M_X(t)=\sum_{k\ge0}\E[X^k]\,t^k/k!\)</span> pentru <span class="math inline">\(|t|&lt;h\)</span> (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-fgm-momente" class="curs-ref">32 din Cursul 1</a>), iar f.g.m. <strong>determină repartiția</strong> (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-fgm-unicitate" class="curs-ref">33 din Cursul 1</a>). <span class="math inline">\(M_{a+bX}(t)=e^{at}M_X(bt)\)</span> (Lema <a href="..\curs\01-recapitulare-probabilitati.html#box-lem-k01-fgm-afina" class="curs-ref">31 din Cursul 1</a>); pentru <span class="math inline">\(X_1,\dots,X_n\)</span> independente, <span class="math inline">\(M_{X_1+\dots+X_n}=\prod_iM_{X_i}\)</span>, iar pentru i.i.d., <span class="math inline">\(M_{S_n}=M^n\)</span> (Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-fgm-suma" class="curs-ref">46 din Cursul 1</a>). F.g.m. uzuale (Exemplele <a href="..\curs\01-recapitulare-probabilitati.html#box-ex-k01-fgm-calcul" class="curs-ref">21 din Cursul 1</a> și <a href="..\curs\01-recapitulare-probabilitati.html#box-ex-k01-fgm-normala" class="curs-ref">22 din Cursul 1</a>), cu <span class="math inline">\(q=1-p\)</span>:</p>
+<p><span class="math display">\[
+\begin{array}{lllll}
+\Geom(p): &amp; \dfrac{pe^t}{1-qe^t},\ \ t&lt;-\ln q; &amp;\quad&amp; \Pois(\lambda): &amp; e^{\lambda(e^t-1)},\ \ t\in\R;\\[3mm]
+\GammaD(\alpha,\lambda): &amp; \Big(\dfrac{\lambda}{\lambda-t}\Big)^{\alpha},\ \ t&lt;\lambda; &amp;&amp; \Norm(\mu,\sigma^2): &amp; e^{\mu t+\sigma^2t^2/2},\ \ t\in\R,
+\end{array}
+\]</span> iar <span class="math inline">\(\Exp(\lambda)=\GammaD(1,\lambda)\)</span>.</p></li>
+<li><p><strong>Vectori aleatori.</strong> Marginalele: <span class="math inline">\(f_X(x)=\int_{\R}f_{(X,Y)}(x,y)\dd y\)</span>, respectiv <span class="math inline">\(p_X(x)=\sum_yp_{(X,Y)}(x,y)\)</span> (Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-marginale" class="curs-ref">36 din Cursul 1</a>). <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> sunt independente dacă <span class="math inline">\(F_{(X,Y)}(x,y)=F_X(x)F_Y(y)\)</span> pentru orice <span class="math inline">\((x,y)\)</span> (Definiția <a href="..\curs\01-recapitulare-probabilitati.html#box-def-k01-indep-va" class="curs-ref">37 din Cursul 1</a>); echivalent, dacă masa sau densitatea comună este produsul marginalelor; dacă densitatea comună este un produs <span class="math inline">\(a(u)\,b(v)\)</span> <strong>pe tot spațiul</strong>, atunci <span class="math inline">\(U\)</span> și <span class="math inline">\(V\)</span> sunt independente, cu densitățile proporționale cu <span class="math inline">\(a\)</span> și <span class="math inline">\(b\)</span> (Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-factorizare" class="curs-ref">38 din Cursul 1</a>). Funcții de blocuri disjuncte de v.a. independente sunt independente (Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-functii-indep" class="curs-ref">39 din Cursul 1</a>), iar pentru <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> independente, <span class="math inline">\(\E[g(X)h(Y)]=\E[g(X)]\,\E[h(Y)]\)</span> (Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-medie-produs" class="curs-ref">40 din Cursul 1</a>).</p></li>
+<li><p><strong>Covarianța</strong> (Definiția <a href="..\curs\01-recapitulare-probabilitati.html#box-def-k01-cov" class="curs-ref">41 din Cursul 1</a>, Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-cov-prop" class="curs-ref">42 din Cursul 1</a>): <span class="math inline">\(\Cov(X,Y)=\E[XY]-\E X\,\E Y\)</span> este biliniară; <span class="math inline">\(\Var(\sum_iX_i)=\sum_i\Var X_i+2\sum_{i&lt;j}\Cov(X_i,X_j)\)</span>; independența implică necorelarea (nu și invers); <span class="math inline">\(|\rho(X,Y)|\le1\)</span>. Pentru v.a. i.i.d. cu media <span class="math inline">\(\mu\)</span> și varianța <span class="math inline">\(\sigma^2\)</span>: <span class="math inline">\(\E[\Xbar]=\mu\)</span>, <span class="math inline">\(\Var(\Xbar)=\sigma^2/n\)</span> (Corolarul <a href="..\curs\01-recapitulare-probabilitati.html#box-cor-k01-medie-esantion" class="curs-ref">43 din Cursul 1</a>).</p></li>
+<li><p><strong>Transformări de vectori aleatori</strong> (Secțiunea <a href="..\curs\01-recapitulare-probabilitati.html#sec-k01-transf-vect" class="curs-ref">7.5 din Cursul 1</a>). <em>Metoda funcției de repartiție</em>: <span class="math inline">\(F_{g(X,Y)}(z)=\iint_{\{g(x,y)\le z\}}f_{(X,Y)}(x,y)\dd x\dd y\)</span>; dacă <span class="math inline">\(F\)</span> este continuă și de clasă <span class="math inline">\(C^1\)</span> pe porțiuni, densitatea este <span class="math inline">\(F'\)</span> (Lema <a href="..\curs\01-recapitulare-probabilitati.html#box-lem-k01-fr-densitate" class="curs-ref">16 din Cursul 1</a>). Pentru <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> <strong>independente</strong>, cu densități (Propozițiile <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-operatii-dens" class="curs-ref">50 din Cursul 1</a> și <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-max-min" class="curs-ref">51 din Cursul 1</a>): <span class="math display">\[
+\begin{aligned}
+f_{X+Y}(z)&amp;=\int_{\R}f_X(x)\,f_Y(z-x)\dd x, &amp;\qquad f_{X/Y}(z)&amp;=\int_{\R}|y|\,f_X(zy)\,f_Y(y)\dd y,\\
+F_{\max(X,Y)}&amp;=F_XF_Y, &amp; 1-F_{\min(X,Y)}&amp;=(1-F_X)(1-F_Y).
+\end{aligned}
+\]</span> <em>Schimbarea de variabilă</em> (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-transf-vect" class="curs-ref">52 din Cursul 1</a>): dacă <span class="math inline">\(\PP(X\in S)=1\)</span> și <span class="math inline">\(h:S\to\R^d\)</span> este injectivă, de clasă <span class="math inline">\(C^1\)</span>, cu <span class="math inline">\(J_h\ne0\)</span> pe mulțimea deschisă <span class="math inline">\(S\)</span>, atunci <span class="math inline">\(Y=h(X)\)</span> are densitatea <span class="math inline">\(f_Y(y)=f_X\big(h^{-1}(y)\big)\,|J_{h^{-1}}(y)|\,\Ind_{h(S)}(y)\)</span>. Pentru o singură funcție <span class="math inline">\(U=g_1(X,Y)\)</span> adăugăm o <em>variabilă auxiliară</em> <span class="math inline">\(V=g_2(X,Y)\)</span>, calculăm <span class="math inline">\(f_{(U,V)}\)</span> și integrăm în <span class="math inline">\(v\)</span>.</p></li>
+<li><p><strong>Convergențe</strong> (Definiția <a href="..\curs\01-recapitulare-probabilitati.html#box-def-k01-conv" class="curs-ref">55 din Cursul 1</a>, Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-relatii" class="curs-ref">56 din Cursul 1</a>): <span class="math inline">\(\asto\ \Rightarrow\ \pto\ \Rightarrow\ \dto\)</span>, iar <span class="math inline">\(X_n\dto c\)</span> (constantă) <span class="math inline">\(\Rightarrow X_n\pto c\)</span>. <em>Aplicații continue</em> (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-tac" class="curs-ref">57 din Cursul 1</a>): dacă <span class="math inline">\(g\)</span> este continuă în afara unei mulțimi <span class="math inline">\(D_g\)</span> cu <span class="math inline">\(\PP(X\in D_g)=0\)</span>, atunci <span class="math inline">\(g(X_n)\to g(X)\)</span> în același sens în care <span class="math inline">\(X_n\to X\)</span>. <em>Slutsky</em> (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-slutsky" class="curs-ref">58 din Cursul 1</a>): dacă <span class="math inline">\(X_n\dto X\)</span> și <span class="math inline">\(Y_n\pto c\)</span> (<strong>constantă</strong>), atunci <span class="math inline">\(X_n+Y_n\dto X+c\)</span> și <span class="math inline">\(Y_nX_n\dto cX\)</span>.</p></li>
+<li><p><strong>Cebîșev, LNM, TLC.</strong> <span class="math inline">\(\PP(|X-\E X|\ge\varepsilon)\le\Var(X)/\varepsilon^2\)</span> (Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-markov" class="curs-ref">26(b) din Cursul 1</a>). Pentru <span class="math inline">\(X_i\)</span> i.i.d. cu media <span class="math inline">\(\mu\)</span> și varianța <span class="math inline">\(\sigma^2\)</span>: <span class="math inline">\(\PP(|\Xbar-\mu|\ge\varepsilon)\le\sigma^2/(n\varepsilon^2)\)</span>, deci <span class="math inline">\(\Xbar\pto\mu\)</span> (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-lnm-slaba" class="curs-ref">60 din Cursul 1</a>); dacă doar <span class="math inline">\(\E|X_1|&lt;\infty\)</span>, <span class="math inline">\(\Xbar\asto\mu\)</span> (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-lnm-tare" class="curs-ref">61 din Cursul 1</a>). Dacă <span class="math inline">\(\sigma^2\in(0,\infty)\)</span>, <span class="math inline">\(\sqrt n(\Xbar-\mu)/\sigma\dto\Norm(0,1)\)</span> (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-tlc" class="curs-ref">64 din Cursul 1</a>), deci <span class="math inline">\(S_n\approx\Norm(n\mu,n\sigma^2)\)</span> și <span class="math inline">\(\Xbar\approx\Norm(\mu,\sigma^2/n)\)</span>. Pentru <span class="math inline">\(S_n\sim\Bin(n,p)\)</span> (Corolarul <a href="..\curs\01-recapitulare-probabilitati.html#box-cor-k01-moivre-laplace" class="curs-ref">65 din Cursul 1</a>) și <span class="math inline">\(k\)</span> întreg, <strong>corecția de continuitate</strong>: <span class="math inline">\(\PP(S_n\le k)\approx\Phi\big((k+0.5-np)/\sqrt{np(1-p)}\big)\)</span>.</p></li>
+<li><p><strong>Curtiss</strong> (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-curtiss" class="curs-ref">63 din Cursul 1</a>): dacă <span class="math inline">\(M_{X_n}(t)\to M_X(t)&lt;\infty\)</span> pentru orice <span class="math inline">\(t\in(-h,h)\)</span>, atunci <span class="math inline">\(X_n\dto X\)</span>; limita se obține de obicei din <span class="math inline">\((1+a_n/n)^n\to e^a\)</span> pentru <span class="math inline">\(a_n\to a\)</span> (Lema <a href="..\curs\01-recapitulare-probabilitati.html#box-lem-k01-lema-exp" class="curs-ref">62 din Cursul 1</a>).</p></li>
+</ul>
+</div>
+</div>
+<p>În R folosim instrumentele din <a href="01-introducere-R.html" class="curs-ref">Seminarul 1</a> (vectori, funcții proprii, <code>mean(conditie)</code>, funcțiile <code>d</code>/<code>p</code>/<code>q</code>/<code>r</code> ale repartițiilor). Caseta următoare le reamintește pe cele de care avem nevoie azi și le adaugă pe cele noi: matricele de realizări ale unui vector aleator, cu <code>colMeans</code>, <code>cov</code> și <code>cor</code>, și mediile cumulate.</p>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Instrumente R folosite azi
+</div>
+<div class="curs-box-body">
+<ul>
+<li><strong>Parametrizări-capcană.</strong> <code>geom</code> și <code>nbinom</code> numără <strong>eșecurile</strong>: pentru <span class="math inline">\(X\sim\Geom(p)\)</span>, <span class="math inline">\(\PP(X=k)\)</span> este <code>dgeom(k - 1, p)</code>, iar <code>rgeom(n, p) + 1</code> generează valori ale lui <span class="math inline">\(X\)</span>; pentru <span class="math inline">\(\NBin(r,p)\)</span>, <code>dnbinom(k - r, r, p)</code>. <code>exp</code> și <code>gamma</code> folosesc <strong>rata</strong>: <code>rexp(n, rate)</code>, <code>pgamma(x, shape, rate)</code>; <code>norm</code> folosește <strong>abaterea standard</strong>: <code>pnorm(x, mean, sd)</code>.</li>
+<li><code>replicate(B, expr)</code> — repetă de <code>B</code> ori o simulare; <code>matrix(v, nrow = B)</code> împreună cu <code>rowMeans</code>, <code>colSums</code> — <code>B</code> eșantioane așezate pe linii (sau pe coloane) și mediile (sumele) lor, fără bucle.</li>
+<li><code>cbind(X = x, Y = y)</code> — realizările unui vector aleator, câte una pe linie; <code>colMeans</code>, <code>cov</code>, <code>cor</code> — mediile, matricea de covarianță și matricea de corelație empirice.</li>
+<li><code>integrate(f, a, b)$value</code> — integrala numerică a funcției (vectorizate) <code>f</code>; limitele pot fi <code>-Inf</code>, <code>Inf</code>. O densitate corectă are integrala <span class="math inline">\(1\)</span>.</li>
+<li><code>uniroot(h, c(a, b))$root</code> — o soluție a ecuației <span class="math inline">\(h(x)=0\)</span> în <span class="math inline">\([a,b]\)</span> (<span class="math inline">\(h(a)\)</span> și <span class="math inline">\(h(b)\)</span> de semne contrare); o folosim pentru mediane și cuantile.</li>
+<li><code>ecdf(x)</code> — funcția de repartiție empirică a valorilor <code>x</code>: <code>ecdf(x)(q)</code> este proporția valorilor mai mici sau egale cu <code>q</code>.</li>
+<li><code>pmin(x, y)</code>, <code>pmax(x, y)</code> — minimul și maximul <strong>pe componente</strong> (<code>min</code> și <code>max</code> întorc un singur număr); <code>ifelse(cond, a, b)</code> — funcții definite pe ramuri; <code>cumsum(x) / (1:n)</code> — mediile cumulate <span class="math inline">\(\bar x_1,\dots,\bar x_n\)</span> ale unui șir.</li>
+<li><code>hist(x, freq = FALSE)</code>, apoi <code>curve(f(x), add = TRUE)</code> — histograma normalizată (de arie <span class="math inline">\(1\)</span>) și densitatea teoretică, pe același grafic.</li>
+</ul>
+</div>
+</div>
+<p>Toate verificările prin simulare se sprijină pe LNM: frecvența relativă a unui eveniment în <span class="math inline">\(B\)</span> repetări independente aproximează probabilitatea lui <span class="math inline">\(p\)</span>, cu o eroare de ordinul <span class="math inline">\(\sqrt{p(1-p)/B}\le\frac{1}{2\sqrt B}\)</span> (din TLC), adică cel mult <span class="math inline">\(0.0016\)</span> pentru <span class="math inline">\(B=10^5\)</span>. Două valori care diferă cu mai puțin de două–trei astfel de erori „concordă”.</p>
+</section>
+<section id="sec-s02-fgm" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> F.g.m.: calcul, momente, recunoașterea repartițiilor</h1>
+<p>F.g.m. este instrumentul cu care, în cursurile următoare, vom obține repartițiile exacte ale statisticilor (suma unui eșantion Bernoulli, Poisson, exponențial, normal). Primul exercițiu exersează cele trei utilizări ale ei: calculul efectiv (o serie sau o integrală), obținerea momentelor și recunoașterea unei repartiții. Al doilea arată cum se demonstrează o convergență în repartiție calculând exact f.g.m. a unei sume și trecând la limită — schema demonstrației TLC din <a href="..\curs\01-recapitulare-probabilitati.html" class="curs-ref">Cursul 1</a>.</p>
+<p>Începem cu un exemplu rezolvat, mai simplu decât exercițiile, care arată gesturile de bază: scrierea f.g.m. ca sumă sau ca integrală, stabilirea mulțimii pe care ea este finită, obținerea momentelor prin derivare în <span class="math inline">\(t=0\)</span> și recunoașterea unei repartiții după f.g.m.</p>
+<div id="box-ex-s02-ex-fgm" class="curs-box exemplu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exemplul 1</span> <span class="curs-box-name">(F.g.m. a unei variabile cu trei valori și a unei exponențiale translatate)</span>
+</div>
+<div class="curs-box-body">
+<p><strong>(a) O variabilă discretă.</strong> Fie <span class="math inline">\(X\)</span> cu <span class="math inline">\(\PP(X=-1)=0.3\)</span>, <span class="math inline">\(\PP(X=0)=0.5\)</span> și <span class="math inline">\(\PP(X=2)=0.2\)</span>. Din formula de transport (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-transfer" class="curs-ref">22 din Cursul 1</a>), în cazul discret <span class="math inline">\(M_X(t)=\E[e^{tX}]=\sum_ie^{tx_i}\,\PP(X=x_i)\)</span>. Suma are trei termeni, deci este finită pentru orice <span class="math inline">\(t\)</span>: <span class="math display">\[
+M_X(t)=0.3\,e^{-t}+0.5\,e^{0\cdot t}+0.2\,e^{2t}=0.5+0.3\,e^{-t}+0.2\,e^{2t},\qquad t\in\R .
+\]</span> <em>Momentele</em> se obțin derivând în <span class="math inline">\(t=0\)</span> (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-fgm-momente" class="curs-ref">32 din Cursul 1</a>); fiecare derivare „coboară” din exponent valoarea <span class="math inline">\(x_i\)</span>: <span class="math display">\[
+M_X'(t)=-0.3\,e^{-t}+0.4\,e^{2t},\qquad M_X''(t)=0.3\,e^{-t}+0.8\,e^{2t},
+\]</span> deci <span class="raspuns"><span class="math inline">\(\E[X]=M_X'(0)=-0.3+0.4=0.1\)</span>, <span class="math inline">\(\E[X^2]=M_X''(0)=0.3+0.8=1.1\)</span> și <span class="math inline">\(\Var(X)=1.1-0.1^2=1.09\)</span></span>. <em>Verificare directă:</em> <span class="math inline">\(\E[X]=(-1)\cdot0.3+0\cdot0.5+2\cdot0.2=0.1\)</span> și <span class="math inline">\(\E[X^2]=1\cdot0.3+0+4\cdot0.2=1.1\)</span>. <em>Citirea inversă:</em> dacă ni se dă f.g.m. <span class="math inline">\(0.5+0.3\,e^{-t}+0.2\,e^{2t}\)</span>, recunoaștem repartiția: numerele <span class="math inline">\(-1,0,2\)</span> care înmulțesc pe <span class="math inline">\(t\)</span> în exponenți sunt valorile, iar coeficienții <span class="math inline">\(0.3,0.5,0.2\)</span> sunt probabilitățile lor; din Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-fgm-unicitate" class="curs-ref">33 din Cursul 1</a>, nicio altă repartiție nu are această f.g.m.</p>
+<p><strong>(b) O variabilă continuă.</strong> Un timp de așteptare <span class="math inline">\(T\)</span> nu poate fi mai mic decât <span class="math inline">\(1\)</span> și are densitatea <span class="math inline">\(f(x)=e^{-(x-1)}\)</span> pentru <span class="math inline">\(x&gt;1\)</span> (și <span class="math inline">\(f(x)=0\)</span> în rest). În cazul continuu, <span class="math inline">\(M_T(t)=\int_{\R}e^{tx}f(x)\dd x\)</span>; integrala este improprie, deci trebuie stabilit <strong>pentru ce valori ale lui <span class="math inline">\(t\)</span> este finită</strong>. Grupăm exponențialele, <span class="math inline">\(e^{tx}e^{-(x-1)}=e\cdot e^{-(1-t)x}\)</span>, și integrăm: <span class="math display">\[
+M_T(t)=e\int_1^\infty e^{-(1-t)x}\dd x=e\,\Big[-\frac{e^{-(1-t)x}}{1-t}\Big]_{x=1}^{x\to\infty}=e\cdot\frac{e^{-(1-t)}}{1-t}=\frac{e^{t}}{1-t},\qquad t&lt;1 .
+\]</span> Pentru <span class="math inline">\(t&lt;1\)</span> exponentul <span class="math inline">\(-(1-t)x\)</span> tinde la <span class="math inline">\(-\infty\)</span> când <span class="math inline">\(x\to\infty\)</span>, deci termenul de la <span class="math inline">\(\infty\)</span> este nul; pentru <span class="math inline">\(t\ge1\)</span> integrandul <span class="math inline">\(e\cdot e^{(t-1)x}\)</span> este cel puțin <span class="math inline">\(e\)</span> pe tot intervalul <span class="math inline">\((1,\infty)\)</span> și <span class="math inline">\(M_T(t)=\infty\)</span>. Mulțimea pe care f.g.m. este finită, <span class="math inline">\((-\infty,1)\)</span>, conține intervalul <span class="math inline">\((-1,1)\)</span>: <span class="math inline">\(T\)</span> admite f.g.m. Derivăm produsul <span class="math inline">\(e^t\cdot(1-t)^{-1}\)</span>: <span class="math display">\[
+M_T'(t)=\frac{e^t}{1-t}+\frac{e^t}{(1-t)^2},\qquad M_T''(t)=\frac{e^t}{1-t}+\frac{2e^t}{(1-t)^2}+\frac{2e^t}{(1-t)^3},
+\]</span> deci <span class="raspuns"><span class="math inline">\(\E[T]=M_T'(0)=1+1=2\)</span>, <span class="math inline">\(\E[T^2]=M_T''(0)=1+2+2=5\)</span> și <span class="math inline">\(\Var(T)=5-2^2=1\)</span></span>.</p>
+<p><em>Recunoașterea.</em> Factorul <span class="math inline">\(\frac1{1-t}\)</span>, <span class="math inline">\(t&lt;1\)</span>, este f.g.m. a repartiției <span class="math inline">\(\Exp(1)\)</span>, iar înmulțirea cu <span class="math inline">\(e^{t}\)</span> corespunde, în Lema <a href="..\curs\01-recapitulare-probabilitati.html#box-lem-k01-fgm-afina" class="curs-ref">31 din Cursul 1</a>, adunării constantei <span class="math inline">\(1\)</span>: dacă <span class="math inline">\(E\sim\Exp(1)\)</span>, atunci <span class="math inline">\(M_{1+E}(t)=e^{t}M_E(t)=M_T(t)\)</span> pentru <span class="math inline">\(t&lt;1\)</span>, deci <span class="raspuns"><span class="math inline">\(T\eqd1+E\)</span>, cu <span class="math inline">\(E\sim\Exp(1)\)</span></span> (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-fgm-unicitate" class="curs-ref">33 din Cursul 1</a>). Regăsim <span class="math inline">\(\E[T]=1+\E[E]=2\)</span> și <span class="math inline">\(\Var(T)=\Var(E)=1\)</span>: translația schimbă media, nu și varianța. Un factor <span class="math inline">\(e^{at}\)</span> într-o f.g.m. semnalează întotdeauna o translație cu <span class="math inline">\(a\)</span>.</p>
+</div>
+</div>
+<div id="box-exr-s02-fgm-calcul" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 1</span> <span class="curs-box-name">(F.g.m. a repartițiilor uniformă și binomială negativă)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivs">La seminar</span> (a) Fie <span class="math inline">\(X\sim\Unif(a,b)\)</span>, <span class="math inline">\(a&lt;b\)</span>. Pornind de la f.g.m. a lui <span class="math inline">\(X\)</span>, deduceți toate momentele <span class="math inline">\(\E[X^k]\)</span>, apoi <span class="math inline">\(\E[X]\)</span> și <span class="math inline">\(\Var(X)\)</span>.</p>
+<ol start="2" type="a">
+<li><p>Repartiția binomială negativă <span class="math inline">\(\NBin(r,p)\)</span>, <span class="math inline">\(r\in\N^*\)</span>, <span class="math inline">\(p\in(0,1)\)</span>, este repartiția numărului <span class="math inline">\(X\)</span> de încercări independente necesare pentru a obține <span class="math inline">\(r\)</span> succese, fiecare încercare fiind un succes cu probabilitatea <span class="math inline">\(p\)</span>: <span class="math inline">\(\PP(X=k)=\binom{k-1}{r-1}p^r(1-p)^{k-r}\)</span>, <span class="math inline">\(k\ge r\)</span>. Calculați <span class="math inline">\(M_X\)</span>, arătați că <span class="math inline">\(X\)</span> are aceeași repartiție ca suma a <span class="math inline">\(r\)</span> variabile independente <span class="math inline">\(\Geom(p)\)</span> și deduceți <span class="math inline">\(\E[X]\)</span> și <span class="math inline">\(\Var(X)\)</span>.</p></li>
+<li><p>Recunoașteți repartițiile variabilelor <span class="math inline">\(V\)</span> și <span class="math inline">\(W\)</span> cu f.g.m. <span class="math display">\[
+M_V(t)=\Big(\frac{0.2\,e^{t}}{1-0.8\,e^{t}}\Big)^3\ \ (t&lt;-\ln0.8),\qquad M_W(t)=\frac{e^{t}}{(1-2t)^3}\ \ (t&lt;1/2),
+\]</span> și calculați <span class="math inline">\(\E[V]\)</span>, <span class="math inline">\(\Var(V)\)</span>, <span class="math inline">\(\PP(V=5)\)</span>, <span class="math inline">\(\E[W]\)</span>, <span class="math inline">\(\Var(W)\)</span> și <span class="math inline">\(\PP(W\le5)\)</span>.</p></li>
+<li><p>În R: verificați valorile de la (c), calculând momentele lui <span class="math inline">\(V\)</span> prin derivarea numerică a lui <span class="math inline">\(M_V\)</span> și simulând <span class="math inline">\(V\)</span> ca sumă de variabile geometrice.</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (d) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>___                                          <span class="co"># P(V = 5): funcția d a lui V</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>MV <span class="ot">&lt;-</span> <span class="cf">function</span>(t) ___                        <span class="co"># f.g.m. a lui V</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fl">1e-4</span>                                    <span class="co"># pasul diferențelor finite</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> ___                                    <span class="co"># aproximează M'(0) = E[V]</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> ___                                    <span class="co"># aproximează M''(0) = E[V^2]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">E_V =</span> m1, <span class="at">Var_V =</span> m2 <span class="sc">-</span> m1<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)                                  <span class="co"># V ca sumă de 3 geometrice</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>V <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="fu">matrix</span>(___, <span class="at">nrow =</span> <span class="dv">3</span>))          <span class="co"># atenție: rgeom numără eșecuri</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">medie =</span> <span class="fu">mean</span>(V), <span class="at">varianta =</span> <span class="fu">var</span>(V), <span class="at">P_V_5 =</span> <span class="fu">mean</span>(V <span class="sc">==</span> <span class="dv">5</span>))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>___                                          <span class="co"># P(W &lt;= 5)</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>Exercițiul următor combină cele trei proprietăți ale f.g.m. (momente, unicitate, sume) și le folosește pentru a obține direct o convergență în repartiție.</p>
+<div id="box-exr-s02-laplace" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 2</span> <span class="curs-box-name">(F.g.m. a unei sume. Repartiția Laplace)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivo">Dacă timpul permite</span> Fie <span class="math inline">\(X_1,X_2,\dots\)</span> i.i.d. cu densitatea <span class="math inline">\(f(x)=\frac12e^{-|x-\theta|}\)</span>, <span class="math inline">\(x\in\R\)</span> (repartiția <em>Laplace</em> sau <em>dublu exponențială</em>), unde <span class="math inline">\(\theta\in\R\)</span>. </p>
+<ol type="a">
+<li><p>Arătați că <span class="math inline">\(M_{X_1}(t)=\dfrac{e^{\theta t}}{1-t^2}\)</span> pentru <span class="math inline">\(|t|&lt;1\)</span> și deduceți <span class="math inline">\(\E[X_1]\)</span> și <span class="math inline">\(\Var(X_1)\)</span>.</p></li>
+<li><p>Fie <span class="math inline">\(E_1,E_2\)</span> i.i.d. <span class="math inline">\(\Exp(1)\)</span>. Arătați că <span class="math inline">\(\theta+E_1-E_2\)</span> are aceeași repartiție ca <span class="math inline">\(X_1\)</span>.</p></li>
+<li><p>Fie <span class="math inline">\(U_n=(S_n-n\theta)/\sqrt{2n}\)</span>. Calculați <span class="math inline">\(M_{U_n}\)</span> și arătați direct, fără a folosi TLC, că <span class="math inline">\(U_n\dto\Norm(0,1)\)</span>.</p></li>
+<li><p>Pentru <span class="math inline">\(\theta=0\)</span> și <span class="math inline">\(n=50\)</span>, aproximați <span class="math inline">\(\PP(|\Xbar|\le0.3)\)</span> și verificați prin simulare, generând observațiile cu reprezentarea de la (b).</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (d) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>xb <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">20000</span>, ___)        <span class="co"># 20000 de medii, n = 50, reprezentarea (b)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">simulare =</span> <span class="fu">mean</span>(<span class="fu">abs</span>(xb) <span class="sc">&lt;=</span> <span class="fl">0.3</span>), <span class="at">TLC =</span> ___,      <span class="co"># aproximarea dată de TLC</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var_sim =</span> <span class="fu">var</span>(xb), <span class="at">var_teoretic =</span> ___)           <span class="co"># Var(X barat) = ?</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Răspunsuri
+</div>
+<div class="curs-box-body">
+<ol type="a">
+<li><p><span class="math inline">\(M_{X_1}(t)=\frac{e^{\theta t}}{1-t^2}\)</span> pentru <span class="math inline">\(|t|&lt;1\)</span>, <span class="math inline">\(\E[X_1]=\theta\)</span> și <span class="math inline">\(\Var(X_1)=2\)</span>.</p></li>
+<li><p><span class="math inline">\(\theta+E_1-E_2\eqd\theta+Y=X_1\)</span>.</p></li>
+<li><p><span class="math inline">\(M_{U_n}(t)=\big(1-\frac{t^2}{2n}\big)^{-n}\to e^{t^2/2}\)</span> și <span class="math inline">\(U_n\dto\Norm(0,1)\)</span>.</p></li>
+<li><p>frecvența simulată <span class="math inline">\(0.8657\)</span> față de aproximarea <span class="math inline">\(\PP(|\Xbar|\le0.3)\approx0.8664\)</span> dată de TLC.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="sec-s02-vectori" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Vectori aleatori: marginale, independență, covarianță</h1>
+<p>Un eșantion este un vector aleator, iar proprietățile statisticilor depind de repartiția <strong>comună</strong> a observațiilor. Cele două exerciții parcurg, pe un vector continuu și pe unul discret, pașii standard: constanta de normare, repartițiile marginale, verificarea independenței (prin factorizare sau prin funcția de repartiție comună) și calculul covarianței. În laborator simulăm vectorul printr-o <em>reprezentare</em> — îl scriem ca funcție de variabile independente pe care știm să le generăm — și estimăm mediile, covarianțele și corelațiile.</p>
+<p>Exemplul rezolvat parcurge acești pași pe un vector al cărui suport este un triunghi. Partea care cere atenție este de fiecare dată aceeași: <strong>limitele de integrare se citesc de pe suport</strong>.</p>
+<div id="box-ex-s02-ex-triunghi" class="curs-box exemplu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exemplul 2</span> <span class="curs-box-name">(O densitate pe un triunghi: marginale, independență, covarianță)</span>
+</div>
+<div class="curs-box-body">
+<p>Vectorul <span class="math inline">\((X,Y)\)</span> are densitatea <span class="math inline">\(f(x,y)=c\,y\)</span> pe triunghiul <span class="math inline">\(T\)</span> cu vârfurile <span class="math inline">\((0,0)\)</span>, <span class="math inline">\((1,0)\)</span> și <span class="math inline">\((0,1)\)</span> și <span class="math inline">\(f(x,y)=0\)</span> în rest. Ipotenuza se află pe dreapta <span class="math inline">\(x+y=1\)</span>, deci <span class="math inline">\(T=\{(x,y):\ x&gt;0,\ y&gt;0,\ x+y&lt;1\}\)</span>.</p>
+<p><em>Pasul 1 (constanta).</em> Orizontala de ordonată <span class="math inline">\(y\in(0,1)\)</span> taie triunghiul după segmentul <span class="math inline">\(0&lt;x&lt;1-y\)</span>, pe care <span class="math inline">\(f=c\,y\)</span> nu depinde de <span class="math inline">\(x\)</span>. Integrând întâi în <span class="math inline">\(x\)</span>, integrala densității este <span class="math inline">\(\int_0^1c\,y\,(1-y)\dd y=c\big(\frac12-\frac13\big)=\frac c6\)</span>; ea trebuie să fie <span class="math inline">\(1\)</span>, deci <span class="raspuns"><span class="math inline">\(c=6\)</span></span>.</p>
+<p><em>Pasul 2 (marginalele).</em> Din Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-marginale" class="curs-ref">36 din Cursul 1</a>, <span class="math inline">\(f_Y(y)=\int_{\R}f(x,y)\dd x\)</span> se calculează pe aceeași secțiune orizontală, iar <span class="math inline">\(f_X(x)=\int_{\R}f(x,y)\dd y\)</span> pe secțiunea verticală: verticala de abscisă <span class="math inline">\(x\in(0,1)\)</span> taie triunghiul după segmentul <span class="math inline">\(0&lt;y&lt;1-x\)</span>. Deci <span class="math display">\[
+f_X(x)=\int_0^{1-x}6y\dd y=3(1-x)^2,\ \ 0&lt;x&lt;1;\qquad f_Y(y)=\int_0^{1-y}6y\dd x=6y(1-y),\ \ 0&lt;y&lt;1 .
+\]</span> Limitele de integrare sunt capetele secțiunilor, deci depind de variabila rămasă. <em>Verificare:</em> <span class="math inline">\(\int_0^13(1-x)^2\dd x=\big[-(1-x)^3\big]_0^1=1\)</span> și <span class="math inline">\(\int_0^16y(1-y)\dd y=6\big(\frac12-\frac13\big)=1\)</span>. Observăm că <span class="math inline">\(f_Y\)</span> este simetrică față de <span class="math inline">\(\frac12\)</span>.</p>
+<p><em>Pasul 3 (independența).</em> <span class="raspuns"><span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> nu sunt independente</span>, pentru că suportul nu este un dreptunghi: dacă <span class="math inline">\(x&gt;\frac12\)</span> și <span class="math inline">\(y&gt;\frac12\)</span>, atunci <span class="math inline">\(x+y&gt;1\)</span>, deci <span class="math inline">\(\PP\big(X&gt;\frac12,\ Y&gt;\frac12\big)=0\)</span>, pe când <span class="math inline">\(\PP\big(X&gt;\frac12\big)=\int_{1/2}^13(1-x)^2\dd x=\frac18\)</span> și <span class="math inline">\(\PP\big(Y&gt;\frac12\big)=\frac12\)</span> (din simetria lui <span class="math inline">\(f_Y\)</span>), cu produsul <span class="math inline">\(\frac1{16}\ne0\)</span>: relația de produs din Definiția <a href="..\curs\01-recapitulare-probabilitati.html#box-def-k01-indep-va" class="curs-ref">37 din Cursul 1</a> (în forma cu evenimente) nu are loc.</p>
+<p><em>Pasul 4 (covarianța).</em> Mediile: <span class="math inline">\(\E[X]=\int_0^13x(1-x)^2\dd x=3\big(\frac12-\frac23+\frac14\big)=\frac14\)</span> și <span class="math inline">\(\E[Y]=\frac12\)</span> (din simetrie). Pentru <span class="math inline">\(\E[XY]\)</span> integrăm <span class="math inline">\(xy\,f(x,y)=6xy^2\)</span> pe <span class="math inline">\(T\)</span>, întâi în <span class="math inline">\(x\)</span>, apoi în <span class="math inline">\(y\)</span>: <span class="math display">\[
+\begin{aligned}
+\E[XY]&amp;=\int_0^16y^2\Big(\int_0^{1-y}x\dd x\Big)\dd y=\int_0^16y^2\cdot\frac{(1-y)^2}{2}\dd y\\
+&amp;=3\int_0^1\big(y^2-2y^3+y^4\big)\dd y=3\Big(\frac13-\frac12+\frac15\Big)=\frac1{10} .
+\end{aligned}
+\]</span> Din Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-cov-prop" class="curs-ref">42(a) din Cursul 1</a>, <span class="raspuns"><span class="math inline">\(\Cov(X,Y)=\E[XY]-\E[X]\,\E[Y]=\frac1{10}-\frac18=-\frac1{40}\)</span></span>. La fel, <span class="math inline">\(\E[X^2]=\int_0^13x^2(1-x)^2\dd x=\frac1{10}\)</span> (integrala de mai sus) și <span class="math inline">\(\E[Y^2]=\int_0^16y^3(1-y)\dd y=6\big(\frac14-\frac15\big)=\frac3{10}\)</span>, deci <span class="math inline">\(\Var(X)=\frac1{10}-\frac1{16}=\frac3{80}\)</span>, <span class="math inline">\(\Var(Y)=\frac3{10}-\frac14=\frac1{20}\)</span> și <span class="math display">\[
+\rho(X,Y)=\frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}=\frac{-1/40}{\sqrt{\frac3{80}\cdot\frac1{20}}}=\frac{-1/40}{\sqrt3/40}=-\frac1{\sqrt3}\approx-0.577 .
+\]</span> <span class="raspuns">Corelația este negativă, <span class="math inline">\(\rho(X,Y)=-\frac1{\sqrt3}\)</span></span>: un punct cu abscisa mare se află lângă vârful <span class="math inline">\((1,0)\)</span>, unde ordonatele sunt mici.</p>
+</div>
+</div>
+<div id="box-exr-s02-vector-exp" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 3</span> <span class="curs-box-name">(Un vector cu densitatea exponențială pe un sector)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivs">La seminar</span> Vectorul aleator <span class="math inline">\((X,Y)\)</span> are densitatea <span class="math inline">\(f(x,y)=c\,e^{-y}\)</span> pentru <span class="math inline">\(0&lt;x&lt;y\)</span> și <span class="math inline">\(f(x,y)=0\)</span> în rest.</p>
+<ol type="a">
+<li><p>Determinați constanta <span class="math inline">\(c\)</span> și densitățile marginale; recunoașteți repartițiile lui <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span>. Sunt <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> independente?</p></li>
+<li><p>Calculați <span class="math inline">\(\Cov(X,Y)\)</span>, <span class="math inline">\(\rho(X,Y)\)</span> și <span class="math inline">\(\PP(Y&gt;2X)\)</span>.</p></li>
+<li><p>Fie <span class="math inline">\(D=Y-X\)</span>. Arătați că <span class="math inline">\(X\)</span> și <span class="math inline">\(D\)</span> sunt independente, cu repartiția <span class="math inline">\(\Exp(1)\)</span>, și regăsiți rezultatele de la (a) și (b).</p></li>
+<li><p>În R: simulați <span class="math inline">\(10^5\)</span> realizări ale vectorului <span class="math inline">\((X,Y)\)</span> cu reprezentarea dată de (c), estimați mediile, matricea de covarianță și corelațiile și reprezentați un nor de puncte. Ce observați despre raportul <span class="math inline">\(U=X/Y\)</span>?</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (d) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">21</span>); B <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>E1 <span class="ot">&lt;-</span> <span class="fu">rexp</span>(B); E2 <span class="ot">&lt;-</span> <span class="fu">rexp</span>(B)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>V <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">X =</span> ___, <span class="at">Y =</span> ___, <span class="at">U =</span> ___)   <span class="co"># reprezentarea (c); U = X / Y</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(V)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cov</span>(V), <span class="dv">3</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="fu">cor</span>(V)                   <span class="co"># matricea corelațiilor</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">c</span>(<span class="at">rho_XY =</span> rho[<span class="st">"X"</span>, <span class="st">"Y"</span>], <span class="at">rho_UY =</span> rho[<span class="st">"U"</span>, <span class="st">"Y"</span>],</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">P_Y_2X =</span> <span class="fu">mean</span>(___),             <span class="co"># frecvența evenimentului {Y &gt; 2X}</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">P_U_0.3 =</span> <span class="fu">mean</span>(V[, <span class="st">"U"</span>] <span class="sc">&lt;=</span> <span class="fl">0.3</span>)), <span class="dv">3</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(V[<span class="dv">1</span><span class="sc">:</span><span class="dv">3000</span>, <span class="fu">c</span>(<span class="st">"X"</span>, <span class="st">"Y"</span>)], <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> <span class="fl">0.3</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8</span>)); <span class="fu">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>)      <span class="co"># norul de puncte și dreapta y = x</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>Exercițiul următor arată un fenomen surprinzător, specific repartiției Poisson, și exersează criteriul de factorizare în cazul discret.</p>
+<div id="box-exr-s02-subtiere" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 4</span> <span class="curs-box-name">(Subțierea unei variabile Poisson)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-niva">Pentru acasă</span> O găină depune un număr aleator <span class="math inline">\(N\sim\Pois(\lambda)\)</span> de ouă (<span class="math inline">\(\lambda&gt;0\)</span>); fiecare ou eclozează cu probabilitatea <span class="math inline">\(p\in(0,1)\)</span>, independent de celelalte ouă și de <span class="math inline">\(N\)</span>. Fie <span class="math inline">\(X\)</span> numărul de ouă din care ies pui și <span class="math inline">\(Y=N-X\)</span> numărul celorlalte ouă; notăm <span class="math inline">\(q=1-p\)</span>.</p>
+<ol type="a">
+<li><p>Arătați că <span class="math inline">\(\PP(X=k,Y=m)=\PP(N=k+m)\binom{k+m}{k}p^kq^m\)</span> pentru <span class="math inline">\(k,m\ge0\)</span> și deduceți că <span class="math inline">\(X\sim\Pois(\lambda p)\)</span>, <span class="math inline">\(Y\sim\Pois(\lambda q)\)</span> și că <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> sunt <strong>independente</strong>.</p></li>
+<li><p>Calculați <span class="math inline">\(\Cov(N,X)\)</span> și <span class="math inline">\(\rho(N,X)\)</span>.</p></li>
+<li><p>Ce se schimbă dacă numărul de ouă este fix, <span class="math inline">\(N=n\)</span>?</p></li>
+<li><p>În R: simulați modelul pentru <span class="math inline">\(\lambda=4\)</span> și <span class="math inline">\(p=0.3\)</span> și verificați (a) și (b).</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (d) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">4</span>; p <span class="ot">&lt;-</span> <span class="fl">0.3</span>; B <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">rpois</span>(B, lambda)                <span class="co"># numărul de ouă</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> ___                             <span class="co"># câte eclozează din cele N</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> N <span class="sc">-</span> X</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">c</span>(<span class="at">E_X =</span> <span class="fu">mean</span>(X), <span class="at">Var_X =</span> <span class="fu">var</span>(X), <span class="at">E_Y =</span> <span class="fu">mean</span>(Y), <span class="at">Var_Y =</span> <span class="fu">var</span>(Y),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">cov_N_X =</span> <span class="fu">cov</span>(N, X), <span class="at">rho_N_X =</span> <span class="fu">cor</span>(N, X), <span class="at">sqrt_p =</span> <span class="fu">sqrt</span>(p),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">cov_X_Y =</span> <span class="fu">cov</span>(X, Y)), <span class="dv">4</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">comun =</span> <span class="fu">mean</span>(___),                 <span class="co"># frecvența evenimentului {X = 1, Y = 2}</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">produs =</span> ___)                      <span class="co"># P(X = 1) P(Y = 2), cu dpois</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Răspunsuri
+</div>
+<div class="curs-box-body">
+<ol type="a">
+<li><p><span class="math inline">\(X\sim\Pois(\lambda p)\)</span> și <span class="math inline">\(Y\sim\Pois(\lambda q)\)</span>; <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> sunt independente.</p></li>
+<li><p><span class="math inline">\(\Cov(N,X)=\lambda p\)</span> și <span class="math inline">\(\rho(N,X)=\sqrt p\)</span>.</p></li>
+<li><p><span class="math inline">\(\Cov(X,Y)=\Cov(X,n-X)=-\Var(X)=-npq&lt;0\)</span>; <span class="math inline">\(\rho(X,Y)=-1\)</span>.</p></li>
+<li><p>media și varianța lui <span class="math inline">\(X\)</span> sunt <span class="math inline">\(1.199\)</span> și <span class="math inline">\(1.196\)</span>, iar ale lui <span class="math inline">\(Y\)</span> sunt <span class="math inline">\(2.806\)</span> și <span class="math inline">\(2.803\)</span> — apropiate de <span class="math inline">\(\lambda p=1.2\)</span> și <span class="math inline">\(\lambda q=2.8\)</span>; frecvența evenimentului <span class="math inline">\(\{X=1,Y=2\}\)</span> coincide, la trei zecimale, cu produsul <span class="math inline">\(\PP(X=1)\,\PP(Y=2)\approx0.0862\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="sec-s02-transf-vect" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Transformări de vectori aleatori</h1>
+<p>Suma și media eșantionului, minimul și maximul, rapoartele sunt <strong>funcții ale unui vector aleator</strong>, iar repartițiile lor se obțin cu metodele din Secțiunea <a href="..\curs\01-recapitulare-probabilitati.html#sec-k01-transf-vect" class="curs-ref">7.5 din Cursul 1</a>. Cele trei exerciții folosesc, pe rând, formula de convoluție și metoda funcției de repartiție pentru un cât, formula schimbării de variabilă cu o variabilă auxiliară și metoda funcției de repartiție pentru o distanță. În fiecare, partea delicată nu este formula, ci <strong>domeniul</strong>: mulțimea pe care integrandul este nenul, imaginea transformării, forma mulțimii <span class="math inline">\(\{g\le z\}\)</span>. Verificarea în R are aceleași trepte de fiecare dată: (1) densitatea găsită trebuie să aibă integrala <span class="math inline">\(1\)</span> (<code>integrate</code>); (2) frecvențele <span class="math inline">\(\PP(Z\le q)\)</span> calculate din valori simulate trebuie să fie apropiate de funcția de repartiție obținută, iar histograma de densitate; (3) pentru o pereche, norul de puncte arată suportul, iar independența se verifică prin corelație și prin frecvențele evenimentelor.</p>
+<p>Exemplul rezolvat aplică formula schimbării de variabilă celei mai simple perechi pentru care imaginea transformării nu este un dreptunghi — situația în care se greșește cel mai des.</p>
+<div id="box-ex-s02-ex-suma-unif" class="curs-box exemplu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exemplul 3</span> <span class="curs-box-name">(Suma a două uniforme prin metoda variabilei auxiliare)</span>
+</div>
+<div class="curs-box-body">
+<p>Fie <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> independente, <span class="math inline">\(\Unif(0,1)\)</span>, și <span class="math inline">\(U=X+Y\)</span>. Căutăm densitatea lui <span class="math inline">\(U\)</span> cu Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-transf-vect" class="curs-ref">52 din Cursul 1</a>. Teorema cere o transformare a planului în plan, deci completăm <span class="math inline">\(U\)</span> cu variabila auxiliară <span class="math inline">\(V=X\)</span>.</p>
+<p><em>Pasul 1 (transformarea și inversa).</em> Vectorul <span class="math inline">\((X,Y)\)</span> are densitatea <span class="math inline">\(f=\Ind_S\)</span>, cu <span class="math inline">\(S=(0,1)^2\)</span> (Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-factorizare" class="curs-ref">38(b) din Cursul 1</a>), o mulțime deschisă. Funcția <span class="math inline">\(h(x,y)=(x+y,\ x)\)</span> este liniară, deci de clasă <span class="math inline">\(C^1\)</span>, cu iacobianul <span class="math inline">\(J_h=1\cdot0-1\cdot1=-1\ne0\)</span>; sistemul <span class="math inline">\(u=x+y\)</span>, <span class="math inline">\(v=x\)</span> are soluția unică <span class="math inline">\(x=v\)</span>, <span class="math inline">\(y=u-v\)</span>, deci <span class="math inline">\(h\)</span> este injectivă, cu inversa <span class="math inline">\(h^{-1}(u,v)=(v,\ u-v)\)</span>.</p>
+<p><em>Pasul 2 (iacobianul inversei).</em> Derivăm componentele inversei, <span class="math inline">\(x=v\)</span> și <span class="math inline">\(y=u-v\)</span>, în raport cu <span class="math inline">\(u\)</span> și <span class="math inline">\(v\)</span>: <span class="math display">\[
+J_{h^{-1}}(u,v)=\det\begin{pmatrix}\partial x/\partial u&amp;\partial x/\partial v\\[2pt]\partial y/\partial u&amp;\partial y/\partial v\end{pmatrix}=\det\begin{pmatrix}0&amp;1\\1&amp;-1\end{pmatrix}=-1,\qquad \big|J_{h^{-1}}(u,v)\big|=1 .
+\]</span></p>
+<p><em>Pasul 3 (imaginea suportului).</em> Punctul <span class="math inline">\((u,v)\)</span> aparține lui <span class="math inline">\(T=h(S)\)</span> dacă și numai dacă <span class="math inline">\(h^{-1}(u,v)=(v,\ u-v)\in S\)</span>, adică <span class="math inline">\(0&lt;v&lt;1\)</span> și <span class="math inline">\(0&lt;u-v&lt;1\)</span>: <span class="math display">\[
+T=\{(u,v):\ 0&lt;v&lt;1,\ \ v&lt;u&lt;v+1\} .
+\]</span> Este paralelogramul cu vârfurile <span class="math inline">\((0,0)\)</span>, <span class="math inline">\((1,0)\)</span>, <span class="math inline">\((2,1)\)</span> și <span class="math inline">\((1,1)\)</span> — imaginile vârfurilor <span class="math inline">\((0,0)\)</span>, <span class="math inline">\((0,1)\)</span>, <span class="math inline">\((1,1)\)</span> și <span class="math inline">\((1,0)\)</span> ale pătratului —, desenat mai jos; <strong>nu</strong> este un dreptunghi.</p>
+<p><em>Pasul 4 (densitatea comună).</em> Din Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-transf-vect" class="curs-ref">52 din Cursul 1</a>, <span class="math inline">\(f_{(U,V)}(u,v)=f(v,\ u-v)\cdot\big|J_{h^{-1}}(u,v)\big|\cdot\Ind_T(u,v)=\Ind_T(u,v)\)</span>: vectorul <span class="math inline">\((U,V)\)</span> este uniform pe paralelogramul <span class="math inline">\(T\)</span> (de arie <span class="math inline">\(1\)</span>).</p>
+<p><em>Pasul 5 (integrarea variabilei auxiliare).</em> Din Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-marginale" class="curs-ref">36 din Cursul 1</a>, <span class="math inline">\(f_U(u)=\int_{\R}\Ind_T(u,v)\dd v\)</span> este lungimea secțiunii lui <span class="math inline">\(T\)</span> prin verticala de abscisă <span class="math inline">\(u\)</span>. Condițiile <span class="math inline">\(0&lt;v&lt;1\)</span> și <span class="math inline">\(u-1&lt;v&lt;u\)</span> înseamnă <span class="math inline">\(\max(0,u-1)&lt;v&lt;\min(1,u)\)</span>:</p>
+<ul>
+<li>pentru <span class="math inline">\(0&lt;u\le1\)</span>: <span class="math inline">\(0&lt;v&lt;u\)</span>, deci <span class="math inline">\(f_U(u)=u\)</span>;</li>
+<li>pentru <span class="math inline">\(1&lt;u&lt;2\)</span>: <span class="math inline">\(u-1&lt;v&lt;1\)</span>, deci <span class="math inline">\(f_U(u)=1-(u-1)=2-u\)</span>;</li>
+<li>pentru <span class="math inline">\(u\le0\)</span> sau <span class="math inline">\(u\ge2\)</span> secțiunea este vidă și <span class="math inline">\(f_U(u)=0\)</span>.</li>
+</ul>
+<p>Am obținut <span class="raspuns">densitatea „triunghiulară” <span class="math inline">\(f_U(u)=1-|u-1|\)</span> pe <span class="math inline">\((0,2)\)</span></span>, cu integrala <span class="math inline">\(\frac12+\frac12=1\)</span>. <em>Verificare:</em> <span class="math inline">\(\PP\big(U\le\frac12\big)=\int_0^{1/2}u\dd u=\frac18\)</span>, aria triunghiului <span class="math inline">\(\{x+y\le\frac12\}\)</span> din pătrat. Greșeala tipică este integrarea în <span class="math inline">\(v\)</span> pe tot intervalul <span class="math inline">\((0,1)\)</span>, pentru orice <span class="math inline">\(u\)</span>: ea ar da <span class="math inline">\(f_U=1\)</span> pe <span class="math inline">\((0,2)\)</span>, o funcție cu integrala <span class="math inline">\(2\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">1.5</span>, <span class="dv">1</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="cn">NULL</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">ylab =</span> <span class="st">"y"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"S"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">col =</span> <span class="st">"grey85"</span>)   <span class="co"># pătratul S</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="cn">NULL</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">xlab =</span> <span class="st">"u"</span>, <span class="at">ylab =</span> <span class="st">"v"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"T = h(S)"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">col =</span> <span class="st">"grey85"</span>)   <span class="co"># paralelogramul T</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(<span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">1.4</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.4</span>), <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">1.4</span>), <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="dv">1</span>), <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> culori[[<span class="st">"rosu"</span>]])       <span class="co"># secțiunile u = 0.6 și u = 1.4</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="02-probabilitati-R_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="02-probabilitati-R_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Segmentele roșii sunt secțiunile lui <span class="math inline">\(T\)</span> pentru <span class="math inline">\(u=0.6\)</span> (de lungime <span class="math inline">\(0.6\)</span>) și <span class="math inline">\(u=1.4\)</span> (de lungime <span class="math inline">\(2-1.4=0.6\)</span>). Paralelogramul arată și că <span class="math inline">\(U\)</span> și <span class="math inline">\(V\)</span> <strong>nu</strong> sunt independente: valorile posibile ale lui <span class="math inline">\(U\)</span> depind de <span class="math inline">\(V\)</span> (de exemplu, <span class="math inline">\(\PP(U&gt;1.5,\ V&lt;0.5)=0\)</span>, deși ambele evenimente au probabilitate pozitivă).</p>
+</div>
+</div>
+<div id="box-exr-s02-tv-semnal" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 5</span> <span class="curs-box-name">(Semnal plus zgomot: o convoluție și un raport)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivo">Dacă timpul permite</span> Un semnal de amplitudine <span class="math inline">\(X\sim\Unif(0,a)\)</span>, <span class="math inline">\(a&gt;0\)</span>, este transmis printr-un canal care îi adaugă un zgomot pozitiv <span class="math inline">\(Y\sim\Exp(\lambda)\)</span>, independent de semnal. Receptorul înregistrează <span class="math inline">\(Z=X+Y\)</span>, iar calitatea transmisiei este măsurată de raportul semnal/zgomot <span class="math inline">\(Q=X/Y\)</span>.</p>
+<ol type="a">
+<li><p>Determinați densitatea lui <span class="math inline">\(Z\)</span> cu formula de convoluție și verificați că integrala ei este <span class="math inline">\(1\)</span>.</p></li>
+<li><p>Determinați funcția de repartiție și densitatea lui <span class="math inline">\(Q\)</span>. Are <span class="math inline">\(Q\)</span> medie?</p></li>
+<li><p>Pentru <span class="math inline">\(a=2\)</span> și <span class="math inline">\(\lambda=1\)</span>, calculați <span class="math inline">\(\PP(Z&gt;3)\)</span> și <span class="math inline">\(\PP(Q&gt;1)\)</span>. Ce ecuație verifică mediana lui <span class="math inline">\(Q\)</span>?</p></li>
+<li><p>În R: verificați numeric că densitatea de la (a) are integrala <span class="math inline">\(1\)</span>, comparați rezultatele de la (a)–(c) cu valori simulate și calculați mediana lui <span class="math inline">\(Q\)</span>.</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (d) — completați locurile marcate cu <code>___</code> (funcția <code>compara</code> pune alături frecvențele simulate și valorile unei funcții de repartiție și va fi folosită și în Exercițiul <a href="#box-exr-s02-tv-colt" class="curs-ref">7</a>):</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">2</span>; lam <span class="ot">&lt;-</span> <span class="dv">1</span>; th <span class="ot">&lt;-</span> lam <span class="sc">*</span> a</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fZ <span class="ot">&lt;-</span> <span class="cf">function</span>(z) <span class="fu">ifelse</span>(z <span class="sc">&lt;=</span> <span class="dv">0</span>, <span class="dv">0</span>, ___)     <span class="co"># densitatea de la (a); pmin</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(fZ, <span class="dv">0</span>, <span class="cn">Inf</span>)<span class="sc">$</span>value                  <span class="co"># trebuie să fie 1</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>compara <span class="ot">&lt;-</span> <span class="cf">function</span>(val, F, q)       <span class="co"># frecvențele P(val &lt;= q) față de F(q)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="fu">rbind</span>(<span class="at">simulare =</span> ___, <span class="at">exact =</span> <span class="fu">F</span>(q)), <span class="dv">4</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">32</span>); B <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>sx <span class="ot">&lt;-</span> <span class="fu">runif</span>(B, <span class="dv">0</span>, a); sy <span class="ot">&lt;-</span> <span class="fu">rexp</span>(B, lam)     <span class="co"># semnalul și zgomotul</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>FZ <span class="ot">&lt;-</span> <span class="cf">function</span>(q) <span class="fu">sapply</span>(q, <span class="cf">function</span>(t) <span class="fu">integrate</span>(fZ, <span class="dv">0</span>, t)<span class="sc">$</span>value)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">compara</span>(sx <span class="sc">+</span> sy, FZ, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>FQ <span class="ot">&lt;-</span> <span class="cf">function</span>(z) ___                        <span class="co"># f. de repartiție a lui Q, (b)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">compara</span>(sx <span class="sc">/</span> sy, FQ, <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">4</span>))</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">P_Z_3 =</span> <span class="fu">mean</span>(___), <span class="at">med_Q =</span> <span class="fu">uniroot</span>(___, <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">10</span>))<span class="sc">$</span>root)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Răspunsuri
+</div>
+<div class="curs-box-body">
+<ol type="a">
+<li><p>Densitatea corectă are integrala <span class="math inline">\(1\)</span>.</p></li>
+<li><p><span class="math inline">\(F_Q(z)=\frac z\theta\big(1-e^{-\theta/z}\big)\)</span> și <span class="math inline">\(f_Q(z)=\frac1\theta\big[1-\big(1+\frac\theta z\big)e^{-\theta/z}\big]\)</span> pentru <span class="math inline">\(z&gt;0\)</span>, cu <span class="math inline">\(\theta=\lambda a\)</span>; <span class="math inline">\(\E[Q]=\infty\)</span>: raportul <strong>nu are medie finită</strong>.</p></li>
+<li><p><span class="math inline">\(\PP(Q&gt;1)=1-F_Q(1)=1-\frac{1-e^{-2}}{2}\approx1-0.4323=0.5677\)</span>, pe lângă <span class="math inline">\(\PP(Z&gt;3)\approx0.1590\)</span>. Mediana lui <span class="math inline">\(Q\)</span> este soluția ecuației <span class="math inline">\(F_Q(z)=\frac12\)</span>, adică <span class="math inline">\(\frac z2\big(1-e^{-2/z}\big)=\frac12\)</span>.</p></li>
+<li><p>frecvența evenimentului <span class="math inline">\(\{Z&gt;3\}\)</span> este <span class="math inline">\(0.1597\)</span>, față de probabilitatea <span class="math inline">\(\PP(Z&gt;3)\approx0.159\)</span>, iar mediana empirică a raportului coincide cu soluția <span class="math inline">\(\approx1.255\)</span> a ecuației.</p></li>
+</ol>
+</div>
+</div>
+<p>Următorul exercițiu folosește formula schimbării de variabilă, care dă repartiția <strong>comună</strong> a noilor variabile și permite să decidem dacă ele sunt independente. Când ne interesează o singură funcție a vectorului, o completăm cu o <strong>variabilă auxiliară</strong>; exercițiul arată și cât de mult depinde răspunsul de repartiția vectorului inițial.</p>
+<div id="box-exr-s02-tv-fractiune" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 6</span> <span class="curs-box-name">(Fracțiunea din timpul total: metoda variabilei auxiliare)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivs">La seminar</span> Un echipament pornește cu o componentă principală, înlocuită, la defectare, de o componentă de rezervă. Timpii lor de funcționare, <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span>, sunt strict pozitivi, iar vectorul <span class="math inline">\((X,Y)\)</span> are densitatea <span class="math inline">\(f\)</span>. Ne interesează fracțiunea <span class="math inline">\(Z=\dfrac{X}{X+Y}\)</span> din timpul total de funcționare <span class="math inline">\(V=X+Y\)</span> asigurată de componenta principală.</p>
+<ol type="a">
+<li><p>Folosind variabila auxiliară <span class="math inline">\(V\)</span>, arătați că vectorul <span class="math inline">\((Z,V)\)</span> are densitatea <span class="math inline">\(f_{(Z,V)}(z,v)=v\,f\big(zv,(1-z)v\big)\)</span> pentru <span class="math inline">\(0&lt;z&lt;1\)</span>, <span class="math inline">\(v&gt;0\)</span> (și <span class="math inline">\(0\)</span> în rest) și scrieți densitatea lui <span class="math inline">\(Z\)</span>.</p></li>
+<li><p>Fie <span class="math inline">\(X\sim\Exp(\lambda)\)</span> și <span class="math inline">\(Y\sim\Exp(\mu)\)</span> independente. Determinați densitatea și funcția de repartiție ale lui <span class="math inline">\(Z\)</span>. Pentru ce valori ale parametrilor sunt <span class="math inline">\(Z\)</span> și <span class="math inline">\(V\)</span> independente? Ce rezultă pentru raportul <span class="math inline">\(U\)</span> din Exercițiul <a href="#box-exr-s02-vector-exp" class="curs-ref">3</a>?</p></li>
+<li><p>Fie <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> independente, <span class="math inline">\(\Unif(0,1)\)</span>. Determinați densitatea lui <span class="math inline">\(Z\)</span>. Sunt <span class="math inline">\(Z\)</span> și <span class="math inline">\(V\)</span> independente? Dar necorelate?</p></li>
+<li><p>În R: verificați prin simulare rezultatele de la (b), pentru <span class="math inline">\((\lambda,\mu)=(1,3)\)</span> și <span class="math inline">\((\lambda,\mu)=(2,2)\)</span>, și pe cele de la (c); reprezentați norii de puncte <span class="math inline">\((z_i,v_i)\)</span>.</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (d) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">36</span>); B <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>frac <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) <span class="fu">cbind</span>(<span class="at">Z =</span> ___, <span class="at">V =</span> ___)   <span class="co"># transformarea h</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>E13 <span class="ot">&lt;-</span> <span class="fu">frac</span>(<span class="fu">rexp</span>(B, <span class="dv">1</span>), <span class="fu">rexp</span>(B, <span class="dv">3</span>))       <span class="co"># (b): lambda = 1, mu = 3</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>E22 <span class="ot">&lt;-</span> <span class="fu">frac</span>(<span class="fu">rexp</span>(B, <span class="dv">2</span>), <span class="fu">rexp</span>(B, <span class="dv">2</span>))       <span class="co"># (b): lambda = mu = 2</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Un <span class="ot">&lt;-</span> <span class="fu">frac</span>(<span class="fu">runif</span>(B), <span class="fu">runif</span>(B))            <span class="co"># (c): uniforme</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">rbind</span>(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">simulare =</span> <span class="fu">c</span>(<span class="fu">mean</span>(E13[, <span class="st">"Z"</span>] <span class="sc">&lt;=</span> <span class="fl">0.5</span>), <span class="fu">mean</span>(E22[, <span class="st">"Z"</span>] <span class="sc">&lt;=</span> <span class="fl">0.3</span>),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>               <span class="fu">mean</span>(Un[, <span class="st">"Z"</span>] <span class="sc">&lt;=</span> <span class="fl">0.25</span>)),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">exact =</span> <span class="fu">c</span>(___, ___, ___)), <span class="dv">4</span>)           <span class="co"># F_Z(0.5), F_Z(0.3), F_Z(0.25)</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">c</span>(<span class="at">cor_13 =</span> <span class="fu">cor</span>(E13)[<span class="dv">1</span>, <span class="dv">2</span>], <span class="at">cor_22 =</span> <span class="fu">cor</span>(E22)[<span class="dv">1</span>, <span class="dv">2</span>],</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">cor_unif =</span> <span class="fu">cor</span>(Un)[<span class="dv">1</span>, <span class="dv">2</span>]), <span class="dv">3</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Un[<span class="dv">1</span><span class="sc">:</span><span class="dv">3000</span>, ], <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> <span class="fl">0.3</span>)   <span class="co"># norul de puncte (z_i, v_i)</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>Când ne interesează o singură funcție <span class="math inline">\(g(X,Y)\)</span> și mulțimea <span class="math inline">\(\{g\le z\}\)</span> are o formă simplă, metoda funcției de repartiție este cea mai directă; pentru un vector uniform, probabilitatea este o arie.</p>
+<div id="box-exr-s02-tv-colt" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 7</span> <span class="curs-box-name">(Distanța de la un colț al pătratului la un punct aleator)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-niva">Pentru acasă</span> Un senzor este montat într-un colț al unei încăperi pătrate cu latura <span class="math inline">\(1\)</span>, iar un obiect cade într-un punct <span class="math inline">\((X,Y)\)</span> ales uniform în încăpere: cu senzorul în origine, <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> sunt independente, <span class="math inline">\(\Unif(0,1)\)</span>. Fie <span class="math inline">\(D=\sqrt{X^2+Y^2}\)</span> distanța de la senzor la obiect.</p>
+<ol type="a">
+<li><p>Determinați funcția de repartiție a lui <span class="math inline">\(D\)</span>, descriind pentru fiecare <span class="math inline">\(r&gt;0\)</span> mulțimea punctelor din pătrat aflate la distanță cel mult <span class="math inline">\(r\)</span> de origine.</p></li>
+<li><p>Deduceți densitatea lui <span class="math inline">\(D\)</span> și densitatea lui <span class="math inline">\(D^2=X^2+Y^2\)</span>.</p></li>
+<li><p>Calculați <span class="math inline">\(\PP(D\le1)\)</span>, <span class="math inline">\(\PP(D&gt;1.2)\)</span> și mediana lui <span class="math inline">\(D\)</span>.</p></li>
+<li><p>În R: verificați (a)–(c) prin simulare, verificați numeric că <span class="math inline">\(f_D\)</span> are integrala <span class="math inline">\(1\)</span> și că <span class="math inline">\(\int r^2f_D(r)\dd r=\E[X^2]+\E[Y^2]\)</span> și calculați distanța medie <span class="math inline">\(\E[D]\)</span>.</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (d) — completați locurile marcate cu <code>___</code> (funcția <code>compara</code> este cea din Exercițiul <a href="#box-exr-s02-tv-semnal" class="curs-ref">5</a>):</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>FD <span class="ot">&lt;-</span> <span class="cf">function</span>(r) {                       <span class="co"># funcția de repartiție a lui D</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="fu">pmin</span>(<span class="fu">pmax</span>(r, <span class="dv">0</span>), <span class="fu">sqrt</span>(<span class="dv">2</span>))          <span class="co"># F = 0 sub 0, F = 1 peste sqrt(2)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  al <span class="ot">&lt;-</span> <span class="fu">acos</span>(<span class="fu">pmin</span>(<span class="dv">1</span> <span class="sc">/</span> r, <span class="dv">1</span>))              <span class="co"># alpha(r); 0 dacă r &lt;= 1</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  ___                                     <span class="co"># formula de la (a), cu al</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>fD <span class="ot">&lt;-</span> <span class="cf">function</span>(r) <span class="fu">ifelse</span>(r <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> r <span class="sc">&lt;</span> <span class="fu">sqrt</span>(<span class="dv">2</span>), ___, <span class="dv">0</span>)   <span class="co"># densitatea lui D</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">31</span>); B <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span> ___                                  <span class="co"># B distanțe simulate</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">compara</span>(D, FD, <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.2</span>))</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>mom <span class="ot">&lt;-</span> <span class="cf">function</span>(k) <span class="fu">integrate</span>(<span class="cf">function</span>(r) r<span class="sc">^</span>k <span class="sc">*</span> <span class="fu">fD</span>(r), <span class="dv">0</span>, <span class="fu">sqrt</span>(<span class="dv">2</span>))<span class="sc">$</span>value</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">c</span>(<span class="at">integrala =</span> <span class="fu">mom</span>(<span class="dv">0</span>), <span class="at">E_D2 =</span> <span class="fu">mom</span>(<span class="dv">2</span>), <span class="at">E_D =</span> <span class="fu">mom</span>(<span class="dv">1</span>),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">E_D_sim =</span> <span class="fu">mean</span>(D), <span class="at">med_sim =</span> <span class="fu">median</span>(D), <span class="at">med =</span> ___), <span class="dv">4</span>)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Răspunsuri
+</div>
+<div class="curs-box-body">
+<ol type="a">
+<li><p><span class="math inline">\(F_D(r)=\frac{\pi r^2}{4}\)</span> pentru <span class="math inline">\(0&lt;r\le1\)</span> și <span class="math inline">\(F_D(r)=\sqrt{r^2-1}+r^2\big(\frac\pi4-\arccos\frac1r\big)\)</span> pentru <span class="math inline">\(1&lt;r&lt;\sqrt2\)</span>.</p></li>
+<li><p>Pe <span class="math inline">\((0,1)\)</span> pătratul distanței are densitatea constantă <span class="math inline">\(\frac\pi4\)</span>, iar pe <span class="math inline">\((1,2)\)</span> densitatea <span class="math inline">\(\frac\pi4-\arccos\frac1{\sqrt w}\)</span>.</p></li>
+<li><p><span class="math inline">\(\PP(D\le1)\approx0.7854\)</span> și <span class="math inline">\(\PP(D&gt;1.2)\approx0.0491\)</span>; mediana <span class="math inline">\(r=\sqrt{2/\pi}\approx0.798\)</span>.</p></li>
+<li><p>integrala densității este <span class="math inline">\(1\)</span>, iar momentul de ordin doi este <span class="math inline">\(\frac23\)</span>, cum trebuie; distanța medie de la colț la un punct al pătratului este <span class="math inline">\(\E[D]\approx0.765\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="sec-s02-lnm-tlc" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> LNM, TLC, aproximări și lema lui Slutsky</h1>
+<p>LNM spune unde se concentrează <span class="math inline">\(\Xbar\)</span>; TLC descrie fluctuațiile, de ordinul <span class="math inline">\(\sigma/\sqrt n\)</span>, în jurul acestui punct. În primul exercițiu folosim TLC pentru calcule aproximative, comparând de fiecare dată cu valoarea exactă calculată în R. În al doilea combinăm inegalitatea lui Cebîșev, TLC, teorema aplicațiilor continue și lema lui Slutsky pentru a înlocui un parametru necunoscut cu un estimator — tehnica din spatele intervalelor de încredere asimptotice. Ultimul exercițiu „arată” cele două teoreme prin simulare și compară viteza cu care se instalează normalitatea pentru populații simetrice și asimetrice.</p>
+<p>Exemplul rezolvat arată schema oricărui calcul aproximativ cu TLC: ce teoremă aplicăm și de ce avem voie, standardizarea, citirea lui <span class="math inline">\(\Phi\)</span> și, pentru variabile cu valori întregi, corecția de continuitate.</p>
+<div id="box-ex-s02-ex-zar" class="curs-box exemplu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exemplul 4</span> <span class="curs-box-name">(Răspunsuri la întâmplare la un test grilă cu 100 de întrebări)</span>
+</div>
+<div class="curs-box-body">
+<p>Un test grilă are <span class="math inline">\(100\)</span> de întrebări, fiecare cu cinci variante de răspuns, dintre care una corectă; un candidat răspunde la toate la întâmplare, independent. Fie <span class="math inline">\(S\)</span> numărul răspunsurilor corecte. Aproximăm <span class="math inline">\(\PP(S\le15)\)</span>, <span class="math inline">\(\PP(17\le S\le23)\)</span> și <span class="math inline">\(\PP(S=20)\)</span>.</p>
+<p><em>Pasul 1 (modelul și teorema).</em> <span class="math inline">\(S=X_1+\dots+X_{100}\)</span>, cu <span class="math inline">\(X_i\)</span> i.i.d. <span class="math inline">\(\Bern(0.2)\)</span> (<span class="math inline">\(X_i=1\)</span> dacă răspunsul <span class="math inline">\(i\)</span> este corect), deci <span class="math inline">\(S\sim\Bin(100,0.2)\)</span>, cu <span class="math inline">\(\E[S]=np=20\)</span>, <span class="math inline">\(\Var(S)=np(1-p)=100\cdot0.2\cdot0.8=16\)</span> și <span class="math inline">\(\sigma_S=4\)</span>. Ipotezele TLC (Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-tlc" class="curs-ref">64 din Cursul 1</a>) sunt îndeplinite — variabile i.i.d. cu varianța <span class="math inline">\(0.16\in(0,\infty)\)</span> —, deci, din Corolarul <a href="..\curs\01-recapitulare-probabilitati.html#box-cor-k01-moivre-laplace" class="curs-ref">65 din Cursul 1</a>, <span class="math inline">\(\frac{S-20}{4}\approx\Norm(0,1)\)</span>.</p>
+<p><em>Pasul 2 (standardizarea, fără corecție).</em> Scădem media și împărțim la abaterea standard în ambii membri ai inegalității: <span class="math display">\[
+\PP(S\le15)=\PP\Big(\frac{S-20}{4}\le\frac{15-20}{4}\Big)\approx\Phi(-1.25)=1-\Phi(1.25)\approx0.1056 .
+\]</span></p>
+<p><em>Pasul 3 (corecția de continuitate).</em> <span class="math inline">\(S\)</span> ia numai valori întregi, deci <span class="math inline">\(\{S\le15\}=\{S\le15.5\}=\{S&lt;16\}\)</span>: orice prag dintre <span class="math inline">\(15\)</span> și <span class="math inline">\(16\)</span> descrie același eveniment, dar aproximarea normală depinde de pragul ales. Alegem mijlocul, <span class="math inline">\(15.5\)</span>: în histograma repartiției, bara valorii <span class="math inline">\(k\)</span> ocupă intervalul <span class="math inline">\(\big[k-\frac12,k+\frac12\big]\)</span>. Atunci <span class="math display">\[
+\PP(S\le15)=\PP(S\le15.5)\approx\Phi\Big(\frac{15.5-20}{4}\Big)=\Phi(-1.125)\approx0.1303 .
+\]</span> Valoarea exactă, calculată mai jos, este <span class="math inline">\(0.1285\)</span>: eroarea scade de la <span class="math inline">\(0.023\)</span> la <span class="math inline">\(0.002\)</span>. Regula: înaintea standardizării, pragul unui eveniment „<span class="math inline">\(\le k\)</span>” devine <span class="math inline">\(k+\frac12\)</span>, iar al unuia „<span class="math inline">\(\ge k\)</span>” devine <span class="math inline">\(k-\frac12\)</span> (un eveniment „<span class="math inline">\(&lt;k\)</span>” se scrie întâi „<span class="math inline">\(\le k-1\)</span>”, iar unul „<span class="math inline">\(&gt;k\)</span>”, „<span class="math inline">\(\ge k+1\)</span>”).</p>
+<p><em>Pasul 4 (un interval și un punct).</em> Cu aceeași regulă la ambele capete, <span class="math inline">\(\{17\le S\le23\}=\{16.5\le S\le23.5\}\)</span> și <span class="math inline">\(\{S=20\}=\{19.5\le S\le20.5\}\)</span>; pragurile standardizate sunt <span class="math inline">\(\pm\frac{3.5}{4}=\pm0.875\)</span>, respectiv <span class="math inline">\(\pm\frac{0.5}{4}=\pm0.125\)</span>, deci, aproximând probabilitatea unui interval <span class="math inline">\([a,b]\)</span> al valorii standardizate prin <span class="math inline">\(\Phi(b)-\Phi(a)\)</span> (Corolarul <a href="..\curs\01-recapitulare-probabilitati.html#box-cor-k01-moivre-laplace" class="curs-ref">65 din Cursul 1</a>) și folosind <span class="math inline">\(\Phi(-c)=1-\Phi(c)\)</span>, <span class="math display">\[
+\PP(17\le S\le23)\approx2\Phi(0.875)-1\approx0.6184,\qquad \PP(S=20)\approx2\Phi(0.125)-1\approx0.0995,
+\]</span> iar fără corecție am fi obținut <span class="math inline">\(2\Phi(0.75)-1\approx0.5467\)</span> pentru interval (pierdem câte o jumătate de bară la fiecare capăt) și <span class="math inline">\(0\)</span> pentru punct. Pe scurt, <span class="raspuns">cu corecție, <span class="math inline">\(\PP(S\le15)\approx0.1303\)</span>, <span class="math inline">\(\PP(17\le S\le23)\approx0.6184\)</span> și <span class="math inline">\(\PP(S=20)\approx0.0995\)</span></span>.</p>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Comparăm cu valorile exacte: <code>pbinom</code> este funcția de repartiție a binomialei, deci <span class="math inline">\(\PP(17\le S\le23)=F(23)-F(16)\)</span>, iar <code>dbinom</code> este funcția de masă. Coloanele tabelului corespund, în ordine, probabilităților <span class="math inline">\(\PP(S\le15)\)</span>, <span class="math inline">\(\PP(17\le S\le23)\)</span> și <span class="math inline">\(\PP(S=20)\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>std <span class="ot">&lt;-</span> <span class="cf">function</span>(k) <span class="fu">pnorm</span>((k <span class="sc">-</span> <span class="dv">20</span>) <span class="sc">/</span> <span class="dv">4</span>)       <span class="co"># Phi după standardizare</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">rbind</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">exact   =</span> <span class="fu">c</span>(<span class="fu">pbinom</span>(<span class="dv">15</span>, <span class="dv">100</span>, <span class="fl">0.2</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              <span class="fu">pbinom</span>(<span class="dv">23</span>, <span class="dv">100</span>, <span class="fl">0.2</span>) <span class="sc">-</span> <span class="fu">pbinom</span>(<span class="dv">16</span>, <span class="dv">100</span>, <span class="fl">0.2</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>              <span class="fu">dbinom</span>(<span class="dv">20</span>, <span class="dv">100</span>, <span class="fl">0.2</span>)),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fara_cc =</span> <span class="fu">c</span>(<span class="fu">std</span>(<span class="dv">15</span>), <span class="fu">std</span>(<span class="dv">23</span>) <span class="sc">-</span> <span class="fu">std</span>(<span class="dv">17</span>), <span class="dv">0</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">cu_cc   =</span> <span class="fu">c</span>(<span class="fu">std</span>(<span class="fl">15.5</span>), <span class="fu">std</span>(<span class="fl">23.5</span>) <span class="sc">-</span> <span class="fu">std</span>(<span class="fl">16.5</span>), <span class="fu">std</span>(<span class="fl">20.5</span>) <span class="sc">-</span> <span class="fu">std</span>(<span class="fl">19.5</span>))), <span class="dv">4</span>)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;           [,1]   [,2]   [,3]
+#&gt; exact   0.1285 0.6186 0.0993
+#&gt; fara_cc 0.1056 0.5467 0.0000
+#&gt; cu_cc   0.1303 0.6184 0.0995</code></pre>
+</div>
+</div>
+<p>Cu corecție de continuitate, cele trei aproximări diferă de valorile exacte cu cel mult <span class="math inline">\(0.002\)</span>; fără corecție, erorile sunt <span class="math inline">\(0.023\)</span>, <span class="math inline">\(0.072\)</span> și <span class="math inline">\(0.099\)</span>.</p>
+</div>
+</div>
+<div id="box-exr-s02-aprox-normala" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 8</span> <span class="curs-box-name">(Aproximarea normală și corecția de continuitate)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivo">Dacă timpul permite</span> (a) Notele obținute la un examen au media <span class="math inline">\(6.1\)</span> și abaterea standard <span class="math inline">\(1.5\)</span>. Aproximați probabilitatea ca media notelor a <span class="math inline">\(38\)</span> de studenți aleși la întâmplare (independent) să fie cel mult <span class="math inline">\(5.5\)</span>.</p>
+<ol start="2" type="a">
+<li><p>Timpul de așteptare al unui client la un ghișeu (măsurat într-o unitate de timp fixată) are media <span class="math inline">\(1.5\)</span> și varianța <span class="math inline">\(1\)</span>. Aproximați probabilitatea ca timpul total de așteptare a <span class="math inline">\(100\)</span> de clienți (independenți) să fie cel mult <span class="math inline">\(120\)</span>.</p></li>
+<li><p>Fie <span class="math inline">\(Y\sim\Bin(25,0.4)\)</span>. Aproximați <span class="math inline">\(\PP(Y\le8)\)</span> și <span class="math inline">\(\PP(Y=8)\)</span>, fără și cu corecție de continuitate.</p></li>
+<li><p>O monedă echilibrată se aruncă de <span class="math inline">\(100\)</span> de ori. Aproximați probabilitatea de a obține cel puțin <span class="math inline">\(55\)</span> de steme.</p></li>
+<li><p>În R: comparați aproximările de la (c) și (d) cu valorile exacte și cu frecvențele obținute din <span class="math inline">\(10^5\)</span> simulări. Apoi, pentru <span class="math inline">\(S_n\sim\Bin(n,p)\)</span>, calculați eroarea maximă <span class="math inline">\(\max_k|\PP(S_n\le k)-\text{aproximare}|\)</span> a aproximării normale (fără și cu corecție de continuitate) și a aproximării Poisson, pentru <span class="math inline">\(p\in\{0.3,\,0.05\}\)</span> și <span class="math inline">\(n\in\{10,100,1000\}\)</span>.</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (e) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">6</span>)                                   <span class="co"># sigma pentru Bin(25, 0.4)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="at">exact =</span> <span class="fu">c</span>(___, ___, ___),         <span class="co"># pbinom, dbinom, pbinom</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">cu_cc =</span> <span class="fu">c</span>(___, ___, ___))         <span class="co"># pragurile k + 0.5, k - 0.5</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">16</span>); B <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(B, <span class="dv">25</span>, <span class="fl">0.4</span>); st <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(B, <span class="dv">100</span>, <span class="fl">0.5</span>)   <span class="co"># B valori simulate</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">rbind</span>(tab, <span class="at">simulare =</span> <span class="fu">c</span>(<span class="fu">mean</span>(y <span class="sc">&lt;=</span> <span class="dv">8</span>), <span class="fu">mean</span>(y <span class="sc">==</span> <span class="dv">8</span>), <span class="fu">mean</span>(st <span class="sc">&gt;=</span> <span class="dv">55</span>))), <span class="dv">4</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>erori_aprox <span class="ot">&lt;-</span> <span class="cf">function</span>(n, p) {</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>n; s <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p)); F <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(k, n, p)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">n =</span> n, <span class="at">fara_cc =</span> <span class="fu">max</span>(<span class="fu">abs</span>(F <span class="sc">-</span> ___)), <span class="at">cu_cc =</span> <span class="fu">max</span>(<span class="fu">abs</span>(F <span class="sc">-</span> ___)),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">poisson =</span> <span class="fu">max</span>(<span class="fu">abs</span>(F <span class="sc">-</span> ___)))</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">t</span>(<span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>), erori_aprox, <span class="at">p =</span> <span class="fl">0.3</span>)), <span class="dv">5</span>)   <span class="co"># și p = 0.05</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Răspunsuri
+</div>
+<div class="curs-box-body">
+<ol type="a">
+<li><p><span class="math inline">\(\PP(\Xbar\le5.5)\approx0.0068\)</span>.</p></li>
+<li><p><span class="math inline">\(\PP(T\le120)\approx0.00135\)</span>.</p></li>
+<li><p><span class="math inline">\(\PP(Y\le8)\approx0.207\)</span> fără corecție și <span class="math inline">\(\approx0.270\)</span> cu corecție; <span class="math inline">\(\PP(Y=8)\approx0\)</span> fără corecție și <span class="math inline">\(\approx0.116\)</span> cu corecție.</p></li>
+<li><p>Fără corecție, <span class="math inline">\(\PP(Y\ge55)\approx1-\Phi\big(\frac{55-50}{5}\big)=1-\Phi(1)\approx0.159\)</span>; cu corecție, <span class="math inline">\(\{Y\ge55\}=\{Y\ge54.5\}\)</span> (pragul coboară cu <span class="math inline">\(\frac12\)</span>) și <span class="math inline">\(\PP(Y\ge55)\approx1-\Phi\big(\frac{54.5-50}{5}\big)=1-\Phi(0.9)\approx0.184\)</span>.</p></li>
+<li><p>Cu corecție de continuitate, aproximarea normală diferă deci de valoarea exactă cu cel mult <span class="math inline">\(0.004\)</span>; aproximarea normală cere ca <span class="math inline">\(np\)</span> și <span class="math inline">\(n(1-p)\)</span> să fie mari, cea Poisson ca <span class="math inline">\(p\)</span> să fie mic.</p></li>
+</ol>
+</div>
+</div>
+<p>În exercițiul următor volumul eșantionului este necunoscuta: cât de mare trebuie să fie <span class="math inline">\(n\)</span> pentru o precizie dată? Răspunsul depinde mult de instrumentul folosit.</p>
+<div id="box-exr-s02-sondaj" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 9</span> <span class="curs-box-name">(Volumul unui sondaj. Cebîșev, TLC și Slutsky)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivs">La seminar</span> Pentru a estima proporția <span class="math inline">\(p\in(0,1)\)</span> a alegătorilor care susțin o propunere, se intervievează <span class="math inline">\(n\)</span> persoane alese independent; fie <span class="math inline">\(\hat p_n=S_n/n\)</span> proporția răspunsurilor „da”, cu <span class="math inline">\(S_n\sim\Bin(n,p)\)</span>. Vrem ca <span class="math inline">\(\PP(|\hat p_n-p|\le0.03)\ge0.95\)</span> <strong>oricare ar fi</strong> <span class="math inline">\(p\)</span>.</p>
+<ol type="a">
+<li><p>Determinați un volum <span class="math inline">\(n\)</span> suficient folosind inegalitatea lui Cebîșev.</p></li>
+<li><p>Determinați <span class="math inline">\(n\)</span> folosind TLC. Verificați în R probabilitatea exactă pentru volumul găsit.</p></li>
+<li><p>Arătați că <span class="math inline">\(Z_n=\dfrac{\sqrt n(\hat p_n-p)}{\sqrt{\hat p_n(1-\hat p_n)}}\dto\Norm(0,1)\)</span> și deduceți un interval aleator care conține <span class="math inline">\(p\)</span> cu probabilitatea aproximativ <span class="math inline">\(0.95\)</span>. Aplicați pentru <span class="math inline">\(n=1068\)</span> persoane, dintre care <span class="math inline">\(587\)</span> au răspuns „da”.</p></li>
+<li><p>În R: calculați intervalul de la (c) și estimați prin simulare probabilitatea ca un astfel de interval să conțină <span class="math inline">\(p\)</span>, pentru <span class="math inline">\(p=0.55\)</span> și <span class="math inline">\(n\in\{30,1068\}\)</span>.</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (b) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> ___                             <span class="co"># volumul găsit la (b)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>prob_exacta <span class="ot">&lt;-</span> <span class="cf">function</span>(p) {         <span class="co"># P(|p_hat - p| &lt;= 0.03), exact</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  lo <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(n <span class="sc">*</span> (p <span class="sc">-</span> <span class="fl">0.03</span>) <span class="sc">-</span> <span class="fl">1e-9</span>); hi <span class="ot">&lt;-</span> <span class="fu">floor</span>(n <span class="sc">*</span> (p <span class="sc">+</span> <span class="fl">0.03</span>) <span class="sc">+</span> <span class="fl">1e-9</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  ___                                <span class="co"># P(lo &lt;= S_n &lt;= hi), cu pbinom</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prob_exacta</span>(<span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.5</span>)), <span class="dv">4</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>pf <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.3</span>, <span class="fl">0.7</span>, <span class="at">by =</span> <span class="fl">0.0001</span>)     <span class="co"># grilă fină de valori p</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">prob_exacta</span>(pf)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">minim =</span> ___, <span class="at">p_minim =</span> ___)        <span class="co"># minimul și punctul în care e atins</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (d) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ph <span class="ot">&lt;-</span> <span class="dv">587</span> <span class="sc">/</span> <span class="dv">1068</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ph <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> ___                      <span class="co"># intervalul de la (c)</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>acoperire <span class="ot">&lt;-</span> <span class="cf">function</span>(n, p, <span class="at">B =</span> <span class="fl">1e5</span>) {   <span class="co"># P(intervalul conține p), simulat</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  ph <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(B, n, p) <span class="sc">/</span> n              <span class="co"># B proporții de selecție</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(___)                              <span class="co"># intervalul conține p?</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">19</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">n_30 =</span> <span class="fu">acoperire</span>(<span class="dv">30</span>, <span class="fl">0.55</span>), <span class="at">n_1068 =</span> <span class="fu">acoperire</span>(<span class="dv">1068</span>, <span class="fl">0.55</span>))</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>Ultimul exercițiu al secțiunii nu mai calculează nimic nou: el arată, prin simulare, cele două teoreme limită la lucru.</p>
+<div id="box-exr-s02-lnm-tlc-sim" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 10</span> <span class="curs-box-name">(Legea numerelor mari și TLC, văzute prin simulare)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-niva">Pentru acasă</span> Fie <span class="math inline">\(X_1,X_2,\dots\)</span> i.i.d., cu media <span class="math inline">\(\mu\)</span> și abaterea standard <span class="math inline">\(\sigma\in(0,\infty)\)</span>, <span class="math inline">\(p_n(\varepsilon)=\PP(|\Xbar-\mu|&gt;\varepsilon)\)</span> și <span class="math inline">\(Z_n=\sqrt n(\Xbar-\mu)/\sigma\)</span>. </p>
+<ol type="a">
+<li><p>Pentru populația <span class="math inline">\(\Exp(1)\)</span> și <span class="math inline">\(\varepsilon=0.1\)</span>, comparați, pentru <span class="math inline">\(n=100\)</span> și <span class="math inline">\(n=500\)</span>, marginea dată de inegalitatea lui Cebîșev pentru <span class="math inline">\(p_n(\varepsilon)\)</span>, aproximarea dată de TLC și valoarea exactă.</p></li>
+<li><p>În R: simulați <span class="math inline">\(5\,000\)</span> de traiectorii <span class="math inline">\(n\mapsto\bar x_n\)</span>, <span class="math inline">\(n\le1000\)</span>, ale mediilor unei populații <span class="math inline">\(\Exp(1)\)</span>, estimați <span class="math inline">\(p_n(0.1)\)</span> prin frecvența traiectoriilor aflate în afara benzii <span class="math inline">\(1\pm0.1\)</span> și comparați cu valorile de la (a).</p></li>
+<li><p>Calculați <span class="math inline">\(\mu\)</span> și <span class="math inline">\(\sigma\)</span> pentru populația lognormală (<span class="math inline">\(X=e^W\)</span>, cu <span class="math inline">\(W\sim\Norm(0,1)\)</span>). În R: pentru populațiile <span class="math inline">\(\Unif(0,1)\)</span>, <span class="math inline">\(\Exp(1)\)</span> și lognormală și pentru <span class="math inline">\(n\in\{5,30,200\}\)</span>, estimați din <span class="math inline">\(2\cdot10^4\)</span> eșantioane simulate probabilitățile <span class="math inline">\(\PP(Z_n\le-1.645)\)</span> și <span class="math inline">\(\PP(Z_n&gt;1.645)\)</span>, pe care TLC le aproximează prin <span class="math inline">\(0.05\)</span>. Ce observați?</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (b) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>traiectorii <span class="ot">&lt;-</span> <span class="cf">function</span>(rgen, N, M) {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rgen</span>(N <span class="sc">*</span> M), <span class="at">nrow =</span> N)   <span class="co"># coloana j: un șir X_1, ..., X_N</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  ___                                  <span class="co"># coloana j: mediile cumulate</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>); eps <span class="ot">&lt;-</span> <span class="fl">0.1</span>; n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">500</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>Ym <span class="ot">&lt;-</span> <span class="fu">traiectorii</span>(rexp, <span class="at">N =</span> <span class="dv">1000</span>, <span class="at">M =</span> <span class="dv">5000</span>)     <span class="co"># 5000 de traiectorii</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>pn <span class="ot">&lt;-</span> ___                              <span class="co"># frecvența ieșirilor din bandă</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">rbind</span>(<span class="at">simulare =</span> pn[n], <span class="at">TLC =</span> ___,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">exact =</span> <span class="fu">pgamma</span>(<span class="fl">0.9</span> <span class="sc">*</span> n, n) <span class="sc">+</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>              <span class="fu">pgamma</span>(<span class="fl">1.1</span> <span class="sc">*</span> n, n, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">Cebisev =</span> <span class="fu">pmin</span>(<span class="dv">1</span>, <span class="dv">1</span> <span class="sc">/</span> (n <span class="sc">*</span> eps<span class="sc">^</span><span class="dv">2</span>))), <span class="dv">4</span>)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (c) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>medii_std <span class="ot">&lt;-</span> <span class="cf">function</span>(rgen, mu, sigma, n, <span class="at">B =</span> <span class="fl">2e4</span>) {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rgen</span>(n <span class="sc">*</span> B), <span class="at">nrow =</span> B)      <span class="co"># B eșantioane de volum n</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  ___                                     <span class="co"># B medii standardizate</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>cozi <span class="ot">&lt;-</span> <span class="cf">function</span>(z) <span class="fu">c</span>(<span class="at">stanga =</span> <span class="fu">mean</span>(z <span class="sc">&lt;=</span> <span class="sc">-</span><span class="fl">1.645</span>), <span class="at">dreapta =</span> <span class="fu">mean</span>(z <span class="sc">&gt;</span> <span class="fl">1.645</span>))</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">11</span>); ns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">30</span>, <span class="dv">200</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>s_ln <span class="ot">&lt;-</span> ___                               <span class="co"># abaterea standard lognormală</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sapply</span>(ns, <span class="cf">function</span>(n) <span class="fu">cozi</span>(<span class="fu">medii_std</span>(runif, <span class="fl">0.5</span>, <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">12</span>), n))),</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sapply</span>(ns, <span class="cf">function</span>(n) <span class="fu">cozi</span>(<span class="fu">medii_std</span>(rexp, <span class="dv">1</span>, <span class="dv">1</span>, n))),</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sapply</span>(ns, <span class="cf">function</span>(n) <span class="fu">cozi</span>(<span class="fu">medii_std</span>(rlnorm, ___, s_ln, n))))</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tab, <span class="dv">3</span>)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Răspunsuri
+</div>
+<div class="curs-box-body">
+<ol type="a">
+<li><p><span class="math inline">\(1\)</span> pentru <span class="math inline">\(n=100\)</span> (o margine fără conținut: orice probabilitate este cel mult <span class="math inline">\(1\)</span>) și <span class="math inline">\(0.2\)</span> pentru <span class="math inline">\(n=500\)</span>; <span class="math inline">\(p_{100}(0.1)\approx2(1-\Phi(1))\approx0.317\)</span>; pentru <span class="math inline">\(n=500\)</span> pragul este <span class="math inline">\(0.1\cdot\sqrt{500}=\sqrt5\approx2.236\)</span>, deci <span class="math inline">\(p_{500}(0.1)\approx2(1-\Phi(\sqrt5))\approx0.025\)</span>.</p></li>
+<li><p>pentru <span class="math inline">\(n=100\)</span>, frecvența simulată este <span class="math inline">\(0.3206\)</span>, aproximarea TLC <span class="math inline">\(0.3173\)</span>, valoarea exactă <span class="math inline">\(0.3165\)</span>, iar marginea Cebîșev <span class="math inline">\(1\)</span>; pentru <span class="math inline">\(n=500\)</span>: <span class="math inline">\(0.0256\)</span>, <span class="math inline">\(0.0253\)</span>, <span class="math inline">\(0.0253\)</span> și <span class="math inline">\(0.2\)</span>.</p></li>
+<li><p><span class="math inline">\(\mu=\E[e^W]=M_W(1)=e^{1/2}\approx1.649\)</span> și <span class="math inline">\(\E[X^2]=\E[e^{2W}]=M_W(2)=e^2\)</span>, deci <span class="math inline">\(\sigma^2=e^2-\big(e^{1/2}\big)^2=e^2-e\approx4.67\)</span> și <span class="math inline">\(\sigma\approx2.16\)</span>. Viteza cu care se instalează normalitatea depinde de populație: cu cât aceasta este mai asimetrică, cu atât convergența este mai lentă.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="sec-s02-suplimentare" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Exerciții suplimentare</h1>
+<p>Trei exerciții pentru studiul individual, rezolvate în aceeași formă: varianța combinațiilor liniare (cu o consecință pe care o vom folosi la varianța de selecție), minimul și maximul a două variabile cu repartiții diferite și un exercițiu care combină aproximarea normală și aproximarea Poisson ale repartiției binomiale.</p>
+<div id="box-exr-s02-covarianta" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 11</span> <span class="curs-box-name">(Varianța combinațiilor liniare. Abaterile de la medie)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-niva">Pentru acasă</span> (a) Randamentele <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> a două active financiare au <span class="math inline">\(\Var(X_1)=1\)</span>, <span class="math inline">\(\Var(X_2)=4\)</span> și <span class="math inline">\(\rho(X_1,X_2)=-0.5\)</span>. Calculați <span class="math inline">\(\Var(2X_1-X_2+3)\)</span>. Un investitor plasează fracțiunea <span class="math inline">\(a\in[0,1]\)</span> din capital în primul activ; randamentul portofoliului este <span class="math inline">\(R_a=aX_1+(1-a)X_2\)</span>. Determinați <span class="math inline">\(a\)</span> care minimizează <span class="math inline">\(\Var(R_a)\)</span>.</p>
+<ol start="2" type="a">
+<li><p>Fie <span class="math inline">\(X_1,\dots,X_n\)</span>, <span class="math inline">\(n\ge2\)</span>, cu varianțe pozitive și <span class="math inline">\(\rho(X_i,X_j)=\rho\)</span> pentru orice <span class="math inline">\(i\ne j\)</span>. Arătați că <span class="math inline">\(\rho\ge-\frac{1}{n-1}\)</span>. </p></li>
+<li><p>Fie <span class="math inline">\(Y_1,\dots,Y_n\)</span> i.i.d. cu varianța <span class="math inline">\(\sigma^2&gt;0\)</span>. Arătați că abaterile <span class="math inline">\(e_i=Y_i-\bar Y_n\)</span> au exact corelația <span class="math inline">\(-\frac1{n-1}\)</span> și deduceți că <span class="math inline">\(\E[S_n^2]=\sigma^2\)</span>, unde <span class="math inline">\(S_n^2=\frac{1}{n-1}\sum_{i=1}^n(Y_i-\bar Y_n)^2\)</span>.</p></li>
+<li><p>În R: regăsiți rezultatele de la (a) cu formula <span class="math inline">\(\Cov(A\bX+\mathbf b)=A\Sigma A^\top\)</span> și verificați (c) prin simulare, pentru <span class="math inline">\(n=4\)</span>.</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (d) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">4</span>), <span class="dv">2</span>)            <span class="co"># matricea de covarianță</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>), ___)                      <span class="co"># liniile: combinațiile</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>A <span class="sc">%*%</span> Sigma <span class="sc">%*%</span> <span class="fu">t</span>(A)                           <span class="co"># Cov(A X + b)</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>Yb <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">4</span> <span class="sc">*</span> <span class="fl">1e5</span>), <span class="at">ncol =</span> <span class="dv">4</span>)         <span class="co"># 1e5 eșantioane, n = 4</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>E <span class="ot">&lt;-</span> ___                                       <span class="co"># abaterile de la medie</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cor</span>(E), <span class="dv">3</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(___)                                      <span class="co"># media valorilor lui S^2</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Răspunsuri
+</div>
+<div class="curs-box-body">
+<ol type="a">
+<li><p><span class="math inline">\(\Var(2X_1-X_2+3)=4\cdot1+1\cdot4+2\cdot2\cdot(-1)\cdot(-1)=4+4+4=12\)</span>; <span class="math inline">\(a^*=\frac57\in[0,1]\)</span>, cu <span class="math inline">\(\Var(R_{a^*})=\frac37\)</span>.</p></li>
+<li><p><span class="math inline">\(\rho\ge-\frac1{n-1}\)</span>.</p></li>
+<li><p><span class="math inline">\(\rho(e_i,e_j)=-\frac1{n-1}\)</span>; <span class="math inline">\(\E[S_n^2]=\sigma^2\)</span>.</p></li>
+<li><p>pe diagonală regăsim <span class="math inline">\(\Var(2X_1-X_2+3)=12\)</span> și <span class="math inline">\(\Var(R_{a^*})=\frac37\approx0.4286\)</span>; corelațiile empirice ale abaterilor, între <span class="math inline">\(-0.335\)</span> și <span class="math inline">\(-0.332\)</span>, sunt apropiate de <span class="math inline">\(-\frac13\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<p>Propoziția <a href="..\curs\01-recapitulare-probabilitati.html#box-prop-k01-max-min" class="curs-ref">51 din Cursul 1</a> nu cere ca variabilele să aibă aceeași repartiție. În exercițiul următor ele provin din familii diferite, iar una dintre ele este mărginită.</p>
+<div id="box-exr-s02-tv-sosiri" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 12</span> <span class="curs-box-name">(Primul sosit: autobuzul sau taxiul)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-niva">Pentru acasă</span> Un călător ajunge în stație și pleacă cu primul vehicul care sosește. Autobuzul sosește după un timp <span class="math inline">\(X\sim\Unif(0,1)\)</span> (măsurat în ore: autobuzele trec din oră în oră, iar călătorul nu cunoaște orarul), iar un taxi liber trece după un timp <span class="math inline">\(Y\sim\Exp(\lambda)\)</span>, independent de <span class="math inline">\(X\)</span>. Fie <span class="math inline">\(T=\min(X,Y)\)</span> timpul de așteptare și <span class="math inline">\(M=\max(X,Y)\)</span> momentul până la care au trecut ambele vehicule.</p>
+<ol type="a">
+<li><p>Determinați funcția de repartiție, densitatea și media lui <span class="math inline">\(T\)</span>.</p></li>
+<li><p>Calculați probabilitatea ca taxiul să sosească primul.</p></li>
+<li><p>Determinați densitatea și media lui <span class="math inline">\(M\)</span>.</p></li>
+<li><p>În R: verificați rezultatele prin simulare pentru <span class="math inline">\(\lambda=3\)</span>.</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (d) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>lam <span class="ot">&lt;-</span> <span class="dv">3</span>; <span class="fu">set.seed</span>(<span class="dv">33</span>); B <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(B); y <span class="ot">&lt;-</span> <span class="fu">rexp</span>(B, lam)          <span class="co"># autobuzul și taxiul</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Tm <span class="ot">&lt;-</span> ___; M <span class="ot">&lt;-</span> ___                       <span class="co"># primul și ultimul sosit</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>lam)) <span class="sc">/</span> lam</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">rbind</span>(</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">simulare =</span> <span class="fu">c</span>(<span class="at">E_T =</span> <span class="fu">mean</span>(Tm), <span class="at">P_taxi =</span> <span class="fu">mean</span>(___), <span class="at">E_M =</span> <span class="fu">mean</span>(M),</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">P_T =</span> <span class="fu">mean</span>(Tm <span class="sc">&lt;=</span> <span class="fl">0.2</span>), <span class="at">P_M =</span> <span class="fu">mean</span>(M <span class="sc">&lt;=</span> <span class="fl">0.5</span>)),</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">exact =</span> <span class="fu">c</span>(___, ___, ___,                <span class="co"># E[T], P(Y &lt; X), E[M], cu e</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>            <span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.8</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.2</span> <span class="sc">*</span> lam), <span class="fl">0.5</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.5</span> <span class="sc">*</span> lam)))), <span class="dv">4</span>)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Răspunsuri
+</div>
+<div class="curs-box-body">
+<ol type="a">
+<li><p><span class="math inline">\(F_T(t)=1-(1-t)e^{-\lambda t}\)</span> și <span class="math inline">\(f_T(t)=\big(1+\lambda(1-t)\big)e^{-\lambda t}\)</span> pe <span class="math inline">\((0,1)\)</span>, <span class="math inline">\(\E[T]=\frac1\lambda-\frac{1-e^{-\lambda}}{\lambda^2}\)</span>.</p></li>
+<li><p><span class="math inline">\(\PP(Y&lt;X)=1-\frac{1-e^{-\lambda}}{\lambda}=\lambda\,\E[T]\)</span>.</p></li>
+<li><p><span class="math inline">\(f_M(t)=1-e^{-\lambda t}+\lambda te^{-\lambda t}\)</span> pe <span class="math inline">\((0,1)\)</span>, <span class="math inline">\(f_M(t)=\lambda e^{-\lambda t}\)</span> pe <span class="math inline">\((1,\infty)\)</span> și <span class="math inline">\(\E[M]=\frac12+\frac{1-e^{-\lambda}}{\lambda^2}\)</span>.</p></li>
+<li><p><span class="math inline">\(\E[T]\)</span> este <span class="math inline">\(0.2276\)</span> față de <span class="math inline">\(0.2278\)</span>, <span class="math inline">\(\PP(Y&lt;X)\)</span> este <span class="math inline">\(0.6832\)</span> față de <span class="math inline">\(0.6833\)</span>, iar <span class="math inline">\(\E[M]\)</span> este <span class="math inline">\(0.6051\)</span> față de <span class="math inline">\(0.6056\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<p>Ultimul exercițiu suplimentar folosește ambele aproximări ale repartiției binomiale din Exercițiul <a href="#box-exr-s02-aprox-normala" class="curs-ref">8</a>: cea normală (pentru <span class="math inline">\(p\)</span> fixat și <span class="math inline">\(n\)</span> mare) și cea Poisson (pentru <span class="math inline">\(p\)</span> mic).</p>
+<div id="box-exr-s02-L-serii" class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 13</span> <span class="curs-box-name">(Serii de aruncări ale unei monede)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-niva">Pentru acasă</span> Se efectuează <span class="math inline">\(20\)</span> de serii de câte <span class="math inline">\(400\)</span> de aruncări ale unei monede echilibrate. Fie <span class="math inline">\(F_1,\dots,F_{20}\)</span> frecvențele relative ale stemei în cele <span class="math inline">\(20\)</span> de serii și <span class="math inline">\(N\)</span> numărul de serii pentru care <span class="math inline">\(F_i\notin(0.45,\,0.55)\)</span>. </p>
+<ol type="a">
+<li><p>Care este repartiția lui <span class="math inline">\(N\)</span>? Aproximați parametrul ei cu TLC, fără și cu corecție de continuitate.</p></li>
+<li><p>Care dintre evenimentele <span class="math inline">\(\{N=0\}\)</span>, <span class="math inline">\(\{N=1\}\)</span>, <span class="math inline">\(\{N\ge2\}\)</span> este cel mai probabil? Folosiți aproximarea Poisson.</p></li>
+<li><p>În R: calculați exact parametrul de la (a) și probabilitățile de la (b) și verificați-le prin simulare.</p></li>
+</ol>
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Schelet de cod pentru (c) — completați locurile marcate cu <code>___</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> ___                         <span class="co"># P(F_i în afara lui (0.45, 0.55)), exact</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">exact =</span> p, <span class="at">TLC =</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>), <span class="at">TLC_cc =</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.95</span>))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">20</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">10000</span>, ___)       <span class="co"># numărul de serii cu F_i în afara benzii</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">rbind</span>(<span class="at">binomiala =</span> <span class="fu">c</span>(<span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">20</span>, p), <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(<span class="dv">1</span>, <span class="dv">20</span>, p)),</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">poisson   =</span> <span class="fu">c</span>(<span class="fu">dpois</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, ___), <span class="dv">1</span> <span class="sc">-</span> <span class="fu">ppois</span>(<span class="dv">1</span>, ___)),</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">simulare  =</span> <span class="fu">c</span>(<span class="fu">mean</span>(N <span class="sc">==</span> <span class="dv">0</span>), <span class="fu">mean</span>(N <span class="sc">==</span> <span class="dv">1</span>), <span class="fu">mean</span>(N <span class="sc">&gt;=</span> <span class="dv">2</span>))), <span class="dv">4</span>)</span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+Răspunsuri
+</div>
+<div class="curs-box-body">
+<ol type="a">
+<li><p><span class="math inline">\(N=\sum_{i=1}^{20}\xi_i\sim\Bin(20,p)\)</span>; <span class="math inline">\(p=\PP(|Z|\ge2)\approx2(1-\Phi(2))\approx2\cdot0.0228\approx0.0455\)</span>; <span class="math inline">\(p\approx\Phi(-1.95)+1-\Phi(1.95)=2\Phi(-1.95)\approx2\cdot0.0256=0.0512\)</span>.</p></li>
+<li><p>Evenimentul <span class="math inline">\(\{N=1\}\)</span> este cel mai probabil, dar cele trei probabilități sunt comparabile (aproximativ <span class="math inline">\(e^{-1}\)</span>, <span class="math inline">\(e^{-1}\)</span> și <span class="math inline">\(1-2e^{-1}\)</span>).</p></li>
+<li><p>valoarea exactă <span class="math inline">\(p\approx0.0510\)</span> este foarte aproape de aproximarea cu corecție de continuitate (<span class="math inline">\(0.0512\)</span>); probabilitățile exacte ale celor trei evenimente sunt <span class="math inline">\(0.351\)</span>, <span class="math inline">\(0.377\)</span> și <span class="math inline">\(0.272\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="sec-s02-tema" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Temă</h1>
+<ol type="1">
+<li><p>Fie <span class="math inline">\(Y\sim\Bin(n,p)\)</span>, <span class="math inline">\(p\in(0,1)\)</span> fixat, și <span class="math inline">\(U_n=(Y-np)/\sqrt{np(1-p)}\)</span>. (a) Arătați, cu f.g.m. și teorema lui Curtiss, că <span class="math inline">\(U_n\dto\Norm(0,1)\)</span> (teorema Moivre–Laplace, fără a folosi TLC). (b) Aproximați <span class="math inline">\(\PP(148\le Y\le159)\)</span> pentru <span class="math inline">\(Y\sim\Bin(500,0.3)\)</span> și comparați cu valoarea exactă. (<em>Indicație:</em> cu <span class="math inline">\(q=1-p\)</span>, <span class="math inline">\(\sigma_n=\sqrt{npq}\)</span> și <span class="math inline">\(u=t/\sigma_n\)</span>, <span class="math inline">\(M_{U_n}(t)=\big(q\,e^{-pu}+p\,e^{qu}\big)^n\)</span>; din formula lui Taylor, <span class="math inline">\(q\,e^{-pu}+p\,e^{qu}=1+\frac{pq\,u^2}{2}+r(u)\)</span> cu <span class="math inline">\(|r(u)|\le C|u|^3\)</span> pentru <span class="math inline">\(|u|\le1\)</span>; aplicați Lema <a href="..\curs\01-recapitulare-probabilitati.html#box-lem-k01-lema-exp" class="curs-ref">62 din Cursul 1</a> cu <span class="math inline">\(a_n=npq\,u^2/2+n\,r(u)\to t^2/2\)</span>. <em>Răspuns (b):</em> cu corecție de continuitate, <span class="math inline">\(\Phi(0.927)-\Phi(-0.244)\approx0.419\)</span>; exact <span class="math inline">\(0.417\)</span>.) </p></li>
+<li><p>(<em>Densitatea <span class="math inline">\(c\,xy\)</span> pe un triunghi</em>) Vectorul <span class="math inline">\((X,Y)\)</span> are densitatea <span class="math inline">\(c\,xy\)</span> pe <span class="math inline">\(\{0\le y\le x\le1\}\)</span>. Determinați <span class="math inline">\(c\)</span>, marginalele, <span class="math inline">\(\Cov(X,Y)\)</span> și <span class="math inline">\(\rho(X,Y)\)</span>; sunt <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> independente, deși densitatea are forma unui produs pe suport? Verificați în R, generând <span class="math inline">\(X=U^{1/4}\)</span> și <span class="math inline">\(Y=X\sqrt V\)</span>, cu <span class="math inline">\(U,V\)</span> i.i.d. <span class="math inline">\(\Unif(0,1)\)</span>, și calculând <code>cov</code> și <code>cor</code>. (<em>Răspuns:</em> <span class="math inline">\(c=8\)</span>, <span class="math inline">\(f_X(x)=4x^3\)</span>, <span class="math inline">\(f_Y(y)=4y(1-y^2)\)</span> pe <span class="math inline">\([0,1]\)</span>; <span class="math inline">\(\E X=\frac45\)</span>, <span class="math inline">\(\E Y=\frac8{15}\)</span>, <span class="math inline">\(\E[XY]=\frac49\)</span>, <span class="math inline">\(\Cov(X,Y)=\frac4{225}\)</span>, <span class="math inline">\(\Var X=\frac2{75}\)</span>, <span class="math inline">\(\Var Y=\frac{11}{225}\)</span>, <span class="math inline">\(\rho\approx0.492\)</span>; nu sunt independente: suportul nu este un dreptunghi.)</p></li>
+<li><p>(<em>Convergență în probabilitate fără convergența mediilor</em>) Fie <span class="math inline">\(X_n\)</span> cu <span class="math inline">\(\PP(X_n=n)=\frac1n\)</span> și <span class="math inline">\(\PP(X_n=0)=1-\frac1n\)</span>. Arătați că <span class="math inline">\(X_n\pto0\)</span> și <span class="math inline">\(X_n\dto0\)</span>, dar că <span class="math inline">\(X_n\)</span> nu converge la <span class="math inline">\(0\)</span> în <span class="math inline">\(L^1\)</span>. Pentru ce valori <span class="math inline">\(a&gt;0\)</span> șirul <span class="math inline">\(Y_n\)</span>, cu <span class="math inline">\(\PP(Y_n=n)=n^{-a}\)</span> și <span class="math inline">\(\PP(Y_n=0)=1-n^{-a}\)</span>, converge la <span class="math inline">\(0\)</span> în medie pătratică? (<em>Răspuns:</em> pentru <span class="math inline">\(n&gt;\varepsilon\)</span>, <span class="math inline">\(\PP(|X_n|&gt;\varepsilon)=\frac1n\to0\)</span>; convergența în repartiție rezultă din Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-relatii" class="curs-ref">56(c) din Cursul 1</a>; <span class="math inline">\(\E|X_n|=n\cdot\frac1n=1\not\to0\)</span>. <span class="math inline">\(\E[Y_n^2]=n^{2-a}\to0\)</span> dacă și numai dacă <span class="math inline">\(a&gt;2\)</span>: convergența în probabilitate nu controlează momentele — o masă de probabilitate mică, plasată foarte departe, împiedică media să tindă la limită.)</p></li>
+<li><p>(<em>Produsul unei uniforme cu o variabilă Gamma</em>) Un echipament cu timpul de funcționare <span class="math inline">\(Y\sim\GammaD(2,\lambda)\)</span> este inspectat la un moment ales uniform în acest interval: momentul inspecției este <span class="math inline">\(W=UY\)</span>, cu <span class="math inline">\(U\sim\Unif(0,1)\)</span> independentă de <span class="math inline">\(Y\)</span>. Determinați, cu variabila auxiliară <span class="math inline">\(Y\)</span>, densitatea vectorului <span class="math inline">\((W,Y)\)</span> și arătați că <span class="math inline">\(W\sim\Exp(\lambda)\)</span>; comparați, pentru <span class="math inline">\(\lambda=1\)</span>, cu Exercițiul <a href="#box-exr-s02-vector-exp" class="curs-ref">3</a>. (<em>Răspuns:</em> cu <span class="math inline">\(h(u,y)=(uy,y)\)</span>, <span class="math inline">\(h^{-1}(w,y)=\big(\frac wy,y\big)\)</span> și <span class="math inline">\(|J_{h^{-1}}|=\frac1y\)</span>, <span class="math inline">\(f_{(W,Y)}(w,y)=\lambda^2e^{-\lambda y}\)</span> pe <span class="math inline">\(\{0&lt;w&lt;y\}\)</span>; integrând în <span class="math inline">\(y\)</span>, <span class="math inline">\(f_W(w)=\int_w^\infty\lambda^2e^{-\lambda y}\dd y=\lambda e^{-\lambda w}\)</span>, <span class="math inline">\(w&gt;0\)</span>. Pentru <span class="math inline">\(\lambda=1\)</span> obținem exact densitatea din exercițiul citat: este reciproca rezultatului despre raportul <span class="math inline">\(U\)</span> din Exercițiul <a href="#box-exr-s02-tv-fractiune" class="curs-ref">6</a>(b).)</p></li>
+<li><p>(<em>Suma și diferența a două exponențiale</em>) Fie <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> i.i.d. <span class="math inline">\(\Exp(\lambda)\)</span>, <span class="math inline">\(U=X+Y\)</span> și <span class="math inline">\(V=X-Y\)</span>. Determinați densitatea comună a vectorului <span class="math inline">\((U,V)\)</span> cu Corolarul <a href="..\curs\01-recapitulare-probabilitati.html#box-cor-k01-transf-afina-vect" class="curs-ref">53 din Cursul 1</a> și densitățile marginale; arătați că <span class="math inline">\(U\)</span> și <span class="math inline">\(V\)</span> sunt necorelate, dar nu sunt independente. În R, reprezentați <span class="math inline">\(3\,000\)</span> de puncte <span class="math inline">\((u_i,v_i)\)</span> simulate și calculați corelația empirică. (<em>Răspuns:</em> <span class="math inline">\(f_{(U,V)}(u,v)=\frac{\lambda^2}{2}e^{-\lambda u}\)</span> pe <span class="math inline">\(\{|v|&lt;u\}\)</span>; <span class="math inline">\(f_U(u)=\lambda^2ue^{-\lambda u}\)</span>, <span class="math inline">\(u&gt;0\)</span>, adică <span class="math inline">\(\GammaD(2,\lambda)\)</span>, și <span class="math inline">\(f_V(v)=\frac\lambda2e^{-\lambda|v|}\)</span> — pentru <span class="math inline">\(\lambda=1\)</span>, repartiția Laplace din Exercițiul <a href="#box-exr-s02-laplace" class="curs-ref">2</a>, cu <span class="math inline">\(\theta=0\)</span>; <span class="math inline">\(\Cov(U,V)=\Var(X)-\Var(Y)=0\)</span>, dar <span class="math inline">\(\PP(U\le1,\ |V|&gt;1)=0\)</span>, deși ambele evenimente au probabilitate pozitivă; norul de puncte umple unghiul <span class="math inline">\(\{|v|&lt;u\}\)</span>.)</p></li>
+<li><p>(<em>Suprarezervare</em>) Un avion are <span class="math inline">\(200\)</span> de locuri, iar fiecare cumpărător de bilet se prezintă la îmbarcare cu probabilitatea <span class="math inline">\(0.9\)</span>, independent de ceilalți. Determinați cel mai mare număr <span class="math inline">\(n\)</span> de bilete vândute pentru care probabilitatea ca locurile să nu ajungă este cel mult <span class="math inline">\(0.05\)</span>: cu aproximarea normală cu corecție de continuitate și exact, în R, cu <code>pbinom</code>. (<em>Răspuns:</em> cu <span class="math inline">\(S_n\sim\Bin(n,0.9)\)</span>, condiția <span class="math inline">\((200.5-0.9n)/(0.3\sqrt n)\ge1.645\)</span> devine, cu <span class="math inline">\(s=\sqrt n\)</span>, <span class="math inline">\(0.9s^2+0.4935s-200.5\le0\)</span>, deci <span class="math inline">\(n\le214.7\)</span> și <span class="math inline">\(n=214\)</span>; exact, <span class="math inline">\(\PP(S_{215}\ge201)\approx0.0496\)</span> și <span class="math inline">\(\PP(S_{216}\ge201)\approx0.0782\)</span>, deci <span class="math inline">\(215\)</span> — asimetria binomialei pentru <span class="math inline">\(p=0.9\)</span> face aproximarea să piardă un bilet.)</p></li>
+<li><p>(<em>Funcții de medii</em>) Fie <span class="math inline">\(X_1,X_2,\dots\)</span> i.i.d. <span class="math inline">\(\Exp(\lambda)\)</span>, <span class="math inline">\(\lambda&gt;0\)</span>. Determinați limitele aproape sigure ale șirurilor <span class="math inline">\(A_n=\sum_{i=1}^nX_i^2\big/\sum_{i=1}^nX_i\)</span> și <span class="math inline">\(B_n=n\sum_{i=1}^nX_i^2\big/\big(\sum_{i=1}^nX_i\big)^2\)</span> și construiți, pornind de la <span class="math inline">\(C_n=\frac1n\sum_{i=1}^ne^{-X_i}\)</span>, un șir <span class="math inline">\(\hat\lambda_n\)</span>, funcție doar de <span class="math inline">\(X_1,\dots,X_n\)</span>, cu <span class="math inline">\(\hat\lambda_n\asto\lambda\)</span>. (<em>Indicație:</em> împărțiți numărătorul și numitorul la <span class="math inline">\(n\)</span>, respectiv la <span class="math inline">\(n^2\)</span>; aplicați Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-lnm-tare" class="curs-ref">61 din Cursul 1</a> mediilor <span class="math inline">\(\Xbar\)</span>, <span class="math inline">\(\frac1n\sum_iX_i^2\)</span> și <span class="math inline">\(C_n\)</span>, apoi Teorema <a href="..\curs\01-recapitulare-probabilitati.html#box-thm-k01-tac" class="curs-ref">57(a) din Cursul 1</a>. <em>Răspuns:</em> <span class="math inline">\(A_n\asto\frac{2/\lambda^2}{1/\lambda}=\frac2\lambda\)</span> și <span class="math inline">\(B_n\asto2\)</span>, oricare ar fi <span class="math inline">\(\lambda\)</span>; <span class="math inline">\(C_n\asto\E[e^{-X_1}]=M_{X_1}(-1)=\frac{\lambda}{\lambda+1}\)</span>, deci <span class="math inline">\(\hat\lambda_n=\frac{C_n}{1-C_n}\)</span>.)</p></li>
+<li><p>(R) Fie <span class="math inline">\(X_i\)</span> i.i.d. Pareto, cu densitatea <span class="math inline">\(f(x)=1.5\,x^{-2.5}\)</span>, <span class="math inline">\(x\ge1\)</span> (generare: <span class="math inline">\(X=U^{-1/1.5}\)</span>, <span class="math inline">\(U\sim\Unif(0,1)\)</span>). Arătați că <span class="math inline">\(\E[X_1]=3\)</span>, dar <span class="math inline">\(\Var(X_1)=\infty\)</span>, și că <span class="math inline">\(X_1\)</span> nu admite f.g.m. Desenați <span class="math inline">\(20\)</span> de traiectorii <span class="math inline">\(n\mapsto\bar x_n\)</span>, <span class="math inline">\(n\le10^4\)</span> (cu funcția <code>traiectorii</code> din Exercițiul <a href="#box-exr-s02-lnm-tlc-sim" class="curs-ref">10</a>), și histograma lui <span class="math inline">\(\sqrt n(\Xbar-3)\)</span> pentru <span class="math inline">\(n=1000\)</span>. Ce rezultat limită se aplică și care nu? (<em>Răspuns:</em> LNM se aplică (<span class="math inline">\(\E|X_1|&lt;\infty\)</span>), TLC nu: histograma este puternic asimetrică și nu se stabilizează când <span class="math inline">\(n\)</span> crește; convergența lui <span class="math inline">\(\bar x_n\)</span> este lentă, cu salturi mari.)</p></li>
+<li><p>(<em>Uniforma pe disc</em>) Fie <span class="math inline">\((X,Y)\)</span> uniform pe discul unitate <span class="math inline">\(\{x^2+y^2\le1\}\)</span> (densitatea <span class="math inline">\(1/\pi\)</span>). Arătați că <span class="math inline">\(f_X(x)=\frac2\pi\sqrt{1-x^2}\)</span> pe <span class="math inline">\([-1,1]\)</span>, că <span class="math inline">\(\Cov(X,Y)=0\)</span>, dar că <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> nu sunt independente. (<em>Indicație:</em> integrați în <span class="math inline">\(y\)</span> pe secțiunea <span class="math inline">\(|y|&lt;\sqrt{1-x^2}\)</span>, ca în Exemplul <a href="#box-ex-s02-ex-triunghi" class="curs-ref">2</a>; <span class="math inline">\(\E[XY]=\E[X]=0\)</span> din simetria <span class="math inline">\((x,y)\mapsto(-x,y)\)</span>; <span class="math inline">\(\PP(X&gt;0.8,\ Y&gt;0.8)=0\ne\PP(X&gt;0.8)^2\)</span>.)</p></li>
+<li><p>Într-un tabel de numere aleatoare, fiecare rând conține <span class="math inline">\(60\)</span> de cifre independente, uniform repartizate pe <span class="math inline">\(\{0,\dots,9\}\)</span>. Aproximați probabilitatea ca un rând să conțină între <span class="math inline">\(25\)</span> și <span class="math inline">\(35\)</span> (inclusiv) cifre impare și comparați, în R, cu valoarea exactă. (<em>Răspuns:</em> numărul de cifre impare este <span class="math inline">\(\Bin(60,\frac12)\)</span>, cu media <span class="math inline">\(30\)</span> și varianța <span class="math inline">\(15\)</span>; cu corecție de continuitate, ca în Exemplul <a href="#box-ex-s02-ex-zar" class="curs-ref">4</a>, <span class="math inline">\(2\Phi(5.5/\sqrt{15})-1\approx0.844\)</span>; exact, <code>pbinom(35, 60, 0.5) - pbinom(24, 60, 0.5)</code> <span class="math inline">\(\approx0.845\)</span>.) </p></li>
+</ol>
+</section>
+<section id="bibliografie" class="level1 unnumbered">
+<h1 class="unnumbered">Bibliografie</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-casella2002" class="csl-entry" role="listitem">
+Casella, George, and Roger L. Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Duxbury.
+</div>
+<div id="ref-dalang2018" class="csl-entry" role="listitem">
+Dalang, Robert C., and Daniel Conus. 2018. <em>Introduction à La Théorie Des Probabilités</em>. 2nd ed. Presses polytechniques et universitaires romandes.
+</div>
+<div id="ref-delmas2010exo" class="csl-entry" role="listitem">
+Delmas, Jean-François. 2010. <em>Introduction Au Calcul Des Probabilités Et à La Statistique. Exercices, Problèmes Et Corrections</em>. Les Presses de l’ENSTA.
+</div>
+<div id="ref-hogg2019" class="csl-entry" role="listitem">
+Hogg, Robert V., Joseph W. McKean, and Allen T. Craig. 2019. <em>Introduction to Mathematical Statistics</em>. 8th ed. Pearson.
+</div>
+<div id="ref-knight2000" class="csl-entry" role="listitem">
+Knight, Keith. 2000. <em>Mathematical Statistics</em>. Texts in Statistical Science. Chapman &amp; Hall/CRC.
+</div>
+<div id="ref-kupper2013" class="csl-entry" role="listitem">
+Kupper, Lawrence L., Brian H. Neelon, and Sean M. O’Brien. 2013. <em>Exercises and Solutions in Statistical Theory</em>. Chapman &amp; Hall/CRC.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<!-- Buton „Înapoi sus”: apare după ce pagina a fost derulată -->
+<button id="curs-to-top" type="button" aria-label="Înapoi la începutul paginii" title="Înapoi sus">
+  <i class="bi bi-arrow-up"></i>
+</button>
+<script>
+(function () {
+  var btn = document.getElementById('curs-to-top');
+  if (!btn) return;
+  var toggle = function () {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  };
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    btn.blur();
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/AlexAmarioarei\.github\.io\/curs-stat-fmi\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../laborator_nosols/01-introducere-R.html" class="pagination-link" aria-label="1. Probabilități, variabile aleatoare și primii pași în R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1. Probabilități, variabile aleatoare și primii pași în R</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2026, <a href="https://alexamarioarei.github.io/">Alexandru Amărioarei</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Această pagină a fost creată în <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

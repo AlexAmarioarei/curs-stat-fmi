@@ -89,6 +89,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../curs/02-statistica-inferentiala.html" rel="next">
 <link href="../images/stat_sticker.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -272,6 +273,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../curs/01-recapitulare-probabilitati.html">
  <span class="dropdown-text">Cursul 1 — Noțiuni fundamentale de probabilități (recapitulare)</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../curs/02-statistica-inferentiala.html">
+ <span class="dropdown-text">Cursul 2 — Introducere în statistica inferențială</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -290,6 +295,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../laborator_nosols/01-introducere-R.html">
  <span class="dropdown-text">Seminarul 1 — Probabilități, variabile aleatoare și primii pași în R (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../laborator_nosols/02-probabilitati-R.html">
+ <span class="dropdown-text">Seminarul 2 — F.g.m., vectori aleatori, transformări și teoreme limită (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -372,6 +381,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../curs/01-recapitulare-probabilitati.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">1. Noțiuni fundamentale de probabilități (recapitulare)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../curs/02-statistica-inferentiala.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Introducere în statistica inferențială</span></a>
   </div>
 </li>
       </ul>
@@ -493,8 +508,8 @@ Planul cursului
 </div>
 <section id="sec-k01-organizare" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introducere</h1>
-<p>Cursul de Statistică (semestrul I, anul al III-lea) începe cu două cursuri introductive, acesta și Cursul 2, și are apoi patru părți: <strong>simulare și eșantionare</strong> (de la Cursul 3 la Cursul 6), <strong>estimare punctuală</strong> (de la Cursul 7 la Cursul 11), <strong>intervale de încredere</strong> (Cursul 12 și Cursul 13) și <strong>testarea ipotezelor statistice</strong> (Cursul 14, eventual Cursul 15 și Cursul 16). Seminarul și laboratorul (în R) au loc săptămânal; modul de evaluare este precizat în fișa disciplinei.</p>
-<p>În teoria probabilităților <strong>modelul este cunoscut</strong> și calculăm probabilitățile unor evenimente; în statistică <strong>observăm rezultatul</strong> și ne întrebăm ce putem spune despre model (Cursul 2). Recapitulăm aici noțiunile de probabilități pe care le vom folosi <span class="citation" data-cites="hogg2019 knight2000 jacod2004">(<a href="#ref-hogg2019" role="doc-biblioref">Hogg et al. 2019</a>, cap. 1–2 și 5; <a href="#ref-knight2000" role="doc-biblioref">Knight 2000</a>, cap. 1–3; <a href="#ref-jacod2004" role="doc-biblioref">Jacod and Protter 2004</a>)</span>. Rezultatele sunt însoțite de demonstrații complete, așezate imediat după enunț; cele care cer instrumente suplimentare (măsurabilitatea, lema Borel–Cantelli, descrierile echivalente ale convergenței în repartiție) sunt adunate în Secțiunea <a href="#sec-k01-complemente" class="curs-ref">11</a>. Rămân enunțate fără demonstrație, cu trimitere la un manual, rezultatele de teoria măsurii și câteva teoreme adânci (construcția integralei, unicitatea f.g.m. în cazul general, teorema de continuitate a lui Curtiss, legea tare a numerelor mari sub ipoteza minimală, teorema limită centrală fără ipoteza că f.g.m. există); de fiecare dată spunem exact ce este demonstrat și ce este admis. Din analiză folosim liber seriile uzuale, funcția <span class="math inline">\(\Gamma(\alpha)=\int_0^\infty x^{\alpha-1}e^{-x}\dd x\)</span> (cu <span class="math inline">\(\Gamma(\alpha+1)=\alpha\Gamma(\alpha)\)</span>, <span class="math inline">\(\Gamma(n)=(n-1)!\)</span>, <span class="math inline">\(\Gamma(1/2)=\sqrt\pi\)</span>) și formula lui Taylor și admitem teorema lui Fubini, teoremele convergenței monotone și dominate și formula schimbării de variabilă în integrala multiplă <span class="citation" data-cites="billingsley1995">(<a href="#ref-billingsley1995" role="doc-biblioref">Billingsley 1995, secs. 16–18</a>)</span>.</p>
+<p>Cursul de Statistică (semestrul I, anul al III-lea) începe cu două cursuri introductive, acesta și <a href="02-statistica-inferentiala.html" class="curs-ref">Cursul 2</a>, și are apoi patru părți: <strong>simulare și eșantionare</strong> (de la Cursul 3 la Cursul 6), <strong>estimare punctuală</strong> (de la Cursul 7 la Cursul 11), <strong>intervale de încredere</strong> (Cursul 12 și Cursul 13) și <strong>testarea ipotezelor statistice</strong> (Cursul 14, eventual Cursul 15 și Cursul 16). Seminarul și laboratorul (în R) au loc săptămânal; modul de evaluare este precizat în fișa disciplinei.</p>
+<p>În teoria probabilităților <strong>modelul este cunoscut</strong> și calculăm probabilitățile unor evenimente; în statistică <strong>observăm rezultatul</strong> și ne întrebăm ce putem spune despre model (<a href="02-statistica-inferentiala.html" class="curs-ref">Cursul 2</a>). Recapitulăm aici noțiunile de probabilități pe care le vom folosi <span class="citation" data-cites="hogg2019 knight2000 jacod2004">(<a href="#ref-hogg2019" role="doc-biblioref">Hogg et al. 2019</a>, cap. 1–2 și 5; <a href="#ref-knight2000" role="doc-biblioref">Knight 2000</a>, cap. 1–3; <a href="#ref-jacod2004" role="doc-biblioref">Jacod and Protter 2004</a>)</span>. Rezultatele sunt însoțite de demonstrații complete, așezate imediat după enunț; cele care cer instrumente suplimentare (măsurabilitatea, lema Borel–Cantelli, descrierile echivalente ale convergenței în repartiție) sunt adunate în Secțiunea <a href="#sec-k01-complemente" class="curs-ref">11</a>. Rămân enunțate fără demonstrație, cu trimitere la un manual, rezultatele de teoria măsurii și câteva teoreme adânci (construcția integralei, unicitatea f.g.m. în cazul general, teorema de continuitate a lui Curtiss, legea tare a numerelor mari sub ipoteza minimală, teorema limită centrală fără ipoteza că f.g.m. există); de fiecare dată spunem exact ce este demonstrat și ce este admis. Din analiză folosim liber seriile uzuale, funcția <span class="math inline">\(\Gamma(\alpha)=\int_0^\infty x^{\alpha-1}e^{-x}\dd x\)</span> (cu <span class="math inline">\(\Gamma(\alpha+1)=\alpha\Gamma(\alpha)\)</span>, <span class="math inline">\(\Gamma(n)=(n-1)!\)</span>, <span class="math inline">\(\Gamma(1/2)=\sqrt\pi\)</span>) și formula lui Taylor și admitem teorema lui Fubini, teoremele convergenței monotone și dominate și formula schimbării de variabilă în integrala multiplă <span class="citation" data-cites="billingsley1995">(<a href="#ref-billingsley1995" role="doc-biblioref">Billingsley 1995, secs. 16–18</a>)</span>.</p>
 </section>
 <section id="sec-k01-camp" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Experiment aleator și câmp de probabilitate</h1>
@@ -1600,7 +1615,7 @@ c:=\lim_{y\searrow m}s(m,y)=\inf_{y&gt;m}s(m,y),\qquad\text{cu}\qquad s(x,m)\le 
 </section>
 <section id="sec-k01-fgm" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Funcția generatoare de momente</h1>
-<p>Funcția generatoare de momente (f.g.m.) a unei v.a. conține toate momentele ei, determină repartiția și, mai ales, transformă sumele de v.a. independente în produse (Secțiunea <a href="#sec-k01-fgm-suma-sec" class="curs-ref">7.4</a>). O vom folosi pentru repartițiile exacte ale multor statistici (Cursul 2, Cursul 5) și pentru a demonstra teorema limită centrală <span class="citation" data-cites="hogg2019 casella2002">(<a href="#ref-hogg2019" role="doc-biblioref">Hogg et al. 2019, sec. 1.9</a>; <a href="#ref-casella2002" role="doc-biblioref">Casella and Berger 2002, sec. 2.3</a>)</span>.</p>
+<p>Funcția generatoare de momente (f.g.m.) a unei v.a. conține toate momentele ei, determină repartiția și, mai ales, transformă sumele de v.a. independente în produse (Secțiunea <a href="#sec-k01-fgm-suma-sec" class="curs-ref">7.4</a>). O vom folosi pentru repartițiile exacte ale multor statistici (<a href="02-statistica-inferentiala.html" class="curs-ref">Cursul 2</a>, Cursul 5) și pentru a demonstra teorema limită centrală <span class="citation" data-cites="hogg2019 casella2002">(<a href="#ref-hogg2019" role="doc-biblioref">Hogg et al. 2019, sec. 1.9</a>; <a href="#ref-casella2002" role="doc-biblioref">Casella and Berger 2002, sec. 2.3</a>)</span>.</p>
 <div id="box-def-k01-fgm" class="curs-box definitie">
 <div class="curs-box-title">
 <span class="curs-box-label">Definiția 30</span> <span class="curs-box-name">(Funcția generatoare de momente)</span>
@@ -3147,7 +3162,7 @@ De reținut
 </ul>
 </div>
 </div>
-<p><strong>Legătura cu cursurile următoare.</strong> În Cursul 2 vom formaliza trecerea de la probabilități la statistică (model statistic, eșantion, statistică) și vom obține cu f.g.m. repartițiile exacte ale unor statistici. Existența eșantioanelor i.i.d. și funcția cuantilă apar în Cursul 3, simularea în Cursul 4, iar repartițiile <span class="math inline">\(\chi^2\)</span>, Student și Fisher în Cursul 5; acestea, ca și repartițiile statisticilor de ordine (Cursul 6), se obțin cu transformările din Secțiunea <a href="#sec-k01-transf-vect" class="curs-ref">7.5</a>. Teoremele limită și lema lui Slutsky vor fi folosite în toate demonstrațiile asimptotice (de la Cursul 6 la Cursul 16).</p>
+<p><strong>Legătura cu cursurile următoare.</strong> În <a href="02-statistica-inferentiala.html" class="curs-ref">Cursul 2</a> vom formaliza trecerea de la probabilități la statistică (model statistic, eșantion, statistică) și vom obține cu f.g.m. repartițiile exacte ale unor statistici. Existența eșantioanelor i.i.d. și funcția cuantilă apar în Cursul 3, simularea în Cursul 4, iar repartițiile <span class="math inline">\(\chi^2\)</span>, Student și Fisher în Cursul 5; acestea, ca și repartițiile statisticilor de ordine (Cursul 6), se obțin cu transformările din Secțiunea <a href="#sec-k01-transf-vect" class="curs-ref">7.5</a>. Teoremele limită și lema lui Slutsky vor fi folosite în toate demonstrațiile asimptotice (de la Cursul 6 la Cursul 16).</p>
 </section>
 <section id="sec-k01-complemente" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> Complemente: rezultate auxiliare și demonstrații suplimentare</h1>
@@ -3868,6 +3883,15 @@ Vaart, Aad W. van der. 1998. <em>Asymptotic Statistics</em>. Cambridge Universit
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../curs/02-statistica-inferentiala.html" class="pagination-link" aria-label="2. Introducere în statistica inferențială">
+        <span class="nav-page-text">2. Introducere în statistica inferențială</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

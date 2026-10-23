@@ -549,7 +549,7 @@ Tabelul&nbsp;1: Principalele transformări statistice și obiectele geometrice p
 <p>De exemplu transformarea <em>identitate</em> (<em>identity</em>) va lăsa datele așa cum sunt și folosită în <code>geom_bar</code> conduce la construcția unei diagrame cu bare în care pe axa <code>y</code> se află valorile variabilei <code>y</code> fără a mai efectua transformarea (în acest caz este nevoie atât de estetica <code>x</code> cât și de <code>y</code>). În figura următoare afișăm populația totală a țărilor de pe fiecare dintre cele patru continente considerate în setul de date <code>gapminder_2018</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c4-fig1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c4-fig1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c4-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Statistical_transformations_files/figure-html/fig-ggplot-p2-c4-fig1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;1: Exemplu de utilizare a statisticii identity în geom_bar."><img src="Statistical_transformations_files/figure-html/fig-ggplot-p2-c4-fig1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -612,7 +612,7 @@ Tabelul&nbsp;2: O serie de transformări care nu pot fi create prin aplicarea fu
 <p>Pentru a folosi aceste funcții putem sau să le apelăm în mod direct utilizând <code>stat_[nume]</code> și astfel suprascriind obiectul geometric sau să le apelăm în interiorul unui strat geometric. Pentru ilustrare vom folosi setul de date <code>gapminder_all</code> în care vom trasa o diagramă de împrăștiere unde pe axa x avem anii de după 1900 iar pe y speranța medie de viață a țărilor europene (pentru a evita supraaglomerarea punctelor - <em>ovreplotting</em> vom folosi estetic <code>alpha = 0.1</code>). Vom adăuga cu roșu la această diagramă valoarea mediană a duratei medii de viață a tuturor țărilor pentru fiecare an și vom uni aceste valori printr-o linie:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c4-fig2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c4-fig2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c4-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Statistical_transformations_files/figure-html/fig-ggplot-p2-c4-fig2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;2: Exemplu de diagrama de împrăștiere în care se utilizează statistica summary."><img src="Statistical_transformations_files/figure-html/fig-ggplot-p2-c4-fig2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -636,7 +636,7 @@ Figura&nbsp;2: Exemplu de diagrama de împrăștiere în care se utilizează sta
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c4-fig3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c4-fig3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c4-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Statistical_transformations_files/figure-html/fig-ggplot-p2-c4-fig3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;3: Exemplu de diagrama de histogramă de frecvențe și densitate."><img src="Statistical_transformations_files/figure-html/fig-ggplot-p2-c4-fig3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -651,7 +651,7 @@ Figura&nbsp;3: Exemplu de diagrama de histogramă de frecvențe și densitate.
 <p>Mai mult dacă dorim să comparăm modul de repartiție a produsului intern brut pe cap de locuitor pentru fiecare continent atunci este recomandată folosirea datelor standardizate:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c4-fig5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
+<div id="fig-ggplot-p2-c4-fig5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c4-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Statistical_transformations_files/figure-html/fig-ggplot-p2-c4-fig5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;4: Exemplu de utilizare a transformării stat = &quot;bin&quot; împreună cu variabila ..density..."><img src="Statistical_transformations_files/figure-html/fig-ggplot-p2-c4-fig5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>

@@ -89,6 +89,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../curs/03-metode-selectie.html" rel="next">
 <link href="../curs/01-recapitulare-probabilitati.html" rel="prev">
 <link href="../images/stat_sticker.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -275,6 +276,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../curs/02-statistica-inferentiala.html">
  <span class="dropdown-text">Cursul 2 — Introducere în statistica inferențială</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../curs/03-metode-selectie.html">
+ <span class="dropdown-text">Cursul 3 — Populații finite și selecția simplă. Funcția cuantilă. Existența eșantioanelor independente</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -297,6 +302,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../laborator_nosols/02-probabilitati-R.html">
  <span class="dropdown-text">Seminarul 2 — F.g.m., vectori aleatori, transformări și teoreme limită (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../laborator_nosols/03-modele-esantionare.html">
+ <span class="dropdown-text">Seminarul 3 — Modele statistice, statistici și selecția din populații finite (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -385,6 +394,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../curs/02-statistica-inferentiala.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">2. Introducere în statistica inferențială</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../curs/03-metode-selectie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Populații finite și selecția simplă. Funcția cuantilă. Existența eșantioanelor independente</span></a>
   </div>
 </li>
       </ul>
@@ -787,7 +802,7 @@ k=3 &amp; 0 &amp; 0.008 &amp; 0.064 &amp; 0.216 &amp; 0.512 &amp; 1
 Observație
 </div>
 <div class="curs-box-body">
-<p>Dacă extragerile se fac <strong>fără întoarcere</strong> dintr-o urnă cu <span class="math inline">\(N\)</span> bile, dintre care <span class="math inline">\(K=N\theta\)</span> roșii, fiecare <span class="math inline">\(X_i\)</span> are încă repartiția <span class="math inline">\(\Bern(\theta)\)</span> (din simetrie, a <span class="math inline">\(i\)</span>-a bilă extrasă este oricare dintre cele <span class="math inline">\(N\)</span> cu aceeași probabilitate), dar variabilele nu mai sunt independente: dacă prima bilă extrasă este roșie, în urnă rămân <span class="math inline">\(N-1\)</span> bile, dintre care <span class="math inline">\(K-1\)</span> roșii, deci <span class="math inline">\(\PP(X_2=1\mid X_1=1)=\frac{K-1}{N-1}\)</span>, iar <span class="math inline">\(\frac{K-1}{N-1}=\frac KN\)</span> ar însemna <span class="math inline">\(N(K-1)=K(N-1)\)</span>, adică <span class="math inline">\(K=N\)</span>; pentru <span class="math inline">\(0&lt;K&lt;N\)</span> avem deci <span class="math inline">\(\PP(X_2=1\mid X_1=1)\ne\PP(X_2=1)\)</span>. Numărul <span class="math inline">\(S_n\)</span> de bile roșii are atunci repartiția hipergeometrică <span class="math inline">\(\HGeom(N,K,n)\)</span>, cu aceeași medie <span class="math inline">\(n\theta\)</span>, dar cu varianța mai mică <span class="math inline">\(n\theta(1-\theta)\frac{N-n}{N-1}\)</span>. Aceste afirmații sunt demonstrate în Cursul 3 (Teorema 5 din Cursul 3 și Exemplul 4 din Cursul 3), unde este studiată selecția fără revenire; un caz particular este calculat direct în Exercițiul <a href="#box-exr-k02-lot" class="curs-ref">1</a>, care arată și că, pentru <span class="math inline">\(N\)</span> mare în raport cu <span class="math inline">\(n\)</span>, diferența dintre cele două scheme este neglijabilă.</p>
+<p>Dacă extragerile se fac <strong>fără întoarcere</strong> dintr-o urnă cu <span class="math inline">\(N\)</span> bile, dintre care <span class="math inline">\(K=N\theta\)</span> roșii, fiecare <span class="math inline">\(X_i\)</span> are încă repartiția <span class="math inline">\(\Bern(\theta)\)</span> (din simetrie, a <span class="math inline">\(i\)</span>-a bilă extrasă este oricare dintre cele <span class="math inline">\(N\)</span> cu aceeași probabilitate), dar variabilele nu mai sunt independente: dacă prima bilă extrasă este roșie, în urnă rămân <span class="math inline">\(N-1\)</span> bile, dintre care <span class="math inline">\(K-1\)</span> roșii, deci <span class="math inline">\(\PP(X_2=1\mid X_1=1)=\frac{K-1}{N-1}\)</span>, iar <span class="math inline">\(\frac{K-1}{N-1}=\frac KN\)</span> ar însemna <span class="math inline">\(N(K-1)=K(N-1)\)</span>, adică <span class="math inline">\(K=N\)</span>; pentru <span class="math inline">\(0&lt;K&lt;N\)</span> avem deci <span class="math inline">\(\PP(X_2=1\mid X_1=1)\ne\PP(X_2=1)\)</span>. Numărul <span class="math inline">\(S_n\)</span> de bile roșii are atunci repartiția hipergeometrică <span class="math inline">\(\HGeom(N,K,n)\)</span>, cu aceeași medie <span class="math inline">\(n\theta\)</span>, dar cu varianța mai mică <span class="math inline">\(n\theta(1-\theta)\frac{N-n}{N-1}\)</span>. Aceste afirmații sunt demonstrate în <a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a> (Teorema <a href="03-metode-selectie.html#box-thm-k03-fara-revenire" class="curs-ref">5 din Cursul 3</a> și Exemplul <a href="03-metode-selectie.html#box-ex-k03-hipergeometrica" class="curs-ref">4 din Cursul 3</a>), unde este studiată selecția fără revenire; un caz particular este calculat direct în Exercițiul <a href="#box-exr-k02-lot" class="curs-ref">1</a>, care arată și că, pentru <span class="math inline">\(N\)</span> mare în raport cu <span class="math inline">\(n\)</span>, diferența dintre cele două scheme este neglijabilă.</p>
 </div>
 </div>
 <p>Proprietatea (iv) este un prim argument că proporția observată <span class="math inline">\(M_n\)</span> este o regulă rezonabilă de aproximare a lui <span class="math inline">\(\theta\)</span>: media ei este chiar parametrul necunoscut, <strong>oricare</strong> ar fi <span class="math inline">\(\theta\)</span>, iar varianța tinde la <span class="math inline">\(0\)</span> când <span class="math inline">\(n\to\infty\)</span>, <em>uniform</em> în <span class="math inline">\(\theta\)</span>; abaterea standard a lui <span class="math inline">\(M_n\)</span> este cel mult <span class="math inline">\(1/(2\sqrt n)\)</span>. Tripletul <span class="math inline">\(\xi\)</span> pe care l-am ales „modelează bine” experimentul: parametrul abstract <span class="math inline">\(\theta\)</span> are exact interpretarea dorită. Să vedem cât de concentrată este repartiția lui <span class="math inline">\(M_n\)</span> în jurul lui <span class="math inline">\(\theta\)</span> pentru <span class="math inline">\(\theta=0.25\)</span>.</p>
@@ -1013,7 +1028,7 @@ X_1,X_2,\dots,X_n&amp;\sim Q\\
 <li><p><em>Un eșantion.</em> Din urna Exemplului <a href="#box-ex-k02-urna-mica" class="curs-ref">6</a> (<span class="math inline">\(5\)</span> bile, dintre care <span class="math inline">\(2\)</span> roșii) extragem <span class="math inline">\(n\)</span> bile <strong>cu întoarcere</strong> și notăm <span class="math inline">\(X_i=1\)</span> dacă a <span class="math inline">\(i\)</span>-a bilă este roșie și <span class="math inline">\(X_i=0\)</span> altfel. Variabilele <span class="math inline">\(X_1,\dots,X_n\)</span> sunt independente și au toate repartiția <span class="math inline">\(\Bern(0.4)\)</span> (Propoziția <a href="#box-prop-k02-urna-prop" class="curs-ref">2</a>): ele formează un eșantion de volum <span class="math inline">\(n\)</span> din populația <span class="math inline">\(Q=\Bern(0.4)\)</span>.</p></li>
 <li><p><em>Aceeași repartiție, dar fără independență.</em> Extragem acum două bile <strong>fără întoarcere</strong>. Prima este roșie cu probabilitatea <span class="math inline">\(\frac25\)</span>. Pentru a doua aplicăm formula probabilității totale (Teorema <a href="01-recapitulare-probabilitati.html#box-thm-k01-prob-totala" class="curs-ref">7 din Cursul 1</a>), după culoarea primei bile: dacă prima a fost roșie, rămân <span class="math inline">\(4\)</span> bile, dintre care una roșie; dacă a fost verde, rămân <span class="math inline">\(4\)</span> bile, dintre care două roșii. Deci <span class="math display">\[
 \PP(X_2=1)=\frac25\cdot\frac14+\frac35\cdot\frac24=\frac{2+6}{20}=\frac25 ,
-\]</span> adică <span class="math inline">\(X_1\)</span> și <span class="math inline">\(X_2\)</span> au aceeași repartiție, <span class="math inline">\(\Bern(0.4)\)</span>. Ele nu sunt însă independente: <span class="math inline">\(\PP(X_1=1,\ X_2=1)=\frac25\cdot\frac14=0.1\)</span>, pe când <span class="math inline">\(\PP(X_1=1)\,\PP(X_2=1)=0.16\)</span>. Perechea <span class="math inline">\((X_1,X_2)\)</span> <strong>nu</strong> este un eșantion în sensul Definiției <a href="#box-def-k02-esantion" class="curs-ref">8</a>; selecția fără revenire are propria ei teorie (Cursul 3).</p></li>
+\]</span> adică <span class="math inline">\(X_1\)</span> și <span class="math inline">\(X_2\)</span> au aceeași repartiție, <span class="math inline">\(\Bern(0.4)\)</span>. Ele nu sunt însă independente: <span class="math inline">\(\PP(X_1=1,\ X_2=1)=\frac25\cdot\frac14=0.1\)</span>, pe când <span class="math inline">\(\PP(X_1=1)\,\PP(X_2=1)=0.16\)</span>. Perechea <span class="math inline">\((X_1,X_2)\)</span> <strong>nu</strong> este un eșantion în sensul Definiției <a href="#box-def-k02-esantion" class="curs-ref">8</a>; selecția fără revenire are propria ei teorie (<a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a>).</p></li>
 <li><p><em>Independență, dar repartiții diferite.</em> Măsurăm aceeași mărime <span class="math inline">\(\mu\)</span> cu două aparate de precizii diferite: <span class="math inline">\(X_1\sim\Norm(\mu,1)\)</span> și <span class="math inline">\(X_2\sim\Norm(\mu,4)\)</span>, independente. Nici acesta nu este un eșantion, deoarece nu există o populație <span class="math inline">\(Q\)</span> comună (perechea <span class="math inline">\((X_1,X_2)\)</span> este descrisă totuși de un model statistic, cu parametrul <span class="math inline">\(\mu\in\R\)</span>). Formulele pentru eșantioane nu se mai aplică: media <span class="math inline">\(\frac{X_1+X_2}2\)</span> are varianța <span class="math inline">\(\frac{1+4}{4}=1.25\)</span>, <strong>mai mare</strong> decât varianța <span class="math inline">\(1\)</span> a măsurătorii precise luate singură. Pentru un eșantion acest lucru nu se poate întâmpla, deoarece <span class="math inline">\(\Var(\Xbar)=\sigma^2/n\le\sigma^2\)</span> (Corolarul <a href="01-recapitulare-probabilitati.html#box-cor-k01-medie-esantion" class="curs-ref">43 din Cursul 1</a>).</p></li>
 </ol>
 </div>
@@ -1099,7 +1114,7 @@ f_\theta(x_1,\dots,x_n)=\frac{1}{\theta^n}\,\Ind_{\{\min_ix_i\ge0\}}\,\Ind_{\{\m
 </div>
 </div>
 <p>Privită ca funcție de <span class="math inline">\(\theta\)</span> pentru <span class="math inline">\(\bx\)</span> fixat, expresia (<a href="#eq-k02-dens-comuna" class="quarto-xref">4</a>) este <strong>funcția de verosimilitate</strong> <span class="math inline">\(L(\theta;\bx)\)</span>, obiectul central din Cursul 9; am întâlnit-o deja, pentru urnă, în <a href="#fig-k02-urna" class="quarto-xref">Figura&nbsp;1</a>.</p>
-<p>Pentru un număr <strong>finit</strong> de variabile, construcția de mai sus rezolvă și problema existenței unui eșantion: câmpul <span class="math inline">\(\big(\R^n,\B(\R^n),Q^{\otimes n}\big)\)</span>, împreună cu proiecțiile <span class="math inline">\(X_i(x_1,\dots,x_n)=x_i\)</span>, oferă un eșantion de volum <span class="math inline">\(n\)</span> din <span class="math inline">\(Q\)</span> (din definiția probabilității produs, <span class="math inline">\(\PP(X_1\in A_1,\dots,X_n\in A_n)=\prod_iQ(A_i)\)</span>). Rezultatele asimptotice (<span class="math inline">\(n\to\infty\)</span>) cer însă un <strong>șir infinit</strong> de variabile i.i.d. definite pe același câmp de probabilitate; existența unui astfel de șir face obiectul Cursul 3.</p>
+<p>Pentru un număr <strong>finit</strong> de variabile, construcția de mai sus rezolvă și problema existenței unui eșantion: câmpul <span class="math inline">\(\big(\R^n,\B(\R^n),Q^{\otimes n}\big)\)</span>, împreună cu proiecțiile <span class="math inline">\(X_i(x_1,\dots,x_n)=x_i\)</span>, oferă un eșantion de volum <span class="math inline">\(n\)</span> din <span class="math inline">\(Q\)</span> (din definiția probabilității produs, <span class="math inline">\(\PP(X_1\in A_1,\dots,X_n\in A_n)=\prod_iQ(A_i)\)</span>). Rezultatele asimptotice (<span class="math inline">\(n\to\infty\)</span>) cer însă un <strong>șir infinit</strong> de variabile i.i.d. definite pe același câmp de probabilitate; existența unui astfel de șir face obiectul <a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a>.</p>
 </section>
 <section id="statistici" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="statistici"><span class="header-section-number">4.3</span> Statistici</h2>
@@ -1639,7 +1654,7 @@ Figura&nbsp;5: Repartițiile de eșantionare ale estimatorilor <span class="math
 <li><strong>Cum construim estimatori?</strong> Metoda momentelor (Cursul 8) — <span class="math inline">\(2\Xbar\)</span> din Exemplul <a href="#box-ex-k02-unif-estimatori" class="curs-ref">24</a> este un estimator de acest tip — și metoda verosimilității maxime (Cursul 9); verosimilitatea a apărut deja în <a href="#fig-k02-urna" class="quarto-xref">Figura&nbsp;1</a> și în Propoziția <a href="#box-prop-k02-dens-comuna" class="curs-ref">10</a>.</li>
 <li><strong>Există un estimator optim?</strong> Statistici suficiente, informația lui Fisher, inegalitatea Rao–Cramér (Cursul 7, Cursul 10, Cursul 11).</li>
 <li><strong>Cât de precisă este o estimare și cum luăm decizii?</strong> Intervale de încredere (Cursul 12, Cursul 13) și teste de ipoteze (Cursul 14), care generalizează calculele din Exemplele <a href="#box-ex-k02-trei" class="curs-ref">2</a> și <a href="#box-ex-k02-becuri-exact" class="curs-ref">20</a> și folosesc cantități pivotale ca în Exemplul <a href="#box-ex-k02-umplere" class="curs-ref">18</a>.</li>
-<li><strong>Ce facem când repartiția unei statistici nu se poate calcula?</strong> Repartițiile exacte pentru populații normale (Cursul 5), rezultate asimptotice (Cursul 6) și simulare (Cursul 4); pentru simulare avem nevoie, mai întâi, de existența șirurilor de variabile aleatoare independente (Cursul 3).</li>
+<li><strong>Ce facem când repartiția unei statistici nu se poate calcula?</strong> Repartițiile exacte pentru populații normale (Cursul 5), rezultate asimptotice (Cursul 6) și simulare (Cursul 4); pentru simulare avem nevoie, mai întâi, de existența șirurilor de variabile aleatoare independente (<a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a>).</li>
 </ol>
 </section>
 <section id="sec-k02-exercitii" class="level1" data-number="7">
@@ -1679,9 +1694,9 @@ Figura&nbsp;5: Repartițiile de eșantionare ale estimatorilor <span class="math
 \Var_D(X)&amp;=D\cdot\frac{9}{100}-D(D-1)\cdot\frac{9}{4900}=\frac{9D\,\big(49-(D-1)\big)}{4900}=\frac{9D(50-D)}{4900}\\
 &amp;=5\cdot\frac D{50}\cdot\Big(1-\frac D{50}\Big)\cdot\frac{45}{49},
 \end{aligned}
-\]</span> adică formula varianței hipergeometrice <span class="math inline">\(n\frac KN\big(1-\frac KN\big)\frac{N-n}{N-1}\)</span> cu <span class="math inline">\(N=50\)</span>, <span class="math inline">\(K=D\)</span>, <span class="math inline">\(n=5\)</span> (cazul general este în Cursul 3). Pentru <span class="math inline">\(D=5\)</span>, <span class="math display">\[
+\]</span> adică formula varianței hipergeometrice <span class="math inline">\(n\frac KN\big(1-\frac KN\big)\frac{N-n}{N-1}\)</span> cu <span class="math inline">\(N=50\)</span>, <span class="math inline">\(K=D\)</span>, <span class="math inline">\(n=5\)</span> (cazul general este în <a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a>). Pentru <span class="math inline">\(D=5\)</span>, <span class="math display">\[
 \Var_5(X)=5\cdot\frac{5}{50}\cdot\frac{45}{50}\cdot\frac{50-5}{50-1}=0.45\cdot\frac{45}{49}\approx0.4133 ;
-\]</span> factorul de corecție <span class="math inline">\(\frac{N-n}{N-1}=\frac{45}{49}\approx0.918\)</span> arată că varianța lui <span class="math inline">\(X\)</span> este cu aproximativ <span class="math inline">\(8\%\)</span> mai mică fără revenire, fenomen pe care îl vom studia în general la selecția fără revenire (Cursul 3). În R, probabilitățile de la (c) sunt <code>dhyper(0, 5, 45, 5)</code> și <code>dbinom(0, 5, 0.1)</code>. <span class="raspuns">Deci, fără revenire, <span class="math inline">\(\PP_5(X=0)\approx0.5766\)</span> și <span class="math inline">\(\Var_5(X)\approx0.4133\)</span>, iar cu revenire <span class="math inline">\(\PP_5(X=0)=0.59049\)</span> și <span class="math inline">\(\Var_5(X)=0.45\)</span></span>.</p></li>
+\]</span> factorul de corecție <span class="math inline">\(\frac{N-n}{N-1}=\frac{45}{49}\approx0.918\)</span> arată că varianța lui <span class="math inline">\(X\)</span> este cu aproximativ <span class="math inline">\(8\%\)</span> mai mică fără revenire, fenomen pe care îl vom studia în general la selecția fără revenire (<a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a>). În R, probabilitățile de la (c) sunt <code>dhyper(0, 5, 45, 5)</code> și <code>dbinom(0, 5, 0.1)</code>. <span class="raspuns">Deci, fără revenire, <span class="math inline">\(\PP_5(X=0)\approx0.5766\)</span> și <span class="math inline">\(\Var_5(X)\approx0.4133\)</span>, iar cu revenire <span class="math inline">\(\PP_5(X=0)=0.59049\)</span> și <span class="math inline">\(\Var_5(X)=0.45\)</span></span>.</p></li>
 </ol>
 <p><em>Verificare în R.</em> Calculăm, pentru <span class="math inline">\(D=5\)</span>, întreaga repartiție a lui <span class="math inline">\(X\)</span> în cele două modele (în procente), apoi varianțele, direct din definiție: <span class="math inline">\(\Var(X)=\sum_kk^2\,\PP(X=k)-\big(\sum_kk\,\PP(X=k)\big)^2\)</span>.</p>
 <div class="cell" data-layout-align="center">
@@ -1843,7 +1858,7 @@ De reținut
 </ul>
 </div>
 </div>
-<p><strong>Legătura cu cursurile următoare.</strong> Am văzut că pentru a vorbi despre eșantioane avem nevoie de variabile aleatoare independente cu o repartiție dată, iar pentru rezultatele asimptotice, de un șir infinit de astfel de variabile; în Cursul 3 vom demonstra existența lor (cu ajutorul funcției cuantilă) și vom studia selecția din populații finite, cu și fără revenire, care generalizează Exercițiul <a href="#box-exr-k02-lot" class="curs-ref">1</a>. În Cursul 4 vom învăța să simulăm eșantioane din orice repartiție, pentru a aproxima repartițiile de eșantionare care nu se pot calcula exact. Repartițiile exacte ale statisticilor pentru populații normale (<span class="math inline">\(\chi^2\)</span>, Student, Fisher) sunt subiectul din Cursul 5, iar statisticile de ordine și funcția de repartiție empirică, care generalizează minimul și maximul de astăzi, cel din Cursul 6. Întrebările despre calitatea estimatorilor, formulate în <a href="#sec-k02-estimatori" class="quarto-xref">Secțiunea&nbsp;6</a>, vor primi un răspuns sistematic începând cu Cursul 7.</p>
+<p><strong>Legătura cu cursurile următoare.</strong> Am văzut că pentru a vorbi despre eșantioane avem nevoie de variabile aleatoare independente cu o repartiție dată, iar pentru rezultatele asimptotice, de un șir infinit de astfel de variabile; în <a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a> vom demonstra existența lor (cu ajutorul funcției cuantilă) și vom studia selecția din populații finite, cu și fără revenire, care generalizează Exercițiul <a href="#box-exr-k02-lot" class="curs-ref">1</a>. În Cursul 4 vom învăța să simulăm eșantioane din orice repartiție, pentru a aproxima repartițiile de eșantionare care nu se pot calcula exact. Repartițiile exacte ale statisticilor pentru populații normale (<span class="math inline">\(\chi^2\)</span>, Student, Fisher) sunt subiectul din Cursul 5, iar statisticile de ordine și funcția de repartiție empirică, care generalizează minimul și maximul de astăzi, cel din Cursul 6. Întrebările despre calitatea estimatorilor, formulate în <a href="#sec-k02-estimatori" class="quarto-xref">Secțiunea&nbsp;6</a>, vor primi un răspuns sistematic începând cu Cursul 7.</p>
 </section>
 <section id="bibliografie" class="level1 unnumbered">
 <h1 class="unnumbered">Bibliografie</h1>
@@ -2313,6 +2328,9 @@ Vaart, Aad W. van der. 1998. <em>Asymptotic Statistics</em>. Cambridge Universit
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../curs/03-metode-selectie.html" class="pagination-link" aria-label="3. Populații finite și selecția simplă. Funcția cuantilă. Existența eșantioanelor independente">
+        <span class="nav-page-text">3. Populații finite și selecția simplă. Funcția cuantilă. Existența eșantioanelor independente</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

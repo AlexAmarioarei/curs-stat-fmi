@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/slides/laborator_nosols/seminar02.html</loc>
-    <lastmod>2026-10-09T22:05:56.641Z</lastmod>
+    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/slides/laborator_nosols/seminar03.html</loc>
+    <lastmod>2026-10-09T22:05:57.021Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/slides/laborator_nosols/seminar01.html</loc>
+    <lastmod>2026-10-09T22:05:56.248Z</lastmod>
   </url>
   <url>
     <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/slides/curs/curs02.html</loc>
@@ -17,12 +21,16 @@
     <lastmod>2026-10-06T13:00:37.076Z</lastmod>
   </url>
   <url>
-    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/laborator_nosols/01-introducere-R.html</loc>
-    <lastmod>2026-10-10T16:23:11.683Z</lastmod>
+    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/laborator_nosols/02-probabilitati-R.html</loc>
+    <lastmod>2026-10-22T04:47:05.476Z</lastmod>
   </url>
   <url>
-    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/index.html</loc>
-    <lastmod>2026-10-06T13:42:46.694Z</lastmod>
+    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/laborator/index.html</loc>
+    <lastmod>2026-10-30T10:19:19.352Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/curs/index.html</loc>
+    <lastmod>2026-10-30T10:19:33.402Z</lastmod>
   </url>
   <url>
     <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/curs/02-statistica-inferentiala.html</loc>
@@ -121,16 +129,20 @@
     <lastmod>2026-10-09T20:05:22.300Z</lastmod>
   </url>
   <url>
-    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/curs/index.html</loc>
-    <lastmod>2026-10-23T13:25:04.292Z</lastmod>
+    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/curs/03-metode-selectie.html</loc>
+    <lastmod>2026-10-09T20:05:23.568Z</lastmod>
   </url>
   <url>
-    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/laborator/index.html</loc>
-    <lastmod>2026-10-23T13:23:44.484Z</lastmod>
+    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/index.html</loc>
+    <lastmod>2026-10-06T13:42:46.694Z</lastmod>
   </url>
   <url>
-    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/laborator_nosols/02-probabilitati-R.html</loc>
-    <lastmod>2026-10-22T04:47:05.476Z</lastmod>
+    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/laborator_nosols/01-introducere-R.html</loc>
+    <lastmod>2026-10-10T16:23:11.683Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/laborator_nosols/03-modele-esantionare.html</loc>
+    <lastmod>2026-10-09T22:02:03.966Z</lastmod>
   </url>
   <url>
     <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/proiect/proiect_311_321.html</loc>
@@ -141,7 +153,11 @@
     <lastmod>2026-10-09T20:08:36.151Z</lastmod>
   </url>
   <url>
-    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/slides/laborator_nosols/seminar01.html</loc>
-    <lastmod>2026-10-09T22:05:56.248Z</lastmod>
+    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/slides/curs/curs03.html</loc>
+    <lastmod>2026-10-09T20:08:37.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AlexAmarioarei.github.io/curs-stat-fmi/slides/laborator_nosols/seminar02.html</loc>
+    <lastmod>2026-10-09T22:05:56.641Z</lastmod>
   </url>
 </urlset>

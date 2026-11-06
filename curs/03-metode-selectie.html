@@ -89,6 +89,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../curs/04-simulare.html" rel="next">
 <link href="../curs/02-statistica-inferentiala.html" rel="prev">
 <link href="../images/stat_sticker.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -281,6 +282,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../curs/03-metode-selectie.html">
  <span class="dropdown-text">Cursul 3 — Populații finite și selecția simplă. Funcția cuantilă. Existența eșantioanelor independente</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../curs/04-simulare.html">
+ <span class="dropdown-text">Cursul 4 — Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -307,6 +312,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../laborator_nosols/03-modele-esantionare.html">
  <span class="dropdown-text">Seminarul 3 — Modele statistice, statistici și selecția din populații finite (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../laborator_nosols/04-simulare-inversa.html">
+ <span class="dropdown-text">Seminarul 4 — Funcția cuantilă, metoda inversă și metoda Monte Carlo (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -401,6 +410,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../curs/03-metode-selectie.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">3. Populații finite și selecția simplă. Funcția cuantilă. Existența eșantioanelor independente</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../curs/04-simulare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
   </div>
 </li>
       </ul>
@@ -908,7 +923,7 @@ Figura&nbsp;1: Repartiția mediei eșantionului (<span class="math inline">\(n=5
 <section id="sec-k03-cuantila" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Funcția cuantilă</h1>
 <p>Fie <span class="math inline">\(X\)</span> o variabilă aleatoare cu funcția de repartiție <span class="math inline">\(F(x)=\PP(X\le x)\)</span>. Reamintim că <span class="math inline">\(F\)</span> este crescătoare, continuă la dreapta și are limitele <span class="math inline">\(0\)</span> la <span class="math inline">\(-\infty\)</span> și <span class="math inline">\(1\)</span> la <span class="math inline">\(+\infty\)</span> (proprietățile (a)–(c) din recapitulare). Mai general, orice probabilitate <span class="math inline">\(\mu\)</span> pe <span class="math inline">\(\big(\R,\B(\R)\big)\)</span> are o funcție de repartiție, <span class="math inline">\(F(x)=\mu\big((-\infty,x]\big)\)</span>, numită <strong>funcția de repartiție indusă</strong> de <span class="math inline">\(\mu\)</span>: este funcția de repartiție a variabilei aleatoare <span class="math inline">\(X(x)=x\)</span> pe câmpul <span class="math inline">\(\big(\R,\B(\R),\mu\big)\)</span>, deci are aceleași proprietăți.</p>
-<p>Dacă <span class="math inline">\(F\)</span> este continuă și strict crescătoare, ecuația <span class="math inline">\(F(x)=u\)</span> are, pentru orice <span class="math inline">\(u\in(0,1)\)</span>, o soluție unică <span class="math inline">\(x=F^{-1}(u)\)</span>, iar inversa <span class="math inline">\(F^{-1}\)</span> „transportă” nivelurile de probabilitate în valori ale variabilei. Pentru a construi (și, în Cursul 4, pentru a simula) variabile cu o repartiție <strong>oarecare</strong>, avem nevoie de o astfel de inversă pentru orice funcție de repartiție. În general însă ecuația <span class="math inline">\(F(x)=u\)</span> poate avea <strong>o infinitate de soluții</strong> (când <span class="math inline">\(F\)</span> are un palier la nivelul <span class="math inline">\(u\)</span>) sau <strong>nicio soluție</strong> (când <span class="math inline">\(F\)</span> sare peste nivelul <span class="math inline">\(u\)</span>), ca în <a href="#fig-k03-cuantila" class="quarto-xref">Figura&nbsp;2</a>. Definiția următoare alege, în toate cazurile, „cea mai mică soluție a inecuației <span class="math inline">\(F(x)\ge u\)</span>” <span class="citation" data-cites="panaretos2016">(<a href="#ref-panaretos2016" role="doc-biblioref">Panaretos 2016</a>, Def. 6.6)</span>.</p>
+<p>Dacă <span class="math inline">\(F\)</span> este continuă și strict crescătoare, ecuația <span class="math inline">\(F(x)=u\)</span> are, pentru orice <span class="math inline">\(u\in(0,1)\)</span>, o soluție unică <span class="math inline">\(x=F^{-1}(u)\)</span>, iar inversa <span class="math inline">\(F^{-1}\)</span> „transportă” nivelurile de probabilitate în valori ale variabilei. Pentru a construi (și, în <a href="04-simulare.html" class="curs-ref">Cursul 4</a>, pentru a simula) variabile cu o repartiție <strong>oarecare</strong>, avem nevoie de o astfel de inversă pentru orice funcție de repartiție. În general însă ecuația <span class="math inline">\(F(x)=u\)</span> poate avea <strong>o infinitate de soluții</strong> (când <span class="math inline">\(F\)</span> are un palier la nivelul <span class="math inline">\(u\)</span>) sau <strong>nicio soluție</strong> (când <span class="math inline">\(F\)</span> sare peste nivelul <span class="math inline">\(u\)</span>), ca în <a href="#fig-k03-cuantila" class="quarto-xref">Figura&nbsp;2</a>. Definiția următoare alege, în toate cazurile, „cea mai mică soluție a inecuației <span class="math inline">\(F(x)\ge u\)</span>” <span class="citation" data-cites="panaretos2016">(<a href="#ref-panaretos2016" role="doc-biblioref">Panaretos 2016</a>, Def. 6.6)</span>.</p>
 <div id="box-def-k03-cuantila" class="curs-box definitie">
 <div class="curs-box-title">
 <span class="curs-box-label">Definiția 7</span> <span class="curs-box-name">(Funcția cuantilă (inversa generalizată))</span>
@@ -1332,7 +1347,7 @@ Atenție!
 F^{-1}(U)&amp;=\sum_{k\ge1}x_k\,\Ind_{\{s_{k-1}&lt;U\le s_k\}},\\
 \PP\big(F^{-1}(U)=x_k\big)&amp;=\PP(s_{k-1}&lt;U\le s_k)=s_k-s_{k-1}=p_k ,
 \end{aligned}
-\]</span> confirmare directă a punctului 1: <span class="math inline">\(F^{-1}(U)\)</span> ia valoarea <span class="math inline">\(x_k\)</span> exact când <span class="math inline">\(U\)</span> cade în bucata a <span class="math inline">\(k\)</span>-a a intervalului <span class="math inline">\((0,1]\)</span>. Aceste „rețete” stau la baza <strong>metodei inverse</strong> de simulare din Cursul 4.</p></li>
+\]</span> confirmare directă a punctului 1: <span class="math inline">\(F^{-1}(U)\)</span> ia valoarea <span class="math inline">\(x_k\)</span> exact când <span class="math inline">\(U\)</span> cade în bucata a <span class="math inline">\(k\)</span>-a a intervalului <span class="math inline">\((0,1]\)</span>. Aceste „rețete” stau la baza <strong>metodei inverse</strong> de simulare din <a href="04-simulare.html" class="curs-ref">Cursul 4</a>.</p></li>
 <li><p>Punctul 2 al teoremei se verifică și el direct pentru repartiția exponențială: <span class="math inline">\(F(X)=1-e^{-\lambda X}\)</span> ia valori în <span class="math inline">\([0,1)\)</span> și, pentru <span class="math inline">\(u\in(0,1)\)</span>, <span class="math inline">\(\PP\big(1-e^{-\lambda X}\le u\big)=\PP\big(X\le-\frac1\lambda\ln(1-u)\big)=1-e^{\ln(1-u)}=u\)</span>, deci <span class="math inline">\(F(X)\sim\Unif(0,1)\)</span>.</p></li>
 </ol>
 <p>În codul de mai jos aplicăm algoritmul pentru <span class="math inline">\(\Exp(2)\)</span> și pentru variabila cu patru valori din Exemplul <a href="#box-ex-k03-cuantile-discrete" class="curs-ref">10</a>(b).</p>
@@ -1687,7 +1702,7 @@ X_n=h_n(U_n),\qquad h_n(u)=\begin{cases}F_n^{-1}(u), &amp; u\in(0,1),\\ 0, &amp;
 Observație
 </div>
 <div class="curs-box-body">
-<p><em>Discuție.</em> (1) <strong>Un singur număr</strong> <span class="math inline">\(\omega\)</span> ales uniform în <span class="math inline">\([0,1)\)</span> conține suficient „aleatorism” pentru a genera un șir infinit de variabile independente cu orice repartiții dorite. (2) Independența de la Pasul 2 provine din disjuncția liniilor tabloului (asociativitatea), uniformitatea din faptul că fiecare linie este un șir de aruncări echilibrate independente, iar Pasul 3 folosește doar proprietățile (a)–(c) ale fiecărei <span class="math inline">\(F_n\)</span>. (3) Pe un calculator, generatoarele de numere pseudo-aleatoare (Cursul 4) imită direct un șir i.i.d. <span class="math inline">\(\Unif(0,1)\)</span>, iar Pasul 3 devine <strong>metoda inversă</strong> de simulare. (4) Teorema de extensie a lui Kolmogorov asigură, mai general, existența unui șir de v.a. cu orice familie compatibilă de repartiții finit-dimensionale, nu neapărat independente; demonstrația ei folosește teoreme de extensie a măsurilor și depășește cadrul cursului <span class="citation" data-cites="durrett2019">(<a href="#ref-durrett2019" role="doc-biblioref">Durrett 2019, sec. 2.1</a>)</span>.</p>
+<p><em>Discuție.</em> (1) <strong>Un singur număr</strong> <span class="math inline">\(\omega\)</span> ales uniform în <span class="math inline">\([0,1)\)</span> conține suficient „aleatorism” pentru a genera un șir infinit de variabile independente cu orice repartiții dorite. (2) Independența de la Pasul 2 provine din disjuncția liniilor tabloului (asociativitatea), uniformitatea din faptul că fiecare linie este un șir de aruncări echilibrate independente, iar Pasul 3 folosește doar proprietățile (a)–(c) ale fiecărei <span class="math inline">\(F_n\)</span>. (3) Pe un calculator, generatoarele de numere pseudo-aleatoare (<a href="04-simulare.html" class="curs-ref">Cursul 4</a>) imită direct un șir i.i.d. <span class="math inline">\(\Unif(0,1)\)</span>, iar Pasul 3 devine <strong>metoda inversă</strong> de simulare. (4) Teorema de extensie a lui Kolmogorov asigură, mai general, existența unui șir de v.a. cu orice familie compatibilă de repartiții finit-dimensionale, nu neapărat independente; demonstrația ei folosește teoreme de extensie a măsurilor și depășește cadrul cursului <span class="citation" data-cites="durrett2019">(<a href="#ref-durrett2019" role="doc-biblioref">Durrett 2019, sec. 2.1</a>)</span>.</p>
 </div>
 </div>
 <div id="box-ex-k03-pas3-pi" class="curs-box exemplu">
@@ -1928,7 +1943,7 @@ De reținut
 </ul>
 </div>
 </div>
-<p><strong>Legătura cu cursurile următoare.</strong> Pasul 3 al teoremei de existență devine, în Cursul 4, <strong>metoda inversă</strong> de simulare: pornind de la numere pseudo-aleatoare care imită un șir i.i.d. <span class="math inline">\(\Unif(0,1)\)</span>, obținem eșantioane din orice repartiție a cărei funcție cuantilă o putem calcula; când <span class="math inline">\(F^{-1}\)</span> nu este explicită, vom folosi metoda respingerii. În Cursul 6, proprietățile funcției cuantilă și universalitatea uniformei vor reduce studiul statisticilor de ordine ale unui eșantion oarecare la cazul uniform, iar cuantilele empirice vor fi valorile funcției cuantilă a funcției de repartiție empirice. Faptul că <span class="math inline">\(F(X)\sim\Unif(0,1)\)</span> pentru <span class="math inline">\(F\)</span> continuă stă la baza construcției intervalelor de încredere prin metoda pivotului (Cursul 12) și a uniformității <span class="math inline">\(p\)</span>-valorii (Cursul 14). Formulele pentru selecția cu și fără revenire sunt aplicate și simulate în <a href="..\laborator_nosols\03-modele-esantionare.html" class="curs-ref">Seminarul 3</a>, iar funcția cuantilă și metoda inversă, în Seminarul 4.</p>
+<p><strong>Legătura cu cursurile următoare.</strong> Pasul 3 al teoremei de existență devine, în <a href="04-simulare.html" class="curs-ref">Cursul 4</a>, <strong>metoda inversă</strong> de simulare: pornind de la numere pseudo-aleatoare care imită un șir i.i.d. <span class="math inline">\(\Unif(0,1)\)</span>, obținem eșantioane din orice repartiție a cărei funcție cuantilă o putem calcula; când <span class="math inline">\(F^{-1}\)</span> nu este explicită, vom folosi metoda respingerii. În Cursul 6, proprietățile funcției cuantilă și universalitatea uniformei vor reduce studiul statisticilor de ordine ale unui eșantion oarecare la cazul uniform, iar cuantilele empirice vor fi valorile funcției cuantilă a funcției de repartiție empirice. Faptul că <span class="math inline">\(F(X)\sim\Unif(0,1)\)</span> pentru <span class="math inline">\(F\)</span> continuă stă la baza construcției intervalelor de încredere prin metoda pivotului (Cursul 12) și a uniformității <span class="math inline">\(p\)</span>-valorii (Cursul 14). Formulele pentru selecția cu și fără revenire sunt aplicate și simulate în <a href="..\laborator_nosols\03-modele-esantionare.html" class="curs-ref">Seminarul 3</a>, iar funcția cuantilă și metoda inversă, în <a href="..\laborator_nosols\04-simulare-inversa.html" class="curs-ref">Seminarul 4</a>.</p>
 </section>
 <section id="bibliografie" class="level1 unnumbered">
 <h1 class="unnumbered">Bibliografie</h1>
@@ -2395,6 +2410,9 @@ Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. 
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../curs/04-simulare.html" class="pagination-link" aria-label="4. Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări">
+        <span class="nav-page-text">4. Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

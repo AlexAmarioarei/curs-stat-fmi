@@ -281,6 +281,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../curs/03-metode-selectie.html">
  <span class="dropdown-text">Cursul 3 — Populații finite și selecția simplă. Funcția cuantilă. Existența eșantioanelor independente</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../curs/04-simulare.html">
+ <span class="dropdown-text">Cursul 4 — Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -307,6 +311,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../laborator_nosols/03-modele-esantionare.html">
  <span class="dropdown-text">Seminarul 3 — Modele statistice, statistici și selecția din populații finite (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../laborator_nosols/04-simulare-inversa.html">
+ <span class="dropdown-text">Seminarul 4 — Funcția cuantilă, metoda inversă și metoda Monte Carlo (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -401,6 +409,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../laborator_nosols/03-modele-esantionare.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Modele statistice, statistici și selecția din populații finite</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../laborator_nosols/04-simulare-inversa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Funcția cuantilă, metoda inversă și metoda Monte Carlo</span></a>
   </div>
 </li>
       </ul>
@@ -604,7 +618,7 @@ Instrumente R folosite azi
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.0 0.3 0.3 0.6 1.0</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Pentru zar regăsim media <span class="math inline">\(3.5\)</span> și varianța <span class="math inline">\(\frac{35}{12}\approx2.917\)</span>. <code>sapply</code> aplică funcția din al doilea argument fiecărui element al vectorului <code>t</code>, deci <code>F_X</code> acceptă un vector de puncte; valorile <span class="math inline">\(F_X(0.999)=0.3\)</span> și <span class="math inline">\(F_X(1)=0.6\)</span> arată saltul din <span class="math inline">\(x=1\)</span>, de mărime <span class="math inline">\(\PP(X=1)=0.3\)</span>. O funcție definită pe ramuri se scrie vectorizat cu <code>ifelse(conditie, da, nu)</code>, pe care îl vom folosi des.</p>
-<p><strong>Simularea unui experiment.</strong> Calculatorul produce numere <em>pseudo-aleatoare</em>, care se comportă ca realizări ale unor variabile independente (algoritmii vor fi studiați în Cursul 4); <code>set.seed</code> fixează starea inițială a generatorului, deci rezultatele sunt reproductibile. Funcția <code>sample(x, size, replace, prob)</code> extrage <code>size</code> elemente din vectorul <code>x</code>, fără întoarcere (implicit) sau cu întoarcere (<code>replace = TRUE</code>), cu probabilitățile <code>prob</code> (implicit egale); dacă primul argument este un număr natural <code>n</code>, extragerea se face din <code>1:n</code>.</p>
+<p><strong>Simularea unui experiment.</strong> Calculatorul produce numere <em>pseudo-aleatoare</em>, care se comportă ca realizări ale unor variabile independente (algoritmii vor fi studiați în <a href="..\curs\04-simulare.html" class="curs-ref">Cursul 4</a>); <code>set.seed</code> fixează starea inițială a generatorului, deci rezultatele sunt reproductibile. Funcția <code>sample(x, size, replace, prob)</code> extrage <code>size</code> elemente din vectorul <code>x</code>, fără întoarcere (implicit) sau cu întoarcere (<code>replace = TRUE</code>), cu probabilitățile <code>prob</code> (implicit egale); dacă primul argument este un număr natural <code>n</code>, extragerea se face din <code>1:n</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)          <span class="co"># 10 aruncări ale unui zar</span></span>
@@ -1047,7 +1061,7 @@ Răspunsuri
 <li><p><span class="math inline">\(X\)</span> <strong>nu este discretă</strong> (singurul ei atom este <span class="math inline">\(c\)</span>, de probabilitate <span class="math inline">\(e^{-\lambda c}&lt;1\)</span>) și <strong>nu este continuă</strong>.</p></li>
 <li><p><span class="math inline">\(\E[X]=\frac{1-e^{-\lambda c}}{\lambda}\)</span>, <span class="math inline">\(\E[X^2]=\frac{2}{\lambda^2}\big(1-e^{-\lambda c}(1+\lambda c)\big)\)</span>, <span class="math inline">\(\Var(X)=\frac{1-2\lambda c\,e^{-\lambda c}-e^{-2\lambda c}}{\lambda^2}\)</span>.</p></li>
 <li><p>Aproximativ <span class="math inline">\(37\%\)</span> dintre aparate sunt înlocuite preventiv, iar timpul mediu de utilizare scade de la <span class="math inline">\(2\)</span> ani la aproximativ <span class="math inline">\(1.26\)</span> ani.</p></li>
-<li><p>mărimile simulate, care diferă de ele cel mult la a treia zecimală (<span class="math inline">\(2.112\)</span> față de <span class="math inline">\(2.114\)</span>; <span class="math inline">\(0.3661\)</span> față de <span class="math inline">\(0.3679\)</span>).</p></li>
+<li><p>mărimile simulate diferă de valorile teoretice cel mult la a treia zecimală (<span class="math inline">\(2.112\)</span> față de <span class="math inline">\(2.114\)</span>; <span class="math inline">\(0.3661\)</span> față de <span class="math inline">\(0.3679\)</span>).</p></li>
 </ol>
 </div>
 </div>

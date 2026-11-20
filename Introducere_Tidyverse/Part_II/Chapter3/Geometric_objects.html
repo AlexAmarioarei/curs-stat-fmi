@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-a48f3a5c7f410fc94a8fd1d60fc997bd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-d8ff0a9de017220eb43130ccb7ca4d88.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-85396fc4e9508fdaf20c3ab2d6d9429d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -238,6 +238,15 @@ window.MathJax = { tex: { macros: {
     <a class="dropdown-item" href="../../../curs/04-simulare.html">
  <span class="dropdown-text">Cursul 4 — Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../curs/05-esantionare-normala.html">
+ <span class="dropdown-text">Cursul 5 — Eșantionare dintr-o populație normală</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../../Appendix/Appendix_A.html">
+ <span class="dropdown-text">Anexă — Repartiții derivate din repartiția normală</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -268,6 +277,10 @@ window.MathJax = { tex: { macros: {
         <li>
     <a class="dropdown-item" href="../../../laborator_nosols/04-simulare-inversa.html">
  <span class="dropdown-text">Seminarul 4 — Funcția cuantilă, metoda inversă și metoda Monte Carlo (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../laborator_nosols/05-simulare-respingere.html">
+ <span class="dropdown-text">Seminarul 5 — Metoda respingerii. Simulare prin transformări (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -472,7 +485,7 @@ window.MathJax = { tex: { macros: {
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;1: Exemplu de utilizare a obiectelor geometrice geom_histogram() și geom_point()."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -488,7 +501,7 @@ Figura&nbsp;1: Exemplu de utilizare a obiectelor geometrice <code>geom_histogram
 <p>În contextul setului de date <code>gapminder_2018</code> vom utiliza atât estetica <code>colour</code> pentru a diferenția țările în funcție de <code>continent</code> cât și estetica <code>size</code> pentru a scoate în evidență țările cu o populație (<code>pop</code>) mai mare:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;2: Exemplu de utilizare a obiectului geometric geom_point() împreună cu diferite proprietăți estetice."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -508,7 +521,7 @@ Figura&nbsp;2: Exemplu de utilizare a obiectului geometric <code>geom_point()</c
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;3: Exemplu de utilizare a obiectului geometric geom_histogram() împreună cu argumentul bins =."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -662,7 +675,7 @@ Tabelul&nbsp;1: Funcțiile <code>geom</code> de bază împreună cu elementele e
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;4: Exemplu de diagramă cu bare folosind geom_bar()."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -696,7 +709,7 @@ Figura&nbsp;4: Exemplu de diagramă cu bare folosind <code>geom_bar()</code>.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;5: Exemple de utilizare a funcțiilor geom_histogram, geom_density, geom_dotplot și geom_freqpoly."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -731,7 +744,7 @@ Figura&nbsp;5: Exemple de utilizare a funcțiilor <code>geom_histogram</code>, <
 <p>(ref:ggplot-c3-fig6) Exemple de utilizare a funcțiilor <code>geom_point</code>, <code>geom_line</code>, <code>geom_smooth</code>, <code>geom_bin2d</code> și <code>geom_hex</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig6" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig6" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;6: Exemple de utilizare a funcțiilor geom_point, geom_line, geom_smooth, geom_bin2d și geom_hex."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -764,7 +777,7 @@ Figura&nbsp;6: Exemple de utilizare a funcțiilor <code>geom_point</code>, <code
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig7" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig7" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;7: Exemple de utilizare a funcțiilor geom_bar(stat = &quot;identity&quot;) (sau geom_col), geom_boxplot și geom_violin."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -792,7 +805,7 @@ Figura&nbsp;7: Exemple de utilizare a funcțiilor <code>geom_bar(stat = "identit
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig8" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig8" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figura&nbsp;8: Exemple de utilizare a funcțiilor geom_line și geom_area."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -807,7 +820,7 @@ Figura&nbsp;8: Exemple de utilizare a funcțiilor <code>geom_line</code> și <co
 <p>Ceea ce face pachetul <code>ggplot2</code> cu adevărat puternic este că acesta permite construcția de figuri complexe prin adăugarea mai multor obiecte grafice la aceeași figură, suprapunând straturile determinate de ele. Să considerăm setul de date <code>gapminder_2018</code> și să adăugăm la diagrama de împrăștiere a variabilelor <code>gdpPerCap</code> și <code>lifeExp</code> relația liniară determinată de dreapta de regresie:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig9" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig9" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figura&nbsp;9: Exemplu de utilizare a funcțiilor geom_point() și geom_smooth() pe aceeași figură."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -822,7 +835,7 @@ Figura&nbsp;9: Exemplu de utilizare a funcțiilor <code>geom_point()</code> și 
 <p>Trebuie remarcat faptul că putem utiliza elemente estetice diferite pentru fiecare obiect geometric folosit, de exemplu în figura anterioară putem schimba culoarea punctelor și a dreptei de regresie.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig10" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig10" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figura&nbsp;10: Exemplu de schimbare a culorii punctelor și a dreptei de regresie."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -848,7 +861,7 @@ Figura&nbsp;10: Exemplu de schimbare a culorii punctelor și a dreptei de regres
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig11" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig11" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figura&nbsp;11: Exemplu de folosire în interiorul unui strat geom a unui set de date."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -878,7 +891,7 @@ Figura&nbsp;11: Exemplu de folosire în interiorul unui strat <code>geom</code> 
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c3-fig12" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c3-fig12" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c3-fig12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figura&nbsp;12: Exemplu de folosire a elementului estetic group."><img src="Geometric_objects_files/figure-html/fig-ggplot-p2-c3-fig12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -89,6 +89,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../laborator_nosols/05-simulare-respingere.html" rel="next">
 <link href="../laborator_nosols/03-modele-esantionare.html" rel="prev">
 <link href="../images/stat_sticker.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -97,7 +98,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a48f3a5c7f410fc94a8fd1d60fc997bd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d8ff0a9de017220eb43130ccb7ca4d88.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-85396fc4e9508fdaf20c3ab2d6d9429d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -279,6 +280,15 @@ window.Quarto = {
     <a class="dropdown-item" href="../curs/04-simulare.html">
  <span class="dropdown-text">Cursul 4 — Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../curs/05-esantionare-normala.html">
+ <span class="dropdown-text">Cursul 5 — Eșantionare dintr-o populație normală</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../Appendix/Appendix_A.html">
+ <span class="dropdown-text">Anexă — Repartiții derivate din repartiția normală</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -309,6 +319,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../laborator_nosols/04-simulare-inversa.html">
  <span class="dropdown-text">Seminarul 4 — Funcția cuantilă, metoda inversă și metoda Monte Carlo (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../laborator_nosols/05-simulare-respingere.html">
+ <span class="dropdown-text">Seminarul 5 — Metoda respingerii. Simulare prin transformări (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -411,6 +425,12 @@ window.Quarto = {
  <span class="menu-text">4. Funcția cuantilă, metoda inversă și metoda Monte Carlo</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../laborator_nosols/05-simulare-respingere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Metoda respingerii. Simulare prin transformări</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -481,7 +501,7 @@ window.Quarto = {
 Planul seminarului și laboratorului
 </div>
 <div class="curs-box-body">
-<p>Ședința fixează, prin exerciții rezolvate matematic și verificate în R, două instrumente pe care le vom folosi în tot restul semestrului. Primul este <strong>funcția cuantilă</strong> (inversa generalizată a unei funcții de repartiție) împreună cu <strong>teorema de universalitate a repartiției uniforme</strong>, introduse în <a href="..\curs\03-metode-selectie.html" class="curs-ref">Cursul 3</a> pentru a construi șiruri de variabile aleatoare independente cu repartiții date. Al doilea este <strong>simularea</strong>: în prima parte a <a href="..\curs\04-simulare.html" class="curs-ref">Cursul 4</a> am văzut cum universalitatea devine o metodă efectivă de generare, <strong>metoda inversă</strong>, și cum media empirică a unor simulări independente aproximează o medie teoretică, <strong>metoda Monte Carlo</strong>. Fiecare exercițiu are o rezolvare matematică (<em>Seminar</em>) și una în R (<em>Laborator</em>), iar funcțiile R scrise pe parcurs sunt refolosite de la un exercițiu la altul. Metoda respingerii și simularea prin transformări fac obiectul ședinței următoare (Seminarul 5).</p>
+<p>Ședința fixează, prin exerciții rezolvate matematic și verificate în R, două instrumente pe care le vom folosi în tot restul semestrului. Primul este <strong>funcția cuantilă</strong> (inversa generalizată a unei funcții de repartiție) împreună cu <strong>teorema de universalitate a repartiției uniforme</strong>, introduse în <a href="..\curs\03-metode-selectie.html" class="curs-ref">Cursul 3</a> pentru a construi șiruri de variabile aleatoare independente cu repartiții date. Al doilea este <strong>simularea</strong>: în prima parte a <a href="..\curs\04-simulare.html" class="curs-ref">Cursul 4</a> am văzut cum universalitatea devine o metodă efectivă de generare, <strong>metoda inversă</strong>, și cum media empirică a unor simulări independente aproximează o medie teoretică, <strong>metoda Monte Carlo</strong>. Fiecare exercițiu are o rezolvare matematică (<em>Seminar</em>) și una în R (<em>Laborator</em>), iar funcțiile R scrise pe parcurs sunt refolosite de la un exercițiu la altul. Metoda respingerii și simularea prin transformări fac obiectul ședinței următoare (<a href="05-simulare-respingere.html" class="curs-ref">Seminarul 5</a>).</p>
 <p><strong>Obiective.</strong> La sfârșitul ședinței studentul trebuie să poată:</p>
 <ol type="1">
 <li>calcula funcția cuantilă a unei funcții de repartiție continue, discrete sau mixte (cu salturi și paliere) și folosi echivalența <span class="math inline">\(F^{-1}(u)\le x\iff u\le F(x)\)</span> pentru a demonstra proprietăți ale cuantilelor (transformări monotone, extreme);</li>
@@ -1633,6 +1653,9 @@ Robert, Christian P., and George Casella. 2004. <em>Monte Carlo Statistical Meth
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../laborator_nosols/05-simulare-respingere.html" class="pagination-link" aria-label="5. Metoda respingerii. Simulare prin transformări">
+        <span class="nav-page-text">5. Metoda respingerii. Simulare prin transformări</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

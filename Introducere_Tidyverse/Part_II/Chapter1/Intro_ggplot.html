@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -98,7 +98,7 @@ div.csl-indent {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-a48f3a5c7f410fc94a8fd1d60fc997bd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-d8ff0a9de017220eb43130ccb7ca4d88.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-85396fc4e9508fdaf20c3ab2d6d9429d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -257,6 +257,15 @@ window.MathJax = { tex: { macros: {
     <a class="dropdown-item" href="../../../curs/04-simulare.html">
  <span class="dropdown-text">Cursul 4 — Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../curs/05-esantionare-normala.html">
+ <span class="dropdown-text">Cursul 5 — Eșantionare dintr-o populație normală</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../../Appendix/Appendix_A.html">
+ <span class="dropdown-text">Anexă — Repartiții derivate din repartiția normală</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -287,6 +296,10 @@ window.MathJax = { tex: { macros: {
         <li>
     <a class="dropdown-item" href="../../../laborator_nosols/04-simulare-inversa.html">
  <span class="dropdown-text">Seminarul 4 — Funcția cuantilă, metoda inversă și metoda Monte Carlo (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../laborator_nosols/05-simulare-respingere.html">
+ <span class="dropdown-text">Seminarul 5 — Metoda respingerii. Simulare prin transformări (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -486,7 +499,7 @@ window.MathJax = { tex: { macros: {
 <p>Ne dorim ca la finalul acestei secțiuni, să fim capabili să creăm grafice care să semene cu cele din <a href="#fig-ggplot-p2-c1-fig1" class="quarto-xref">Figura&nbsp;1</a> și <a href="#fig-ggplot-p2-c1-fig2" class="quarto-xref">Figura&nbsp;2</a> mai jos:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c1-fig1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c1-fig1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c1-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Intro_ggplot_files/figure-html/fig-ggplot-p2-c1-fig1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;1: Exemplu de vizualizare realizată cu ajutorul pachetului ggplot2."><img src="Intro_ggplot_files/figure-html/fig-ggplot-p2-c1-fig1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -500,7 +513,7 @@ Figura&nbsp;1: Exemplu de vizualizare realizată cu ajutorul pachetului ggplot2.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c1-fig2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c1-fig2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c1-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Intro_ggplot_files/figure-html/fig-ggplot-p2-c1-fig2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;2: Un alt exemplu de vizualizare realizata cu ajutorul pachetului ggplot2."><img src="Intro_ggplot_files/figure-html/fig-ggplot-p2-c1-fig2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>
@@ -627,7 +640,7 @@ $ wb_income    &lt;chr&gt; "Low income", "Low income", "Low income", "Low income
 <p>Aceste componente constructive ale unui grafic sunt organizate în straturi (<em>layers</em>), unde fiecare strat conține un singur obiect grafic, transformare statistică sau ajustare de poziție și astfel putem vizualiza o figură/un grafic ca pe o mulțime de straturi de imagini suprapuse, fiecare prezentând un anumit aspect al datelor.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c1-fig3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c1-fig3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c1-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../../images/tidy/layers2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;3: Reprezentarea straturilor care compun o figură în ggplot2."><img src="../../images/tidy/layers2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="284"></a>
@@ -664,7 +677,7 @@ Figura&nbsp;3: Reprezentarea straturilor care compun o figură în ggplot2.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-ggplot-p2-c1-fig4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-fig-pos="H">
+<div id="fig-ggplot-p2-c1-fig4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ggplot-p2-c1-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="Intro_ggplot_files/figure-html/fig-ggplot-p2-c1-fig4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;4: Ilustrare a temelor predefinite."><img src="Intro_ggplot_files/figure-html/fig-ggplot-p2-c1-fig4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></a>

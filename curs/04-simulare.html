@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -89,6 +89,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../curs/05-esantionare-normala.html" rel="next">
 <link href="../curs/03-metode-selectie.html" rel="prev">
 <link href="../images/stat_sticker.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -97,7 +98,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a48f3a5c7f410fc94a8fd1d60fc997bd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d8ff0a9de017220eb43130ccb7ca4d88.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-85396fc4e9508fdaf20c3ab2d6d9429d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -285,6 +286,15 @@ window.Quarto = {
     <a class="dropdown-item" href="../curs/04-simulare.html">
  <span class="dropdown-text">Cursul 4 — Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../curs/05-esantionare-normala.html">
+ <span class="dropdown-text">Cursul 5 — Eșantionare dintr-o populație normală</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../Appendix/Appendix_A.html">
+ <span class="dropdown-text">Anexă — Repartiții derivate din repartiția normală</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -315,6 +325,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../laborator_nosols/04-simulare-inversa.html">
  <span class="dropdown-text">Seminarul 4 — Funcția cuantilă, metoda inversă și metoda Monte Carlo (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../laborator_nosols/05-simulare-respingere.html">
+ <span class="dropdown-text">Seminarul 5 — Metoda respingerii. Simulare prin transformări (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -417,8 +431,21 @@ window.Quarto = {
  <span class="menu-text">4. Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../curs/05-esantionare-normala.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Eșantionare dintr-o populație normală</span></a>
+  </div>
+</li>
       </ul>
   </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Appendix/Appendix_A.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anexă — Repartiții derivate din repartiția normală</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -1597,7 +1624,7 @@ Atenție!
 <h1 data-number="5"><span class="header-section-number">5</span> Simulare prin transformări</h1>
 <p>Dacă <span class="math inline">\(X\)</span> este un vector aleator pe care știm să îl simulăm și <span class="math inline">\(h\)</span> este o funcție, atunci simulăm <span class="math inline">\(Y=h(X)\)</span> aplicând <span class="math inline">\(h\)</span> valorilor simulate; rămâne de identificat repartiția lui <span class="math inline">\(Y\)</span>. Instrumentul este <strong>Teorema schimbării de variabilă</strong> din <a href="01-recapitulare-probabilitati.html" class="curs-ref">Cursul 1</a> (Teorema <a href="01-recapitulare-probabilitati.html#box-thm-k01-transf-vect" class="curs-ref">52 din Cursul 1</a>), pe care o reamintim: dacă vectorul <span class="math inline">\(d\)</span>-dimensional <span class="math inline">\(X\)</span> are densitatea <span class="math inline">\(f_X\)</span>, <span class="math inline">\(S\subseteq\R^d\)</span> este o mulțime deschisă cu <span class="math inline">\(\PP(X\in S)=1\)</span>, iar <span class="math inline">\(h:S\to\R^d\)</span> este injectivă, de clasă <span class="math inline">\(C^1\)</span>, cu iacobianul <span class="math inline">\(J_h(x)\ne0\)</span> pentru orice <span class="math inline">\(x\in S\)</span>, atunci <span class="math inline">\(h(S)\)</span> este deschisă, <span class="math inline">\(h^{-1}:h(S)\to S\)</span> este de clasă <span class="math inline">\(C^1\)</span>, cu <span class="math inline">\(J_{h^{-1}}(y)=1/J_h\big(h^{-1}(y)\big)\)</span>, iar <span class="math inline">\(Y=h(X)\)</span> are densitatea <span id="eq-k04-transf"><span class="math display">\[
 f_Y(y)=f_X\big(h^{-1}(y)\big)\,\big|J_{h^{-1}}(y)\big|\,\Ind_{h(S)}(y),\qquad y\in\R^d .
-\tag{7}\]</span></span> În aplicații, densitatea obținută este adesea un produs de funcții care depind de grupe diferite de coordonate; atunci grupele de coordonate sunt independente, iar densitățile lor se citesc din factori. Acesta este conținutul criteriului de mai jos, pe care îl vom folosi din nou în Cursul 5.</p>
+\tag{7}\]</span></span> În aplicații, densitatea obținută este adesea un produs de funcții care depind de grupe diferite de coordonate; atunci grupele de coordonate sunt independente, iar densitățile lor se citesc din factori. Acesta este conținutul criteriului de mai jos, pe care îl vom folosi din nou în <a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>.</p>
 <section id="sec-k04-crit-factorizare" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="sec-k04-crit-factorizare"><span class="header-section-number">5.1</span> Criteriul de factorizare</h2>
 <p>În <a href="01-recapitulare-probabilitati.html" class="curs-ref">Cursul 1</a> am văzut că variabilele aleatoare cu densități sunt independente exact atunci când densitatea comună este produsul densităților marginale (Propoziția <a href="01-recapitulare-probabilitati.html#box-prop-k01-factorizare" class="curs-ref">38 din Cursul 1</a>). Pentru a citi independența din forma densității comune este mai comodă următoarea variantă, în care factorii nu trebuie să fie densități.</p>
@@ -1713,7 +1740,7 @@ f_{X_1,X_2}(x_1,x_2)&amp;=f_{(R,\Theta)}\big(g^{-1}(x_1,x_2)\big)\,\big|J_{g^{-1
 <p>Fie <span class="math inline">\(U_1,U_2,\dots\)</span> independente <span class="math inline">\(\Unif(0,1)\)</span> și <span class="math inline">\(Z_1,Z_2,\dots\)</span> independente <span class="math inline">\(\Norm(0,1)\)</span>.</p>
 <ol type="a">
 <li><p>Pentru <span class="math inline">\(n\in\N^*\)</span> și <span class="math inline">\(\lambda&gt;0\)</span>, <span class="math inline">\(-\frac1\lambda\ln(U_1U_2\cdots U_n)\sim\GammaD(n,\lambda)\)</span>.</p></li>
-<li><p>Pentru <span class="math inline">\(k\in\N^*\)</span>, <span class="math inline">\(Z_1^2+\dots+Z_k^2\sim\GammaD\big(\frac k2,\frac12\big)\)</span>, repartiția numită <strong><span class="math inline">\(\chi^2\)</span> cu <span class="math inline">\(k\)</span> grade de libertate</strong> (Cursul 5); în particular <span class="math inline">\(-2\ln(U_1\cdots U_\nu)\sim\GammaD(\nu,\frac12)=\chi^2_{2\nu}\)</span>.</p></li>
+<li><p>Pentru <span class="math inline">\(k\in\N^*\)</span>, <span class="math inline">\(Z_1^2+\dots+Z_k^2\sim\GammaD\big(\frac k2,\frac12\big)\)</span>, repartiția numită <strong><span class="math inline">\(\chi^2\)</span> cu <span class="math inline">\(k\)</span> grade de libertate</strong> (<a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>); în particular <span class="math inline">\(-2\ln(U_1\cdots U_\nu)\sim\GammaD(\nu,\frac12)=\chi^2_{2\nu}\)</span>.</p></li>
 <li><p>Pentru <span class="math inline">\(m\in\N^*\)</span> și <span class="math inline">\(p\in(0,1)\)</span>, <span class="math inline">\(\sum_{i=1}^m\Ind_{\{U_i&lt;p\}}\sim\Bin(m,p)\)</span>.</p></li>
 </ol>
 </div>
@@ -1742,7 +1769,7 @@ M_{B_1+\dots+B_m}(t)=(1-p+pe^t)^m=\sum_{k=0}^me^{tk}\binom mkp^k(1-p)^{m-k},\qqu
 <p><em>O observație din <span class="math inline">\(\Bin(5,0.3)\)</span></em> (punctul (c)). Indicatorii <span class="math inline">\(\Ind_{\{u_i&lt;0.3\}}\)</span> sunt, în ordine, <span class="math inline">\(0,0,0,1,1\)</span> (doar <span class="math inline">\(u_4=0.12\)</span> și <span class="math inline">\(u_5=0.25\)</span> sunt sub <span class="math inline">\(0.3\)</span>), deci <span class="math inline">\(x=2\)</span>. Costul este de <span class="math inline">\(m=5\)</span> uniforme pe observație; metoda inversă din Exemplul <a href="#box-ex-k04-poisson-inv" class="curs-ref">6</a> folosește o singură uniformă și, în medie, <span class="math inline">\(1+mp=2.5\)</span> comparații, deci devine mai economică atunci când <span class="math inline">\(m\)</span> este mare.</p>
 </div>
 </div>
-<p>Metoda (a) costă <span class="math inline">\(n\)</span> uniforme pe observație; pentru parametru de formă neîntreg se folosesc metode de respingere <span class="citation" data-cites="devroye1986 robert2004">(<a href="#ref-devroye1986" role="doc-biblioref">Devroye 1986</a>; <a href="#ref-robert2004" role="doc-biblioref">Robert and Casella 2004</a>)</span> (în R, <code>rgamma</code>). Repartițiile Student și Fisher–Snedecor, definite prin normale și <span class="math inline">\(\chi^2\)</span> independente, se simulează tot prin transformări și sunt studiate în Cursul 5.</p>
+<p>Metoda (a) costă <span class="math inline">\(n\)</span> uniforme pe observație; pentru parametru de formă neîntreg se folosesc metode de respingere <span class="citation" data-cites="devroye1986 robert2004">(<a href="#ref-devroye1986" role="doc-biblioref">Devroye 1986</a>; <a href="#ref-robert2004" role="doc-biblioref">Robert and Casella 2004</a>)</span> (în R, <code>rgamma</code>). Repartițiile Student și Fisher–Snedecor, definite prin normale și <span class="math inline">\(\chi^2\)</span> independente, se simulează tot prin transformări și sunt studiate în <a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>.</p>
 <p><a href="#tbl-k04-metode" class="quarto-xref">Tabelul&nbsp;2</a> rezumă cele trei familii de metode din acest curs.</p>
 <div id="tbl-k04-metode" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1975,7 +2002,7 @@ De reținut
 </ul>
 </div>
 </div>
-<p><strong>Legătura cu cursurile următoare.</strong> Simularea este, de acum înainte, instrumentul nostru de verificare. În Cursul 5 vom folosi Teorema schimbării de variabilă și criteriul de factorizare (Lema <a href="#box-lem-k04-factorizare" class="curs-ref">10</a>) pentru a demonstra teorema lui Fisher despre eșantioanele din populația normală și vom ilustra rezultatul prin simulare; în Cursul 6 vom studia prin simulare statisticile de ordine și funcția de repartiție empirică; începând cu Cursul 7, principiul Monte Carlo (Propoziția <a href="#box-prop-k04-mc" class="curs-ref">1</a>) ne va permite să aproximăm deplasarea, varianța și eroarea pătratică medie ale estimatorilor, probabilitățile de acoperire ale intervalelor de încredere (Cursul 12) și puterea testelor (Cursul 14). Metoda inversă și metoda Monte Carlo sunt exersate în <a href="..\laborator_nosols\04-simulare-inversa.html" class="curs-ref">Seminarul 4</a>.</p>
+<p><strong>Legătura cu cursurile următoare.</strong> Simularea este, de acum înainte, instrumentul nostru de verificare. În <a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a> vom folosi Teorema schimbării de variabilă și criteriul de factorizare (Lema <a href="#box-lem-k04-factorizare" class="curs-ref">10</a>) pentru a demonstra teorema lui Fisher despre eșantioanele din populația normală și vom ilustra rezultatul prin simulare; în Cursul 6 vom studia prin simulare statisticile de ordine și funcția de repartiție empirică; începând cu Cursul 7, principiul Monte Carlo (Propoziția <a href="#box-prop-k04-mc" class="curs-ref">1</a>) ne va permite să aproximăm deplasarea, varianța și eroarea pătratică medie ale estimatorilor, probabilitățile de acoperire ale intervalelor de încredere (Cursul 12) și puterea testelor (Cursul 14). Metoda inversă și metoda Monte Carlo sunt exersate în <a href="..\laborator_nosols\04-simulare-inversa.html" class="curs-ref">Seminarul 4</a>.</p>
 </section>
 <section id="bibliografie" class="level1 unnumbered">
 <h1 class="unnumbered">Bibliografie</h1>
@@ -2430,6 +2457,9 @@ Robert, Christian P., and George Casella. 2004. <em>Monte Carlo Statistical Meth
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../curs/05-esantionare-normala.html" class="pagination-link" aria-label="5. Eșantionare dintr-o populație normală">
+        <span class="nav-page-text">5. Eșantionare dintr-o populație normală</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

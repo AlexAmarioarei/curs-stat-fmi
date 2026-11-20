@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -97,7 +97,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a48f3a5c7f410fc94a8fd1d60fc997bd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d8ff0a9de017220eb43130ccb7ca4d88.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-85396fc4e9508fdaf20c3ab2d6d9429d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -285,6 +285,15 @@ window.Quarto = {
     <a class="dropdown-item" href="../curs/04-simulare.html">
  <span class="dropdown-text">Cursul 4 — Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../curs/05-esantionare-normala.html">
+ <span class="dropdown-text">Cursul 5 — Eșantionare dintr-o populație normală</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../Appendix/Appendix_A.html">
+ <span class="dropdown-text">Anexă — Repartiții derivate din repartiția normală</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -315,6 +324,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../laborator_nosols/04-simulare-inversa.html">
  <span class="dropdown-text">Seminarul 4 — Funcția cuantilă, metoda inversă și metoda Monte Carlo (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../laborator_nosols/05-simulare-respingere.html">
+ <span class="dropdown-text">Seminarul 5 — Metoda respingerii. Simulare prin transformări (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -417,8 +430,21 @@ window.Quarto = {
  <span class="menu-text">4. Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../curs/05-esantionare-normala.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Eșantionare dintr-o populație normală</span></a>
+  </div>
+</li>
       </ul>
   </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Appendix/Appendix_A.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anexă — Repartiții derivate din repartiția normală</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -982,7 +1008,7 @@ Tabelul&nbsp;1: Repartiții discrete uzuale. Pentru <span class="math inline">\(
 <div id="tbl-k01-continue" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-k01-continue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabelul&nbsp;2: Repartiții continue uzuale; <span class="math inline">\(B(a,b)=\Gamma(a)\Gamma(b)/\Gamma(a+b)\)</span>. Repartiția Cauchy nu are medie (Exemplul <a href="#box-ex-k01-fara-medie" class="curs-ref">14</a>). Argumentele R: <code>rate</code> <span class="math inline">\(=\lambda\)</span> pentru <code>exp</code> și <code>gamma</code> (plus <code>shape</code> <span class="math inline">\(=\alpha\)</span>), <code>sd</code> <span class="math inline">\(=\sigma\)</span> pentru <code>norm</code>. Repartițiile <span class="math inline">\(\chisq{\nu}\)</span>, Student și Fisher vor fi introduse în Cursul 5.
+Tabelul&nbsp;2: Repartiții continue uzuale; <span class="math inline">\(B(a,b)=\Gamma(a)\Gamma(b)/\Gamma(a+b)\)</span>. Repartiția Cauchy nu are medie (Exemplul <a href="#box-ex-k01-fara-medie" class="curs-ref">14</a>). Argumentele R: <code>rate</code> <span class="math inline">\(=\lambda\)</span> pentru <code>exp</code> și <code>gamma</code> (plus <code>shape</code> <span class="math inline">\(=\alpha\)</span>), <code>sd</code> <span class="math inline">\(=\sigma\)</span> pentru <code>norm</code>. Repartițiile <span class="math inline">\(\chisq{\nu}\)</span>, Student și Fisher vor fi introduse în <a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>.
 </figcaption>
 <div aria-describedby="tbl-k01-continue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1255,7 +1281,7 @@ F_Y(y)=\int_0^{\sqrt y}\big(f_X(x)+f_X(-x)\big)\dd x=\int_0^y\frac{f_X(\sqrt t)+
 <div class="curs-box-body">
 <p>Fie <span class="math inline">\(Z\sim\Norm(0,1)\)</span> și <span class="math inline">\(Y=Z^2\)</span>. Cu <span class="math inline">\(\phi(\pm\sqrt y)=\frac{1}{\sqrt{2\pi}}e^{-y/2}\)</span>, Propoziția <a href="#box-prop-k01-patrat" class="curs-ref">20</a> dă <span class="math display">\[
 f_Y(y)=\frac{2}{2\sqrt y}\cdot\frac{e^{-y/2}}{\sqrt{2\pi}}=\frac{1}{\sqrt{2\pi}}\,y^{-1/2}e^{-y/2},\qquad y&gt;0 .
-\]</span> Densitatea <span class="math inline">\(\GammaD(\frac12,\frac12)\)</span> din <a href="#tbl-k01-continue" class="quarto-xref">Tabelul&nbsp;2</a> este <span class="math inline">\(\frac{(1/2)^{1/2}}{\Gamma(1/2)}y^{-1/2}e^{-y/2}\)</span>, iar cu <span class="math inline">\(\Gamma(1/2)=\sqrt\pi\)</span> constanta ei este <span class="math inline">\(\frac1{\sqrt{2\pi}}\)</span>, deci cele două expresii coincid: <span class="math inline">\(Z^2\sim\GammaD\big(\frac12,\frac12\big)\)</span>, <strong>repartiția <span class="math inline">\(\chi^2\)</span> cu un grad de libertate</strong> (Cursul 5).</p>
+\]</span> Densitatea <span class="math inline">\(\GammaD(\frac12,\frac12)\)</span> din <a href="#tbl-k01-continue" class="quarto-xref">Tabelul&nbsp;2</a> este <span class="math inline">\(\frac{(1/2)^{1/2}}{\Gamma(1/2)}y^{-1/2}e^{-y/2}\)</span>, iar cu <span class="math inline">\(\Gamma(1/2)=\sqrt\pi\)</span> constanta ei este <span class="math inline">\(\frac1{\sqrt{2\pi}}\)</span>, deci cele două expresii coincid: <span class="math inline">\(Z^2\sim\GammaD\big(\frac12,\frac12\big)\)</span>, <strong>repartiția <span class="math inline">\(\chi^2\)</span> cu un grad de libertate</strong> (<a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>).</p>
 <p>Probabilitățile legate de <span class="math inline">\(Z^2\)</span> se calculează direct cu <span class="math inline">\(\Phi\)</span>, din prima formulă a Propoziției <a href="#box-prop-k01-patrat" class="curs-ref">20</a>: <span class="math inline">\(F_Y(y)=\Phi(\sqrt y)-\Phi(-\sqrt y)=2\Phi(\sqrt y)-1\)</span> pentru <span class="math inline">\(y&gt;0\)</span>. De exemplu, <span class="math inline">\(\PP(Z^2\le1)=2\Phi(1)-1\approx0.6827\)</span>, iar <span class="math inline">\(\PP(Z^2&gt;3.84)=\PP(|Z|&gt;1.96)\approx0.05\)</span>: pragul <span class="math inline">\(3.84=1.96^2\)</span> al repartiției <span class="math inline">\(\chi^2\)</span> cu un grad de libertate este pătratul pragului <span class="math inline">\(1.96\)</span> al repartiției normale.</p>
 </div>
 </div>
@@ -1643,7 +1669,7 @@ c:=\lim_{y\searrow m}s(m,y)=\inf_{y&gt;m}s(m,y),\qquad\text{cu}\qquad s(x,m)\le 
 </section>
 <section id="sec-k01-fgm" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Funcția generatoare de momente</h1>
-<p>Funcția generatoare de momente (f.g.m.) a unei v.a. conține toate momentele ei, determină repartiția și, mai ales, transformă sumele de v.a. independente în produse (Secțiunea <a href="#sec-k01-fgm-suma-sec" class="curs-ref">7.4</a>). O vom folosi pentru repartițiile exacte ale multor statistici (<a href="02-statistica-inferentiala.html" class="curs-ref">Cursul 2</a>, Cursul 5) și pentru a demonstra teorema limită centrală <span class="citation" data-cites="hogg2019 casella2002">(<a href="#ref-hogg2019" role="doc-biblioref">Hogg et al. 2019, sec. 1.9</a>; <a href="#ref-casella2002" role="doc-biblioref">Casella and Berger 2002, sec. 2.3</a>)</span>.</p>
+<p>Funcția generatoare de momente (f.g.m.) a unei v.a. conține toate momentele ei, determină repartiția și, mai ales, transformă sumele de v.a. independente în produse (Secțiunea <a href="#sec-k01-fgm-suma-sec" class="curs-ref">7.4</a>). O vom folosi pentru repartițiile exacte ale multor statistici (<a href="02-statistica-inferentiala.html" class="curs-ref">Cursul 2</a>, <a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>) și pentru a demonstra teorema limită centrală <span class="citation" data-cites="hogg2019 casella2002">(<a href="#ref-hogg2019" role="doc-biblioref">Hogg et al. 2019, sec. 1.9</a>; <a href="#ref-casella2002" role="doc-biblioref">Casella and Berger 2002, sec. 2.3</a>)</span>.</p>
 <div id="box-def-k01-fgm" class="curs-box definitie">
 <div class="curs-box-title">
 <span class="curs-box-label">Definiția 30</span> <span class="curs-box-name">(Funcția generatoare de momente)</span>
@@ -2481,7 +2507,7 @@ f_Y(y)=f_X\big(h^{-1}(y)\big)\,\big|J_{h^{-1}}(y)\big|\,\Ind_T(y),\qquad y\in\R^
 \PP(Y\in C)=\int_Cf_Y(y)\dd y\qquad\text{pentru orice }C\in\B(\R^d).
 \]</span> Luând <span class="math inline">\(C=(-\infty,y_1]\times\dots\times(-\infty,y_d]\)</span> și scriind integrala pe <span class="math inline">\(C\)</span> ca integrală iterată (teorema lui Fubini), obținem relația din Definiția <a href="#box-def-k01-vector-discret-continuu" class="curs-ref">35</a>(b): <span class="math inline">\(Y\)</span> este un vector continuu, cu densitatea <span class="math inline">\(f_Y\ge0\)</span>.<span class="curs-qed">■</span></p>
 </div>
-<p>Vezi și <span class="citation" data-cites="jacod2004 billingsley1995">(<a href="#ref-jacod2004" role="doc-biblioref">Jacod and Protter 2004</a>, cap. 12; <a href="#ref-billingsley1995" role="doc-biblioref">Billingsley 1995, sec. 17</a>)</span>. Vom folosi teorema în <a href="04-simulare.html" class="curs-ref">Cursul 4</a>, pentru metodele de simulare, și în Cursul 5, pentru eșantioanele din populații normale.</p>
+<p>Vezi și <span class="citation" data-cites="jacod2004 billingsley1995">(<a href="#ref-jacod2004" role="doc-biblioref">Jacod and Protter 2004</a>, cap. 12; <a href="#ref-billingsley1995" role="doc-biblioref">Billingsley 1995, sec. 17</a>)</span>. Vom folosi teorema în <a href="04-simulare.html" class="curs-ref">Cursul 4</a>, pentru metodele de simulare, și în <a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>, pentru eșantioanele din populații normale.</p>
 <p><strong>Cum se aplică teorema.</strong> Mulțimea <span class="math inline">\(S\)</span> se alege astfel încât să evităm mulțimile <strong>neglijabile</strong> pe care <span class="math inline">\(h\)</span> nu este injectivă sau netedă (o dreaptă, o semiaxă, originea): este suficient ca <span class="math inline">\(\PP(X\in S)=1\)</span>. De obicei scriem direct inversa, <span class="math inline">\(x=h^{-1}(y)\)</span>, și calculăm <span class="math inline">\(J_{h^{-1}}\)</span>. Imaginea <span class="math inline">\(T=h(S)\)</span> trebuie determinată cu grijă: indicatorul <span class="math inline">\(\Ind_T\)</span> face parte din densitate. Independența componentelor lui <span class="math inline">\(Y\)</span> se citește din densitatea obținută (Propoziția <a href="#box-prop-k01-factorizare" class="curs-ref">38</a>(c)).</p>
 <p><strong>Metoda variabilei auxiliare.</strong> Teorema cere ca <span class="math inline">\(h\)</span> să transforme <span class="math inline">\(\R^d\)</span> în <span class="math inline">\(\R^d\)</span>. Dacă ne interesează repartiția unei <strong>singure</strong> funcții <span class="math inline">\(U=g_1(X,Y)\)</span>, o completăm cu o a doua, <span class="math inline">\(V=g_2(X,Y)\)</span>, aleasă cât mai simplu (de obicei <span class="math inline">\(V=X\)</span> sau <span class="math inline">\(V=Y\)</span>) astfel încât <span class="math inline">\(h=(g_1,g_2)\)</span> să verifice ipotezele teoremei; calculăm <span class="math inline">\(f_{(U,V)}\)</span> și apoi „integrăm variabila auxiliară” (Propoziția <a href="#box-prop-k01-marginale" class="curs-ref">36</a>): <span class="math inline">\(f_U(u)=\int_{\R}f_{(U,V)}(u,v)\dd v\)</span>.</p>
 <div id="box-ex-k01-raport-exp" class="curs-box exemplu">
@@ -2528,7 +2554,7 @@ f_Y(y)=\frac{1}{|\det A|}\,f_X\big(A^{-1}(y-b)\big),\qquad y\in\R^d .
 <div class="curs-box-body">
 <p>Fie <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> independente, <span class="math inline">\(\Norm(0,1)\)</span>, <span class="math inline">\(U=X+Y\)</span> și <span class="math inline">\(V=X-Y\)</span>. Vectorul <span class="math inline">\((X,Y)\)</span> are densitatea <span class="math inline">\(\frac1{2\pi}e^{-(x^2+y^2)/2}\)</span>, iar <span class="math inline">\((U,V)^\top=A\,(X,Y)^\top\)</span>, cu <span class="math inline">\(A=\begin{pmatrix}1&amp;1\\1&amp;-1\end{pmatrix}\)</span> și <span class="math inline">\(\det A=-2\)</span>; inversând, <span class="math inline">\(x=\frac{u+v}2\)</span>, <span class="math inline">\(y=\frac{u-v}2\)</span> și <span class="math inline">\(x^2+y^2=\frac{u^2+v^2}{2}\)</span>. Din Corolarul <a href="#box-cor-k01-transf-afina-vect" class="curs-ref">53</a>, <span class="math display">\[
 f_{(U,V)}(u,v)=\frac{1}{|-2|}\cdot\frac1{2\pi}\exp\Big(-\frac{u^2+v^2}{4}\Big)=\frac{1}{\sqrt{4\pi}}\,e^{-u^2/4}\cdot\frac{1}{\sqrt{4\pi}}\,e^{-v^2/4},\qquad(u,v)\in\R^2 .
-\]</span> Fiecare factor este densitatea <span class="math inline">\(\Norm(0,2)\)</span>; din Propoziția <a href="#box-prop-k01-factorizare" class="curs-ref">38</a>(c), <strong><span class="math inline">\(X+Y\)</span> și <span class="math inline">\(X-Y\)</span> sunt independente, fiecare cu repartiția <span class="math inline">\(\Norm(0,2)\)</span></strong>. Este cazul cel mai simplu (<span class="math inline">\(n=2\)</span>) al independenței dintre media și varianța de selecție ale unui eșantion normal, pe care o vom demonstra, prin aceeași metodă, în Cursul 5.</p>
+\]</span> Fiecare factor este densitatea <span class="math inline">\(\Norm(0,2)\)</span>; din Propoziția <a href="#box-prop-k01-factorizare" class="curs-ref">38</a>(c), <strong><span class="math inline">\(X+Y\)</span> și <span class="math inline">\(X-Y\)</span> sunt independente, fiecare cu repartiția <span class="math inline">\(\Norm(0,2)\)</span></strong>. Este cazul cel mai simplu (<span class="math inline">\(n=2\)</span>) al independenței dintre media și varianța de selecție ale unui eșantion normal, pe care o vom demonstra, prin aceeași metodă, în <a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>.</p>
 </div>
 </div>
 <div id="box-ex-k01-medie-abateri" class="curs-box exemplu">
@@ -2554,7 +2580,7 @@ f_Y(y)&amp;=f_X\big(h^{-1}(y)\big)\cdot|3|=\frac{3}{(2\pi)^{3/2}}\,\exp\Big(-\fr
 &amp;=\underbrace{\sqrt{\frac{3}{2\pi}}\,e^{-3y_1^2/2}}_{a(y_1)}\cdot\underbrace{\frac{\sqrt3}{2\pi}\,\exp\Big(-\frac12\big((y_2+y_3)^2+y_2^2+y_3^2\big)\Big)}_{b(y_2,y_3)},\qquad y\in\R^3 .
 \end{aligned}
 \]</span></p>
-<p><em>Pasul 5 (concluzia).</em> Densitatea este produsul dintre o funcție de <span class="math inline">\(y_1\)</span> și o funcție de <span class="math inline">\((y_2,y_3)\)</span>, pe tot spațiul. Din Propoziția <a href="#box-prop-k01-factorizare" class="curs-ref">38</a>(c), <strong><span class="math inline">\(\Xbar\)</span> este independentă de vectorul <span class="math inline">\((X_2-\Xbar,\,X_3-\Xbar)\)</span></strong>; factorul <span class="math inline">\(a\)</span> este densitatea <span class="math inline">\(\Norm(0,\frac13)\)</span>, deci <span class="math inline">\(\Xbar\sim\Norm(0,\frac13)\)</span>, în acord cu Exemplul <a href="#box-ex-k01-suma-normale" class="curs-ref">30</a>. Mai mult, abaterile de la medie au suma nulă, deci <span class="math inline">\(X_1-\Xbar=-(Y_2+Y_3)\)</span>, iar varianța de selecție <span class="math inline">\(S^2=\frac12\sum_{i=1}^3(X_i-\Xbar)^2=\frac12\big((Y_2+Y_3)^2+Y_2^2+Y_3^2\big)\)</span> este o funcție continuă <span class="math inline">\(g(Y_2,Y_3)\)</span> a vectorului <span class="math inline">\((Y_2,Y_3)\)</span>. Cum <span class="math inline">\(\{S^2\in B\}=\{(Y_2,Y_3)\in g^{-1}(B)\}\)</span> pentru orice borelian <span class="math inline">\(B\)</span>, independența lui <span class="math inline">\(\Xbar\)</span> de vectorul <span class="math inline">\((Y_2,Y_3)\)</span> (Definiția <a href="#box-def-k01-indep-va" class="curs-ref">37</a>) dă <span class="math inline">\(\PP(\Xbar\in A,\ S^2\in B)=\PP(\Xbar\in A)\,\PP(S^2\in B)\)</span>: <strong><span class="math inline">\(\Xbar\)</span> și <span class="math inline">\(S^2\)</span> sunt independente</strong> (argumentul din Propoziția <a href="#box-prop-k01-functii-indep" class="curs-ref">39</a>, pentru vectori). Pentru un eșantion normal de volum <span class="math inline">\(n\)</span>, calculul este același, cu iacobianul <span class="math inline">\(n\)</span> (Cursul 5).</p>
+<p><em>Pasul 5 (concluzia).</em> Densitatea este produsul dintre o funcție de <span class="math inline">\(y_1\)</span> și o funcție de <span class="math inline">\((y_2,y_3)\)</span>, pe tot spațiul. Din Propoziția <a href="#box-prop-k01-factorizare" class="curs-ref">38</a>(c), <strong><span class="math inline">\(\Xbar\)</span> este independentă de vectorul <span class="math inline">\((X_2-\Xbar,\,X_3-\Xbar)\)</span></strong>; factorul <span class="math inline">\(a\)</span> este densitatea <span class="math inline">\(\Norm(0,\frac13)\)</span>, deci <span class="math inline">\(\Xbar\sim\Norm(0,\frac13)\)</span>, în acord cu Exemplul <a href="#box-ex-k01-suma-normale" class="curs-ref">30</a>. Mai mult, abaterile de la medie au suma nulă, deci <span class="math inline">\(X_1-\Xbar=-(Y_2+Y_3)\)</span>, iar varianța de selecție <span class="math inline">\(S^2=\frac12\sum_{i=1}^3(X_i-\Xbar)^2=\frac12\big((Y_2+Y_3)^2+Y_2^2+Y_3^2\big)\)</span> este o funcție continuă <span class="math inline">\(g(Y_2,Y_3)\)</span> a vectorului <span class="math inline">\((Y_2,Y_3)\)</span>. Cum <span class="math inline">\(\{S^2\in B\}=\{(Y_2,Y_3)\in g^{-1}(B)\}\)</span> pentru orice borelian <span class="math inline">\(B\)</span>, independența lui <span class="math inline">\(\Xbar\)</span> de vectorul <span class="math inline">\((Y_2,Y_3)\)</span> (Definiția <a href="#box-def-k01-indep-va" class="curs-ref">37</a>) dă <span class="math inline">\(\PP(\Xbar\in A,\ S^2\in B)=\PP(\Xbar\in A)\,\PP(S^2\in B)\)</span>: <strong><span class="math inline">\(\Xbar\)</span> și <span class="math inline">\(S^2\)</span> sunt independente</strong> (argumentul din Propoziția <a href="#box-prop-k01-functii-indep" class="curs-ref">39</a>, pentru vectori). Pentru un eșantion normal de volum <span class="math inline">\(n\)</span>, calculul este același, cu iacobianul <span class="math inline">\(n\)</span> (<a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>).</p>
 </div>
 </div>
 <p>Ca în dimensiunea unu, dacă <span class="math inline">\(h\)</span> nu este injectivă, dar domeniul ei se împarte în mulțimi deschise pe care este injectivă, contribuțiile „ramurilor” se adună.</p>
@@ -3022,7 +3048,7 @@ M_{X_n}(t)=\Big(1-\frac\lambda n+\frac\lambda ne^{t}\Big)^n=\Big(1+\frac{\lambda
 <div class="curs-box-body">
 <p>Fie <span class="math inline">\(X_1,X_2,\dots\)</span> i.i.d. cu media <span class="math inline">\(\mu\)</span> și varianța <span class="math inline">\(\sigma^2\in(0,\infty)\)</span> și <span class="math inline">\(S_n^2=\frac1{n-1}\sum_{i=1}^n(X_i-\Xbar)^2\)</span>. Arătăm că <span class="math display">\[
 T_n=\frac{\sqrt n(\Xbar-\mu)}{S_n}\dto\Norm(0,1).
-\]</span> Din <span class="math inline">\(\sum_i(X_i-\Xbar)^2=\sum_iX_i^2-n\Xbar^2\)</span>, <span class="math inline">\(S_n^2=\frac{n}{n-1}\big(\frac1n\sum_{i=1}^nX_i^2-\Xbar^2\big)\)</span>. Legea tare a numerelor mari (Teorema <a href="#box-thm-k01-lnm-tare" class="curs-ref">61</a>), aplicată șirurilor i.i.d. <span class="math inline">\((X_i)\)</span> și <span class="math inline">\((X_i^2)\)</span>, dă <span class="math inline">\(\Xbar\asto\mu\)</span> și <span class="math inline">\(\frac1n\sum_iX_i^2\asto\E[X_1^2]=\sigma^2+\mu^2\)</span>, deci <span class="math inline">\(S_n^2\asto\sigma^2\)</span> și, din Teoremele <a href="#box-thm-k01-tac" class="curs-ref">57</a>(a) și <a href="#box-thm-k01-relatii" class="curs-ref">56</a>(a), <span class="math inline">\(\sigma/S_n\pto1\)</span>. Scriem <span class="math inline">\(T_n=\frac{\sqrt n(\Xbar-\mu)}{\sigma}\cdot\frac{\sigma}{S_n}\)</span>: primul factor converge în repartiție la <span class="math inline">\(Z\sim\Norm(0,1)\)</span> (Teorema <a href="#box-thm-k01-tlc" class="curs-ref">64</a>), iar al doilea converge în probabilitate la constanta <span class="math inline">\(1\)</span>; din lema lui Slutsky (Teorema <a href="#box-thm-k01-slutsky" class="curs-ref">58</a>(b)), <span class="math inline">\(T_n\dto Z\)</span>. Pentru o populație normală, <span class="math inline">\(T_n\)</span> are <em>exact</em> repartiția Student <span class="math inline">\(\Stud{n-1}\)</span> (Cursul 5); pentru orice populație cu varianță finită, <span class="math inline">\(T_n\)</span> are <em>asimptotic</em> repartiția <span class="math inline">\(\Norm(0,1)\)</span>, ceea ce justifică intervalul aproximativ <span class="math inline">\(\bar x_n\pm1.96\,s_n/\sqrt n\)</span> pentru medie (Cursul 12).</p>
+\]</span> Din <span class="math inline">\(\sum_i(X_i-\Xbar)^2=\sum_iX_i^2-n\Xbar^2\)</span>, <span class="math inline">\(S_n^2=\frac{n}{n-1}\big(\frac1n\sum_{i=1}^nX_i^2-\Xbar^2\big)\)</span>. Legea tare a numerelor mari (Teorema <a href="#box-thm-k01-lnm-tare" class="curs-ref">61</a>), aplicată șirurilor i.i.d. <span class="math inline">\((X_i)\)</span> și <span class="math inline">\((X_i^2)\)</span>, dă <span class="math inline">\(\Xbar\asto\mu\)</span> și <span class="math inline">\(\frac1n\sum_iX_i^2\asto\E[X_1^2]=\sigma^2+\mu^2\)</span>, deci <span class="math inline">\(S_n^2\asto\sigma^2\)</span> și, din Teoremele <a href="#box-thm-k01-tac" class="curs-ref">57</a>(a) și <a href="#box-thm-k01-relatii" class="curs-ref">56</a>(a), <span class="math inline">\(\sigma/S_n\pto1\)</span>. Scriem <span class="math inline">\(T_n=\frac{\sqrt n(\Xbar-\mu)}{\sigma}\cdot\frac{\sigma}{S_n}\)</span>: primul factor converge în repartiție la <span class="math inline">\(Z\sim\Norm(0,1)\)</span> (Teorema <a href="#box-thm-k01-tlc" class="curs-ref">64</a>), iar al doilea converge în probabilitate la constanta <span class="math inline">\(1\)</span>; din lema lui Slutsky (Teorema <a href="#box-thm-k01-slutsky" class="curs-ref">58</a>(b)), <span class="math inline">\(T_n\dto Z\)</span>. Pentru o populație normală, <span class="math inline">\(T_n\)</span> are <em>exact</em> repartiția Student <span class="math inline">\(\Stud{n-1}\)</span> (<a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>); pentru orice populație cu varianță finită, <span class="math inline">\(T_n\)</span> are <em>asimptotic</em> repartiția <span class="math inline">\(\Norm(0,1)\)</span>, ceea ce justifică intervalul aproximativ <span class="math inline">\(\bar x_n\pm1.96\,s_n/\sqrt n\)</span> pentru medie (Cursul 12).</p>
 </div>
 </div>
 <div id="box-ex-k01-slutsky-aplicatii" class="curs-box exemplu">
@@ -3190,7 +3216,7 @@ De reținut
 </ul>
 </div>
 </div>
-<p><strong>Legătura cu cursurile următoare.</strong> În <a href="02-statistica-inferentiala.html" class="curs-ref">Cursul 2</a> vom formaliza trecerea de la probabilități la statistică (model statistic, eșantion, statistică) și vom obține cu f.g.m. repartițiile exacte ale unor statistici. Existența eșantioanelor i.i.d. și funcția cuantilă apar în <a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a>, simularea în <a href="04-simulare.html" class="curs-ref">Cursul 4</a>, iar repartițiile <span class="math inline">\(\chi^2\)</span>, Student și Fisher în Cursul 5; acestea, ca și repartițiile statisticilor de ordine (Cursul 6), se obțin cu transformările din Secțiunea <a href="#sec-k01-transf-vect" class="curs-ref">7.5</a>. Teoremele limită și lema lui Slutsky vor fi folosite în toate demonstrațiile asimptotice (de la Cursul 6 la Cursul 16).</p>
+<p><strong>Legătura cu cursurile următoare.</strong> În <a href="02-statistica-inferentiala.html" class="curs-ref">Cursul 2</a> vom formaliza trecerea de la probabilități la statistică (model statistic, eșantion, statistică) și vom obține cu f.g.m. repartițiile exacte ale unor statistici. Existența eșantioanelor i.i.d. și funcția cuantilă apar în <a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a>, simularea în <a href="04-simulare.html" class="curs-ref">Cursul 4</a>, iar repartițiile <span class="math inline">\(\chi^2\)</span>, Student și Fisher în <a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>; acestea, ca și repartițiile statisticilor de ordine (Cursul 6), se obțin cu transformările din Secțiunea <a href="#sec-k01-transf-vect" class="curs-ref">7.5</a>. Teoremele limită și lema lui Slutsky vor fi folosite în toate demonstrațiile asimptotice (de la Cursul 6 la Cursul 16).</p>
 </section>
 <section id="sec-k01-complemente" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> Complemente: rezultate auxiliare și demonstrații suplimentare</h1>

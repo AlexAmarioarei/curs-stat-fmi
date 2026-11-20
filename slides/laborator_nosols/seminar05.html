@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../images/stat_sticker.png" rel="icon" type="image/png">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
+
+  <meta name="author" content="Alexandru Amărioarei">
+  <title>Curs&nbsp;Statistică 2026-2027 – Seminarul 5. Metoda respingerii. Simulare prin transformări</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-19ed73126da18682a80cda67b0b42c24.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <!-- Fonturi: Fira Sans (titluri, casete), Fira Mono (cod); textul folosește Palatino / TeX Gyre Pagella -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&amp;family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ TeX: { Macros: {
+    PP: "\\mathbb{P}",
+    E: "\\mathbb{E}",
+    Var: "\\operatorname{Var}",
+    Cov: "\\operatorname{Cov}",
+    Corr: "\\operatorname{Corr}",
+    MSE: "\\operatorname{EPM}",
+    Bias: "\\operatorname{Dep}",
+    sgn: "\\operatorname{sgn}",
+    argmax: "\\operatorname*{arg\\,max}",
+    argmin: "\\operatorname*{arg\\,min}",
+    R: "\\mathbb{R}",
+    N: "\\mathbb{N}",
+    Z: "\\mathbb{Z}",
+    Q: "\\mathbb{Q}",
+    F: "\\mathcal{F}",
+    A: "\\mathcal{A}",
+    B: "\\mathcal{B}",
+    Ind: "\\mathbf{1}",
+    dd: "\\,\\mathrm{d}",
+    eqd: "\\overset{d}{=}",
+    iid: "\\text{i.i.d.}",
+    asto: "\\xrightarrow{\\text{a.s.}}",
+    pto: "\\xrightarrow{\\;\\PP\\;}",
+    dto: "\\xrightarrow{\\;d\\;}",
+    Lto: "\\xrightarrow{L^2}",
+    indep: "\\perp\\!\\!\\!\\perp",
+    Bern: "\\mathrm{Bernoulli}",
+    Bin: "\\mathrm{Bin}",
+    HGeom: "\\mathrm{HGeom}",
+    Geom: "\\mathrm{Geom}",
+    NBin: "\\mathrm{NBin}",
+    Pois: "\\mathrm{Pois}",
+    Unif: "\\mathcal{U}",
+    Exp: "\\mathrm{Exp}",
+    Norm: "\\mathcal{N}",
+    GammaD: "\\mathrm{Gamma}",
+    BetaD: "\\mathrm{Beta}",
+    Cauchy: "\\mathrm{Cauchy}",
+    Multin: "\\mathrm{Mult}",
+    chisq: ["\\chi^2_{#1}", 1],
+    Stud: ["t_{#1}", 1],
+    Fish: ["F_{#1,#2}", 2],
+    bx: "\\mathbf{x}",
+    bX: "\\mathbf{X}",
+    bbeta: "\\boldsymbol{\\beta}",
+    hth: "\\hat{\\theta}",
+    Xbar: "\\bar{X}_n",
+    xbar: "\\bar{x}_n"
+  } } });
+  </script>
+<meta property="og:title" content="Seminarul 5. Metoda respingerii. Simulare prin transformări – Curs&nbsp;Statistică 2026-2027">
+<meta property="og:description" content="Statistică · Seminarul 5 (seminar și laborator) · Fișă de lucru (fără rezolvări)">
+<meta property="og:site_name" content="Curs&nbsp;Statistică 2026-2027">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Seminarul 5. Metoda respingerii. Simulare prin transformări</h1>
+  <p class="subtitle">Statistică · Seminarul 5 (seminar și laborator) · Fișă de lucru (fără rezolvări)</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Alexandru Amărioarei
+</div>
+        <p class="quarto-title-affiliation">
+            Universitatea din București · Facultatea de Matematică și Informatică · 2026–2027
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="planul-ședinței" class="slide level2 plan scrollable">
+<h2>Planul ședinței</h2>
+<p><strong>De rezolvat la seminar</strong> (în această ordine):</p>
+<ol type="1">
+<li>Exercițiul 1 (a)–(c) și (e), fără minimul lui <span class="math inline">\(c(b)\)</span> — constanta optimă, acceptarea, costul;</li>
+<li>Exercițiul 4 — respingerea ca repartiție condiționată, coordonate polare, <code>resp_conditionat</code>;</li>
+<li>Exercițiul 6 (a)–(c) și (e) — schimbarea de variabilă, marginale, factorizare;</li>
+<li>Exercițiul 9 (a), (b) și (d), fără metoda polară — Box–Muller; generatoare din uniforme.</li>
+</ol>
+<p><strong>Dacă timpul permite:</strong></p>
+<ul>
+<li>Exercițiile 3 (Gamma cu propunere exponențială), 8 (minimul și maximul) și 10 (raportul a două normale).</li>
+</ul>
+<p><strong>Pentru acasă:</strong></p>
+<ul>
+<li>subpunctele rămase; Exercițiile 2, 5, 7; suplimentarele 11–13; tema.</li>
+</ul>
+<p>Rezolvările complete vor fi publicate ulterior. Scheletele de cod R: în fișa de lucru.</p>
+</section>
+<section id="breviar-respingerea-și-repartițiile-condiționate" class="slide level2">
+<h2>Breviar: respingerea și repartițiile condiționate</h2>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+<span class="curs-box-label">Rezultate din curs folosite azi</span>
+</div>
+<div class="curs-box-body">
+<p><span class="math inline">\(U,U_1,U_2,\dots\)</span> i.i.d. <span class="math inline">\(\Unif(0,1)\)</span>; <span class="math inline">\(\phi,\Phi\)</span>: densitatea și funcția de repartiție <span class="math inline">\(\Norm(0,1)\)</span>; <span class="math inline">\(\lambda_d\)</span>: măsura Lebesgue pe <span class="math inline">\(\R^d\)</span>; <span class="math inline">\(\GammaD(\alpha,\lambda)\)</span>: densitatea <span class="math inline">\(\lambda^\alpha x^{\alpha-1}e^{-\lambda x}/\Gamma(\alpha)\)</span>, <span class="math inline">\(x&gt;0\)</span>.</p>
+<ul>
+<li><strong>Geometrica</strong> (Exemplul 23 din Cursul 1): <span class="math inline">\(\PP(T=k)=(1-p)^{k-1}p\)</span>, <span class="math inline">\(\E[T]=\frac1p\)</span>, <span class="math inline">\(\Var(T)=\frac{1-p}{p^2}\)</span>, <span class="math inline">\(\PP(T&gt;k)=(1-p)^k\)</span>.</li>
+<li><strong>Condiționare</strong> (Teorema 5 din Cursul 4 și observația următoare): <span class="math inline">\(M_n\)</span> i.i.d. <span class="math inline">\(\sim\mu\)</span>, <span class="math inline">\(\mu(B)&gt;0\)</span>, <span class="math inline">\(T=\inf\{n:M_n\in B\}\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(T\sim\Geom(\mu(B))\)</span>, <span class="math inline">\(M_T\sim\mu(\cdot\mid B)\)</span>, independent de <span class="math inline">\(T\)</span>. Uniform în <span class="math inline">\(\prod_k[a_k,b_k]\)</span>: <span class="math inline">\(a_k+(b_k-a_k)U_k\)</span> (Propoziția 4 din Cursul 4); <span class="math inline">\(B\subseteq C\)</span>, <span class="math inline">\(M_n\sim\Unif(C)\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(M_T\sim\Unif(B)\)</span>, acceptare <span class="math inline">\(\frac{\lambda_d(B)}{\lambda_d(C)}\)</span> (Corolarul 6 din Cursul 4).</li>
+<li><strong>Respingerea</strong> (Teorema 9 din Cursul 4): <span class="math inline">\(f\le cg\)</span> (<span class="math inline">\(c\ge1\)</span>); <span class="math inline">\(X\sim g\)</span>, <span class="math inline">\(U\)</span> independente, până când <span class="math inline">\(U\le\frac{f(X)}{c\,g(X)}\)</span>: valoarea acceptată are densitatea <span class="math inline">\(f\)</span>; numărul de propuneri: <span class="math inline">\(\Geom(1/c)\)</span>; optim <span class="math inline">\(c^*=\sup\frac{f}{g}\)</span>; geometric: Propozițiile 8 din Cursul 4, 7 din Cursul 4. <span class="math inline">\(f=\tilde f/K\)</span>, <span class="math inline">\(\tilde f\le Mg\)</span>: <span class="math inline">\(U\le\frac{\tilde f(X)}{Mg(X)}\)</span>, acceptare <span class="math inline">\(\frac KM\)</span>. Dacă <span class="math inline">\(f\le cg\)</span> nu are loc, se obține densitatea <span class="math inline">\(\propto\min(f,cg)\)</span> (Secțiunea 4.2 din Cursul 4).</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>De ce c ≥ 1: integrăm inegalitatea f ≤ cg pe tot domeniul. Constanta optimă este finită doar dacă propunerea are cozi cel puțin la fel de grele ca ținta. Geometric: (X, c g(X) U) este uniform sub graficul lui cg, iar abscisa unui punct uniform sub graficul lui f are densitatea f. Ultimul punct (constanta prea mică) va fi testat numeric în primul exercițiu.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="breviar-schimbarea-de-variabilă-și-transformări-uzuale" class="slide level2">
+<h2>Breviar: schimbarea de variabilă și transformări uzuale</h2>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+<span class="curs-box-label">Rezultate din curs folosite azi (continuare)</span>
+</div>
+<div class="curs-box-body">
+<ul>
+<li><strong>Schimbarea de variabilă</strong> (Teorema 52 din Cursul 1): <span class="math inline">\(X\)</span> cu densitatea <span class="math inline">\(f_X\)</span>, <span class="math inline">\(S\)</span> deschisă, <span class="math inline">\(\PP(X\in S)=1\)</span>, <span class="math inline">\(h:S\to\R^d\)</span> injectivă, de clasă <span class="math inline">\(C^1\)</span>, cu <span class="math inline">\(J_h\ne0\)</span> pe <span class="math inline">\(S\)</span>: <span class="math inline">\(\ f_Y(y)=f_X\big(h^{-1}(y)\big)\,\big|J_{h^{-1}}(y)\big|\,\Ind_{h(S)}(y)\)</span>, cu <span class="math inline">\(J_{h^{-1}}(y)=1/J_h\big(h^{-1}(y)\big)\)</span>. Pe bucăți: se adună contribuțiile (Teorema 54 din Cursul 1); o singură funcție: variabilă auxiliară, apoi marginala (Propoziția 36 din Cursul 1). <span class="math inline">\(AX+b\)</span>: <span class="math inline">\(\frac{1}{|\det A|}f_X(A^{-1}(y-b))\)</span> (Corolarul 53 din Cursul 1); polare: <span class="math inline">\(r\,f(r\cos\theta,r\sin\theta)\)</span> pe <span class="math inline">\((0,\infty)\times(0,2\pi)\)</span> (Exemplul 41 din Cursul 1); <span class="math inline">\(f_{X+Y}(z)=\int f(x,z-x)\dd x\)</span>, <span class="math inline">\(f_{X/Y}(z)=\int|y|f(zy,y)\dd y\)</span> (Propoziția 50 din Cursul 1).</li>
+<li><strong>Factorizarea</strong> (Lema 10 din Cursul 4): <span class="math inline">\(f_{(U,V)}(u,v)=a(u)b(v)\)</span> pentru <strong>orice</strong> <span class="math inline">\((u,v)\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(U\indep V\)</span>, cu densități proporționale cu <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>.</li>
+<li><strong>Transformări uzuale</strong> (Secțiunea 5 din Cursul 4): Box–Muller (Teorema 11 din Cursul 4): <span class="math inline">\(\sqrt{-2\ln U_2}\,(\cos2\pi U_1,\sin2\pi U_1)\)</span> are componentele independente, <span class="math inline">\(\Norm(0,1)\)</span>; <span class="math inline">\(-\frac1\lambda\ln(U_1\cdots U_n)\sim\GammaD(n,\lambda)\)</span>, <span class="math inline">\(Z_1^2+\dots+Z_k^2\sim\chi^2_k=\GammaD(\frac k2,\frac12)\)</span> (Propoziția 12 din Cursul 4); <span class="math inline">\(\tan(\pi(U-\frac12))\sim\Cauchy(0,1)\)</span> (Exemplul 8 din Cursul 4), ca și raportul a două normale standard independente (Exemplul 38 din Cursul 1).</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Factorizarea trebuie să aibă loc pentru orice (u, v): suportul trebuie să fie un produs cartezian. Box–Muller a fost demonstrată în curs prin coordonatele polare; azi o refacem printr-un calcul direct de iacobian.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="breviar-instrumentele-r-ale-ședinței" class="slide level2">
+<h2>Breviar: instrumentele R ale ședinței</h2>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+<span class="curs-box-label">Instrumente R folosite azi</span>
+</div>
+<div class="curs-box-body">
+<ul>
+<li><code>x[acc]</code>, cu <code>acc</code> logic — valorile acceptate (respingere <strong>vectorizată</strong>, pe un lot de propuneri); <code>mean(acc)</code> — rata de acceptare observată.</li>
+<li><code>repeat { ... }</code>, <code>while (cond) { ... }</code> — bucle; <code>return(...)</code> iese din funcție.</li>
+<li><code>which(v)</code> — pozițiile valorilor <code>TRUE</code>; <code>diff(c(0, poz))</code> — diferențele dintre poziții consecutive; <code>rbind</code>, <code>t(replicate(n, expr))</code> — rezultate pe linii.</li>
+<li><code>optimize(f, interval)</code> — minimul unei funcții de o variabilă (<code>$minimum</code>, <code>$objective</code>).</li>
+<li><code>pmin</code>, <code>pmax</code> — minim/maxim componentă cu componentă; <code>rowSums(M)</code>; <code>tabulate(x, k)</code> — frecvențele valorilor <span class="math inline">\(1,\dots,k\)</span>; <code>rbinom(n, size, p)</code> acceptă un vector <code>size</code>.</li>
+<li><code>cor(x, y)</code> — corelația empirică (un indiciu, nu o dovadă, de independență); <code>quantile(x, p)</code>; <code>structure(x, rata = r)</code> și <code>attr(x, "rata")</code> — un atribut.</li>
+<li>Funcții scrise azi: <code>resp_conditionat</code> (Exercițiul 4); <code>respingere</code>, <code>dist_ks</code> (Exercițiul 3; <code>dist_ks</code> din Exercițiul 5 din Seminarul 4); <code>box_muller</code> (Secțiunea 5.2 din Cursul 4), <code>marsaglia</code>, <code>r_chisq</code>, <code>r_t</code>, <code>r_f</code>, <code>r_cauchy</code> (Exercițiul 9).</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Instrumentele din seminarele anterioare (vectori, funcții proprii, sapply, replicate, mean(conditie), familiile d/p/q/r, integrate, findInterval) se folosesc fără alte explicații. Funcțiile resp_conditionat, dist_ks și box_muller sunt refolosite de la un exercițiu la altul.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section>
+<section id="alegerea-propunerii-și-a-constantei" class="title-slide slide level1 center">
+<h1>Alegerea propunerii și a constantei</h1>
+
+</section>
+<section id="respingerea-pentru-densitatea-6x1-x" class="slide level2">
+<h2>Respingerea pentru densitatea <span class="math inline">\(6x(1-x)\)</span></h2>
+<div class="curs-box exemplu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exemplul 1</span> <span class="curs-box-name">(Respingerea pentru densitatea <span class="math inline">\(6x(1-x)\)</span>)</span>
+</div>
+<div class="curs-box-body">
+<p>Fie <span class="math inline">\(f(x)=6x(1-x)\)</span>, <span class="math inline">\(0&lt;x&lt;1\)</span> (densitatea <span class="math inline">\(\BetaD(2,2)\)</span>), și propunerea <span class="math inline">\(g=\Ind_{(0,1)}\)</span>. <span class="math inline">\(F(x)=3x^2-2x^3\)</span> nu se inversează simplu (ecuație de gradul trei), deci folosim respingerea.</p>
+<p><span class="curs-tag curs-tag-sem">Seminar</span> <em>Pasul 1: raportul.</em> <span class="math inline">\(\frac{f}{g}=6x(1-x)\)</span> este continuă pe <span class="math inline">\([0,1]\)</span>, deci mărginită. <em>Pasul 2: constanta.</em> <span class="math inline">\(\big(6x(1-x)\big)'=6(1-2x)\)</span>: maximul în <span class="math inline">\(x=\frac12\)</span>, <span class="math inline">\(c^*=\frac32\)</span> (dreptunghiul <span class="math inline">\([0,1]\times[0,\frac32]\)</span>, de arie <span class="math inline">\(\frac32\)</span>, față de aria <span class="math inline">\(1\)</span> sub <span class="math inline">\(f\)</span>).</p>
+<p><em>Pasul 3: condiția de acceptare.</em> <span class="math inline">\(U\le\frac{f(X)}{c^*g(X)}=4X(1-X)\)</span>. Perechea <span class="math inline">\((0.10,\,0.50)\)</span> este respinsă (<span class="math inline">\(0.36&lt;0.5\)</span>), perechea <span class="math inline">\((0.62,\,0.71)\)</span> este acceptată (<span class="math inline">\(4\cdot0.62\cdot0.38\approx0.942\ge0.71\)</span>): <span class="math inline">\(Z=0.62\)</span> după <span class="math inline">\(T=2\)</span> încercări.</p>
+<p><em>Pasul 4: costul.</em> Acceptare <span class="math inline">\(\frac1{c^*}=\frac23\)</span>, <span class="math inline">\(T\sim\Geom(\frac23)\)</span>, <span class="math inline">\(\E[T]=\frac32\)</span>: în medie <span class="math inline">\(3\)</span> uniforme pe observație. Media este <span class="math inline">\(\frac12\)</span> (simetrie), varianța <span class="math inline">\(\int_0^1x^2\cdot6x(1-x)\dd x-\frac14=\frac3{10}-\frac14=\frac1{20}\)</span>.</p>
+</div>
+</div>
+<aside class="notes">
+<p>Schema de lucru, urmată în toate exercițiile: (1) raportul f/g este mărginit (cozi cel puțin la fel de grele, iar unde f explodează explodează și g); (2) c* = sup f/g, prin semnul derivatei logaritmului raportului; (3) simplificăm condiția de acceptare — constantele de normalizare dispar; (4) costul: Geom(1/c*) propuneri, fiecare cu cel puțin două uniforme.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="densitatea-6x1-x-în-r" class="slide level2">
+<h2>Densitatea <span class="math inline">\(6x(1-x)\)</span> — în R</h2>
+<div class="curs-box rezolvare">
+<div class="curs-box-title">
+<span class="curs-box-label">Soluție</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Generăm dinainte <span class="math inline">\(m=10^5\)</span> perechi <span class="math inline">\((X,U)\)</span>, păstrăm valorile <span class="math inline">\(X\)</span> pentru care <span class="math inline">\(U\le4X(1-X)\)</span> și comparăm proporția acceptată cu <span class="math inline">\(\frac23\)</span>, apoi media și varianța valorilor acceptate cu <span class="math inline">\(\frac12\)</span> și <span class="math inline">\(\frac1{20}\)</span>.</p>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">500</span>)</span>
+<span id="cb1-2"><a aria-label="2"></a>m <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb1-3"><a aria-label="3"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(m); u <span class="ot">&lt;-</span> <span class="fu">runif</span>(m)                 <span class="co"># m propuneri (X, U)</span></span>
+<span id="cb1-4"><a aria-label="4"></a>z <span class="ot">&lt;-</span> x[u <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">*</span> x <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> x)]                 <span class="co"># valorile acceptate</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="fu">c</span>(<span class="at">acceptare =</span> <span class="fu">length</span>(z) <span class="sc">/</span> m, <span class="at">teoretic =</span> <span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>,</span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="at">media =</span> <span class="fu">mean</span>(z), <span class="at">varianta =</span> <span class="fu">var</span>(z), <span class="at">var_teor =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">20</span>)</span>
+<span id="cb1-7"><a aria-label="7"></a><span class="co">#&gt; acceptare  teoretic     media  varianta  var_teor </span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="co">#&gt;   0.66867   0.66667   0.49938   0.05002   0.05000</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Au fost acceptate <span class="math inline">\(66.9\%\)</span> dintre propuneri (față de <span class="math inline">\(66.7\%\)</span>); media <span class="math inline">\(0.4994\)</span> și varianța <span class="math inline">\(0.0500\)</span> sunt cele ale repartiției <span class="math inline">\(\BetaD(2,2)\)</span>. Volumul obținut este aleator (<span class="math inline">\(\approx\frac23m\)</span>); pentru un volum fix generăm loturi până îl atingem (Exercițiul 3).</p>
+<aside class="notes">
+<p>Respingerea vectorizată: nu scriem o buclă, ci generăm un lot de propuneri și le păstrăm pe cele acceptate. Întrebare: câte uniforme am consumat pentru cele aproximativ 66 900 de valori? (2·10^5, adică 3 pe valoare.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="repartiția-beta24-două-propuneri" class="slide level2 scrollable">
+<h2>Repartiția Beta(2,4): două propuneri</h2>
+<div class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 1</span> <span class="curs-box-name">(Repartiția Beta(2,4): două propuneri)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivs">La seminar</span> Fie <span class="math inline">\(f(x)=20x(1-x)^3\)</span>, <span class="math inline">\(0&lt;x&lt;1\)</span>, densitatea repartiției <span class="math inline">\(\BetaD(2,4)\)</span>.</p>
+<ol type="a">
+<li><p>Verificați că <span class="math inline">\(f\)</span> este o densitate. Folosind propunerea <span class="math inline">\(\Unif(0,1)\)</span>, determinați constanta optimă <span class="math inline">\(c_1\)</span>, condiția de acceptare și probabilitatea de acceptare.</p></li>
+<li><p>Refaceți (a) pentru propunerea <span class="math inline">\(g(x)=2(1-x)\)</span>, <span class="math inline">\(0&lt;x&lt;1\)</span> (repartiția <span class="math inline">\(\BetaD(1,2)\)</span>), după ce ați arătat că ea se simulează prin <span class="math inline">\(X=1-\sqrt U\)</span>.</p></li>
+<li><p>Pentru fiecare variantă, dați repartiția numărului <span class="math inline">\(T\)</span> de propuneri necesare pentru o observație, <span class="math inline">\(\E[T]\)</span>, <span class="math inline">\(\Var(T)\)</span>, <span class="math inline">\(\PP(T&gt;3)\)</span> și numărul mediu de uniforme consumate.</p></li>
+<li><p>Pentru întreaga familie de propuneri <span class="math inline">\(\BetaD(1,b)\)</span>, <span class="math inline">\(b&gt;0\)</span>, cu densitatea <span class="math inline">\(g_b(x)=b(1-x)^{b-1}\)</span>, determinați pentru ce <span class="math inline">\(b\)</span> raportul <span class="math inline">\(f/g_b\)</span> este mărginit și calculați constanta optimă <span class="math inline">\(c(b)\)</span>. Este <span class="math inline">\(b=2\)</span> o alegere bună?</p></li>
+<li><p>În R: simulați ambele variante și verificați (a)–(c); determinați numeric minimul lui <span class="math inline">\(c(b)\)</span>. Ce se întâmplă dacă, din greșeală, folosim propunerea uniformă cu constanta <span class="math inline">\(c=1.5&lt;c_1\)</span>?</p></li>
+</ol>
+</div>
+</div>
+<aside class="notes">
+<p>Primul exercițiu compară două propuneri pentru aceeași țintă și arată cum se optimizează după parametrul unei familii de propuneri. Întrebare înainte de calcul: care propunere credeți că va fi mai bună și de ce?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="repartiția-triunghiulară-și-repartiția-semicirculară" class="slide level2 scrollable">
+<h2>Repartiția triunghiulară și repartiția semicirculară</h2>
+<div class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 2</span> <span class="curs-box-name">(Repartiția triunghiulară și repartiția semicirculară)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-niva">Pentru acasă</span> Fie <span class="math inline">\(f_1(x)=(1-|x|)^+\)</span> (densitatea <strong>triunghiulară</strong>) și <span class="math inline">\(f_2(x)=\frac2\pi\sqrt{1-x^2}\,\Ind_{[-1,1]}(x)\)</span> (densitatea <strong>semicirculară</strong> a lui Wigner).</p>
+<ol type="a">
+<li><p>Verificați că <span class="math inline">\(f_1\)</span> și <span class="math inline">\(f_2\)</span> sunt densități. Pentru propunerea <span class="math inline">\(\Unif(-1,1)\)</span>, determinați constantele optime, condițiile de acceptare, probabilitățile de acceptare și numărul mediu de uniforme consumate pentru o observație.</p></li>
+<li><p>Arătați că, pentru <span class="math inline">\(f_2\)</span>, condiția de acceptare spune că punctul <span class="math inline">\((X,U)\)</span> cade în semidiscul unitate superior. Deduceți că <span class="math inline">\(f_2\)</span> este densitatea abscisei unui punct uniform pe discul unitate și găsiți o metodă de simulare fără respingere.</p></li>
+<li><p>Dați o metodă exactă, cu exact două uniforme pe observație, pentru <span class="math inline">\(f_1\)</span>. Calculați varianțele și <span class="math inline">\(\PP(|X|&gt;\frac12)\)</span> pentru cele două repartiții și verificați în R.</p></li>
+</ol>
+</div>
+</div>
+<aside class="notes">
+<p>În spatele condiției de acceptare se poate ascunde o figură geometrică simplă; uneori o transformare potrivită face respingerea inutilă.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="repartiția-gamma-cu-propunere-exponențială" class="slide level2 scrollable">
+<h2>Repartiția Gamma cu propunere exponențială</h2>
+<div class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 3</span> <span class="curs-box-name">(Repartiția Gamma cu propunere exponențială)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivo">Dacă timpul permite</span> Fie <span class="math inline">\(a&gt;1\)</span> și <span class="math inline">\(f(x)=x^{a-1}e^{-x}/\Gamma(a)\)</span>, <span class="math inline">\(x&gt;0\)</span>, densitatea <span class="math inline">\(\GammaD(a,1)\)</span>. Folosim propunerea <span class="math inline">\(g_\lambda(x)=\lambda e^{-\lambda x}\)</span>, <span class="math inline">\(x&gt;0\)</span>.</p>
+<ol type="a">
+<li><p>Arătați că pentru <span class="math inline">\(\lambda\ge1\)</span> raportul <span class="math inline">\(f/g_\lambda\)</span> este nemărginit. De ce nu funcționează această propunere nici pentru <span class="math inline">\(a&lt;1\)</span>?</p></li>
+<li><p>Pentru <span class="math inline">\(0&lt;\lambda&lt;1\)</span>, calculați <span class="math inline">\(c(\lambda)=\sup_xf(x)/g_\lambda(x)\)</span>, arătați că <span class="math inline">\(c(\lambda)\)</span> este minimă pentru <span class="math inline">\(\lambda^*=\frac1a\)</span> și simplificați condiția de acceptare.</p></li>
+<li><p>Aplicație numerică: <span class="math inline">\(a=2.5\)</span>. Calculați <span class="math inline">\(c^*\)</span> și probabilitatea de acceptare și comparați cu <span class="math inline">\(\lambda=0.2\)</span> și <span class="math inline">\(\lambda=0.6\)</span>.</p></li>
+<li><p>Folosind formula lui Stirling, <span class="math inline">\(\Gamma(a)\sim\sqrt{2\pi}\,a^{a-1/2}e^{-a}\)</span> (<span class="math inline">\(a\to\infty\)</span>), studiați comportarea lui <span class="math inline">\(c^*\)</span> pentru <span class="math inline">\(a\to\infty\)</span>.</p></li>
+<li><p>În R: verificați (c) și (d) prin simulare. Scrieți apoi o funcție generală pentru metoda respingerii, care întoarce un eșantion de volum dat, și verificați-o, cu distanța Kolmogorov, pe țintele din Exercițiile 1, 2 și din acest exercițiu și pe repartiția normală cu propunere Laplace.</p></li>
+</ol>
+</div>
+</div>
+<aside class="notes">
+<p>Pentru a neîntreg, metoda sumei de exponențiale din Propoziția din Cursul 4 nu se aplică. Ținta are suport nemărginit, iar propunerea depinde de un parametru: constanta optimă se obține în doi pași — supremumul în x, apoi minimul în parametru.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="uniforma-pe-o-mulțime-și-repartiții-condiționate" class="title-slide slide level1 center">
+<h1>Uniforma pe o mulțime și repartiții condiționate</h1>
+
+</section>
+<section id="uniforma-pe-o-coroană-circulară" class="slide level2 scrollable">
+<h2>Uniforma pe o coroană circulară</h2>
+<div class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 4</span> <span class="curs-box-name">(Uniforma pe o coroană circulară)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivs">La seminar</span> Fie coroana circulară <span class="math inline">\(B=\{(x,y):1\le x^2+y^2\le4\}\)</span> și pătratul <span class="math inline">\(C=[-2,2]^2\)</span>.</p>
+<ol type="a">
+<li><p>Descrieți algoritmul de respingere pentru <span class="math inline">\(\Unif(B)\)</span> pornind de la <span class="math inline">\(\Unif(C)\)</span> și calculați probabilitatea de acceptare, <span class="math inline">\(\E[T]\)</span>, <span class="math inline">\(\Var(T)\)</span>, <span class="math inline">\(\PP(T\ge3)\)</span> și numărul mediu de uniforme pe punct.</p></li>
+<li><p>Fie <span class="math inline">\((X,Y)\sim\Unif(B)\)</span> și <span class="math inline">\((R,\Theta)\)</span> coordonatele sale polare. Determinați densitatea lui <span class="math inline">\((R,\Theta)\)</span>, arătați că <span class="math inline">\(R\)</span> și <span class="math inline">\(\Theta\)</span> sunt independente și deduceți o metodă de simulare fără respingere.</p></li>
+<li><p>Calculați <span class="math inline">\(\E[X^2+Y^2]\)</span> și <span class="math inline">\(\PP(X^2+Y^2\le2.25)\)</span> și comparați cu valorile date de metoda greșită „<span class="math inline">\(R\sim\Unif(1,2)\)</span>, <span class="math inline">\(\Theta\sim\Unif(0,2\pi)\)</span> independente”.</p></li>
+<li><p>În R: implementați algoritmul de la (a), întâi secvențial, apoi printr-o funcție vectorizată care simulează repartiția condiționată pentru o mulțime oarecare; verificați (a)–(c) și independența dintre punctul acceptat și numărul de încercări.</p></li>
+</ol>
+</div>
+</div>
+<aside class="notes">
+<p>Teorema de condiționare: propunem din μ și păstrăm prima propunere care cade în B. Aici μ este uniforma pe pătrat. O comparăm cu o metodă directă, prin coordonate polare, și scriem o funcție generală pentru repartiția condiționată.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="poisson-trunchiată-și-subeșantionare" class="slide level2 scrollable">
+<h2>Poisson trunchiată și subeșantionare</h2>
+<div class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 5</span> <span class="curs-box-name">(Poisson trunchiată și subeșantionare)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-niva">Pentru acasă</span> Numărul <span class="math inline">\(N\)</span> de mașini care trec printr-o intersecție într-o oră are repartiția Poisson <strong>trunchiată în zero</strong>, <span class="math inline">\(\PP(N=n)=\frac{e^{-\lambda}\lambda^n}{n!\,(1-e^{-\lambda})}\)</span>, <span class="math inline">\(n\ge1\)</span>; condiționat de <span class="math inline">\(N=n\)</span>, numărul <span class="math inline">\(X\)</span> de șoferi care poartă centura de siguranță are repartiția <span class="math inline">\(\Bin(n,\pi)\)</span>. Fie <span class="math inline">\(\lambda=1.5\)</span> și <span class="math inline">\(\pi=0.7\)</span>. </p>
+<ol type="a">
+<li><p>Arătați că algoritmul „generăm variabile <span class="math inline">\(\Pois(\lambda)\)</span> până la prima valoare nenulă” produce o observație din repartiția lui <span class="math inline">\(N\)</span>. Câte încercări sunt necesare în medie? Scrieți și o metodă inversă, fără respingere.</p></li>
+<li><p>Arătați că <span class="math inline">\(\PP(X=0)=\frac{e^{-\lambda\pi}-e^{-\lambda}}{1-e^{-\lambda}}\)</span>, <span class="math inline">\(\PP(X=x)=\frac{e^{-\lambda\pi}(\lambda\pi)^x}{x!\,(1-e^{-\lambda})}\)</span> pentru <span class="math inline">\(x\ge1\)</span>, și <span class="math inline">\(\E[X]=\frac{\lambda\pi}{1-e^{-\lambda}}\)</span>.</p></li>
+<li><p>Simulați <span class="math inline">\(10^5\)</span> perechi <span class="math inline">\((N,X)\)</span> și comparați frecvențele valorilor lui <span class="math inline">\(X\)</span> și media lui <span class="math inline">\(X\)</span> cu (b).</p></li>
+</ol>
+</div>
+</div>
+<aside class="notes">
+<p>Teorema de condiționare pentru o repartiție discretă (o trunchiere), combinată cu o simulare ierarhică: întâi numărul de mașini, apoi numărul șoferilor cu centură.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="transformări-de-vectori-aleatori" class="title-slide slide level1 center">
+<h1>Transformări de vectori aleatori</h1>
+
+</section>
+<section id="schema-de-lucru-trei-pași" class="slide level2 scrollable">
+<h2>Schema de lucru: trei pași</h2>
+<div class="curs-box rezumat">
+<div class="curs-box-title">
+<span class="curs-box-label">Teorema schimbării de variabilă în trei pași</span>
+</div>
+<div class="curs-box-body">
+<p>Teorema 52 din Cursul 1 se aplică în trei pași, urmați în toate exercițiile de mai jos:</p>
+<ol type="1">
+<li><em>domeniul și inversa:</em> alegem o mulțime deschisă <span class="math inline">\(S\)</span> cu <span class="math inline">\(\PP(X\in S)=1\)</span> pe care <span class="math inline">\(h\)</span> este injectivă și rezolvăm sistemul <span class="math inline">\(y=h(x)\)</span> în raport cu <span class="math inline">\(x\)</span>; rezolvarea dă simultan injectivitatea, inversa <span class="math inline">\(h^{-1}\)</span> și imaginea <span class="math inline">\(T=h(S)\)</span>;</li>
+<li><em>iacobianul:</em> calculăm <span class="math inline">\(J_{h^{-1}}(y)=\det\big(\partial x_i/\partial y_j\big)\)</span> (sau <span class="math inline">\(1/J_h\)</span> în punctul <span class="math inline">\(h^{-1}(y)\)</span>);</li>
+<li><em>densitatea:</em> <span class="math inline">\(f_Y(y)=f_X(h^{-1}(y))\,|J_{h^{-1}}(y)|\)</span> pe <span class="math inline">\(T\)</span> și <span class="math inline">\(0\)</span> în rest; apoi marginalele (prin integrare, Propoziția 36 din Cursul 1) și, eventual, independența (prin factorizare, Lema 10 din Cursul 4).</li>
+</ol>
+<p>Pentru simulare, rezultatul se citește și invers: dacă densitatea noilor coordonate se factorizează, le putem genera independent, apoi întoarcem transformarea.</p>
+</div>
+</div>
+<aside class="notes">
+<p>Cea mai frecventă greșeală: uitarea imaginii T (indicatorul) sau a modulului iacobianului. Exemplul rezolvat care urmează parcurge toți pașii pe un caz a cărui structură reapare la clinică.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="suma-și-proporția-a-două-exponențiale" class="slide level2">
+<h2>Suma și proporția a două exponențiale</h2>
+<div class="curs-box exemplu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exemplul 2</span> <span class="curs-box-name">(Suma și proporția a două exponențiale)</span>
+</div>
+<div class="curs-box-body">
+<p>Fie <span class="math inline">\(X,Y\)</span> independente, repartizate <span class="math inline">\(\Exp(1)\)</span>, <span class="math inline">\(S=X+Y\)</span> și <span class="math inline">\(W=\frac{X}{X+Y}\)</span>. Determinați densitatea lui <span class="math inline">\((S,W)\)</span>, arătați că <span class="math inline">\(S\)</span> și <span class="math inline">\(W\)</span> sunt independente și identificați repartițiile lor.</p>
+<p><span class="curs-tag curs-tag-sem">Seminar</span> <em>Pasul 0.</em> Din independență (Propoziția 38 din Cursul 1), <span class="math inline">\((X,Y)\)</span> are densitatea <span class="math inline">\(e^{-(x+y)}\)</span> pe <span class="math inline">\(S_0=(0,\infty)^2\)</span>, deschisă, de probabilitate <span class="math inline">\(1\)</span>.</p>
+<p><em>Pasul 1: inversa și imaginea.</em> Din <span class="math inline">\(s=x+y\)</span>, <span class="math inline">\(w=\frac{x}{x+y}\)</span>: <span class="math inline">\(x=ws\)</span>, <span class="math inline">\(y=s(1-w)\)</span>. Pentru <span class="math inline">\((x,y)\in S_0\)</span>, <span class="math inline">\(s&gt;0\)</span> și <span class="math inline">\(w\in(0,1)\)</span>; reciproc, orice <span class="math inline">\((s,w)\in T=(0,\infty)\times(0,1)\)</span> dă <span class="math inline">\(x,y&gt;0\)</span>. Deci <span class="math inline">\(h\)</span> este o bijecție de clasă <span class="math inline">\(C^1\)</span> de la <span class="math inline">\(S_0\)</span> pe <span class="math inline">\(T\)</span>, cu <span class="math inline">\(h^{-1}(s,w)=\big(ws,\ s(1-w)\big)\)</span>.</p>
+<p><em>Pasul 2: iacobianul.</em> <span class="math display">\[
+J_{h^{-1}}(s,w)=\det\begin{pmatrix}w&amp;s\\ 1-w&amp;-s\end{pmatrix}=-ws-s(1-w)=-s\ne0 .
+\]</span></p>
+</div>
+</div>
+<aside class="notes">
+<p>Rezolvarea sistemului dă simultan injectivitatea, inversa și imaginea: nu sunt trei verificări separate.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="suma-și-proporția-rezolvare-continuare" class="slide level2">
+<h2>Suma și proporția — rezolvare (continuare)</h2>
+<div class="curs-box rezolvare">
+<div class="curs-box-title">
+<span class="curs-box-label">Soluție (continuare)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-sem">Seminar</span> <em>Pasul 3: densitatea.</em> Cum <span class="math inline">\(x+y=s\)</span>, Teorema 52 din Cursul 1 dă, pentru orice <span class="math inline">\((s,w)\in\R^2\)</span>, <span class="math display">\[
+f_{S,W}(s,w)=e^{-s}\cdot|-s|\cdot\Ind_T(s,w)=\underbrace{s\,e^{-s}\,\Ind_{(0,\infty)}(s)}_{a(s)}\cdot\underbrace{\Ind_{(0,1)}(w)}_{b(w)} .
+\]</span> <em>Pasul 4: concluzia.</em> Densitatea este un produs <span class="math inline">\(a(s)b(w)\)</span> pentru orice <span class="math inline">\((s,w)\)</span> (indicatorul dreptunghiului <span class="math inline">\(T\)</span> este produsul indicatorilor); din Lema 10 din Cursul 4, cu <span class="math inline">\(\int_0^\infty se^{-s}\dd s=\Gamma(2)=1\)</span>: <strong><span class="math inline">\(S\sim\GammaD(2,1)\)</span> și <span class="math inline">\(W\sim\Unif(0,1)\)</span> sunt independente</strong>.</p>
+<p>Știind suma a două durate exponențiale, proporția primei durate este uniformă, indiferent de valoarea sumei — caz particular al Propoziției 14 din Cursul 5 din Cursul 5. Citit invers, rezultatul este o rețetă de simulare: <span class="math inline">\(S=-\ln(U_1U_2)\)</span> (Propoziția 12(a) din Cursul 4), <span class="math inline">\(W=U_3\)</span>, <span class="math inline">\(X=SW\)</span>, <span class="math inline">\(Y=S(1-W)\)</span>.</p>
+</div>
+</div>
+<aside class="notes">
+<p>Factorizarea cere un produs pentru orice (s, w): aici suportul T este un dreptunghi, deci condiția este îndeplinită.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="suma-și-proporția-în-r" class="slide level2">
+<h2>Suma și proporția — în R</h2>
+<div class="curs-box rezolvare">
+<div class="curs-box-title">
+<span class="curs-box-label">Soluție</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-lab">Laborator</span> Verificăm <span class="math inline">\(\E[S]=\Var(S)=2\)</span>, <span class="math inline">\(\PP(W\le0.3)=0.3\)</span> și independența, comparând <span class="math inline">\(\PP(S\le1,\,W\le0.3)\)</span> cu produsul <span class="math inline">\(\PP(S\le1)\,\PP(W\le0.3)=(1-2e^{-1})\cdot0.3\approx0.0793\)</span> (<span class="math inline">\(\PP(S\le1)=\int_0^1se^{-s}\dd s=1-2e^{-1}\)</span>, prin părți).</p>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">504</span>)</span>
+<span id="cb2-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="fl">1e5</span>); y <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="fl">1e5</span>)</span>
+<span id="cb2-3"><a aria-label="3"></a>s <span class="ot">&lt;-</span> x <span class="sc">+</span> y; w <span class="ot">&lt;-</span> x <span class="sc">/</span> s</span>
+<span id="cb2-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">E_S =</span> <span class="fu">mean</span>(s), <span class="at">V_S =</span> <span class="fu">var</span>(s), <span class="at">P_W03 =</span> <span class="fu">mean</span>(w <span class="sc">&lt;=</span> <span class="fl">0.3</span>),</span>
+<span id="cb2-5"><a aria-label="5"></a>  <span class="at">P_comun =</span> <span class="fu">mean</span>(s <span class="sc">&lt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> w <span class="sc">&lt;=</span> <span class="fl">0.3</span>), <span class="at">produs =</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">1</span>)) <span class="sc">*</span> <span class="fl">0.3</span>,</span>
+<span id="cb2-6"><a aria-label="6"></a>  <span class="at">cor_SW =</span> <span class="fu">cor</span>(s, w))</span>
+<span id="cb2-7"><a aria-label="7"></a><span class="co">#&gt;       E_S       V_S     P_W03   P_comun    produs    cor_SW </span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="co">#&gt; 1.9974449 1.9943061 0.2961500 0.0785900 0.0792723 0.0006266</span></span></code></pre></div><button title="Copiază codul" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Media și varianța lui <span class="math inline">\(S\)</span> sunt <span class="math inline">\(\approx2\)</span>, frecvența lui <span class="math inline">\(\{W\le0.3\}\)</span> este <span class="math inline">\(0.296\)</span>, iar frecvența evenimentului comun, <span class="math inline">\(0.0786\)</span>, este apropiată de produsul <span class="math inline">\(0.0793\)</span>; corelația lui <span class="math inline">\(S\)</span> cu <span class="math inline">\(W\)</span> este practic nulă.</p>
+<aside class="notes">
+<p>Comparația probabilității comune cu produsul probabilităților este un test numeric direct al independenței, mai informativ decât corelația.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="timpii-petrecuți-într-o-clinică" class="slide level2 scrollable">
+<h2>Timpii petrecuți într-o clinică</h2>
+<div class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 6</span> <span class="curs-box-name">(Timpii petrecuți într-o clinică)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivs">La seminar</span> Fie <span class="math inline">\(X_1\)</span> timpul total (într-o unitate de timp fixată) dintre sosirea și plecarea unui pacient dintr-o clinică și <span class="math inline">\(X_2\)</span> timpul petrecut în sala de așteptare înainte de consultație. Presupunem că <span class="math inline">\((X_1,X_2)\)</span> are densitatea <span class="math inline">\(f(x_1,x_2)=\frac{1}{2\theta^3}\,x_1e^{-x_1/\theta}\)</span>, <span class="math inline">\(0&lt;x_2&lt;x_1\)</span>, <span class="math inline">\(\theta&gt;0\)</span>. Ne interesează <span class="math inline">\(P=X_2/X_1\)</span> (proporția din timpul total petrecută în așteptare) și <span class="math inline">\(S=X_1-X_2\)</span> (timpul petrecut în consultație).</p>
+<ol type="a">
+<li><p>Verificați că <span class="math inline">\(f\)</span> este o densitate și determinați densitatea comună a lui <span class="math inline">\((P,S)\)</span>.</p></li>
+<li><p>Determinați repartițiile marginale ale lui <span class="math inline">\(P\)</span> și <span class="math inline">\(S\)</span>, mediile și varianțele lor. Sunt <span class="math inline">\(P\)</span> și <span class="math inline">\(S\)</span> independente?</p></li>
+<li><p>Arătați că <span class="math inline">\(X_1\)</span> și <span class="math inline">\(P\)</span> sunt independente și identificați repartițiile lor; deduceți un algoritm de simulare pentru <span class="math inline">\((X_1,X_2)\)</span> și calculați <span class="math inline">\(\Cov(P,S)\)</span> și coeficientul de corelație.</p></li>
+<li><p>Pentru <span class="math inline">\(\theta=10\)</span>, calculați probabilitatea ca o consultație să se prelungească peste <span class="math inline">\(30\)</span> de unități de timp.</p></li>
+<li><p>În R: simulați <span class="math inline">\((P,S)\)</span> cu algoritmul de la (c) și verificați (b)–(d).</p></li>
+</ol>
+</div>
+</div>
+<aside class="notes">
+<p>Alegerea variabilelor potrivite poate descoperi o structură de independență, ca în exemplul anterior.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="rădăcina-unui-raport-și-a-unui-produs" class="slide level2 scrollable">
+<h2>Rădăcina unui raport și a unui produs</h2>
+<div class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 7</span> <span class="curs-box-name">(Rădăcina unui raport și a unui produs)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-niva">Pentru acasă</span> Fie <span class="math inline">\((X,Y)\)</span> cu densitatea <span class="math inline">\(f(x,y)=e^{-(\theta x+y/\theta)}\)</span>, <span class="math inline">\(x&gt;0\)</span>, <span class="math inline">\(y&gt;0\)</span>, unde <span class="math inline">\(\theta&gt;0\)</span>, și <span class="math display">\[
+U=\sqrt{Y/X},\qquad V=\sqrt{XY} .
+\]</span></p>
+<ol type="a">
+<li><p>Arătați că <span class="math inline">\(X\)</span> și <span class="math inline">\(Y\)</span> sunt independente și identificați repartițiile lor.</p></li>
+<li><p>Determinați densitatea comună a lui <span class="math inline">\((U,V)\)</span>, densitatea și funcția de repartiție ale lui <span class="math inline">\(U\)</span> și mediana lui <span class="math inline">\(U\)</span>.</p></li>
+<li><p>Calculați <span class="math inline">\(\E[U]\)</span> și găsiți o funcție <span class="math inline">\(h\)</span> astfel încât, pentru un eșantion <span class="math inline">\(U_1,\dots,U_n\)</span> din repartiția lui <span class="math inline">\(U\)</span>, <span class="math inline">\(\E[h(\bar U_n)]=\theta\)</span>. Are <span class="math inline">\(U\)</span> varianță finită?</p></li>
+<li><p>Arătați că repartiția lui <span class="math inline">\(V\)</span> nu depinde de <span class="math inline">\(\theta\)</span> și calculați <span class="math inline">\(\E[V]\)</span>.</p></li>
+<li><p>Comparați prin simulare, pentru <span class="math inline">\(\theta=2\)</span> și <span class="math inline">\(n=50\)</span>, estimatorii <span class="math inline">\(h(\bar U_n)\)</span> și mediana eșantionului <span class="math inline">\(U_1,\dots,U_n\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<aside class="notes">
+<p>O transformare cu radicali; la sfârșit comparăm prin simulare doi estimatori ai lui θ.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="minimul-și-maximul-a-două-uniforme" class="slide level2 scrollable">
+<h2>Minimul și maximul a două uniforme</h2>
+<div class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 8</span> <span class="curs-box-name">(Minimul și maximul a două uniforme)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivo">Dacă timpul permite</span> Fie <span class="math inline">\(U_1,U_2\)</span> independente, <span class="math inline">\(\Unif(0,1)\)</span>, <span class="math inline">\(Y=\min(U_1,U_2)\)</span> și <span class="math inline">\(Z=\max(U_1,U_2)\)</span>.</p>
+<ol type="a">
+<li><p>Arătați că <span class="math inline">\((Y,Z)\)</span> are densitatea <span class="math inline">\(2\)</span> pe triunghiul <span class="math inline">\(T=\{0&lt;y&lt;z&lt;1\}\)</span>. Determinați repartițiile marginale, mediile, varianțele, covarianța și coeficientul de corelație.</p></li>
+<li><p>Determinați repartiția amplitudinii <span class="math inline">\(D=Z-Y\)</span>.</p></li>
+<li><p>Arătați că <span class="math inline">\(W=Y/Z\)</span> și <span class="math inline">\(Z\)</span> sunt independente și identificați repartițiile lor. Deduceți un algoritm de simulare a perechii <span class="math inline">\((Y,Z)\)</span> care generează întâi maximul.</p></li>
+<li><p>Arătați că <span class="math inline">\((1-Z,1-Y)\)</span> are aceeași repartiție ca <span class="math inline">\((Y,Z)\)</span> și deduceți că <span class="math inline">\(\frac{1-Z}{1-Y}\)</span> este independentă de <span class="math inline">\(Y\)</span>.</p></li>
+<li><p>În R: verificați prin simulare (a)–(d).</p></li>
+</ol>
+</div>
+</div>
+<aside class="notes">
+<p>Varianta „pe bucăți” a formulei: (min, max) nu este injectivă, dar este injectivă pe fiecare dintre cele două triunghiuri separate de diagonală (Exemplul din Cursul 1 pentru variabile i.i.d. oarecare).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="metoda-boxmuller-și-raportul-a-două-normale" class="title-slide slide level1 center">
+<h1>Metoda Box–Muller și raportul a două normale</h1>
+
+</section>
+<section id="metoda-boxmuller-și-metoda-polară" class="slide level2 scrollable">
+<h2>Metoda Box–Muller și metoda polară</h2>
+<div class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 9</span> <span class="curs-box-name">(Metoda Box–Muller și metoda polară)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivs">La seminar</span> Fie <span class="math inline">\(U_1,U_2\)</span> independente, <span class="math inline">\(\Unif(0,1)\)</span>, și <span class="math inline">\(h(u_1,u_2)=\big(\sqrt{-2\ln u_2}\cos(2\pi u_1),\ \sqrt{-2\ln u_2}\sin(2\pi u_1)\big)\)</span>.</p>
+<ol type="a">
+<li><p>Arătați că <span class="math inline">\(h\)</span> este o bijecție de clasă <span class="math inline">\(C^1\)</span> de la <span class="math inline">\((0,1)^2\)</span> pe <span class="math inline">\(\R^2\setminus\{(x,0):x\ge0\}\)</span>, calculați <span class="math inline">\(J_h\)</span> și deduceți că <span class="math inline">\((X_1,X_2)=h(U_1,U_2)\)</span> are componentele independente, <span class="math inline">\(\Norm(0,1)\)</span>.</p></li>
+<li><p>Deduceți că <span class="math inline">\(R^2=X_1^2+X_2^2\)</span> are repartiția <span class="math inline">\(\Exp(\frac12)=\chi^2_2\)</span>, că <span class="math inline">\(R^2\)</span> și <span class="math inline">\(X_1/X_2\)</span> sunt independente și calculați <span class="math inline">\(\PP(X_1^2+X_2^2\le1)\)</span> și <span class="math inline">\(\PP(|X_1|\le1,|X_2|\le1)\)</span>.</p></li>
+<li><p><em>(Metoda polară.)</em> Fie <span class="math inline">\((V_1,V_2)\)</span> uniform pe discul unitate și <span class="math inline">\(S=V_1^2+V_2^2\)</span>. Arătați că <span class="math inline">\(S\sim\Unif(0,1)\)</span>, independentă de unghiul polar <span class="math inline">\(\Phi\)</span> al lui <span class="math inline">\((V_1,V_2)\)</span>, și deduceți că <span class="math inline">\(V_i\sqrt{-2\ln S/S}\)</span>, <span class="math inline">\(i=1,2\)</span>, sunt normale standard independente. Comparați costul cu metoda Box–Muller.</p></li>
+<li><p>În R: scrieți generatoarele Box–Muller și polar și verificați-le; construiți apoi, numai din uniforme, generatoare pentru repartițiile <span class="math inline">\(\chi^2_k\)</span>, Student, Fisher–Snedecor și <span class="math inline">\(\Cauchy(0,1)\)</span> și verificați-le cu cuantilele empirice și distanța Kolmogorov.</p></li>
+</ol>
+</div>
+</div>
+<aside class="notes">
+<p>În curs, Box–Muller a fost demonstrată prin coordonatele polare (R, Θ); aici calculăm direct iacobianul transformării uniformelor. Simularea prin transformări nu folosește o constantă de dominare, ci o reprezentare a variabilei dorite.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="raportul-a-două-normale.-ținta-de-tir" class="slide level2 scrollable">
+<h2>Raportul a două normale. Ținta de tir</h2>
+<div class="curs-box exercitiu">
+<div class="curs-box-title">
+<span class="curs-box-label">Exercițiul 10</span> <span class="curs-box-name">(Raportul a două normale. Ținta de tir)</span>
+</div>
+<div class="curs-box-body">
+<p><span class="curs-tag curs-tag-nivo">Dacă timpul permite</span> Fie <span class="math inline">\(X,Y\)</span> independente, repartizate <span class="math inline">\(\Norm(0,1)\)</span>, și <span class="math inline">\(C=X/Y\)</span>.</p>
+<ol type="a">
+<li><p>Folosind transformarea <span class="math inline">\((x,y)\mapsto(c,v)=(x/y,\,y)\)</span>, arătați că <span class="math inline">\(C\sim\Cauchy(0,1)\)</span>, cu densitatea <span class="math inline">\(\frac1{\pi(1+c^2)}\)</span>. Calculați <span class="math inline">\(F_C\)</span> și <span class="math inline">\(\PP(-\sqrt3&lt;C&lt;1)\)</span>.</p></li>
+<li><p>Arătați că, pentru perechea <span class="math inline">\((X_1,X_2)\)</span> din Exercițiul 9, <span class="math inline">\(X_1/X_2=\cot(2\pi U_1)\)</span> și deduceți că <span class="math inline">\(\tan\big(\pi(U-\frac12)\big)\sim\Cauchy(0,1)\)</span>. Arătați că <span class="math inline">\(R=|C|\)</span> are densitatea <span class="math inline">\(\frac{2}{\pi(1+r^2)}\)</span>, <span class="math inline">\(r&gt;0\)</span>, și simulați-o prin metoda inversă.</p></li>
+<li><p>Distanța de la centrul țintei la punctul de impact din Exercițiul 8 din Seminarul 4 are densitatea de la (b). În R: simulați <span class="math inline">\(C\)</span> în două moduri (ca raport de normale și prin metoda inversă), verificați (a) și estimați media și varianța scorului unei săgeți, calculate în acel exercițiu: <span class="math inline">\(\frac{13}6\)</span> și <span class="math inline">\(\frac{101}{36}\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<aside class="notes">
+<p>Raportul a două normale independente are repartiția Cauchy; legăm acest fapt de Box–Muller și îl folosim pentru scorul la tir cu arcul din Seminarul 4.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="exerciții-suplimentare" class="title-slide slide level1 center">
+<h1>Exerciții suplimentare</h1>
+
+</section>
+<section id="exerciții-suplimentare-enunțurile" class="slide level2">
+<h2>Exerciții suplimentare: enunțurile</h2>
+<p>Pentru acasă (răspunsurile finale și scheletele de cod R: în fișa de lucru).</p>
+<ul>
+<li><span class="curs-tag curs-tag-niva">Pentru acasă</span> <strong>Exercițiul 11</strong> (Simularea din densitatea maximă). Fie <span class="math inline">\(f=\phi\)</span>, <span class="math inline">\(g=\phi(\cdot-2)\)</span> și <span class="math inline">\(h=\frac{\max(f,g)}{K}\)</span>, <span class="math inline">\(K=\int_{\R}\max(f,g)\)</span>. (a) Arătați că <span class="math inline">\(\max(f,g)\le2\cdot\frac{f+g}{2}\)</span> și scrieți algoritmul de respingere cu propunerea amestec <span class="math inline">\(m=\frac{f+g}{2}\)</span>; cum se simulează din <span class="math inline">\(m\)</span>? (b) Calculați <span class="math inline">\(K\)</span>, probabilitatea de acceptare, media și varianța repartiției <span class="math inline">\(h\)</span>. (c) Verificați prin simulare <span class="math inline">\(K\)</span>, media, varianța și forma densității.</li>
+<li><span class="curs-tag curs-tag-niva">Pentru acasă</span> <strong>Exercițiul 12</strong> (Trei generatoare pentru repartiția Cauchy). (a) Arătați că, dacă <span class="math inline">\((V_1,V_2)\)</span> este uniform pe discul unitate, atunci <span class="math inline">\(V_2/V_1\sim\Cauchy(0,1)\)</span>; obțineți un generator Cauchy fără funcții trigonometrice. (b) Comparați, prin distanța Kolmogorov, generatoarele: metoda inversă <span class="math inline">\(\tan(\pi(U-\frac12))\)</span>, raportul de normale și cel de la (a). (c) Reprezentați media și mediana eșantionului în funcție de volumul <span class="math inline">\(n\le10^4\)</span> și explicați comportarea lor.</li>
+<li><span class="curs-tag curs-tag-niva">Pentru acasă</span> <strong>Exercițiul 13</strong> (Suma a douăsprezece uniforme). Fie <span class="math inline">\(S=U_1+\dots+U_{12}-6\)</span>. (a) Calculați <span class="math inline">\(\E[S]\)</span>, <span class="math inline">\(\Var(S)\)</span> și f.g.m. lui <span class="math inline">\(S\)</span>; comparați dezvoltarea lui <span class="math inline">\(\ln M_S(t)\)</span> lângă <span class="math inline">\(0\)</span> cu cea a f.g.m. normale și deduceți <span class="math inline">\(\E[S^4]\)</span>. (b) De ce este <span class="math inline">\(S\)</span> doar aproximativ normală? Comparați <span class="math inline">\(\PP(S&gt;2)\)</span> și <span class="math inline">\(\PP(S&gt;3)\)</span> cu probabilitățile normale, folosind formula Irwin–Hall <span class="math inline">\(\PP(U_1+\dots+U_n\le x)=\frac1{n!}\sum_{k=0}^{\lfloor x\rfloor}(-1)^k\binom nk(x-k)^n\)</span>, <span class="math inline">\(0\le x\le n\)</span>. (c) Verificați prin simulare și comparați distanța Kolmogorov cu cea a generatorului <code>box_muller</code>.</li>
+</ul>
+<aside class="notes">
+<p>Primul: o țintă cunoscută doar până la o constantă, cu propunere de tip amestec. Al doilea: media unui eșantion Cauchy nu converge. Al treilea: o metodă aproximativă, folosită istoric pentru normală, și detectarea abaterilor ei cu distanța Kolmogorov.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="temă" class="slide level2 scrollable">
+<h2>Temă</h2>
+<ol type="1">
+<li><em>(Geometrica din exponențială, R.)</em> <span class="math inline">\(X=\lfloor-\frac1\lambda\ln U\rfloor+1\sim\Geom(1-e^{-\lambda})\)</span>; generator <span class="math inline">\(\Geom(p)\)</span> cu o uniformă.</li>
+<li><em>(Laplace ca amestec de normale, R.)</em> <span class="math inline">\(\sqrt{2E}\,Z\)</span>, <span class="math inline">\(E\sim\Exp(1)\indep Z\sim\Norm(0,1)\)</span>, are densitatea <span class="math inline">\(\frac12e^{-|x|}\)</span> (prin f.g.m.).</li>
+<li><em>(Gamma cu parametru de formă subunitar.)</em> <span class="math inline">\(0&lt;a&lt;1\)</span>: <span class="math inline">\(S\,U^{1/a}\sim\GammaD(a,1)\)</span>, <span class="math inline">\(S\sim\GammaD(a+1,1)\indep U\)</span>.</li>
+<li><em>(Minimul și maximul a <span class="math inline">\(n\)</span> uniforme.)</em> Densitatea <span class="math inline">\(n(n-1)(z-y)^{n-2}\)</span>; <span class="math inline">\(W=Y/Z\indep Z\)</span>; <span class="math inline">\((Y,Z)\)</span> din două uniforme.</li>
+<li><em>(Uniforma pe un triunghi, R.)</em> <span class="math inline">\(\{0&lt;y_1&lt;2,\ 0&lt;y_2&lt;1,\ 2y_2&lt;y_1\}\)</span>: repartiția lui <span class="math inline">\(Y_1-Y_2\)</span>; respingere din <span class="math inline">\([0,2]\times[0,1]\)</span>.</li>
+<li><em>(Repartiția Maxwell, R.)</em> Densitatea lui <span class="math inline">\(\|V\|\)</span>, <span class="math inline">\(V_i\sim\Norm(0,\sigma^2)\)</span> independente, și <span class="math inline">\(\E\|V\|\)</span>; verificare cu <code>box_muller</code>.</li>
+<li><em>(Densitate cunoscută până la o constantă, R.)</em> <span class="math inline">\(\tilde f(x)=e^{-x^4/4}\)</span>, propunere <span class="math inline">\(\Norm(0,1)\)</span>: <span class="math inline">\(M\)</span>, condiția de acceptare, <span class="math inline">\(K\)</span>.</li>
+<li><em>(Beta din Gamma, R.)</em> <code>r_beta(n, a, b)</code> prin Propoziția 14 din Cursul 5, comparată cu Exercițiul 1.</li>
+</ol>
+<p>Enunțurile complete, cu răspunsuri și indicații: fișa de lucru, Secțiunea 7.</p>
+<aside class="notes">
+<p>Șase dintre cele opt enunțuri cer și o verificare prin simulare. Itemul 7 folosește funcția respingere cu o țintă nenormalizată; itemul 3 rezolvă cazul a &lt; 1 din Exercițiul Gamma.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="bibliografie" class="slide level2 smaller scrollable">
+<h2>Bibliografie</h2>
+<p>Pentru lecturi suplimentare: <span class="citation" data-cites="casella2002">(<a href="#/bibliografie" role="doc-biblioref" onclick="">Casella and Berger 2002, sec. 5.6</a>)</span>, <span class="citation" data-cites="robert2004">(<a href="#/bibliografie" role="doc-biblioref" onclick="">Robert and Casella 2004</a>, cap. 2)</span>, <span class="citation" data-cites="devroye1986">(<a href="#/bibliografie" role="doc-biblioref" onclick="">Devroye 1986</a>, cap. II)</span>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-casella2002" class="csl-entry" role="listitem">
+Casella, George, and Roger L. Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Duxbury.
+</div>
+<div id="ref-delmas2010exo" class="csl-entry" role="listitem">
+Delmas, Jean-François. 2010. <em>Introduction Au Calcul Des Probabilités Et à La Statistique. Exercices, Problèmes Et Corrections</em>. Les Presses de l’ENSTA.
+</div>
+<div id="ref-devroye1986" class="csl-entry" role="listitem">
+Devroye, Luc. 1986. <em>Non-Uniform Random Variate Generation</em>. Springer.
+</div>
+<div id="ref-kupper2013" class="csl-entry" role="listitem">
+Kupper, Lawrence L., Brian H. Neelon, and Sean M. O’Brien. 2013. <em>Exercises and Solutions in Statistical Theory</em>. Chapman &amp; Hall/CRC.
+</div>
+<div id="ref-robert2004" class="csl-entry" role="listitem">
+Robert, Christian P., and George Casella. 2004. <em>Monte Carlo Statistical Methods</em>. 2nd ed. Springer.
+</div>
+</div>
+<aside class="notes">
+<p>Casella și Berger, secțiunea 5.6, pentru metoda respingerii și transformări; Robert și Casella, capitolul 2, și Devroye, capitolul II, pentru generarea variabilelor aleatoare.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>Statistică · Seminarul 5 — Metoda respingerii, simulare prin transformări</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"numbers":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'fast',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 760,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 5.0e-2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiat!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiat!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/AlexAmarioarei\.github\.io\/curs-stat-fmi\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -98,7 +98,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a48f3a5c7f410fc94a8fd1d60fc997bd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d8ff0a9de017220eb43130ccb7ca4d88.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-85396fc4e9508fdaf20c3ab2d6d9429d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -284,6 +284,15 @@ window.Quarto = {
     <a class="dropdown-item" href="../curs/04-simulare.html">
  <span class="dropdown-text">Cursul 4 — Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../curs/05-esantionare-normala.html">
+ <span class="dropdown-text">Cursul 5 — Eșantionare dintr-o populație normală</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../Appendix/Appendix_A.html">
+ <span class="dropdown-text">Anexă — Repartiții derivate din repartiția normală</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -314,6 +323,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../laborator_nosols/04-simulare-inversa.html">
  <span class="dropdown-text">Seminarul 4 — Funcția cuantilă, metoda inversă și metoda Monte Carlo (fișă de lucru)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../laborator_nosols/05-simulare-respingere.html">
+ <span class="dropdown-text">Seminarul 5 — Metoda respingerii. Simulare prin transformări (fișă de lucru)</span></a>
   </li>  
     </ul>
   </li>
@@ -416,8 +429,21 @@ window.Quarto = {
  <span class="menu-text">4. Simulare: metoda Monte Carlo, metoda inversă, metoda respingerii, transformări</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../curs/05-esantionare-normala.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Eșantionare dintr-o populație normală</span></a>
+  </div>
+</li>
       </ul>
   </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Appendix/Appendix_A.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anexă — Repartiții derivate din repartiția normală</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -1156,7 +1182,7 @@ T_n=h(X_1,X_2,\dots,X_n),
 <p>Cele mai importante statistici, pe care le vom studia în detaliu în cursurile următoare, sunt:</p>
 <ul>
 <li><strong>media eșantionului</strong> (media empirică) <span class="math inline">\(\Xbar=\frac1n\sum_{i=1}^nX_i\)</span>;</li>
-<li><strong>varianța empirică</strong> <span class="math inline">\(V_n^2=\frac1n\sum_{i=1}^n(X_i-\Xbar)^2\)</span> și <strong>varianța eșantionului</strong> <span class="math inline">\(S_n^2=\frac1{n-1}\sum_{i=1}^n(X_i-\Xbar)^2\)</span> (Cursul 5);</li>
+<li><strong>varianța empirică</strong> <span class="math inline">\(V_n^2=\frac1n\sum_{i=1}^n(X_i-\Xbar)^2\)</span> și <strong>varianța eșantionului</strong> <span class="math inline">\(S_n^2=\frac1{n-1}\sum_{i=1}^n(X_i-\Xbar)^2\)</span> (<a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>);</li>
 <li><strong>momentele empirice</strong> <span class="math inline">\(\frac1n\sum_{i=1}^nX_i^k\)</span>;</li>
 <li><strong>statisticile de ordine</strong> <span class="math inline">\(X_{(1)}\le\dots\le X_{(n)}\)</span> (valorile eșantionului ordonate crescător; <span class="math inline">\(X_{(1)}=\min_iX_i\)</span>, <span class="math inline">\(X_{(n)}=\max_iX_i\)</span>), <strong>funcția de repartiție empirică</strong> <span class="math inline">\(F_n(x)=\frac1n\sum_{i=1}^n\Ind_{\{X_i\le x\}}\)</span> și <strong>cuantilele empirice</strong> (Cursul 6).</li>
 </ul>
@@ -1668,7 +1694,7 @@ Figura&nbsp;5: Repartițiile de eșantionare ale estimatorilor <span class="math
 <li><strong>Cum construim estimatori?</strong> Metoda momentelor (Cursul 8) — <span class="math inline">\(2\Xbar\)</span> din Exemplul <a href="#box-ex-k02-unif-estimatori" class="curs-ref">24</a> este un estimator de acest tip — și metoda verosimilității maxime (Cursul 9); verosimilitatea a apărut deja în <a href="#fig-k02-urna" class="quarto-xref">Figura&nbsp;1</a> și în Propoziția <a href="#box-prop-k02-dens-comuna" class="curs-ref">10</a>.</li>
 <li><strong>Există un estimator optim?</strong> Statistici suficiente, informația lui Fisher, inegalitatea Rao–Cramér (Cursul 7, Cursul 10, Cursul 11).</li>
 <li><strong>Cât de precisă este o estimare și cum luăm decizii?</strong> Intervale de încredere (Cursul 12, Cursul 13) și teste de ipoteze (Cursul 14), care generalizează calculele din Exemplele <a href="#box-ex-k02-trei" class="curs-ref">2</a> și <a href="#box-ex-k02-becuri-exact" class="curs-ref">20</a> și folosesc cantități pivotale ca în Exemplul <a href="#box-ex-k02-umplere" class="curs-ref">18</a>.</li>
-<li><strong>Ce facem când repartiția unei statistici nu se poate calcula?</strong> Repartițiile exacte pentru populații normale (Cursul 5), rezultate asimptotice (Cursul 6) și simulare (<a href="04-simulare.html" class="curs-ref">Cursul 4</a>); pentru simulare avem nevoie, mai întâi, de existența șirurilor de variabile aleatoare independente (<a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a>).</li>
+<li><strong>Ce facem când repartiția unei statistici nu se poate calcula?</strong> Repartițiile exacte pentru populații normale (<a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>), rezultate asimptotice (Cursul 6) și simulare (<a href="04-simulare.html" class="curs-ref">Cursul 4</a>); pentru simulare avem nevoie, mai întâi, de existența șirurilor de variabile aleatoare independente (<a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a>).</li>
 </ol>
 </section>
 <section id="sec-k02-exercitii" class="level1" data-number="7">
@@ -1872,7 +1898,7 @@ De reținut
 </ul>
 </div>
 </div>
-<p><strong>Legătura cu cursurile următoare.</strong> Am văzut că pentru a vorbi despre eșantioane avem nevoie de variabile aleatoare independente cu o repartiție dată, iar pentru rezultatele asimptotice, de un șir infinit de astfel de variabile; în <a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a> vom demonstra existența lor (cu ajutorul funcției cuantilă) și vom studia selecția din populații finite, cu și fără revenire, care generalizează Exercițiul <a href="#box-exr-k02-lot" class="curs-ref">1</a>. În <a href="04-simulare.html" class="curs-ref">Cursul 4</a> vom învăța să simulăm eșantioane din orice repartiție, pentru a aproxima repartițiile de eșantionare care nu se pot calcula exact. Repartițiile exacte ale statisticilor pentru populații normale (<span class="math inline">\(\chi^2\)</span>, Student, Fisher) sunt subiectul din Cursul 5, iar statisticile de ordine și funcția de repartiție empirică, care generalizează minimul și maximul de astăzi, cel din Cursul 6. Întrebările despre calitatea estimatorilor, formulate în <a href="#sec-k02-estimatori" class="quarto-xref">Secțiunea&nbsp;6</a>, vor primi un răspuns sistematic începând cu Cursul 7.</p>
+<p><strong>Legătura cu cursurile următoare.</strong> Am văzut că pentru a vorbi despre eșantioane avem nevoie de variabile aleatoare independente cu o repartiție dată, iar pentru rezultatele asimptotice, de un șir infinit de astfel de variabile; în <a href="03-metode-selectie.html" class="curs-ref">Cursul 3</a> vom demonstra existența lor (cu ajutorul funcției cuantilă) și vom studia selecția din populații finite, cu și fără revenire, care generalizează Exercițiul <a href="#box-exr-k02-lot" class="curs-ref">1</a>. În <a href="04-simulare.html" class="curs-ref">Cursul 4</a> vom învăța să simulăm eșantioane din orice repartiție, pentru a aproxima repartițiile de eșantionare care nu se pot calcula exact. Repartițiile exacte ale statisticilor pentru populații normale (<span class="math inline">\(\chi^2\)</span>, Student, Fisher) sunt subiectul din <a href="05-esantionare-normala.html" class="curs-ref">Cursul 5</a>, iar statisticile de ordine și funcția de repartiție empirică, care generalizează minimul și maximul de astăzi, cel din Cursul 6. Întrebările despre calitatea estimatorilor, formulate în <a href="#sec-k02-estimatori" class="quarto-xref">Secțiunea&nbsp;6</a>, vor primi un răspuns sistematic începând cu Cursul 7.</p>
 </section>
 <section id="bibliografie" class="level1 unnumbered">
 <h1 class="unnumbered">Bibliografie</h1>
